@@ -214,3 +214,92 @@
 [I 2024-08-16 23:11:11.548 ServerApp] Connecting to kernel 40cfeb7d-1def-4940-85f9-05a2257fb96a.
 [I 2024-08-16 23:11:11.548 ServerApp] Restoring connection for 40cfeb7d-1def-4940-85f9-05a2257fb96a:c945ccb2-4a57-4d7d-b0a7-245c1eae52c4
 [I 2024-08-16 23:11:13.251 ServerApp] Saving file at /teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
+[W 2024-08-16 23:13:37.872 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:13:38.144 ServerApp] Kernel started: 6d41458f-acca-4ea7-b168-fa3e792805e6
+[I 2024-08-16 23:13:39.163 ServerApp] Connecting to kernel 6d41458f-acca-4ea7-b168-fa3e792805e6.
+[W 2024-08-16 23:14:33.592 ServerApp] Notebook teachopencadd/talktorials/T003_compound_unwanted_substructures/talktorial.ipynb is not trusted
+[I 2024-08-16 23:14:33.807 ServerApp] Kernel started: 83c78f31-7771-471e-8e43-1664114f6126
+[I 2024-08-16 23:14:34.827 ServerApp] Connecting to kernel 83c78f31-7771-471e-8e43-1664114f6126.
+[I 2024-08-16 23:15:37.977 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:15:37.981 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:16:33.657 ServerApp] Saving file at /teachopencadd/talktorials/T003_compound_unwanted_substructures/talktorial.ipynb
+[W 2024-08-16 23:16:33.658 ServerApp] Notebook teachopencadd/talktorials/T003_compound_unwanted_substructures/talktorial.ipynb is not trusted
+[I 2024-08-16 23:17:38.074 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:17:38.076 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:19:13.318 ServerApp] Saving file at /teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
+[I 2024-08-16 23:19:38.152 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:19:38.155 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:21:13.391 ServerApp] Saving file at /teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
+[I 2024-08-16 23:21:38.297 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:21:38.300 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:23:13.470 ServerApp] Saving file at /teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
+[I 2024-08-16 23:23:38.366 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:23:38.368 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:25:38.454 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:25:38.456 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:27:38.545 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:27:38.548 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:29:13.545 ServerApp] Saving file at /teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
+[I 2024-08-16 23:33:38.621 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:33:38.624 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:35:39.421 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:35:39.423 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:37:39.487 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:37:39.489 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:39:39.595 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:39:39.598 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:41:39.678 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:41:39.680 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:43:39.761 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:43:39.764 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:45:39.835 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:45:39.837 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:49:39.903 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:49:39.908 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:51:39.985 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:51:39.988 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:53:40.078 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:53:40.081 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:55:34.508 ServerApp] Kernel interrupted: 40cfeb7d-1def-4940-85f9-05a2257fb96a
+[I 2024-08-16 23:55:40.174 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:55:40.176 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:56:23.575 ServerApp] Starting buffering for 83c78f31-7771-471e-8e43-1664114f6126:79385a83-3439-4e9a-9cc8-aea7b1c3b78c
+[I 2024-08-16 23:57:15.382 ServerApp] Saving file at /teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
+[I 2024-08-16 23:57:40.263 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:57:40.265 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:59:35.999 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-16 23:59:36.002 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-16 23:59:48.959 ServerApp] Starting buffering for 6d41458f-acca-4ea7-b168-fa3e792805e6:43ef8e31-39ac-4483-8ca8-b0e1a11a96c5
+[I 2024-08-16 23:59:49.018 ServerApp] Starting buffering for 40cfeb7d-1def-4940-85f9-05a2257fb96a:c945ccb2-4a57-4d7d-b0a7-245c1eae52c4
+[I 2024-08-16 23:59:49.035 ServerApp] Connecting to kernel 6d41458f-acca-4ea7-b168-fa3e792805e6.
+[I 2024-08-16 23:59:49.036 ServerApp] Restoring connection for 6d41458f-acca-4ea7-b168-fa3e792805e6:43ef8e31-39ac-4483-8ca8-b0e1a11a96c5
+[I 2024-08-16 23:59:49.063 ServerApp] Connecting to kernel 40cfeb7d-1def-4940-85f9-05a2257fb96a.
+[I 2024-08-16 23:59:49.063 ServerApp] Restoring connection for 40cfeb7d-1def-4940-85f9-05a2257fb96a:c945ccb2-4a57-4d7d-b0a7-245c1eae52c4
+[I 2024-08-17 08:17:57.432 ServerApp] Kernel interrupted: 40cfeb7d-1def-4940-85f9-05a2257fb96a
+[I 2024-08-17 08:19:23.853 ServerApp] Kernel interrupted: 40cfeb7d-1def-4940-85f9-05a2257fb96a
+[I 2024-08-17 08:19:33.989 ServerApp] Saving file at /teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
+[I 2024-08-17 08:21:34.944 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-17 08:21:34.948 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-17 08:23:35.025 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-17 08:23:35.027 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-17 08:25:35.127 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-17 08:25:35.130 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-17 08:27:35.214 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-17 08:27:35.217 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-17 08:29:35.316 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-17 08:29:35.319 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-17 08:31:35.949 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-17 08:31:35.951 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-17 08:33:36.005 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-17 08:33:36.007 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-17 08:39:36.906 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-17 08:39:36.910 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-17 08:41:37.894 ServerApp] Saving file at /teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
+[I 2024-08-17 08:41:37.923 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-17 08:41:37.924 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-17 08:43:37.988 ServerApp] Saving file at /teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
+[I 2024-08-17 08:43:38.023 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-17 08:43:38.024 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
+[I 2024-08-17 08:45:23.204 ServerApp] Saving file at /teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb
+[I 2024-08-17 08:45:38.087 ServerApp] Saving file at /teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb
+[W 2024-08-17 08:45:38.088 ServerApp] Notebook teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb is not trusted
