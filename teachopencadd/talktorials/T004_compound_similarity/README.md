@@ -1,6 +1,5 @@
-# T004 · Ligand-based screening: compound similarity
+# T004 · 基于配体的筛选：化合物相似性
 
-**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
 
 Authors:
 
@@ -10,49 +9,48 @@ Authors:
 - Dominique Sydow, 2018-2020, [Volkamer lab](https://volkamerlab.org/), Charité
 
 
-__Talktorial T004__: This talktorial is part of the TeachOpenCADD pipeline described in the [first TeachOpenCADD paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x), comprising of **talktorials T001-T010**.
+
+## 课程目标
+
+在这个教程中，我们将熟悉不同的编码（描述符，指纹）和比较（相似性度量）分子的方法。此外，我们将以相似性搜索的形式进行虚拟筛选，针对EGFR抑制剂Gefitinib对我们从ChEMBL数据库中筛选出的经过Lipinski的五规则过滤的EGFR测试分子数据集进行搜索（见**演讲教程T002**）。
+
+### _理论_ 部分内容
+
+* 分子相似性
+* 分子描述符
+* 分子指纹
+  * 基于子结构的指纹
+  * MACCS指纹
+  * Morgan指纹和环形指纹
+* 分子相似性度量
+  * Tanimoto 系数
+  * Dice 系数
+* 虚拟筛选
+  * 使用相似性搜索进行虚拟筛选
+  * 富集图
 
 
-## Aim of this talktorial
 
-In this talktorial, we get familiar with different approaches to encode (descriptors, fingerprints) and compare (similarity measures) molecules. Furthermore, we perform a virtual screening in the form of a similarity search for the EGFR inhibitor Gefitinib against our dataset of EGFR-tested molecules from the ChEMBL database filtered by Lipinski's rule of five (see **Talktorial T002**). 
+### _实践_ 部分内容
 
-
-### Contents in _Theory_
-
-* Molecular similarity
-* Molecular descriptors
-* Molecular fingerprints
-  * Substructure-based fingerprints
-  * MACCS fingerprints
-  * Morgan fingerprints and circular fingerprints
-* Molecular similarity measures
-  * Tanimoto coefficient
-  * Dice coefficient
-* Virtual screening
-  * Virtual screening using similarity search
-  * Enrichment plots
+* 导入和绘制分子
+* 计算分子描述符
+  * 1D分子描述符：分子量
+  * 2D分子描述符：MACCS指纹
+  * 2D分子描述符：Morgan指纹
+* 计算分子相似性
+  * MACCS指纹：Tanimoto系数和Dice系数相似性
+  * Morgan指纹：Tanimoto系数和Dice系数相似性
+* 使用相似性搜索进行虚拟筛选
+  * 将查询分子与数据集中的所有分子进行比较
+  * 相似性值的分布
+  * 可视化最相似的分子
+  * 生成富集图
+  * 计算富集因子
 
 
-### Contents in _Practical_
 
-* Import and draw molecules
-* Calculate molecular descriptors
-  * 1D molecular descriptors: Molecular weight
-  * 2D molecular descriptors: MACCS fingerprint
-  * 2D molecular descriptors: Morgan fingerprint
-* Calculate molecular similarity
-  * MACCS fingerprints: Tanimoto and Dice similarity
-  * Morgan fingerprints: Tanimoto and Dice similarity
-* Virtual screening using similarity search
-  * Compare query molecule to all molecules in the data set
-  * Distribution of similarity values
-  * Visualize most similar molecules
-  * Generate enrichment plots
-  * Calculate enrichment factors
-
-
-### References
+### 参考文献
 
 * Review on "Molecular similarity in medicinal chemistry" ([<i>J. Med. Chem.</i> (2014), <b>57</b>, 3186-3204](https://pubmed.ncbi.nlm.nih.gov/24151987))
 * [Morgan fingerprints](http://www.rdkit.org/docs/GettingStartedInPython.html#morgan-fingerprints-circular-fingerprints) with `rdkit`
