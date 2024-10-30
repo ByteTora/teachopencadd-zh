@@ -1,6 +1,6 @@
 # T005 · 复合聚类
 
- **注意：** 本讲座是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供管道模板作为研究项目的起点。
+ **注意：** 本Talktorial是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供管道模板作为研究项目的起点。
 
 Authors:
 
@@ -9,7 +9,7 @@ Authors:
 - Jaime Rodríguez-Guerra, 2019-2020, [Volkamer lab](https://volkamerlab.org), Charité
 
 
- **Talktorial T005** ：此演讲是 TeachOpenCADD 管道的一部分，如[第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)，包括 talktorials T001-T010。
+ **Talktorial T005** ：此Talktorial是 TeachOpenCADD 管道的一部分，如[第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)，包括 talktorials T001-T010。
 
 
 ## 本次讲座的目的

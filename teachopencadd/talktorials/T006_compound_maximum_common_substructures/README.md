@@ -1,6 +1,7 @@
-# T006 · Maximum common substructure
+# T006 ·最大公共子结构
 
-**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+
+ **注意：** 本talktorial是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供管道模板作为研究项目的起点。
 
 Authors:
 
@@ -9,10 +10,11 @@ Authors:
 - Andrea Volkamer, 2019-2020, [Volkamer lab](https://volkamerlab.org), Charité
 
 
-__Talktorial T006__: This talktorial is part of the TeachOpenCADD pipeline described in the [first TeachOpenCADD paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x), comprising talktorials T001-T010.
+ **Talktorial T006** ：此Talktorial是 TeachOpenCADD 管道的一部分，如[第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)，包括 talktorials T001-T010。
 
 
-## Aim of this talktorial
+## 本次talktorial的目的
+
 
 Clustering and classification of large scale chemical data is essential for navigation, analysis and knowledge discovery in a wide variety of chemical application domains in drug discovery.
 
