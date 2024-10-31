@@ -16,26 +16,29 @@ Authors:
 ## 本次talktorial的目的
 
 
-Clustering and classification of large scale chemical data is essential for navigation, analysis and knowledge discovery in a wide variety of chemical application domains in drug discovery.
+大规模化学数据的聚类和分类对于药物发现中各种化学应用领域的导航、分析和知识发现至关重要。
 
-In the last talktorial, we learned how to group molecules (clustering) and found that the molecules in one cluster look similar to each other and share a common scaffold. Besides visual inspection, we will learn here how to calculate the maximum substructure that a set of molecules has in common.
-
-
-### Contents in *Theory*
-
-* Introduction to identification of maximum common substructure in a set of molecules
-* Detailed explanation of the FMCS algorithm
+在上一篇文章中，我们学习了如何对分子进行分组（聚类），发现一个簇中的分子看起来彼此相似，并且共享一个共同的支架。除了目视检查，我们还将在这里学习如何计算一组分子共有的最大子结构。
 
 
-### Contents in *Practical*
-
-* Load and draw molecules
-* Run the FMCS algorithm with different input parameters
-* A more diverse set: the EGFR compounds downloaded from ChEMBL
-* Identification of MCS using interactive cut-off adaption
+### 内容*理论*
 
 
-### References
+- 一组分子中最大公共子结构的鉴定简介 
+- FMCS 算法详解 
+
+
+### 内容*实际*
+
+
+* 加载和绘制分子
+* 使用不同的输入参数运行 FMCS 算法
+* 更多样化的集合：从 ChEMBL 下载的 EGFR 化合物
+* 使用交互式临界自适应识别 MCS
+
+
+### 参考文献
+
 
 * Dalke A, Hastings J., FMCS: a novel algorithm for the multiple MCS problem. [*J. Cheminf.* 2013; **5** (Suppl 1): O6](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3606201/)
 * Raymond JW., Willet P., Maximum common subgraph isomorphism algorithms for the matching of chemical structures. [*J Comput Aided Mol Des.* 2002 Jul; **16**(7):521-33](https://link.springer.com/article/10.1023/A:1021271615909)
