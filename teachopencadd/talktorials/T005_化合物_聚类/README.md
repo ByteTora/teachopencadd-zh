@@ -1,6 +1,6 @@
-# T005 · Compound clustering
+# T005 · 复合聚类
 
-**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+ **注意：** 本Talktorial是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供管道模板作为研究项目的起点。
 
 Authors:
 
@@ -9,34 +9,33 @@ Authors:
 - Jaime Rodríguez-Guerra, 2019-2020, [Volkamer lab](https://volkamerlab.org), Charité
 
 
-__Talktorial T005__: This talktorial is part of the TeachOpenCADD pipeline described in the [first TeachOpenCADD paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x), comprising of talktorials T001-T010.
+ **Talktorial T005** ：此Talktorial是 TeachOpenCADD 管道的一部分，如[第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)，包括 talktorials T001-T010。
 
 
-## Aim of this talktorial
+## 本次讲座的目的
+
 
 <!-- TODO: The wording of this paragraph is confusing -->
 
-Similar compounds might bind to the same targets and show similar effects. 
-Based on this similar property principle, compound similarity can be used to build chemical groups via clustering. 
-From such a clustering, a diverse set of compounds can also be selected from a larger set of screening compounds for further experimental testing.
+相似的化合物可能与相同的靶标结合并显示出相似的效果。
+基于这种相似性质原则，化合物相似性可用于通过聚类构建化学基团。
+从这样的聚类中，还可以从更大的筛选化合物集中选择不同的化合物集，以进行进一步的实验测试。
 
 
-### Contents in _Theory_
+### _Theory_ 中的内容
 
-* Introduction to clustering and Jarvis-Patrick algorithm
-* Detailed explanation of Butina clustering
-* Picking diverse compounds
+* 聚类和 Jarvis-Patrick 算法简介
+* Butina 聚类的详细说明
+* 挑选多样化的化合物
 
+### _实用_ 中的内容
 
-### Contents in _Practical_
+* 使用 Butina 算法进行聚类
+* 可视化集群
+* 选择最终的化合物列表
+* 奖励：运行时间分析
 
-* Clustering with the Butina algorithm
-* Visualizing the clusters
-* Picking the final list of compounds
-* Bonus: analysis of run times
-
-
-### References
+### 参考文献
 
 * Butina, D. Unsupervised Data Base Clustering Based on Daylight’s Fingerprint and Tanimoto Similarity: A Fast and Automated Way To Cluster Small and Large Data Set. _J. Chem. Inf. Comput. Sci._ (1999)
 * Leach, Andrew R., Gillet, Valerie J. An Introduction to Chemoinformatics (2003)

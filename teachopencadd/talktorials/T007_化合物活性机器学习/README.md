@@ -1,4 +1,5 @@
-# T007 · Ligand-based screening: machine learning
+# T007 ·基于配体的筛选：机器学习
+
 
 **Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
 
@@ -13,36 +14,40 @@ Authors:
 __Talktorial T007__: This talktorial is part of the TeachOpenCADD pipeline described in the [first TeachOpenCADD paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x), comprising of talktorials T001-T010.
 
 
-## Aim of this talktorial
-
-Due to larger available data sources, machine learning (ML) gained momentum in drug discovery and especially in ligand-based virtual screening. In this talktorial, we learn how to use different supervised ML algorithms to predict the activity of novel compounds against our target of interest (EGFR).
+## 本次讲座的目的
 
 
-### Contents in _Theory_
-
-* Data preparation: Molecule encoding
-* Machine learning (ML)
-    * Supervised learning
-* Model validation and evaluation
-    * Validation strategy: K-fold cross-validation
-    *  Performance measures
+由于可用的数据源更大，机器学习 （ML） 在药物发现方面发展势头强劲，尤其是在基于配体的虚拟筛选方面。在本次讲座中，我们将学习如何使用不同的监督式 ML 算法来预测新化合物对我们感兴趣的靶标 （EGFR） 的活性。
 
 
-### Contents in _Practical_
-
-* Load compound and activity data
-* Data preparation
-    * Data labeling
-    * Molecule encoding
-* Machine learning
-    * Helper functions
-    * Random forest classifier
-    * Support vector classifier
-    * Neural network classifier
-    * Cross-validation
+### 内容*理论*
 
 
-### References
+- 数据准备：分子编码 
+- 机器学习 （ML） 
+    * 监督学习
+- 模型验证和评估 
+    * 验证策略：K 折交叉验证
+    * 衡量标准
+
+
+### 内容*实际*
+
+
+- 加载化合物和活性数据 
+- 数据准备 
+    * 数据标注
+    * 分子编码
+- 机器学习 
+    * 辅助函数
+    * 随机森林分类器
+    * 支持向量分类器
+    * 神经网络分类器
+    * 交叉验证
+
+
+### 引用
+
 
 * "Fingerprints in the RDKit" [slides](https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf), G. Landrum, RDKit UGM 2012
 * Extended-connectivity fingerprints (ECFPs): Rogers, David, and Mathew Hahn. "Extended-connectivity fingerprints." [_Journal of chemical information and modeling_ 50.5 (2010): 742-754.](https://doi.org/10.1021/ci100050t)
