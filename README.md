@@ -51,12 +51,8 @@
 
 如果您想执行提供的笔记本，我们提供两种可能性：
 
-在线使用 Binder。这需要大约10分钟准备时间，但不需要您进行任何设置。点击这里开始使用：Binder。一旦加载完成，您可以导航到 teachopencadd/talktorials/ 以找到可执行的笔记本。
-
-本地使用我们的 conda 包。本文档的这一部分有更多详细信息。
-
-<!-- markdown-link-check-disable-next-line -->
 - 在线使用 [Binder](https://mybinder.org/)。这需要大约10分钟准备时间，但不需要您进行任何设置。 点击这里使用: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/volkamerlab/TeachOpenCADD/master). 一旦加载完成，您可以导航到 `teachopencadd/talktorials/`以找到可执行的示例。
+<!-- markdown-link-check-disable-next-line -->
 
 - 在本地使用 `conda` 包. 更多细节在: [section of the documentation](https://projects.volkamerlab.org/teachopencadd/installing.html)。
 
