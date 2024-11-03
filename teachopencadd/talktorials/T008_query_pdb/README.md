@@ -1,4 +1,5 @@
-# T008 · Protein data acquisition: Protein Data Bank (PDB) 
+# T008 ·蛋白质数据采集：蛋白质数据库 （PDB）
+
 
 **Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
 
@@ -13,34 +14,37 @@ Authors:
 __Talktorial T008__: This talktorial is part of the TeachOpenCADD pipeline described in the first TeachOpenCADD publication ([_J. Cheminform._ (2019), **11**, 1-7](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)), comprising of talktorials T001-T010.
 
 
-## Aim of this talktorial
-
-In this talktorial, we conduct the groundwork for the next talktorial where we will generate a ligand-based ensemble pharmacophore for EGFR. Therefore, we 
-(i) fetch all PDB IDs for EGFR from the PDB database that fullfil certain criteria (e.g. ligand-bound structures with high resolution), 
-(ii) retrieve protein-ligand structures with the best structural quality, 
-(iii) align all structures, and 
-(iv) extract and save the ligands to be used in the next talktorial.
+## 本次讲座的目的
 
 
-### Contents in Theory
-
-* Protein Data Bank (PDB)
-* Query the PDB using the Python packages `biotite` and `pypdb`
-
-
-### Contents in Practical
-
-* Select a query protein
-* Get the number of PDB entries for a query protein
-* Find PDB entries fullfilling certain conditions
-* Select PDB entries with the highest resolution
-* Get metadata of ligands from top structures
-* Draw top ligand molecules
-* Create protein-ligand ID pairs
-* Align PDB structures and extract ligands
+在这个讲座中，我们为下一个讲座奠定了基础，我们将为 EGFR 生成基于配体的集合药效团。因此，我们：
+（i） 从 PDB 数据库中获取满足特定条件的所有 EGFR PDB ID（例如，高分辨率的配体结合结构），
+（ii） 回收具有最佳结构质量的蛋白质-配体结构，
+（iii） 调整所有结构，以及
+（iv） 提取并保存配体以用于下一次课程。
 
 
-### References
+### 理论内容
+
+
+- 蛋白质数据库 （） 
+- 使用 Python 包查询 PDB`biotite`和`pypdb` 
+
+
+### 实用内容
+
+
+* 选择查询蛋白
+* 获取查询 protein 的 PDB 条目数
+* 查找满足特定条件的 PDB 条目
+* 选择具有最高分辨率的 PDB 条目
+* 从顶部结构中获取配体的元数据
+* 绘制顶部配体分子
+* 创建蛋白质-配体 ID 对
+* 对齐 PDB 结构并提取配体
+
+### 引用
+
 
 * Protein Data Bank 
 ([PDB website](http://www.rcsb.org/))
