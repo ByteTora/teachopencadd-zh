@@ -1,18 +1,6 @@
 # T008 ·蛋白质数据采集：蛋白质数据库 （PDB）
 
 
-**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
-
-Authors:
-
-- Anja Georgi, CADD seminar, 2017, Charité/FU Berlin
-- Majid Vafadar, CADD seminar, 2018, Charité/FU Berlin
-- Jaime Rodríguez-Guerra, [Volkamer lab, Charité](https://volkamerlab.org/)
-- Dominique Sydow, [Volkamer lab, Charité](https://volkamerlab.org/)
-
-
-__Talktorial T008__: This talktorial is part of the TeachOpenCADD pipeline described in the first TeachOpenCADD publication ([_J. Cheminform._ (2019), **11**, 1-7](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)), comprising of talktorials T001-T010.
-
 
 ## 本次讲座的目的
 
@@ -42,6 +30,21 @@ __Talktorial T008__: This talktorial is part of the TeachOpenCADD pipeline descr
 * 绘制顶部配体分子
 * 创建蛋白质-配体 ID 对
 * 对齐 PDB 结构并提取配体
+
+
+
+**注意：** 此讲座是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能并提供管道模板作为研究项目的起点。
+
+Authors:
+
+- Anja Georgi, CADD seminar, 2017, Charité/FU Berlin
+- Majid Vafadar, CADD seminar, 2018, Charité/FU Berlin
+- Jaime Rodríguez-Guerra, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Dominique Sydow, [Volkamer lab, Charité](https://volkamerlab.org/)
+
+
+__Talktorial T008__：此演讲是第一篇 TeachOpenCADD 出版物 （[_J. Cheminform._ （2019）， **11**， 1-7]（https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x）） 中描述的 TeachOpenCADD 管道的一部分，由演讲 T001-T010 组成。
+
 
 ### 引用
 
