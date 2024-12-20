@@ -1,6 +1,6 @@
-# T010 · Binding site similarity and off-target prediction
+# T010 ·结合位点相似性和脱靶预测
 
-**Note:** This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+**注意：** 此讲座是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能并提供管道模板作为研究项目的起点。
 
 Authors:
 
@@ -12,36 +12,35 @@ Authors:
 - Mareike Leja, 2020, [Volkamer lab](https://volkamerlab.org), Charité
 
 
-__Talktorial T010__: This talktorial is part of the TeachOpenCADD pipeline described in the [first TeachOpenCADD paper](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x), comprising of talktorials T001-T010.
+__Talktorial T010__：此演讲是 [第一篇 TeachOpenCADD 论文]（https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x） 中描述的 TeachOpenCADD 管道的一部分，由演讲 T001-T010 组成。
 
 
-**Note**: Please run this notebook cell by cell. Running all cells in one is possible also, however, part of the `nglview` 3D representations might be missing.
+**注意**：请逐个单元格运行此笔记本。也可以在一个中运行所有单元格，但是，可能会缺少部分 'nglview' 3D 表示。
 
 
-## Aim of this talktorial
+## 本次演讲的目的
 
-In this talktorial, we use the structural similarity of full proteins and binding sites to predict off-targets, i.e. proteins that are not intended targets of a drug. This may lead to unwanted side effects or enable desired alternate applications of a drug (drug repositioning).
-We discuss the main steps for binding site comparison and implement a basic method, i.e. the geometrical variation between structures (the root mean square deviation between two structures).
+在本讲座中，我们使用完整蛋白质和结合位点的结构相似性来预测脱靶，即不是药物预期靶标的蛋白质。这可能会导致不必要的副作用或实现所需的药物替代应用（药物重新定位）。
+我们讨论了结合位点比较的主要步骤并实施了一种基本方法，即结构之间的几何变化（两个结构之间的均方根偏差）。
 
+### *理论*中的内容
 
-### Contents in *Theory*
-
-* Off-target proteins
-* Computational off-target prediction: binding site comparison
-* Pairwise RMSD as simple measure for similarity
-* Imatinib, a tyrosine kinase inhibitor
+* 脱靶蛋白
+* 计算脱靶预测：结合位点比较
+* 成对 RMSD 作为相似性的简单度量
+* 伊马替尼，一种酪氨酸激酶抑制剂
 
 
 ### Contents in *Practical*
 
-* Load and visualize the ligand of interest (Imatinib/STI)
-* Get all protein-STI complexes from the PDB
-* Visualize the PDB structures
-* Align the PDB structures (full protein)
-* Get pairwise RMSD (full protein)
-* Align the PDB structures (binding site)
-* Get pairwise RMSD (binding site)
-* Filter out outliers
+* 加载和可视化感兴趣的配体 （Imatinib/STI）
+* 从 PDB 获取所有蛋白质-STI 复合物
+* 可视化 PDB 结构
+* 对齐 PDB 结构（全蛋白）
+* 获取成对 RMSD（全蛋白）
+* 对齐 PDB 结构（结合位点）
+* 获取成对 RMSD（结合位点）
+* 过滤掉异常值
 
 
 ### References
