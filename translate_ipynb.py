@@ -36,19 +36,19 @@ def sign_request(secret_id, secret_key, method, endpoint, uri, params):
     signed_headers = 'content-type;host'
     payload_hash = hashlib.sha256(json.dumps(params).encode('utf-8')).hexdigest()
     canonical_request = (http_request_method + '\n' + 
-                         canonical_uri + '\n' + 
-                         canonical_querystring + '\n' + 
-                         canonical_headers + '\n' + 
-                         signed_headers + '\n' + 
-                         payload_hash)
+                        canonical_uri + '\n' + 
+                        canonical_querystring + '\n' + 
+                        canonical_headers + '\n' + 
+                        signed_headers + '\n' + 
+                        payload_hash)
     
     # 2. Build String to Sign
     algorithm = 'TC3-HMAC-SHA256'
     credential_scope = f"{date}/{SERVICE}/tc3_request"
     string_to_sign = (algorithm + '\n' + 
-                      str(timestamp) + '\n' + 
-                      credential_scope + '\n' + 
-                      hashlib.sha256(canonical_request.encode('utf-8')).hexdigest())
+                     str(timestamp) + '\n' + 
+                     credential_scope + '\n' + 
+                     hashlib.sha256(canonical_request.encode('utf-8')).hexdigest())
     
     # 3. Sign String
     def sign(key, msg):
@@ -61,9 +61,9 @@ def sign_request(secret_id, secret_key, method, endpoint, uri, params):
     
     # 4. Build Authorization Header
     authorization = (f"{algorithm} "
-                     f"Credential={secret_id}/{credential_scope}, "
-                     f"SignedHeaders={signed_headers}, "
-                     f"Signature={signature}")
+                    f"Credential={secret_id}/{credential_scope}, "
+                    f"SignedHeaders={signed_headers}, "
+                    f"Signature={signature}")
     
     return authorization, timestamp
 
@@ -72,6 +72,7 @@ def translate_to_chinese(text):
     if not isinstance(text, str):
         text = str(text)
     
+
     # 如果文本过长，分段翻译
     if len(text) > MAX_CHARS_PER_REQUEST:
         chunks = [text[i:i+MAX_CHARS_PER_REQUEST] for i in range(0, len(text), MAX_CHARS_PER_REQUEST)]
@@ -132,7 +133,7 @@ def fix_markdown_format(text):
     # 修复Markdown标题格式
     text = re.sub(r'^(#{1,6})([^#\s])', r'\1 \2', text, flags=re.MULTILINE)
     # 修复Markdown链接格式
-    text = re.sub(r'\[([^\]]+)\]（([^)]+)）', r'[\1](\2)', text)
+    text = re.sub(r'\[([^\]]+)\]\s*（([^)]+)）', r'[\1] (\2)', text)
     # 修复列表格式
     text = re.sub(r'^\s*([*+-])\s*([^\s])', r'\1 \2', text, flags=re.MULTILINE)
     # 修复代码块格式
@@ -140,14 +141,38 @@ def fix_markdown_format(text):
     # 修复引用格式
     text = re.sub(r'^>\s*([^\s])', r'> \1', text, flags=re.MULTILINE)
     # 修复图片链接格式
-    text = re.sub(r'!\[([^\]]*)\]（([^)]+)）', r'![\1](\2)', text)
+    text = re.sub(r'!\[([^\]]*)\]\s*（([^)]+)）', r'![\1] (\2)', text)
     # 修复表格格式
     text = re.sub(r'\|([^|]+)\|', lambda m: '|' + '|'.join(cell.strip() for cell in m.group(1).split('|')) + '|', text)
     # 修复多余的逗号
     text = text.replace(',,,', '')
     # 修复JSON拼写错误
     text = text.replace('SON', 'JSON')
+    # 删除多余的空格
+    text = re.sub(r'\s+', ' ', text)
     return text
+
+def translate_markdown_file(md_path):
+    """翻译Markdown文件"""
+    with open(md_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # 分段翻译
+    sections = content.split('\n\n')
+    translated_sections = []
+    
+    for section in tqdm(sections, desc=f"翻译 {os.path.basename(md_path)}"):
+        translated = translate_to_chinese(section)
+        translated = fix_markdown_format(translated)
+        translated_sections.append(translated)
+        time.sleep(REQUEST_INTERVAL)
+    
+    # 保存翻译后的文件
+    output_path = md_path.replace('.md', '_zh.md')
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write('\n\n'.join(translated_sections))
+    
+    print(f"已翻译并保存: {output_path}")
 
 def translate_notebook(notebook_path):
     # 使用nbformat读取原始notebook
@@ -187,44 +212,19 @@ def translate_notebook(notebook_path):
 
 def main():
     base_dir = 'teachopencadd/talktorials'
-    # 中文文件夹名称列表
-    chinese_folders = [
-        # "T011_在线API网络服务查询",
-        "T012_KLIFS查询",
-        "T013_PubChem查询",
-        "T014_结合位点检测",
-        "T015_蛋白质-配体对接",
-        "T016_蛋白质-配体相互作用",
-        "T017_高级NGLView使用",
-        "T018_自动化CADD流程",
-        "T019_分子动力学模拟",
-        "T020_分子动力学分析",
-        "T021_独热编码",
-        "T022_基于配体的神经网络筛选",
-        "T023_什么是激酶",
-        "T024_激酶序列相似性",
-        "T025_激酶Kissim相似性",
-        "T026_激酶相互作用指纹相似性",
-        "T027_激酶配体谱相似性",
-        "T028_激酶相似性比较视角",
-        "T033_分子表示",
-        "T034_循环神经网络",
-        "T035_图神经网络",
-        "T036_E3等变图神经网络",
-        "T037_不确定性估计",
-        "T038_蛋白质-配体相互作用预测"
-    ]
     
-    for folder_name in chinese_folders:
-        folder_path = os.path.join(base_dir, folder_name)
-        if os.path.exists(folder_path):
-            notebook_path = os.path.join(folder_path, 'talktorial.ipynb')
-            if os.path.exists(notebook_path):
-                translate_notebook(notebook_path)
-            else:
-                print(f"未找到文件: {notebook_path}")
-        else:
-            print(f"未找到文件夹: {folder_path}")
+    # 获取所有教程目录
+    tutorial_dirs = [d for d in os.listdir(base_dir)
+                    if os.path.isdir(os.path.join(base_dir, d))
+                    and d.startswith('T')]
+    
+    for tutorial_dir in tutorial_dirs:
+        dir_path = os.path.join(base_dir, tutorial_dir)
+        
+        # 翻译README.md
+        readme_path = os.path.join(dir_path, 'README.md')
+        if os.path.exists(readme_path):
+            translate_markdown_file(readme_path)
 
 if __name__ == '__main__':
     main()
