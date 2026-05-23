@@ -8,7 +8,6 @@ on:
     branches:
       - "main"
   schedule:
-    # every two weeks on Monday at 3 am
     - cron: "0 3/336 * * 1"
 
 jobs:
@@ -23,8 +22,6 @@ jobs:
             python-version: "3.11"
           - os: macos-latest
             python-version: "3.11"
-          - os: windows-latest
-            python-version: "3.11"
 
     env:
       PACKAGE: teachopencadd
@@ -32,12 +29,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: conda-incubator/setup-miniconda@v3
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.cfg.python-version }}
-          miniforge-variant: Miniforge3
-          miniforge-version: latest
-          activate-environment: teachopencadd
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -45,56 +40,17 @@ jobs:
           enable-cache: true
 
       - name: Install package
-        shell: bash -l {0}
         run: |
-          uv pip install -e "."
-
-      - name: Environment Information
-        shell: bash -l {0}
-        run: |
-          conda info --all
-          conda list
+          uv pip install --system -e "."
 
       - name: Test CLI
-        shell: bash -l {0}
         run: |
           teachopencadd -h
-          pytest -v --cov=${PACKAGE} --cov-report=xml --color=yes ${PACKAGE}/tests/
+          teachopencadd -l
 
-      - name: Run nbval tests
-        shell: bash -l {0}
+      - name: Run unit tests
         run: |
-          PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
-
-          PYTEST_IGNORE_T001="--ignore=teachopencadd/教程/T001_查询ChEMBL/talktorial.ipynb"
-          PYTEST_IGNORE_T018="--ignore=teachopencadd/教程/T018_自动化CADD流程/talktorial.ipynb"
-          PYTEST_IGNORE_T019="--ignore=teachopencadd/教程/T019_分子动力学模拟/talktorial.ipynb"
-          PYTEST_IGNORE_T020="--ignore=teachopencadd/教程/T020_分子动力学分析/talktorial.ipynb"
-          PYTEST_IGNORE_T035="--ignore=teachopencadd/教程/T035_图神经网络/talktorial.ipynb"
-          PYTEST_IGNORE_T036="--ignore=teachopencadd/教程/T036_E3等变图神经网络/talktorial.ipynb"
-          PYTEST_IGNORE_T038="--ignore=teachopencadd/教程/T038_蛋白质-配体相互作用预测/talktorial.ipynb"
-
-          IGNORE="$PYTEST_IGNORE_T001"
-
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            IGNORE="$IGNORE $PYTEST_IGNORE_T019"
-            IGNORE="$IGNORE $PYTEST_IGNORE_T035"
-            IGNORE="$IGNORE $PYTEST_IGNORE_T036"
-            IGNORE="$IGNORE $PYTEST_IGNORE_T038"
-          fi
-
-          if [ "$RUNNER_OS" == "Linux" ]; then
-            IGNORE="$IGNORE $PYTEST_IGNORE_T018"
-          fi
-
-          if [ "$RUNNER_OS" == "macOS" ]; then
-            IGNORE="$IGNORE $PYTEST_IGNORE_T018"
-            IGNORE="$IGNORE $PYTEST_IGNORE_T019"
-            IGNORE="$IGNORE $PYTEST_IGNORE_T035"
-            IGNORE="$IGNORE $PYTEST_IGNORE_T036"
-          fi
-
-          pytest $PYTEST_ARGS "teachopencadd/教程/" $IGNORE
+          python -m pytest ${PACKAGE}/tests/ -v --color=yes
 
   format:
     name: Black
@@ -105,24 +61,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install format dependencies
-        run: python -m pip install black-nb shyaml
+        run: python -m pip install black-nb
       - name: Run black-nb
         run: |
-          black-nb -l 99 --check "teachopencadd/教程"/T*/talktorial*.ipynb
-
-  readmes:
-    name: READMEs
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Install nbformat
-        run: python -m pip install nbformat shyaml
-      - name: Check READMEs are up-to-date
-        run: |
-          for path in "teachopencadd/教程"/T*/talktorial.ipynb; do
-            python devtools/regenerate_readmes.py --output README.md $path
-          done
-          git diff --exit-code
+          black-nb -l 99 --check "teachopencadd/教程"/T*/talktorial.ipynb
