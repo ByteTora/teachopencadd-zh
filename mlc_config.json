@@ -1,0 +1,13 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https://doi\\.org/10\\.5281/zenodo\."
+    },
+    {
+      "pattern": "^https://zenodo\\.org/badge/DOI/10\\.5281/zenodo\."
+    },
+    {
+      "pattern": "^https://hub\\.knime\\.com/volkamerlab/"
+    }
+  ]
+}
