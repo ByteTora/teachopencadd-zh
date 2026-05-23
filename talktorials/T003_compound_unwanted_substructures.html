@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="T003 · 分子筛选：不想要的子结构" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T003_compound_unwanted_substructures.html" />
+<meta property="og:site_name" content="TeachOpenCADD" />
+<meta property="og:description" content="教程目标: 在我们的筛选库中，有些子结构是我们不希望包含的。在这个教程中，我们将学习到不同类型的不想要的子结构，以及如何使用RDKit来查找、突出显示和移除它们。 理论内容: 不想要的子结构, 泛分析干扰化合物（PAINS）. 实践内容: 加载和可视化数据, 筛选PAINS, 筛选不想要的子结构, 突出显示子结构, 子结构统计. 参考文献: Pan Assay Interference compounds ( wikipedia, J. Med. Chem. (2010), 53, 2719-2740), Unwanted substructures according to Brenk..." />
+<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
+<meta property="og:image:alt" content="TeachOpenCADD" />
+<meta name="description" content="教程目标: 在我们的筛选库中，有些子结构是我们不希望包含的。在这个教程中，我们将学习到不同类型的不想要的子结构，以及如何使用RDKit来查找、突出显示和移除它们。 理论内容: 不想要的子结构, 泛分析干扰化合物（PAINS）. 实践内容: 加载和可视化数据, 筛选PAINS, 筛选不想要的子结构, 突出显示子结构, 子结构统计. 参考文献: Pan Assay Interference compounds ( wikipedia, J. Med. Chem. (2010), 53, 2719-2740), Unwanted substructures according to Brenk..." />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+    <script async src="../_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T003 · 分子筛选：不想要的子结构 &#8212; TeachOpenCADD 0.0.post1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
+    <script src="../_static/documentation_options.js?v=3469de9b"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="T004 · 基于配体的筛选：化合物相似性" href="T004_compound_similarity.html" />
+    <link rel="prev" title="T002 · 分子筛选：ADME和类药性标准" href="T002_compound_adme.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/T003_compound_unwanted_substructures" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0.0.post1 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic"> T003 · 分子筛选：不想要的子结构 </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Development</a></li>
+            
+            <li class="md-tabs__item"><a href="../contact.html" class="md-tabs__link">Contact</a></li>
+            
+            <li class="md-tabs__item"><a href="../citation.html" class="md-tabs__link">Citation</a></li>
+          <li class="md-tabs__item"><a href="../all_talktorials.html" class="md-tabs__link">Complete list of talktorials</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0.0.post1 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0.0.post1 documentation">TeachOpenCADD</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#deep-learning" class="md-nav__link">Deep learning</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contact.html" class="md-nav__link">Contact</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../acknowledgments.html" class="md-nav__link">Acknowledgments</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../citation.html" class="md-nav__link">Citation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../funding.html" class="md-nav__link">Funding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t003-compound-unwanted-substructures--page-root" class="md-nav__link">T003 · 分子筛选：不想要的子结构</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#教程目标" class="md-nav__link">教程目标</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#理论内容" class="md-nav__link">理论内容</a>
+        </li>
+        <li class="md-nav__item"><a href="#实践内容" class="md-nav__link">实践内容</a>
+        </li>
+        <li class="md-nav__item"><a href="#参考文献" class="md-nav__link">参考文献</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#理论" class="md-nav__link">理论</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#不受欢迎的子结构" class="md-nav__link">不受欢迎的子结构</a>
+        </li>
+        <li class="md-nav__item"><a href="#泛分析干扰化合物-(Pan-Assay-Interference-Compounds,-PAINS)" class="md-nav__link">泛分析干扰化合物 (Pan Assay Interference Compounds, PAINS)</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#实战部分" class="md-nav__link">实战部分</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#加载和可视化数据" class="md-nav__link">加载和可视化数据</a>
+        </li>
+        <li class="md-nav__item"><a href="#筛选-PAINS" class="md-nav__link">筛选 PAINS</a>
+        </li>
+        <li class="md-nav__item"><a href="#过滤并突出显示不需要的子结构" class="md-nav__link">过滤并突出显示不需要的子结构</a>
+        </li>
+        <li class="md-nav__item"><a href="#高亮显示子结构" class="md-nav__link">高亮显示子结构</a>
+        </li>
+        <li class="md-nav__item"><a href="#子结构统计" class="md-nav__link">子结构统计</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        </li>
+        <li class="md-nav__item"><a href="#课后思考" class="md-nav__link">课后思考</a>
+        </li>
+        <li class="md-nav__item"><a href="#本文作者:" class="md-nav__link">本文作者:</a>
+        </li>
+        <li class="md-nav__item"><a href="#翻译校对" class="md-nav__link">翻译校对</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T003_compound_unwanted_substructures.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="T003-·-分子筛选：不想要的子结构">
+<h1 id="talktorials-t003-compound-unwanted-substructures--page-root">T003 · 分子筛选：不想要的子结构<a class="headerlink" href="#talktorials-t003-compound-unwanted-substructures--page-root" title="Link to this heading">¶</a></h1>
+<section id="教程目标">
+<h2 id="教程目标">教程目标<a class="headerlink" href="#教程目标" title="Link to this heading">¶</a></h2>
+<p>在我们的筛选库中，有些子结构是我们不希望包含的。在这个教程中，我们将学习到不同类型的不想要的子结构，以及如何使用RDKit来查找、突出显示和移除它们。</p>
+<section id="理论内容">
+<h3 id="理论内容">理论内容<a class="headerlink" href="#理论内容" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>不想要的子结构</p></li>
+<li><p>泛分析干扰化合物（PAINS）</p></li>
+</ul>
+</section>
+<section id="实践内容">
+<h3 id="实践内容">实践内容<a class="headerlink" href="#实践内容" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>加载和可视化数据</p></li>
+<li><p>筛选PAINS</p></li>
+<li><p>筛选不想要的子结构</p></li>
+<li><p>突出显示子结构</p></li>
+<li><p>子结构统计</p></li>
+</ul>
+</section>
+<section id="参考文献">
+<h3 id="参考文献">参考文献<a class="headerlink" href="#参考文献" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Pan Assay Interference compounds (<a class="reference external" href="https://en.wikipedia.org/wiki/Pan-assay_interference_compounds">wikipedia</a>, <a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/jm901137j">J. Med. Chem. (2010), 53, 2719-2740</a>)</p></li>
+<li><p>Unwanted substructures according to Brenk <em>et al.</em> (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139">Chem. Med. Chem. (2008), 3, 435-44</a>)</p></li>
+<li><p>Inspired by a Teach-Discover-Treat tutorial (<a class="reference external" href="https://github.com/sriniker/TDT-tutorial-2014/blob/master/TDT_challenge_tutorial.ipynb">repository</a>)</p></li>
+<li><p>RDKit (<a class="reference external" href="https://github.com/rdkit/rdkit">repository</a>, <a class="reference external" href="https://www.rdkit.org/docs/index.html">documentation</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="理论">
+<h2 id="理论">理论<a class="headerlink" href="#理论" title="Link to this heading">¶</a></h2>
+<section id="不受欢迎的子结构">
+<h3 id="不受欢迎的子结构">不受欢迎的子结构<a class="headerlink" href="#不受欢迎的子结构" title="Link to this heading">¶</a></h3>
+<p>子结构可能是不利的，例如，因为它们具有毒性或反应性，由于不利的药物动力学特性，或者因为它们可能干扰某些检测方法。 如今，药物发现活动常常涉及<a class="reference external" href="https://en.wikipedia.org/wiki/High-throughput_screening">高通量筛选</a>。过滤不想要的子结构可以支持组装更有效的筛选库，这可以节省时间和资源。</p>
+<p>Brenk <em>等人</em> (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139">Chem. Med. Chem. (2008), 3, 435-44</a>)已经汇编了一个不利子结构的列表，用于筛选用于治疗被忽视疾病的化合物的库。这些不受欢迎的特征的例子包括硝基（致突变性）、硫酸盐和磷酸盐（可能导致不利的药物动力学特性）、2-卤代吡啶和硫醇（反应性）。这个不期望子结构的列表发表在上述论文中，并将在这个教程的实践部分使用。</p>
+</section>
+<section id="泛分析干扰化合物-(Pan-Assay-Interference-Compounds,-PAINS)">
+<h3 id="泛分析干扰化合物-(Pan-Assay-Interference-Compounds,-PAINS)">泛分析干扰化合物 (Pan Assay Interference Compounds, PAINS)<a class="headerlink" href="#泛分析干扰化合物-(Pan-Assay-Interference-Compounds,-PAINS)" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Pan-assay_interference_compounds">PAINS</a> 是在高通量筛选（HTS）中经常出现的化合物，尽管它们实际上是假阳性。PAINS 在多个目标上显示出活性，而不是一个特定的目标。这种行为是由非特异性结合或与检测组分的相互作用造成的。Baell 等人的(<a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/jm901137j">J. Med. Chem. (2010), 53, 2719-2740</a>)研究中，专注于干扰检测信号的子结构。他们描述了可以帮助识别这类 PAINS 的子结构，并提供了一个可用于子结构过滤的列表。</p>
+<p><img alt="PAINS" src="../_images/PAINS_Figure.jpeg"/></p>
+<p>Figure 1: Specific and unspecific binding in the context of PAINS. Figure taken from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:PAINS_Figure.tif">Wikipedia</a>.</p>
+</section>
+</section>
+<section id="实战部分">
+<h2 id="实战部分">实战部分<a class="headerlink" href="#实战部分" title="Link to this heading">¶</a></h2>
+<section id="加载和可视化数据">
+<h3 id="加载和可视化数据">加载和可视化数据<a class="headerlink" href="#加载和可视化数据" title="Link to this heading">¶</a></h3>
+<p>首先，我们导入所需的库，从<strong>Talktorial T002</strong>加载我们筛选过的数据集，并绘制出第一个分子。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit</span><span class="w"> </span><span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandasTools</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem.FilterCatalog</span><span class="w"> </span><span class="kn">import</span> <span class="n">FilterCatalog</span><span class="p">,</span> <span class="n">FilterCatalogParams</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define paths</span>
+<span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load data from Talktorial T2</span>
+<span class="n">egfr_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T002_化合物ADME/data/EGFR_compounds_lipinski.csv"</span><span class="p">,</span>
+    <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="c1"># Drop unnecessary information</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Dataframe shape:"</span><span class="p">,</span> <span class="n">egfr_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">egfr_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"molecular_weight"</span><span class="p">,</span> <span class="s2">"n_hbd"</span><span class="p">,</span> <span class="s2">"n_hba"</span><span class="p">,</span> <span class="s2">"logp"</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">egfr_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Dataframe shape: (4635, 10)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>molecule_chembl_id</th>
+<th>IC50</th>
+<th>units</th>
+<th>smiles</th>
+<th>pIC50</th>
+<th>ro5_fulfilled</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL63786</td>
+<td>0.003</td>
+<td>nM</td>
+<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
+<td>11.522879</td>
+<td>True</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL35820</td>
+<td>0.006</td>
+<td>nM</td>
+<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
+<td>11.221849</td>
+<td>True</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL53711</td>
+<td>0.006</td>
+<td>nM</td>
+<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.221849</td>
+<td>True</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CHEMBL66031</td>
+<td>0.008</td>
+<td>nM</td>
+<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
+<td>11.096910</td>
+<td>True</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CHEMBL53753</td>
+<td>0.008</td>
+<td>nM</td>
+<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.096910</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add molecule column</span>
+<span class="n">PandasTools</span><span class="o">.</span><span class="n">AddMoleculeColumnToFrame</span><span class="p">(</span><span class="n">egfr_data</span><span class="p">,</span> <span class="n">smilesCol</span><span class="o">=</span><span class="s2">"smiles"</span><span class="p">)</span>
+<span class="c1"># Draw first 3 molecules</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span>
+    <span class="nb">list</span><span class="p">(</span><span class="n">egfr_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">ROMol</span><span class="p">),</span>
+    <span class="n">legends</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">egfr_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">molecule_chembl_id</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T003_compound_unwanted_substructures_14_0.png" src="../_images/talktorials_T003_compound_unwanted_substructures_14_0.png"/>
+</div>
+</div>
+</section>
+<section id="筛选-PAINS">
+<h3 id="筛选-PAINS">筛选 PAINS<a class="headerlink" href="#筛选-PAINS" title="Link to this heading">¶</a></h3>
+<p>PAINS过滤器已经在RDKit中实现（<a class="reference external" href="http://rdkit.org/docs/source/rdkit.Chem.rdfiltercatalog.html">文档</a>）。这种预定义的过滤器可以通过<code class="docutils literal notranslate"><span class="pre">FilterCatalog</span></code>类应用。让我们学习如何使用它。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize filter</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">FilterCatalogParams</span><span class="p">()</span>
+<span class="n">params</span><span class="o">.</span><span class="n">AddCatalog</span><span class="p">(</span><span class="n">FilterCatalogParams</span><span class="o">.</span><span class="n">FilterCatalogs</span><span class="o">.</span><span class="n">PAINS</span><span class="p">)</span>
+<span class="n">catalog</span> <span class="o">=</span> <span class="n">FilterCatalog</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># search for PAINS</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">clean</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">egfr_data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">(),</span> <span class="n">total</span><span class="o">=</span><span class="n">egfr_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">molecule</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">smiles</span><span class="p">)</span>
+    <span class="n">entry</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">GetFirstMatch</span><span class="p">(</span><span class="n">molecule</span><span class="p">)</span>  <span class="c1"># Get the first matching PAINS</span>
+    <span class="k">if</span> <span class="n">entry</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># store PAINS information</span>
+        <span class="n">matches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">"chembl_id"</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">molecule_chembl_id</span><span class="p">,</span>
+                <span class="s2">"rdkit_molecule"</span><span class="p">:</span> <span class="n">molecule</span><span class="p">,</span>
+                <span class="s2">"pains"</span><span class="p">:</span> <span class="n">entry</span><span class="o">.</span><span class="n">GetDescription</span><span class="p">()</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># collect indices of molecules without PAINS</span>
+        <span class="n">clean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">matches</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+<span class="n">egfr_data</span> <span class="o">=</span> <span class="n">egfr_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">clean</span><span class="p">]</span>  <span class="c1"># keep molecules without PAINS</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2740805bdc46465aa5f29116f9638724", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NBVAL_CHECK_OUTPUT</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of compounds with PAINS: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of compounds without PAINS: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">egfr_data</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of compounds with PAINS: 408
+Number of compounds without PAINS: 4227
+</pre></div></div>
+</div>
+<p>查看过滤出的前三个符合PAINS的结构</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span>
+    <span class="nb">list</span><span class="p">(</span><span class="n">matches</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">rdkit_molecule</span><span class="p">),</span>
+    <span class="n">legends</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">matches</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)[</span><span class="s2">"pains"</span><span class="p">]),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T003_compound_unwanted_substructures_20_0.png" src="../_images/talktorials_T003_compound_unwanted_substructures_20_0.png"/>
+</div>
+</div>
+</section>
+<section id="过滤并突出显示不需要的子结构">
+<h3 id="过滤并突出显示不需要的子结构">过滤并突出显示不需要的子结构<a class="headerlink" href="#过滤并突出显示不需要的子结构" title="Link to this heading">¶</a></h3>
+<p>一些不需要的子结构列表，如PAINS，已经在RDKit中实现。然而，也可以使用外部列表并手动获取子结构匹配。 在这里，我们使用了Brenk等人提供的列表（(<a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139">Chem. Med. Chem. (2008), 3, 535-44</a>)中的支持信息。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">substructures</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"unwanted_substructures.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\s+"</span><span class="p">)</span>
+<span class="n">substructures</span><span class="p">[</span><span class="s2">"rdkit_molecule"</span><span class="p">]</span> <span class="o">=</span> <span class="n">substructures</span><span class="o">.</span><span class="n">smarts</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmarts</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of unwanted substructures in collection:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">substructures</span><span class="p">))</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of unwanted substructures in collection: 104
+</pre></div></div>
+</div>
+<p>让我们来看一看一些子结构。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span>
+    <span class="n">mols</span><span class="o">=</span><span class="n">substructures</span><span class="o">.</span><span class="n">rdkit_molecule</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">],</span>
+    <span class="n">legends</span><span class="o">=</span><span class="n">substructures</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T003_compound_unwanted_substructures_24_0.png" src="../_images/talktorials_T003_compound_unwanted_substructures_24_0.png"/>
+</div>
+</div>
+<p>在我们过滤后的DataFrame中搜索与这些不需要的子结构的匹配项。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># search for unwanted substructure</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">clean</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">egfr_data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">(),</span> <span class="n">total</span><span class="o">=</span><span class="n">egfr_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">molecule</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">smiles</span><span class="p">)</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">substructure</span> <span class="ow">in</span> <span class="n">substructures</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">molecule</span><span class="o">.</span><span class="n">HasSubstructMatch</span><span class="p">(</span><span class="n">substructure</span><span class="o">.</span><span class="n">rdkit_molecule</span><span class="p">):</span>
+            <span class="n">matches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">"chembl_id"</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">molecule_chembl_id</span><span class="p">,</span>
+                    <span class="s2">"rdkit_molecule"</span><span class="p">:</span> <span class="n">molecule</span><span class="p">,</span>
+                    <span class="s2">"substructure"</span><span class="p">:</span> <span class="n">substructure</span><span class="o">.</span><span class="n">rdkit_molecule</span><span class="p">,</span>
+                    <span class="s2">"substructure_name"</span><span class="p">:</span> <span class="n">substructure</span><span class="p">[</span><span class="s2">"name"</span><span class="p">],</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+        <span class="n">clean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">matches</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+<span class="n">egfr_data</span> <span class="o">=</span> <span class="n">egfr_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">clean</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "860680865df84d3491e0e0ad3ce5ee9d", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NBVAL_CHECK_OUTPUT</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of found unwanted substructure: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of compounds without unwanted substructure: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">egfr_data</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of found unwanted substructure: 3232
+Number of compounds without unwanted substructure: 2089
+</pre></div></div>
+</div>
+</section>
+<section id="高亮显示子结构">
+<h3 id="高亮显示子结构">高亮显示子结构<a class="headerlink" href="#高亮显示子结构" title="Link to this heading">¶</a></h3>
+<p>让我们看看前3个被识别的不需要的子结构。由于我们可以访问底层的SMARTS模式，我们可以在RDKit分子中突出显示这些子结构。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_highlight</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">row</span><span class="o">.</span><span class="n">rdkit_molecule</span><span class="o">.</span><span class="n">GetSubstructMatch</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">substructure</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matches</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()</span>
+<span class="p">]</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span>
+    <span class="nb">list</span><span class="p">(</span><span class="n">matches</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">rdkit_molecule</span><span class="p">),</span>
+    <span class="n">highlightAtomLists</span><span class="o">=</span><span class="n">to_highlight</span><span class="p">,</span>
+    <span class="n">legends</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">matches</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">substructure_name</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T003_compound_unwanted_substructures_30_0.png" src="../_images/talktorials_T003_compound_unwanted_substructures_30_0.png"/>
+</div>
+</div>
+</section>
+<section id="子结构统计">
+<h3 id="子结构统计">子结构统计<a class="headerlink" href="#子结构统计" title="Link to this heading">¶</a></h3>
+<p>最后，我们想要找到在我们数据集中发现的最频繁的子结构。Pandas的<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>提供了方便的方法来分组包含的数据并检索组的大小。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NBVAL_CHECK_OUTPUT</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">matches</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"substructure_name"</span><span class="p">)</span>
+<span class="n">group_frequencies</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="n">group_frequencies</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">group_frequencies</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+substructure_name
+Michael-acceptor               1113
+Aliphatic-long-chain            489
+Oxygen-nitrogen-single-bond     367
+triple-bond                     252
+nitro-group                     177
+imine                           150
+Thiocarbonyl-group              114
+aniline                          64
+halogenated-ring                 62
+conjugated-nitrile-group         59
+dtype: int64
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Discussion">
+<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
+<p>在这篇教程中，我们学习了使用RDKit进行不想要的子结构搜索的两种可能性：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FilterCatalog</span></code> 类可以用来搜索预定义的子结构集合，例如 PAINS。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HasSubstructMatch()</span></code> 函数用于执行手动子结构搜索。</p></li>
+</ul>
+<p>实际上，PAINS 过滤也可以通过 <code class="docutils literal notranslate"><span class="pre">HasSubstructMatch()</span></code> 进行手动子结构搜索来实现。此外，Brenk 等人定义的子结构已经在 <code class="docutils literal notranslate"><span class="pre">FilterCatalog</span></code> 中实现。其他预定义集合可以在 RDKit 的<a class="reference external" href="http://rdkit.org/docs/source/rdkit.Chem.rdfiltercatalog.html">文档</a>中找到。</p>
+<p>到目前为止，我们一直在使用 <code class="docutils literal notranslate"><span class="pre">HasSubstructMatch()</span></code> 函数，该函数只返回每个化合物的一个匹配项。使用 <code class="docutils literal notranslate"><span class="pre">GetSubstructMatches()</span></code> 函数（<a class="reference external" href="https://www.rdkit.org/docs/source/rdkit.Chem.rdchem.html">文档</a>），我们有机会识别化合物中特定子结构的所有出现。</p>
+<p>在 PAINS 的情况下，我们只看了每个分子的第一个匹配项（<code class="docutils literal notranslate"><span class="pre">GetFirstMatch()</span></code>）。如果我们只是想过滤掉所有的 PAINS，这就足够了。然而，我们也可以使用 <code class="docutils literal notranslate"><span class="pre">GetMatches()</span></code> 来查看一个分子的所有关键子结构。</p>
+<p>检测到的子结构可以以两种不同的方式处理：</p>
+<ul class="simple">
+<li><p>要么，子结构搜索被应用为过滤器，化合物被排除在进一步测试之外，以节省时间和金钱。</p></li>
+<li><p>或者，它们可以作为警告使用，因为大约 5% 的 FDA 批准药物被发现含有 PAINS（<a class="reference external" href="https://pubs.acs.org/doi/10.1021/acschembio.7b00903">ACS. Chem. Biol. (2018), 13, 36-44</a>）。在这种情况下，专家可以手动判断，识别出的子结构是否关键。</p></li>
+</ul>
+</section>
+<section id="课后思考">
+<h2 id="课后思考">课后思考<a class="headerlink" href="#课后思考" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>我们为什么要考虑从筛选库中移除“PAINS”？这些化合物有什么问题？</p></li>
+<li><p>你能找出一些不需要移除的不想要的子结构的情况吗？</p></li>
+<li><p>我们在本教程中使用的子结构是如何编码的？</p></li>
+</ul>
+</section>
+<section id="本文作者:">
+<h2 id="本文作者:">本文作者:<a class="headerlink" href="#本文作者:" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Maximilian Driller, CADD seminar, 2017, Charité/FU Berlin</p></li>
+<li><p>Sandra Krüger, CADD seminar, 2018, Charité/FU Berlin</p></li>
+</ul>
+</section>
+<section id="翻译校对">
+<h2 id="翻译校对">翻译校对<a class="headerlink" href="#翻译校对" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>ByteTora</p></li>
+</ul>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"1f8ab4e1052f44fbb0c08c8103af9cd6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_f3867fd7667240bcb9f0cd2c980c756c", "style": "IPY_MODEL_3485e31d3ec34586affcdb824d29fa43", "value": " 4635/4635 [00:27&lt;00:00, 269.79it/s]"}}, "220cac4d9f614ee4a2802d460f9f7b28": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_2d52e6a56b38408c9d71bf181fd303a9", "max": 4635, "style": "IPY_MODEL_7e4b0b18ad1b464cbd396916caa97c2c", "value": 4635}}, "22b2351a426948d3b7636eee8b863dad": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2d52e6a56b38408c9d71bf181fd303a9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2d77feecd80b42beb3e483923e795583": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "3485e31d3ec34586affcdb824d29fa43": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "50451bf8f3e9414ba91d8465b936e454": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_7a85b484b444480abddc6096263e39dd", "max": 4227, "style": "IPY_MODEL_d73dfdd68ed248eca3408eccd1797245", "value": 4227}}, "61549d9bbe834e73818590ad20cb5947": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "6ad2549622814b28870bc73784527264": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7a85b484b444480abddc6096263e39dd": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7e4b0b18ad1b464cbd396916caa97c2c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "81bf31469aeb442aa720e871d502d8d6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "8cfee89eb6b1442caa8ca1970072f944": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a4409fcdbec641e08512cd46f9b81646": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_e41caae531644dcf9450006d9a995238", "IPY_MODEL_220cac4d9f614ee4a2802d460f9f7b28", "IPY_MODEL_1f8ab4e1052f44fbb0c08c8103af9cd6"], "layout": "IPY_MODEL_2d77feecd80b42beb3e483923e795583"}}, "bb3bd89af5774ee9b9e52057c0adfde8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_d1176b1e6c4541d4bc6993ad307b9ecb", "IPY_MODEL_50451bf8f3e9414ba91d8465b936e454", "IPY_MODEL_d4cf1bea7ea446f9b17e380bb5bc15df"], "layout": "IPY_MODEL_8cfee89eb6b1442caa8ca1970072f944"}}, "c344cb6e99d144648471048ebb024b7f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "d1176b1e6c4541d4bc6993ad307b9ecb": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_e82549c17c8f496e9913e0f6472cf179", "style": "IPY_MODEL_61549d9bbe834e73818590ad20cb5947", "value": "100%"}}, "d4cf1bea7ea446f9b17e380bb5bc15df": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_6ad2549622814b28870bc73784527264", "style": "IPY_MODEL_c344cb6e99d144648471048ebb024b7f", "value": " 4227/4227 [01:10&lt;00:00, 65.27it/s]"}}, "d73dfdd68ed248eca3408eccd1797245": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "e41caae531644dcf9450006d9a995238": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_22b2351a426948d3b7636eee8b863dad", "style": "IPY_MODEL_81bf31469aeb442aa720e871d502d8d6", "value": "100%"}}, "e82549c17c8f496e9913e0f6472cf179": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f3867fd7667240bcb9f0cd2c980c756c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}}, "version_major": 2, "version_minor": 0}
+</script></section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="T002_compound_adme.html" title="T002 · 分子筛选：ADME和类药性标准"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> T002 · 分子筛选：ADME和类药性标准 </span>
+              </div>
+            </a>
+          
+          
+            <a href="T004_compound_similarity.html" title="T004 · 基于配体的筛选：化合物相似性"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> T004 · 基于配体的筛选：化合物相似性 </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2026, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

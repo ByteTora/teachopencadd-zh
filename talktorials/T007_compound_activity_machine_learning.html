@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="T007 ·基于配体的筛选：机器学习" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T007_compound_activity_machine_learning.html" />
+<meta property="og:site_name" content="TeachOpenCADD" />
+<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Jan Philipp Albrecht, CADD seminar 2018, Charité/FU Berlin, Jacob Gora, CADD seminar 2018, Charité/FU Berlin,..." />
+<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
+<meta property="og:image:alt" content="TeachOpenCADD" />
+<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Jan Philipp Albrecht, CADD seminar 2018, Charité/FU Berlin, Jacob Gora, CADD seminar 2018, Charité/FU Berlin,..." />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+    <script async src="../_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>T007 ·基于配体的筛选：机器学习 &#8212; TeachOpenCADD 0.0.post1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=897d968c" />
+    <script src="../_static/documentation_options.js?v=3469de9b"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="T008 ·蛋白质数据采集：蛋白质数据库 （PDB）" href="T008_query_pdb.html" />
+    <link rel="prev" title="T006 ·最大公共子结构" href="T006_compound_maximum_common_substructures.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#talktorials/T007_compound_activity_machine_learning" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="TeachOpenCADD 0.0.post1 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic"> T007 ·基于配体的筛选：机器学习 </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="../installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="../contribute.html" class="md-tabs__link">Development</a></li>
+            
+            <li class="md-tabs__item"><a href="../contact.html" class="md-tabs__link">Contact</a></li>
+            
+            <li class="md-tabs__item"><a href="../citation.html" class="md-tabs__link">Citation</a></li>
+          <li class="md-tabs__item"><a href="../all_talktorials.html" class="md-tabs__link">Complete list of talktorials</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="TeachOpenCADD 0.0.post1 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="../index.html"
+       title="TeachOpenCADD 0.0.post1 documentation">TeachOpenCADD</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2019-jcim" class="md-nav__link">Edition 2019 - JCIM</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#edition-2021" class="md-nav__link">Edition 2021</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#ligand-based-cheminformatics" class="md-nav__link">Ligand-based cheminformatics</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#structural-biology" class="md-nav__link">Structural biology</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#online-apis-servers" class="md-nav__link">Online APIs/servers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#kinase-similarity" class="md-nav__link">Kinase similarity</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../talktorials.html#deep-learning" class="md-nav__link">Deep learning</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute.html" class="md-nav__link">For contributors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contact.html" class="md-nav__link">Contact</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../acknowledgments.html" class="md-nav__link">Acknowledgments</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../citation.html" class="md-nav__link">Citation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../funding.html" class="md-nav__link">Funding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#talktorials-t007-compound-activity-machine-learning--page-root" class="md-nav__link">T007 ·基于配体的筛选：机器学习</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#本次讲座的目的" class="md-nav__link">本次讲座的目的</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Theory-中的内容" class="md-nav__link"><em>Theory</em> 中的内容</a>
+        </li>
+        <li class="md-nav__item"><a href="#实用-中的内容" class="md-nav__link"><em>实用</em> 中的内容</a>
+        </li>
+        <li class="md-nav__item"><a href="#参考文献" class="md-nav__link">参考文献</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#理论" class="md-nav__link">理论</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#数据准备：分子编码" class="md-nav__link">数据准备：分子编码</a>
+        </li>
+        <li class="md-nav__item"><a href="#机器学习-（ML）" class="md-nav__link">机器学习 （ML）</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#监督式学习" class="md-nav__link">监督式学习</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#模型验证和评估" class="md-nav__link">模型验证和评估</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#验证策略：K-折交叉验证" class="md-nav__link">验证策略：K 折交叉验证</a>
+        </li>
+        <li class="md-nav__item"><a href="#Performance-measures" class="md-nav__link">Performance measures</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#练习" class="md-nav__link">练习</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#加载化合物和活性数据" class="md-nav__link">加载化合物和活性数据</a>
+        </li>
+        <li class="md-nav__item"><a href="#数据准备" class="md-nav__link">数据准备</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#数据标注" class="md-nav__link">数据标注</a>
+        </li>
+        <li class="md-nav__item"><a href="#分子编码" class="md-nav__link">分子编码</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#id13" class="md-nav__link">机器学习 （ML）</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#帮助程序函数" class="md-nav__link">帮助程序函数</a>
+        </li>
+        <li class="md-nav__item"><a href="#随机森林分类器" class="md-nav__link">随机森林分类器</a>
+        </li>
+        <li class="md-nav__item"><a href="#支持向量分类器" class="md-nav__link">支持向量分类器</a>
+        </li>
+        <li class="md-nav__item"><a href="#神经网络分类器" class="md-nav__link">神经网络分类器</a>
+        </li>
+        <li class="md-nav__item"><a href="#交叉验证" class="md-nav__link">交叉验证</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#讨论" class="md-nav__link">讨论</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#我们能从这里走向何方？" class="md-nav__link">我们能从这里走向何方？</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#测验" class="md-nav__link">测验</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/talktorials/T007_compound_activity_machine_learning.nblink.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="T007-·基于配体的筛选：机器学习">
+<h1 id="talktorials-t007-compound-activity-machine-learning--page-root">T007 ·基于配体的筛选：机器学习<a class="headerlink" href="#talktorials-t007-compound-activity-machine-learning--page-root" title="Link to this heading">¶</a></h1>
+<p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Jan Philipp Albrecht, CADD seminar 2018, Charité/FU Berlin</p></li>
+<li><p>Jacob Gora, CADD seminar 2018, Charité/FU Berlin</p></li>
+<li><p>Talia B. Kimber, 2019-2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a></p></li>
+<li><p>Andrea Volkamer, 2019-2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a></p></li>
+</ul>
+<p><strong>Talktorial T007</strong>: This talktorial is part of the TeachOpenCADD pipeline described in the <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">first TeachOpenCADD paper</a>, comprising of talktorials T001-T010.</p>
+<section id="本次讲座的目的">
+<h2 id="本次讲座的目的">本次讲座的目的<a class="headerlink" href="#本次讲座的目的" title="Link to this heading">¶</a></h2>
+<p>由于可用的数据源更大，机器学习 （ML） 在药物发现方面发展势头强劲，尤其是在基于配体的虚拟筛选方面。在本次讲座中，我们将学习如何使用不同的监督式 ML 算法来预测新化合物对我们感兴趣的靶标 （EGFR） 的活性。</p>
+<section id="Theory-中的内容">
+<h3 id="Theory-中的内容"><em>Theory</em> 中的内容<a class="headerlink" href="#Theory-中的内容" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>数据准备：分子编码</p></li>
+<li><p>机器学习 （ML）</p>
+<ul>
+<li><p>监督学习</p></li>
+</ul>
+</li>
+<li><p>模型验证和评估</p>
+<ul>
+<li><p>验证策略：K 折交叉验证</p></li>
+<li><p>衡量标准</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="实用-中的内容">
+<h3 id="实用-中的内容"><em>实用</em> 中的内容<a class="headerlink" href="#实用-中的内容" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>加载化合物和活性数据</p></li>
+<li><p>数据准备</p>
+<ul>
+<li><p>数据标注</p></li>
+<li><p>分子编码 *机器学习</p></li>
+<li><p>辅助函数</p></li>
+<li><p>随机森林分类器</p></li>
+<li><p>支持向量分类器</p></li>
+<li><p>神经网络分类器</p></li>
+<li><p>交叉验证</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="参考文献">
+<h3 id="参考文献">参考文献<a class="headerlink" href="#参考文献" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>“Fingerprints in the RDKit” <a class="reference external" href="https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf">slides</a>, G. Landrum, RDKit UGM 2012</p></li>
+<li><p>Extended-connectivity fingerprints (ECFPs): Rogers, David, and Mathew Hahn. “Extended-connectivity fingerprints.” <a class="reference external" href="https://doi.org/10.1021/ci100050t">Journal of chemical information and modeling 50.5 (2010): 742-754.</a></p></li>
+<li><p>Machine learning (ML):</p>
+<ul>
+<li><p>Random forest (RF): Breiman, L. “Random Forests”. <a class="reference external" href="https://link.springer.com/article/10.1023%2FA%3A1010933404324">Machine Learning 45, 5–32 (2001).</a></p></li>
+<li><p>Support vector machines (SVM): Cortes, C., Vapnik, V. “Support-vector networks”. <a class="reference external" href="https://link.springer.com/article/10.1007%2FBF00994018">Machine Learning 20, 273–297 (1995).</a></p></li>
+<li><p>Artificial neural networks (ANN): Van Gerven, Marcel, and Sander Bohte. “Artificial neural networks as models of neural information processing.” <a class="reference external" href="https://doi.org/10.3389/fncom.2017.00114">Frontiers in Computational Neuroscience 11 (2017): 114.</a></p></li>
+</ul>
+</li>
+<li><p>Performance:</p>
+<ul>
+<li><p>Sensitivity and specificity (<a class="reference external" href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">Wikipedia</a>)</p></li>
+<li><p>ROC curve and AUC (<a class="reference external" href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve">Wikipedia</a>)</p></li>
+</ul>
+</li>
+<li><p>See also <a class="reference external" href="https://github.com/Team-SKI/Publications/tree/master/Profiling_prediction_of_kinase_inhibitors">github notebook by B. Merget</a> from <a class="reference external" href="https://pubs.acs.org/doi/10.1021/acs.jmedchem.6b01611">J. Med. Chem., 2017, 60, 474−485</a></p></li>
+<li><p>Activity cutoff <span class="math notranslate nohighlight">\(pIC_{50} = 6.3\)</span> used in this talktorial</p>
+<ul>
+<li><p>Profiling Prediction of Kinase Inhibitors: Toward the Virtual Assay <a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.6b01611">J. Med. Chem. (2017), 60, 474-485</a></p></li>
+<li><p>Notebook accompanying the publication mentioned before: <a class="reference external" href="https://github.com/Team-SKI/Publications/blob/master/Profiling_prediction_of_kinase_inhibitors/Build_ABL1_model.ipynb">Notebook</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="理论">
+<h2 id="理论">理论<a class="headerlink" href="#理论" title="Link to this heading">¶</a></h2>
+<p>要成功应用 ML，我们需要一个大型分子数据集、一个分子编码、数据集中每个分子的标签，以及一个 ML 算法来训练模型。然后，我们可以对新分子进行预测。</p>
+<p><img alt="ML overview" src="../_images/ML_overview.png"/></p>
+<p><em>图 1</em>： 机器学习概述： 分子编码、标签、ML 算法、预测。图 Andrea Volkamer 提供。</p>
+<section id="数据准备：分子编码">
+<h3 id="数据准备：分子编码">数据准备：分子编码<a class="headerlink" href="#数据准备：分子编码" title="Link to this heading">¶</a></h3>
+<p>对于 ML，需要将分子转换为特征列表。通常使用分子指纹作为表示。</p>
+<p>本演讲中使用的指纹在 RDKit 中实现（更多信息可以在<a class="reference external" href="https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf">演讲人：G. Landrum</a>） 是：</p>
+<ul class="simple">
+<li><p><strong>MACCS</strong> ： ‘MACCS 密钥是 166 位结构密钥描述符，其中每个位都与一个 SMARTS 模式相关联。’ （参见 OpenEye 的<code class="docutils literal notranslate"><span class="pre">MACCS</span></code><a class="reference external" href="https://docs.eyesopen.com/toolkits/python/graphsimtk/fingerprint.html#maccs">文档</a>)</p></li>
+<li><p><strong>摩根指纹</strong> （以及 <strong>ECFP</strong> ）：’扩展连接指纹 （ECFP） 是圆形拓扑指纹，设计用于分子表征、相似性搜索和结构-活性建模。（参见 ChemAxon 的<code class="docutils literal notranslate"><span class="pre">ECFP</span></code><a class="reference external" href="https://docs.chemaxon.com/display/docs/Extended+Connectivity+Fingerprint+ECFP">文档</a>） ECFP 的原始实现是在 Pipeline Pilot 中完成的，它不是开源的。相反，我们使用 RDKit 中的实现，称为 Morgan 指纹。这些指纹的两个最重要的参数是半径和指纹长度。第一个参数指定每个原子考虑的圆形邻域的半径。这里考虑了两个半径：2 和 3。length
+参数指定位串表示形式被哈希处理到的长度。默认长度为 2048。</p></li>
+</ul>
+</section>
+<section id="机器学习-（ML）">
+<h3 id="机器学习-（ML）">机器学习 （ML）<a class="headerlink" href="#机器学习-（ML）" title="Link to this heading">¶</a></h3>
+<p>ML 可以用来（文本改编自<a class="reference external" href="http://scikit-learn.org/stable/">scikit-learn 页面</a>):</p>
+<ul class="simple">
+<li><p><strong>分类 （监督）</strong> ：确定对象属于哪个类别（例如：最近邻、朴素贝叶斯、RF、SVM 等）</p></li>
+<li><p>回归：预测与对象关联的连续值属性</p></li>
+<li><p>聚类（无监督）：自动将相似对象分组到集合中（另请参阅 <strong>谈话 T005</strong> )</p></li>
+</ul>
+<section id="监督式学习">
+<h4 id="监督式学习">监督式学习<a class="headerlink" href="#监督式学习" title="Link to this heading">¶</a></h4>
+<p>学习算法通过在训练数据中查找模式来创建规则。</p>
+<ul class="simple">
+<li><p><strong>随机森林 （RF）</strong> ：决策树的集成。单个决策树以最大化目标函数的方式分割输入向量的特征。在随机森林算法中，生长的树是去相关的，因为分割的特征选择是随机选择的。</p></li>
+<li><p><strong>支持向量机 （SVM）</strong> ： SVM 可以使用所谓的内核技巧有效地执行非线性分类，将其输入隐式映射到高维特征空间。分类器基于将边际最大化作为目标函数的思想。</p></li>
+<li><p><strong>人工神经网络 （ANN）</strong> ： 人工神经网络基于称为人工神经元的连接单元或节点的集合，这些单元或节点松散地模拟生物大脑中的神经元。每个连接，就像生物大脑中的突触一样，都可以将信号从一个人工神经元传输到另一个人工神经元。接收到信号的人工神经元可以处理它，然后向连接到它的其他人工神经元发送信号。</p></li>
+</ul>
+<p><img alt="ANN_example" src="../_images/ANN_wiki.png"/></p>
+<p><em>图 2</em>：具有一个隐藏层的神经网络示例。图取自<a class="reference external" href="https://en.wikipedia.org/wiki/Artificial_neural_network">维基百科</a>.</p>
+</section>
+</section>
+<section id="模型验证和评估">
+<h3 id="模型验证和评估">模型验证和评估<a class="headerlink" href="#模型验证和评估" title="Link to this heading">¶</a></h3>
+<section id="验证策略：K-折交叉验证">
+<h4 id="验证策略：K-折交叉验证">验证策略：K 折交叉验证<a class="headerlink" href="#验证策略：K-折交叉验证" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>这种模型验证技术以迭代方式将数据集分为两组：</p>
+<ul>
+<li><p>训练数据集：被视为训练模型的已知数据集</p></li>
+<li><p>测试数据集：然后测试模型的未知数据集</p></li>
+<li><p>过程重复 k 次</p></li>
+</ul>
+</li>
+<li><p>目标是测试模型预测以前从未见过的数据的能力，以标记已知的过度拟合问题并评估模型的泛化能力。</p></li>
+</ul>
+</section>
+<section id="Performance-measures">
+<h4 id="Performance-measures">Performance measures<a class="headerlink" href="#Performance-measures" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><strong>灵敏度</strong>，也称真阳性率</p>
+<ul>
+<li><p>TPR = TP/(FN + TP)</p></li>
+<li><p><em>直觉上</em>： 在所有实际的正样本中，有多少被预测为正样本？</p></li>
+</ul>
+</li>
+<li><p><strong>特异性</strong> ，也称真阴性率</p>
+<ul>
+<li><p>TNR = TN/(FP + TN)</p></li>
+<li><p><em>直觉上</em>： 在所有实际的负样本中，有多少被预测为负样本？</p></li>
+</ul>
+</li>
+<li><p><strong>准确性</strong> ，也称真实度</p>
+<ul>
+<li><p>ACC = (TP + TN)/(TP + TN + FP + FN)</p></li>
+<li><p><em>直觉上</em>： 正确预测的比例。</p></li>
+</ul>
+</li>
+<li><p><strong>ROC 曲线</strong>，受试者工作特征曲线</p>
+<ul>
+<li><p>一个图形图，说明了我们的分类器的分类能力</p></li>
+<li><p>绘制敏感度与特异性的关系图</p></li>
+</ul>
+</li>
+<li><p><strong>AUC</strong>，ROC 曲线下面积（Area under the ROC curve，AUC）：</p>
+<ul>
+<li><p>描述分类器将随机选择的正实例排在比负实例更高的概率</p></li>
+<li><p>介于 0 和 1 之间的值，越高越好</p></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr class="row-odd"><th class="head"><p>模型预测的内容</p></th>
+<th class="head"><p>真正的活性</p></th>
+<th class="head"><p>真正的非活性</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>活性</p></td>
+<td><p>真阳性 （TP）</p></td>
+<td><p>假阳性 （FP）</p></td>
+</tr>
+<tr class="row-odd"><td><p>非活性</p></td>
+<td><p>假阴性 （FN）</p></td>
+<td><p>真阴性 （TN）</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="练习">
+<h2 id="练习">练习<a class="headerlink" href="#练习" title="Link to this heading">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="kn">import</span> <span class="n">filterwarnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">clone</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neural_network</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLPClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">auc</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">recall_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">roc_auc_score</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit</span><span class="w"> </span><span class="kn">import</span> <span class="n">Chem</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem</span><span class="w"> </span><span class="kn">import</span> <span class="n">MACCSkeys</span><span class="p">,</span> <span class="n">rdFingerprintGenerator</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">teachopencadd.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">seed_everything</span>
+
+<span class="c1"># 将一些预期的警告静音</span>
+<span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+<span class="c1"># 固定种子以获得可重复的结果</span>
+<span class="n">SEED</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">seed_everything</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set path to this notebook</span>
+<span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
+</pre></div>
+</div>
+</div>
+<section id="加载化合物和活性数据">
+<h3 id="加载化合物和活性数据">加载化合物和活性数据<a class="headerlink" href="#加载化合物和活性数据" title="Link to this heading">¶</a></h3>
+<p>让我们从加载数据开始，它侧重于表皮生长因子受体 （EGFR） 激酶。来自 <strong>Talktorial T002</strong> 的 <em>csv</em> 文件被加载到一个包含重要列的数据帧中：</p>
+<ul class="simple">
+<li><p>CHEMBL-ID</p></li>
+<li><p>相应化合物的 SMILES 字符串</p></li>
+<li><p>测得的亲和力：pIC50</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 从以前的演讲中读取数据</span>
+<span class="n">chembl_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T002_compound_adme/data/EGFR_compounds_lipinski.csv"</span><span class="p">,</span>
+    <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># 查看数据</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of dataframe : "</span><span class="p">,</span> <span class="n">chembl_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">chembl_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Shape of dataframe :  (4635, 10)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>molecule_chembl_id</th>
+<th>IC50</th>
+<th>units</th>
+<th>smiles</th>
+<th>pIC50</th>
+<th>molecular_weight</th>
+<th>n_hba</th>
+<th>n_hbd</th>
+<th>logp</th>
+<th>ro5_fulfilled</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL63786</td>
+<td>0.003</td>
+<td>nM</td>
+<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
+<td>11.522879</td>
+<td>349.021459</td>
+<td>3</td>
+<td>1</td>
+<td>5.2891</td>
+<td>True</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL35820</td>
+<td>0.006</td>
+<td>nM</td>
+<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
+<td>11.221849</td>
+<td>387.058239</td>
+<td>5</td>
+<td>1</td>
+<td>4.9333</td>
+<td>True</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL53711</td>
+<td>0.006</td>
+<td>nM</td>
+<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.221849</td>
+<td>343.043258</td>
+<td>5</td>
+<td>1</td>
+<td>3.5969</td>
+<td>True</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CHEMBL66031</td>
+<td>0.008</td>
+<td>nM</td>
+<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
+<td>11.096910</td>
+<td>339.011957</td>
+<td>4</td>
+<td>2</td>
+<td>4.0122</td>
+<td>True</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CHEMBL53753</td>
+<td>0.008</td>
+<td>nM</td>
+<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.096910</td>
+<td>329.027607</td>
+<td>5</td>
+<td>2</td>
+<td>3.5726</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 仅保留我们想要的列</span>
+<span class="n">chembl_df</span> <span class="o">=</span> <span class="n">chembl_df</span><span class="p">[[</span><span class="s2">"molecule_chembl_id"</span><span class="p">,</span> <span class="s2">"smiles"</span><span class="p">,</span> <span class="s2">"pIC50"</span><span class="p">]]</span>
+<span class="n">chembl_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>molecule_chembl_id</th>
+<th>smiles</th>
+<th>pIC50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL63786</td>
+<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
+<td>11.522879</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL35820</td>
+<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
+<td>11.221849</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL53711</td>
+<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.221849</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CHEMBL66031</td>
+<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
+<td>11.096910</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CHEMBL53753</td>
+<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.096910</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="数据准备">
+<h3 id="数据准备">数据准备<a class="headerlink" href="#数据准备" title="Link to this heading">¶</a></h3>
+<section id="数据标注">
+<h4 id="数据标注">数据标注<a class="headerlink" href="#数据标注" title="Link to this heading">¶</a></h4>
+<p>我们需要将每种化合物分类为活性和非活性。因此，我们使用 pIC50 值。</p>
+<ul class="simple">
+<li><p>pIC50 = -log10（IC50）</p></li>
+<li><p>IC50 描述了抑制所需的物质量，<em>体外</em>，一个进程减少 50% 。</p></li>
+<li><p>离散化 pIC50 数据的常见临界值为 6.3，我们将将其用于实验（参见 [J. Med. Chem.（2017）， 60， 474-485]（<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.6b01611">https://doi.org/10.1021/acs.jmedchem.6b01611</a>） 和相应的 [笔记本]（<a class="reference external" href="https://github.com/Team-SKI/Publications/blob/master/Profiling_prediction_of_kinase_inhibitors/Build_ABL1_model.ipynb">https://github.com/Team-SKI/Publications/blob/master/Profiling_prediction_of_kinase_inhibitors/Build_ABL1_model.ipynb</a>））</p></li>
+<li><p>请注意，文献中还有其他几个关于活性截止值的建议，范围从 pIC50 值 5 到 7，甚至定义何时不获取数据点的排除范围。</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 为活性数据添加列</span>
+<span class="n">chembl_df</span><span class="p">[</span><span class="s2">"active"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chembl_df</span><span class="p">))</span>
+
+<span class="c1"># 用 pIC50 标记每个分子为活性 &gt;= 6.3， 0 否则</span>
+<span class="n">chembl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">chembl_df</span><span class="p">[</span><span class="n">chembl_df</span><span class="o">.</span><span class="n">pIC50</span> <span class="o">&gt;=</span> <span class="mf">6.3</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s2">"active"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of active compounds:"</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">chembl_df</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of inactive compounds:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">chembl_df</span><span class="p">)</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">chembl_df</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of active compounds: 2631
+Number of inactive compounds: 2004
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chembl_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>molecule_chembl_id</th>
+<th>smiles</th>
+<th>pIC50</th>
+<th>active</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL63786</td>
+<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
+<td>11.522879</td>
+<td>1.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL35820</td>
+<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
+<td>11.221849</td>
+<td>1.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL53711</td>
+<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.221849</td>
+<td>1.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CHEMBL66031</td>
+<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
+<td>11.096910</td>
+<td>1.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CHEMBL53753</td>
+<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.096910</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="分子编码">
+<h4 id="分子编码">分子编码<a class="headerlink" href="#分子编码" title="Link to this heading">¶</a></h4>
+<p>现在我们定义一个函数<code class="docutils literal notranslate"><span class="pre">smiles_to_fp</span></code>从 SMILES 生成指纹。 目前，我们合并了以下指纹之间的选择：</p>
+<ul class="simple">
+<li><p>MACCS</p></li>
+<li><p>Morgan2 和 Morgan3</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smiles_to_fp</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"maccs"</span><span class="p">,</span> <span class="n">n_bits</span><span class="o">=</span><span class="mi">2048</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">将 SMILES 字符串中的分子编码为指纹。</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    smiles : str</span>
+<span class="sd">        定义分子的 SMILES 字符串。</span>
+
+<span class="sd">    method : str</span>
+<span class="sd">        要使用的指纹类型。默认为 MACCS 密钥。</span>
+
+<span class="sd">    n_bits : int</span>
+<span class="sd">        指纹的长度。</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array</span>
+<span class="sd">        指纹数组。</span>
+
+<span class="sd">    """</span>
+
+    <span class="c1"># 将 smiles 转换为 RDKit mol 对象</span>
+    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"maccs"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">MACCSkeys</span><span class="o">.</span><span class="n">GenMACCSKeys</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"morgan2"</span><span class="p">:</span>
+        <span class="n">fpg</span> <span class="o">=</span> <span class="n">rdFingerprintGenerator</span><span class="o">.</span><span class="n">GetMorganGenerator</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fpSize</span><span class="o">=</span><span class="n">n_bits</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fpg</span><span class="o">.</span><span class="n">GetFingerprint</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"morgan3"</span><span class="p">:</span>
+        <span class="n">fpg</span> <span class="o">=</span> <span class="n">rdFingerprintGenerator</span><span class="o">.</span><span class="n">GetMorganGenerator</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fpSize</span><span class="o">=</span><span class="n">n_bits</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fpg</span><span class="o">.</span><span class="n">GetFingerprint</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># NBVAL_CHECK_OUTPUT</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Warning: Wrong method specified: </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">. Default will be used instead."</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">MACCSkeys</span><span class="o">.</span><span class="n">GenMACCSKeys</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compound_df</span> <span class="o">=</span> <span class="n">chembl_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add column for fingerprint</span>
+<span class="n">compound_df</span><span class="p">[</span><span class="s2">"fp"</span><span class="p">]</span> <span class="o">=</span> <span class="n">compound_df</span><span class="p">[</span><span class="s2">"smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">smiles_to_fp</span><span class="p">)</span>
+<span class="n">compound_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>molecule_chembl_id</th>
+<th>smiles</th>
+<th>pIC50</th>
+<th>active</th>
+<th>fp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL63786</td>
+<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
+<td>11.522879</td>
+<td>1.0</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL35820</td>
+<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
+<td>11.221849</td>
+<td>1.0</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL53711</td>
+<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.221849</td>
+<td>1.0</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+<section id="id13">
+<h3 id="id13">机器学习 （ML）<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
+<p>在下文中，我们将尝试几种 ML 方法来对我们的分子进行分类。我们将使用：</p>
+<ul class="simple">
+<li><p>随机森林 （RF）</p></li>
+<li><p>支持向量机 （SVM）</p></li>
+<li><p>人工神经网络 （ANN）</p></li>
+</ul>
+<p>此外，我们将对结果发表评论。</p>
+<p>目标是测试模型预测以前从未见过的数据的能力，以标记已知的过拟合问题并评估模型的泛化能力。</p>
+<p>我们首先定义一个函数<code class="docutils literal notranslate"><span class="pre">model_training_and_validation</span></code>它使模型在数据的随机训练-测试拆分上拟合，并返回在测试集上评估的准确性、灵敏度、特异性和 AUC 等度量值。我们还使用<code class="docutils literal notranslate"><span class="pre">plot_roc_curves_for_models</span></code>.</p>
+<p>然后，我们定义一个名为<code class="docutils literal notranslate"><span class="pre">crossvalidation</span></code>它执行交叉验证过程并打印 folds 上结果的统计信息。</p>
+<section id="帮助程序函数">
+<h4 id="帮助程序函数">帮助程序函数<a class="headerlink" href="#帮助程序函数" title="Link to this heading">¶</a></h4>
+<p>用于绘制自定义 ROC 曲线的辅助函数。代码灵感来自<a class="reference external" href="https://stackoverflow.com/questions/42894871/how-to-plot-multiple-roc-curves-in-one-plot-with-legend-and-auc-scores-in-python">StackOverflow</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_roc_curves_for_models</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span><span class="p">,</span> <span class="n">save_png</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    用于绘制自定义 roc 曲线的辅助函数。</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    models: dict</span>
+<span class="sd">        预训练机器学习模型的字典。</span>
+<span class="sd">    test_x: list</span>
+<span class="sd">        测试集的分子指纹图.</span>
+<span class="sd">    test_y: list</span>
+<span class="sd">        测试集的关联活动标签.</span>
+<span class="sd">    save_png: bool</span>
+<span class="sd">       将映像保存到磁盘（默认值 = False）</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fig:</span>
+<span class="sd">        Figure.</span>
+<span class="sd">    """</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="c1"># 下面的 for 循环遍历您的模型列表</span>
+    <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+        <span class="c1"># 选择模型</span>
+        <span class="n">ml_model</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span>
+        <span class="c1"># 测试集上的预测概率</span>
+        <span class="n">test_prob</span> <span class="o">=</span> <span class="n">ml_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test_x</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># 测试集上的 Prediction 类</span>
+        <span class="n">test_pred</span> <span class="o">=</span> <span class="n">ml_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
+        <span class="c1"># 计算假阳性率和真阳性率</span>
+        <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_prob</span><span class="p">)</span>
+        <span class="c1"># 计算要在绘图上显示的曲线下的面积</span>
+        <span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_prob</span><span class="p">)</span>
+        <span class="c1"># 绘制计算值</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span><span class="si">}</span><span class="s2"> AUC area = </span><span class="si">{</span><span class="n">auc</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">))</span>
+
+    <span class="c1"># 绘图的自定义设置</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">"r--"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"False Positive Rate"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"True Positive Rate"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Receiver Operating Characteristic"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+    <span class="c1"># 保存图</span>
+    <span class="k">if</span> <span class="n">save_png</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA</span><span class="si">}</span><span class="s2">/roc_auc"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<p>用于计算模型表现的 Helper 函数。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">model_performance</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Helper function to calculate model performance</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ml_model: sklearn model object</span>
+<span class="sd">        The machine learning model to train.</span>
+<span class="sd">    test_x: list</span>
+<span class="sd">        Molecular fingerprints for test set.</span>
+<span class="sd">    test_y: list</span>
+<span class="sd">        Associated activity labels for test set.</span>
+<span class="sd">    verbose: bool</span>
+<span class="sd">        Print performance measure (default = True)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple:</span>
+<span class="sd">        Accuracy, sensitivity, specificity, auc on test set.</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># 测试集上的预测概率</span>
+    <span class="n">test_prob</span> <span class="o">=</span> <span class="n">ml_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test_x</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># 测试集上的 Prediction 类</span>
+    <span class="n">test_pred</span> <span class="o">=</span> <span class="n">ml_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
+
+    <span class="c1"># 模型在测试集上的性能</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">)</span>
+    <span class="n">sens</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">)</span>
+    <span class="n">spec</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_prob</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="c1"># 打印模型表现</span>
+        <span class="c1"># NBVAL_CHECK_OUTPUT</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s2">.2</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sensitivity: </span><span class="si">{</span><span class="n">sens</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Specificity: </span><span class="si">{</span><span class="n">spec</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"AUC: </span><span class="si">{</span><span class="n">auc</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">accuracy</span><span class="p">,</span> <span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">auc</span>
+</pre></div>
+</div>
+</div>
+<p>Helper 函数，用于在数据的随机训练测试拆分上拟合机器学习模型并返回性能度量。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">model_training_and_validation</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">splits</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    在数据的随机训练-测试拆分上拟合机器学习模型并返回性能度量。</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ml_model: sklearn model object</span>
+<span class="sd">        The machine learning model to train.</span>
+<span class="sd">    name: str</span>
+<span class="sd">        Name of machine learning algorithm: RF, SVM, ANN</span>
+<span class="sd">    splits: list</span>
+<span class="sd">        List of desciptor and label data: train_x, test_x, train_y, test_y.</span>
+<span class="sd">    verbose: bool</span>
+<span class="sd">        Print performance info (default = True)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple:</span>
+<span class="sd">        Accuracy, sensitivity, specificity, auc on test set.</span>
+
+<span class="sd">    """</span>
+    <span class="n">train_x</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">splits</span>
+
+    <span class="c1"># Fit the model</span>
+    <span class="n">ml_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+
+    <span class="c1"># Calculate model performance results</span>
+    <span class="n">accuracy</span><span class="p">,</span> <span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">auc</span> <span class="o">=</span> <span class="n">model_performance</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">accuracy</span><span class="p">,</span> <span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">auc</span>
+</pre></div>
+</div>
+</div>
+<p>预处理：拆分数据（将复用给其他模型）</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fingerprint_to_model</span> <span class="o">=</span> <span class="n">compound_df</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">label_to_model</span> <span class="o">=</span> <span class="n">compound_df</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1"># 在 train 和 test set 中随机拆分数据</span>
+<span class="c1"># 请注意，我们使用 test/train_x 进行相应的指纹分割</span>
+<span class="c1"># 和 test/train_y 用于相应的标签分割</span>
+<span class="p">(</span>
+    <span class="n">static_train_x</span><span class="p">,</span>
+    <span class="n">static_test_x</span><span class="p">,</span>
+    <span class="n">static_train_y</span><span class="p">,</span>
+    <span class="n">static_test_y</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">fingerprint_to_model</span><span class="p">,</span> <span class="n">label_to_model</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">splits</span> <span class="o">=</span> <span class="p">[</span><span class="n">static_train_x</span><span class="p">,</span> <span class="n">static_test_x</span><span class="p">,</span> <span class="n">static_train_y</span><span class="p">,</span> <span class="n">static_test_y</span><span class="p">]</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Training data size:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">static_train_x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Test data size:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">static_test_x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Training data size: 3708
+Test data size: 927
+</pre></div></div>
+</div>
+</section>
+<section id="随机森林分类器">
+<h4 id="随机森林分类器">随机森林分类器<a class="headerlink" href="#随机森林分类器" title="Link to this heading">¶</a></h4>
+<p>我们从随机森林分类器开始，首先在其中设置参数。</p>
+<p>我们在随机训练-测试拆分上训练模型并绘制结果。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 设置随机森林的模型参数</span>
+<span class="n">param</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"n_estimators"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>  <span class="c1"># 要生长的树数</span>
+    <span class="s2">"criterion"</span><span class="p">:</span> <span class="s2">"entropy"</span><span class="p">,</span>  <span class="c1"># cost 函数进行优化以进行拆分</span>
+<span class="p">}</span>
+<span class="n">model_RF</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="o">**</span><span class="n">param</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 在单个分割上拟合模型</span>
+<span class="n">performance_measures</span> <span class="o">=</span> <span class="n">model_training_and_validation</span><span class="p">(</span><span class="n">model_RF</span><span class="p">,</span> <span class="s2">"RF"</span><span class="p">,</span> <span class="n">splits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sensitivity: 0.90
+Specificity: 0.77
+AUC: 0.90
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 初始化存储所有模型的列表。第一个是 RF。</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Model_RF"</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">:</span> <span class="n">model_RF</span><span class="p">}]</span>
+<span class="c1"># 绘制 roc 曲线</span>
+<span class="n">plot_roc_curves_for_models</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">static_test_x</span><span class="p">,</span> <span class="n">static_test_y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T007_compound_activity_machine_learning_42_0.png" src="../_images/talktorials_T007_compound_activity_machine_learning_42_0.png"/>
+</div>
+</div>
+</section>
+<section id="支持向量分类器">
+<h4 id="支持向量分类器">支持向量分类器<a class="headerlink" href="#支持向量分类器" title="Link to this heading">¶</a></h4>
+<p>在这里，我们使用径向基函数内核（也称为：平方指数内核）训练 SVM。 有关更多信息，请参阅<a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.RBF.html">sklearn RBF 内核</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 指定模型</span>
+<span class="n">model_SVM</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">"rbf"</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># 在单个分割上拟合模型</span>
+<span class="n">performance_measures</span> <span class="o">=</span> <span class="n">model_training_and_validation</span><span class="p">(</span><span class="n">model_SVM</span><span class="p">,</span> <span class="s2">"SVM"</span><span class="p">,</span> <span class="n">splits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sensitivity: 0.92
+Specificity: 0.74
+AUC: 0.90
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 追加 SVM 模型</span>
+<span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Model_SVM"</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">:</span> <span class="n">model_SVM</span><span class="p">})</span>
+<span class="c1"># 绘制 roc 曲线</span>
+<span class="n">plot_roc_curves_for_models</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">static_test_x</span><span class="p">,</span> <span class="n">static_test_y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T007_compound_activity_machine_learning_45_0.png" src="../_images/talktorials_T007_compound_activity_machine_learning_45_0.png"/>
+</div>
+</div>
+</section>
+<section id="神经网络分类器">
+<h4 id="神经网络分类器">神经网络分类器<a class="headerlink" href="#神经网络分类器" title="Link to this heading">¶</a></h4>
+<p>我们在这里尝试的最后一种方法是神经网络模型。我们训练一个有 2 层的 MLPClassifier（多层感知器分类器）：第一层有 5 个神经元，第二层有 3 个神经元。和以前一样，我们执行交叉验证过程并绘制结果。有关 MLP 的更多信息，请参阅<a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html">sklearn MLPClassifier</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 指定模型</span>
+<span class="n">model_ANN</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+
+<span class="c1"># 在单个分割上拟合模型</span>
+<span class="n">performance_measures</span> <span class="o">=</span> <span class="n">model_training_and_validation</span><span class="p">(</span><span class="n">model_ANN</span><span class="p">,</span> <span class="s2">"ANN"</span><span class="p">,</span> <span class="n">splits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sensitivity: 0.85
+Specificity: 0.73
+AUC: 0.86
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 追加 ANN 模型</span>
+<span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"label"</span><span class="p">:</span> <span class="s2">"Model_ANN"</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">:</span> <span class="n">model_ANN</span><span class="p">})</span>
+<span class="c1"># 绘制 roc 曲线</span>
+<span class="n">plot_roc_curves_for_models</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">static_test_x</span><span class="p">,</span> <span class="n">static_test_y</span><span class="p">,</span> <span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/talktorials_T007_compound_activity_machine_learning_48_0.png" src="../_images/talktorials_T007_compound_activity_machine_learning_48_0.png"/>
+</div>
+</div>
+<p>我们的模型显示所有测量值都非常好（参见 AUC），因此似乎具有预测性。</p>
+</section>
+<section id="交叉验证">
+<h4 id="交叉验证">交叉验证<a class="headerlink" href="#交叉验证" title="Link to this heading">¶</a></h4>
+<p>接下来，我们将使用三种不同的模型进行交叉验证实验。 因此，我们在交叉验证循环中为机器学习模型训练和验证定义了一个辅助函数。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">crossvalidation</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">n_folds</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    交叉验证循环中的机器学习模型训练和验证。</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ml_model: sklearn model object</span>
+<span class="sd">        The machine learning model to train.</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        Data set with SMILES and their associated activity labels.</span>
+<span class="sd">    n_folds: int, optional</span>
+<span class="sd">        Number of folds for cross-validation.</span>
+<span class="sd">    verbose: bool, optional</span>
+<span class="sd">        Performance measures are printed.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+
+<span class="sd">    """</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="c1"># Shuffle the indices for the k-fold cross-validation</span>
+    <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">n_folds</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+
+    <span class="c1"># Results for each of the cross-validation folds</span>
+    <span class="n">acc_per_fold</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sens_per_fold</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">spec_per_fold</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">auc_per_fold</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Loop over the folds</span>
+    <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+        <span class="c1"># clone model -- we want a fresh copy per fold!</span>
+        <span class="n">fold_model</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">ml_model</span><span class="p">)</span>
+        <span class="c1"># Training</span>
+
+        <span class="c1"># Convert the fingerprint and the label to a list</span>
+        <span class="n">train_x</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">train_y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+        <span class="c1"># Fit the model</span>
+        <span class="n">fold_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+
+        <span class="c1"># Testing</span>
+
+        <span class="c1"># Convert the fingerprint and the label to a list</span>
+        <span class="n">test_x</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">test_y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+        <span class="c1"># Performance for each fold</span>
+        <span class="n">accuracy</span><span class="p">,</span> <span class="n">sens</span><span class="p">,</span> <span class="n">spec</span><span class="p">,</span> <span class="n">auc</span> <span class="o">=</span> <span class="n">model_performance</span><span class="p">(</span><span class="n">fold_model</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">test_y</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+
+        <span class="c1"># Save results</span>
+        <span class="n">acc_per_fold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy</span><span class="p">)</span>
+        <span class="n">sens_per_fold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sens</span><span class="p">)</span>
+        <span class="n">spec_per_fold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+        <span class="n">auc_per_fold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">auc</span><span class="p">)</span>
+
+    <span class="c1"># Print statistics of results</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"Mean accuracy: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">acc_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"and std : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">acc_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"Mean sensitivity: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sens_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"and std : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">sens_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"Mean specificity: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">spec_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"and std : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">spec_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"Mean AUC: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">auc_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"and std : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">auc_per_fold</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"Time taken : </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">acc_per_fold</span><span class="p">,</span> <span class="n">sens_per_fold</span><span class="p">,</span> <span class="n">spec_per_fold</span><span class="p">,</span> <span class="n">auc_per_fold</span>
+</pre></div>
+</div>
+</div>
+<p><strong>交叉验证</strong></p>
+<p>现在，我们应用交叉验证并显示所有三个 ML 模型的统计数据。在实际条件下，交叉验证通常应用 5 个或更多折叠，但为了性能，我们会将其减少到 3 个。您可以更改<code class="docutils literal notranslate"><span class="pre">N_FOLDS</span></code>在下面的单元格中。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_FOLDS</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<p><em>注意</em>：下一个单元格执行时间长</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">======= "</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">model</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">crossvalidation</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span> <span class="n">compound_df</span><span class="p">,</span> <span class="n">n_folds</span><span class="o">=</span><span class="n">N_FOLDS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+=======
+Model_RF
+Mean accuracy: 0.83     and std : 0.01
+Mean sensitivity: 0.88  and std : 0.02
+Mean specificity: 0.76  and std : 0.01
+Mean AUC: 0.89  and std : 0.01
+Time taken : 1.32s
+
+
+=======
+Model_SVM
+Mean accuracy: 0.84     and std : 0.01
+Mean sensitivity: 0.90  and std : 0.01
+Mean specificity: 0.76  and std : 0.00
+Mean AUC: 0.89  and std : 0.01
+Time taken : 12.12s
+
+
+=======
+Model_ANN
+Mean accuracy: 0.81     and std : 0.00
+Mean sensitivity: 0.86  and std : 0.01
+Mean specificity: 0.73  and std : 0.01
+Mean AUC: 0.87  and std : 0.00
+Time taken : 4.31s
+
+</pre></div></div>
+</div>
+<p>我们研究了使用 Morgan 指纹而不是 MACCS 密钥编码的分子的交叉验证性能。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset data frame</span>
+<span class="n">compound_df</span> <span class="o">=</span> <span class="n">chembl_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 使用半径为 3 的 Morgan 指纹</span>
+<span class="n">compound_df</span><span class="p">[</span><span class="s2">"fp"</span><span class="p">]</span> <span class="o">=</span> <span class="n">compound_df</span><span class="p">[</span><span class="s2">"smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">smiles_to_fp</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"morgan3"</span><span class="p">,))</span>
+<span class="n">compound_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>molecule_chembl_id</th>
+<th>smiles</th>
+<th>pIC50</th>
+<th>active</th>
+<th>fp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CHEMBL63786</td>
+<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
+<td>11.522879</td>
+<td>1.0</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CHEMBL35820</td>
+<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
+<td>11.221849</td>
+<td>1.0</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CHEMBL53711</td>
+<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
+<td>11.221849</td>
+<td>1.0</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><em>注意</em>：下一个单元格执行时间长</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">model</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Model_SVM"</span><span class="p">:</span>
+        <span class="c1"># SVM is super slow with long fingerprints</span>
+        <span class="c1"># and will have a performance similar to RF</span>
+        <span class="c1"># We can skip it in this test, but if you want</span>
+        <span class="c1"># to run it, feel free to replace `continue` with `pass`</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">======="</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="s2">"label"</span><span class="p">])</span>
+    <span class="n">crossvalidation</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span> <span class="n">compound_df</span><span class="p">,</span> <span class="n">n_folds</span><span class="o">=</span><span class="n">N_FOLDS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+=======
+Model_RF
+Mean accuracy: 0.86     and std : 0.01
+Mean sensitivity: 0.90  and std : 0.01
+Mean specificity: 0.81  and std : 0.00
+Mean AUC: 0.92  and std : 0.01
+Time taken : 5.21s
+
+
+=======
+Model_ANN
+Mean accuracy: 0.81     and std : 0.01
+Mean sensitivity: 0.84  and std : 0.01
+Mean specificity: 0.77  and std : 0.00
+Mean AUC: 0.88  and std : 0.01
+Time taken : 12.77s
+
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="讨论">
+<h2 id="讨论">讨论<a class="headerlink" href="#讨论" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>哪种模型在我们的数据集上表现最好，为什么？</p>
+<ul>
+<li><p>这三种模型在我们的数据集上都表现得（非常）好。最好的模型是随机森林和支持向量机模型，它们的平均 AUC 约为 90%。我们的神经网络显示的结果略低。</p></li>
+<li><p>随机森林和支持向量机模型性能最佳可能有多种原因。我们的数据集可能很容易通过一些简单的树状决策或径向基函数来区分 active/inactive 。因此，指纹中没有如此复杂的模式来进行这种分类。</p></li>
+<li><p>ANN 性能稍差的一个原因可能是训练模型的数据太少。</p></li>
+<li><p>此外，始终建议为模型评估设置另一个外部验证集。</p></li>
+</ul>
+</li>
+<li><p>MACCS 是正确的选择吗？</p>
+<ul>
+<li><p>显然，MACCS 非常适合开始训练和验证模型，看看是否可以进行分类。</p></li>
+<li><p>但是，与其他密钥（166 位）相比，MACCS 密钥相当短（2048 位），例如 Morgan 指纹。如上一个模拟所示，拥有更长的指纹有助于学习过程。所有测试模型使用 Morgan 指纹的表现略好（参见平均 AUC 增加）。</p></li>
+</ul>
+</li>
+</ul>
+<section id="我们能从这里走向何方？">
+<h3 id="我们能从这里走向何方？">我们能从这里走向何方？<a class="headerlink" href="#我们能从这里走向何方？" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>我们成功地训练了几个模型。</p></li>
+<li><p>下一步可能是使用这些模型对未知筛选数据集进行分类，以预测新型潜在 EGFR 抑制剂。</p></li>
+<li><p>大型筛选数据集的一个例子是<a class="reference external" href="https://www.molport.com/shop/database-download">MolPort</a>拥有超过 700 万种化合物。</p></li>
+<li><p>我们的模型可用于对 MolPort 化合物进行排名，然后进一步研究那些预测活性概率最高的化合物。</p></li>
+<li><p>对于此类应用程序，另请参阅<a class="reference external" href="https://github.com/sriniker/TDT-tutorial-2014">TDT 教程</a>由 S. Riniker 和 G. Landrum 开发，他们在那里训练了一个融合模型来筛选<a class="reference external" href="https://www.emolecules.com/">e分子</a>用于新的抗疟疾药物。</p></li>
+</ul>
+</section>
+</section>
+<section id="测验">
+<h2 id="测验">测验<a class="headerlink" href="#测验" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>如何将 ML 应用于虚拟筛选？</p></li>
+<li><p>您了解哪些机器学习算法？</p></li>
+<li><p>成功应用 ML 的必要先决条件是什么？</p></li>
+</ul>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script></section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="T006_compound_maximum_common_substructures.html" title="T006 ·最大公共子结构"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> T006 ·最大公共子结构 </span>
+              </div>
+            </a>
+          
+          
+            <a href="T008_query_pdb.html" title="T008 ·蛋白质数据采集：蛋白质数据库 （PDB）"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> T008 ·蛋白质数据采集：蛋白质数据库 （PDB） </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2026, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

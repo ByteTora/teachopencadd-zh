@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="For contributors" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/contribute.html" />
+<meta property="og:site_name" content="TeachOpenCADD" />
+<meta property="og:description" content="You are welcome to contribute to the project either by requesting new topics, proposing ideas or getting involved in the development! Engage with the maintainers and other TeachOpenCADD users in our GitHub Discussions forum!, Submit new talktorials (see Submitting new talktorials)., Update existi..." />
+<meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
+<meta property="og:image:alt" content="TeachOpenCADD" />
+<meta name="description" content="You are welcome to contribute to the project either by requesting new topics, proposing ideas or getting involved in the development! Engage with the maintainers and other TeachOpenCADD users in our GitHub Discussions forum!, Submit new talktorials (see Submitting new talktorials)., Update existi..." />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="_static/javascripts/modernizr.js"></script>
+  
+    <script async src="_static/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+            "popup": {
+                "background": "#f0f0f0",
+                "text": "#999"
+            },
+            "button": {
+                "text": "#fff",
+                "background": "#009688"
+            }
+            },
+            "theme": "classic"
+        })});
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6ZE82CNZB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q6ZE82CNZB');
+    </script>
+  
+    <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>For contributors &#8212; TeachOpenCADD 0.0.post1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=897d968c" />
+    <script src="_static/documentation_options.js?v=3469de9b"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Documentation" href="api.html" />
+    <link rel="prev" title="Installing" href="installing.html" />
+  
+    <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=teal data-md-color-accent=cyan>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#contribute" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="index.html" title="TeachOpenCADD 0.0.post1 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">TeachOpenCADD</span>
+          <span class="md-header-nav__topic"> For contributors </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="talktorials.html" class="md-tabs__link">Our talktorials</a></li>
+            
+            <li class="md-tabs__item"><a href="installing.html" class="md-tabs__link">Run locally</a></li>
+            
+            <li class="md-tabs__item"><a href="#" class="md-tabs__link">Development</a></li>
+            
+            <li class="md-tabs__item"><a href="contact.html" class="md-tabs__link">Contact</a></li>
+            
+            <li class="md-tabs__item"><a href="citation.html" class="md-tabs__link">Citation</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="index.html" title="TeachOpenCADD 0.0.post1 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    <a href="index.html"
+       title="TeachOpenCADD 0.0.post1 documentation">TeachOpenCADD</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/volkamerlab/teachopencadd/" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    TeachOpenCADD
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Our talktorials</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="all_talktorials.html" class="md-nav__link">Complete list of talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="talktorials.html" class="md-nav__link">Talktorials by collection</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Run locally</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="installing.html" class="md-nav__link">Installing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Development</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> For contributors </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">For contributors</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#contribute--page-root" class="md-nav__link">For contributors</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#submitting-new-talktorials" class="md-nav__link">Submitting new talktorials</a>
+        </li>
+        <li class="md-nav__item"><a href="#updating-talktorials" class="md-nav__link">Updating talktorials</a>
+        </li>
+        <li class="md-nav__item"><a href="#maintaining-talktorials" class="md-nav__link">Maintaining talktorials</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/contribute.rst.txt">Show Source</a> </li>
+
+  </ul>
+</nav>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#submitting-new-talktorials" class="md-nav__link">Submitting new talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#updating-talktorials" class="md-nav__link">Updating talktorials</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#maintaining-talktorials" class="md-nav__link">Maintaining talktorials</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="api.html" class="md-nav__link">API Documentation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">About TeachOpenCADD</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="contact.html" class="md-nav__link">Contact</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="acknowledgments.html" class="md-nav__link">Acknowledgments</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="citation.html" class="md-nav__link">Citation</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="funding.html" class="md-nav__link">Funding</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">External resources</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="external_dependencies.html" class="md-nav__link">Packages and webservers used in TeachOpenCADD</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="external_tutorials_collections.html" class="md-nav__link">External tutorials and collections</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#contribute--page-root" class="md-nav__link">For contributors</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#submitting-new-talktorials" class="md-nav__link">Submitting new talktorials</a>
+        </li>
+        <li class="md-nav__item"><a href="#updating-talktorials" class="md-nav__link">Updating talktorials</a>
+        </li>
+        <li class="md-nav__item"><a href="#maintaining-talktorials" class="md-nav__link">Maintaining talktorials</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/contribute.rst.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="for-contributors">
+<h1 id="contribute--page-root">For contributors<a class="headerlink" href="#contribute--page-root" title="Link to this heading">¶</a></h1>
+<p>You are welcome to contribute to the project either by requesting new topics, proposing ideas or
+getting involved in the development!</p>
+<ul class="simple">
+<li><p>Engage with the maintainers and other TeachOpenCADD users in our <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/discussions">GitHub Discussions forum</a>!</p></li>
+<li><p>Submit new talktorials (see <a class="reference internal" href="#submitting-new-talktorials">Submitting new talktorials</a>).</p></li>
+<li><p>Update existing talktorials by fixing bugs or extending the content (see <a class="reference internal" href="#updating-talktorials">Updating talktorials</a>).</p></li>
+<li><p>Help us maintain TeachOpenCADD (see <a class="reference internal" href="#maintaining-talktorials">Maintaining talktorials</a>).</p></li>
+</ul>
+<section id="submitting-new-talktorials">
+<h2 id="submitting-new-talktorials">Submitting new talktorials<a class="headerlink" href="#submitting-new-talktorials" title="Link to this heading">¶</a></h2>
+<p>This is a step-by-step guide on how to submit new talktorials.</p>
+<ol class="arabic">
+<li><p>Fork the repository: <a class="reference external" href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">https://docs.github.com/en/get-started/quickstart/fork-a-repo</a></p></li>
+<li><p>Ask us for your talktorial index (our notebooks are indexed with T001, T002, …).</p></li>
+<li><p>Clone your fork:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:your-github-name/teachopencadd.git
+</pre></div>
+</div>
+</li>
+<li><p>Change into the cloned/downloaded <code class="docutils literal notranslate"><span class="pre">teachopencadd</span></code> folder:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd teachopencadd
+</pre></div>
+</div>
+</li>
+<li><p>Checkout a new branch with your initials, talktorial index, and talktorial short title (e.g. <code class="docutils literal notranslate"><span class="pre">ab-t099-fingerprints</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git checkout -b ab-t099-fingerprints
+</pre></div>
+</div>
+</li>
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">toc-dev</span></code> environment:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Create environment with dependencies
+mamba env create -f devtools/test_env.yml -n toc-dev
+# On MacOS with M1 chip you may need
+CONDA_SUBDIR=osx-64 mamba env create -f devtools/test_env.yml -n toc-dev
+
+# Activate enviroment
+conda activate toc-dev
+
+# Pip install teachopencadd in editable mode
+cd ..
+pip install -e teachopencadd
+cd teachopencadd
+
+# Interact with the talktorials via e.g. Jupyter Lab
+jupyter lab
+</pre></div>
+</div>
+<p>If you add new dependencies to <code class="docutils literal notranslate"><span class="pre">devtools/test_env.yml</span></code>, you will need to redo <strong>step 6</strong>.</p>
+</li>
+<li><p>Make a copy of the following template folder using your talktorial index and short name (example here is <code class="docutils literal notranslate"><span class="pre">T099_fingerprints</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cp -r teachopencadd/talktorials/T000_template/ teachopencadd/talktorials/T099_fingerprints
+</pre></div>
+</div>
+</li>
+<li><p>Replace all instances of <code class="docutils literal notranslate"><span class="pre">T000_template</span></code> or “T000 · Talktorial topic title” with your talktorial index and title.</p>
+<ol class="loweralpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">T099_fingerprints/talktorial.ipynb</span></code> is the talktorial template (<a class="reference external" href="https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T000_template/talktorial.ipynb">see the example here</a>), within which you develope your new talktorial. Please read through the template before you start as it contains a lot of information about the content and style requirements.</p></li>
+<li><p>You do not need to worry about updating <code class="docutils literal notranslate"><span class="pre">T099_fingerprints/README.md</span></code> as we are autogenerating these READMEs with the first couple of sections of the notebook (see more details in <a class="reference internal" href="#maintaining-talktorials">Maintaining talktorials</a>).</p></li>
+<li><p>As the names suggest, the folders <code class="docutils literal notranslate"><span class="pre">T099_fingerprints/data/</span></code> and <code class="docutils literal notranslate"><span class="pre">T099_fingerprints/images/</span></code> can be used to store input/output data and images. Whenever possible, avoid adding files and instead fetch data/images by URL. Ask us if in doubt.</p></li>
+</ol>
+</li>
+<li><p>Push your new talktorial folder skeleton to your GitHub repository (replace <code class="docutils literal notranslate"><span class="pre">T099_fingerprints</span></code> and <code class="docutils literal notranslate"><span class="pre">ab-t099-fingerprints</span></code> with your own):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Add folder
+git add teachopencadd/talktorials/T099_fingerprints/
+# Commit changes
+git commit -m "T099: Add talktorial folder skeleton"
+# Push changes
+git push origin ab-t099-fingerprints
+</pre></div>
+</div>
+</li>
+<li><p>Create the pull request (PR) with our PR template:</p>
+<ol class="loweralpha simple">
+<li><p>Go to your fork <code class="docutils literal notranslate"><span class="pre">https://github.com/your-github-name/teachopencadd/pulls</span></code> and click “New pull request”.</p></li>
+<li><p>Select the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">base</span> <span class="pre">repository:</span> <span class="pre">volkamberlab/teachopencadd</span></code> and <code class="docutils literal notranslate"><span class="pre">base:</span> <span class="pre">master</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">repository:</span> <span class="pre">your-github-name/teachopencadd</span></code> and <code class="docutils literal notranslate"><span class="pre">compare:</span> <span class="pre">ab-t099-fingerprints</span></code></p></li>
+</ul>
+</li>
+<li><p>Click “Create pull request”.</p></li>
+<li><p>When the PR description window opens, please copy-paste <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/blob/master/.github/PULL_REQUEST_TEMPLATE/talktorial_review.md">the content of this PR template</a> into it.</p></li>
+</ol>
+</li>
+<li><p>Read through the PR description TODOs and check in with us if you have questions. Note: Many bullet points have to do with our maintenance efforts (see more details in <a class="reference internal" href="#maintaining-talktorials">Maintaining talktorials</a>).</p></li>
+<li><p>Get started with developing your talktorials. Add your changes to the PR by following the procedure in <strong>step 9</strong>.</p></li>
+<li><p>Ping us if you need help or are ready for the PR review. Thanks!</p></li>
+</ol>
+</section>
+<section id="updating-talktorials">
+<h2 id="updating-talktorials">Updating talktorials<a class="headerlink" href="#updating-talktorials" title="Link to this heading">¶</a></h2>
+<p>This is a step-by-step guide on how to update existing talktorials.</p>
+<p>If you find an error in a talktorial or wish to extend the content of one, please follow these steps (example: updating talktorial <code class="docutils literal notranslate"><span class="pre">T002_compound_adme</span></code>):</p>
+<ol class="arabic simple">
+<li><p>Fork and clone the <code class="docutils literal notranslate"><span class="pre">teachopencadd</span></code> repository and checkout a new branch as described in  <strong>steps 1-5</strong> in <a class="reference internal" href="#submitting-new-talktorials">Submitting new talktorials</a>, while <strong>step 2</strong> refers to the index of the talktorial you wish to update, e.g. <code class="docutils literal notranslate"><span class="pre">T002_compound_adme</span></code>, and your new branch should be something descriptive like <code class="docutils literal notranslate"><span class="pre">ab-t002-extend-adme-theory</span></code>.</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>Set up environment as described in <strong>step 6</strong> in <a class="reference internal" href="#submitting-new-talktorials">Submitting new talktorials</a>.</p></li>
+</ol>
+<ol class="arabic" start="2">
+<li><p>Push your new branch to your GitHub repository (replace <code class="docutils literal notranslate"><span class="pre">T002_compound_adme</span></code> and <code class="docutils literal notranslate"><span class="pre">ab-t002-extend-adme-theory</span></code> with your own):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Add folder
+git add teachopencadd/talktorials/T002_compound_adme/
+# Commit changes
+git commit -m "T002: Extend ADME theory"
+# Push changes
+git push origin ab-t002-extend-adme-theory
+</pre></div>
+</div>
+</li>
+<li><p>Create PR as described in <strong>steps 10 and 11</strong> in <a class="reference internal" href="#submitting-new-talktorials">Submitting new talktorials</a>. Some PR bullet points might not apply to your case, please use <code class="docutils literal notranslate"><span class="pre">~</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">~some</span> <span class="pre">bullet</span> <span class="pre">point~</span></code>) to strike those through.</p></li>
+<li><p>Ping us if you need help or are ready for the PR review. Thanks!</p></li>
+</ol>
+</section>
+<section id="maintaining-talktorials">
+<h2 id="maintaining-talktorials">Maintaining talktorials<a class="headerlink" href="#maintaining-talktorials" title="Link to this heading">¶</a></h2>
+<p>This is an overview about our TeachOpenCADD maintenance efforts.</p>
+<ul>
+<li><p>Our <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/tree/master/devtools">environment file</a> satisfies the dependencies for all TeachOpenCADD talktorials. This format might change in the future as discussed <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/discussions/277">here</a>.</p></li>
+<li><p>Our <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/blob/master/.github/workflows/ci.yml">GitHub Actions CI setup file</a> contains:</p>
+<ul>
+<li><p>Notebook tests (<code class="docutils literal notranslate"><span class="pre">pytest</span></code>), which check if the notebook runs without errors and if cells flagged with <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">NBVAL_CHECK_OUTPUT</span></code> produce the same output in the CI run as saved within the <code class="docutils literal notranslate"><span class="pre">talktorial.ipynb</span></code> file. Check under <code class="docutils literal notranslate"><span class="pre">jobs.test</span></code> the tested operating systems and Python versions.</p></li>
+<li><p>Notebook formatting (<code class="docutils literal notranslate"><span class="pre">black-nb</span></code>), check under <code class="docutils literal notranslate"><span class="pre">jobs.format</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Apply formatting to all talktorials
+black-nb -l 99 teachopencadd/talktorials/T*/talktorial.ipynb
+</pre></div>
+</div>
+</li>
+<li><p>Autogenerated READMEs, check under <code class="docutils literal notranslate"><span class="pre">jobs.readmes</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Autogenerate all talktorials' README
+for path in teachopencadd/talktorials/T*/talktorial.ipynb; do
+    python devtools/regenerate_readmes.py --output README.md $path
+done
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Our <a class="reference external" href="https://projects.volkamerlab.org/teachopencadd/">TeachOpenCADD website</a>:</p>
+<ul class="simple">
+<li><p>You can render the website locally (including your changes) as described in <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/blob/master/docs/README.md">our documentation README</a>.</p></li>
+<li><p>Please follow <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/blob/master/.github/PULL_REQUEST_TEMPLATE/talktorial_review.md#website">these steps</a> if you wish to add new content.</p></li>
+</ul>
+</li>
+<li><p>We are cutting new releases as described in this <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/discussions/197">Discussion entry</a>.</p></li>
+<li><p>Our <code class="docutils literal notranslate"><span class="pre">teachopencadd</span></code> package lives with <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>: <a class="reference external" href="https://anaconda.org/conda-forge/teachopencadd">https://anaconda.org/conda-forge/teachopencadd</a></p>
+<ul class="simple">
+<li><p>Whenever we cut a new GitHub release, we have to also cut a new <code class="docutils literal notranslate"><span class="pre">conda</span></code> release.</p></li>
+<li><p>Refer to <a class="reference external" href="https://conda-forge.org/docs/maintainer/updating_pkgs.html">“Maintaining packages”</a>  and <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/discussions/184">these notes</a> for instructions on how to do this and ask @dominiquesydow for help. In order to cut a new <code class="docutils literal notranslate"><span class="pre">conda</span></code> release, you will need to update the recipe within our <a class="reference external" href="https://github.com/conda-forge/teachopencadd-feedstock">teachopencadd feedstock</a>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="installing.html" title="Installing"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> Installing </span>
+              </div>
+            </a>
+          
+          
+            <a href="api.html" title="API Documentation"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> API Documentation </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2018-2026, Volkamer Lab. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.1.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

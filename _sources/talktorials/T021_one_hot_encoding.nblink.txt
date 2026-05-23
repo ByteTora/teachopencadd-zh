@@ -1,0 +1,1 @@
+{"path": "../../teachopencadd/\u6559\u7a0b/T021_\u72ec\u70ed\u7f16\u7801/talktorial.ipynb", "extra-media": ["../../teachopencadd/\u6559\u7a0b/T021_\u72ec\u70ed\u7f16\u7801/images"]}
