@@ -30,10 +30,11 @@ jobs:
         with:
           enable-cache: true
 
-      - name: Install package
+      - name: Install package and docs dependencies
         shell: bash -l {0}
         run: |
           uv pip install -e "."
+          uv pip install sphinx sphinx_rtd_theme sphinx-gallery sphinx-material sphinx-copybutton sphinxext-opengraph "sphinx-autodoc-typehints<3.9" matplotlib ipywidgets nbsphinx nbsphinx-link ipython numpydoc "docutils<0.21"
 
       - name: Environment Information
         shell: bash -l {0}
