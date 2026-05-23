@@ -1,0 +1,75 @@
+[project]
+name = "teachopencadd"
+dynamic = ["version"]
+description = "动手学CADD - 计算机辅助药物设计(CADD)中文教学平台，使用开源工具包和数据。"
+readme = "README.md"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31.0",
+    "uv>=0.1.0",
+    "rich>=14.3.3",
+    "nbformat>=5.10.0",
+    "nbval>=0.10.0",
+    "pytest>=7.0.0",
+]
+
+[project.optional-dependencies]
+lab = [
+    "jupyterlab>=4.5.6",
+    "black>=26.3.1",
+    "nbconvert>=7.17.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ByteTora/teachopencadd-zh"
+Repository = "https://github.com/ByteTora/teachopencadd-zh.git"
+Issues = "https://github.com/ByteTora/teachopencadd-zh/issues"
+
+[dependency-groups]
+docs = [
+  "sphinx",
+  "sphinx_rtd_theme",
+  "sphinx-gallery",
+  "sphinx-material",
+  "sphinx-copybutton",
+  "sphinxext-opengraph",
+  "sphinx-autodoc-typehints<3.9",
+  "matplotlib",
+  "ipywidgets",
+  "pandoc",
+  "nbsphinx",
+  "nbsphinx-link",
+  "ipython",
+  "numpydoc",
+  "docutils<0.21",
+]
+
+[project.scripts]
+teachopencadd = "teachopencadd.cli:main"
+
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools_scm]
+version_scheme = "post-release"
+local_scheme = "no-local-version"
+write_to = "teachopencadd/_version.py"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["teachopencadd*"]
+exclude = [
+    "teachopencadd.教程*",
+    "teachopencadd.talktorials*",
+    "docs*",
+    "tests*",
+    "devtools*"
+]
+
+[tool.setuptools.package-data]
+"teachopencadd" = ["*.txt", "*.json"]

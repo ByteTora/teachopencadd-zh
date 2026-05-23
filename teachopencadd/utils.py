@@ -5,7 +5,12 @@ Helper functions and constants for the TeachOpenCADD talktorials
 from pathlib import Path
 import sys
 
-from . import _version
+try:
+    from importlib.metadata import version as _get_version
+
+    __version__ = _get_version("teachopencadd")
+except Exception:
+    __version__ = "0.0.0"
 
 
 def seed_everything(seed=22):
@@ -76,7 +81,7 @@ def _greeting_string():
   | (/_ (_| (_ | | \_/ |_) (/_ | | \_ /--\ |_/ |_/ 
                        |                           
 
-    version {_version.get_versions()['version']}
+    version {__version__}
     by @volkamerlab
     """
 

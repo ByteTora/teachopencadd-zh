@@ -2,13 +2,10 @@
 TeachOpenCADD is a collection of Jupyter Notebooks
 to help you learn or teach computer aided drug design concepts.
 
-The notebooks themselves are located under ``talktorials/``.
+The notebooks themselves are located under ``教程/``.
 """
 
-# Handle versioneer
-from ._version import get_versions
+from .config import Settings, settings
+from .exceptions import TeachOpenCADDError
 
-versions = get_versions()
-__version__ = versions["version"]
-__git_revision__ = versions["full-revisionid"]
-del get_versions, versions
+__all__ = ["Settings", "settings", "TeachOpenCADDError"]
