@@ -47,7 +47,7 @@ jobs:
         run: |
           cd docs
           make clean
-          SPHINXOPTS="-j2 -T --keep-going" make html
+          SPHINXOPTS="-T --keep-going" make html
 
       - name: Check 404s (README)
         uses: gaurav-nelson/github-action-markdown-link-check@v1
