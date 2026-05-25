@@ -47,12 +47,12 @@ __教程 T004__：本教程是 [第一篇 TeachOpenCADD 论文](https://jcheminf
   * 生成富集图
   * 计算富集因子
 
-### 参考文献
+### References
 
-* "药物化学中的分子相似性"综述（[<i>J. Med. Chem.</i> (2014), <b>57</b>, 3186-3204](https://pubmed.ncbi.nlm.nih.gov/24151987)）
-* [Morgan 指纹](http://www.rdkit.org/docs/GettingStartedInPython.html#morgan-fingerprints-circular-fingerprints)，使用 `rdkit`
-* 扩展连通性指纹 ECFP 的描述（[<i>J. Chem. Inf. Model.</i> (2010), <b>50</b>, 742-754](https://pubs.acs.org/doi/abs/10.1021/ci100050t)）
-* 什么是化学空间？（[<i>ACS Chem. Neurosci.</i> (2012), <b>19</b>, 649-57](https://www.ncbi.nlm.nih.gov/pubmed/23019491)）
-* `rdkit` 中的[分子描述符列表](https://www.rdkit.org/docs/GettingStartedInPython.html#list-of-available-descriptors)
-* `rdkit` 中的[指纹列表](https://www.rdkit.org/docs/GettingStartedInPython.html#list-of-available-fingerprints)
-* 富集图简介（[Applied Chemoinformatics, Wiley-VCH Verlag GmbH & Co. KGaA, Weinheim, (2018), **1**, 313-31](https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6h)）
+* Review on "Molecular similarity in medicinal chemistry" ([<i>J. Med. Chem.</i> (2014), <b>57</b>, 3186-3204](https://pubmed.ncbi.nlm.nih.gov/24151987))
+* [Morgan fingerprints](http://www.rdkit.org/docs/GettingStartedInPython.html#morgan-fingerprints-circular-fingerprints) with `rdkit`
+* Description of the extended-connectivity fingerprint ECFP ([<i>J. Chem. Inf. Model.</i> (2010), <b>50</b>, 742-754](https://pubs.acs.org/doi/abs/10.1021/ci100050t))
+* What is the chemical space? ([<i>ACS Chem. Neurosci.</i> (2012), <b>19</b>, 649-57](https://www.ncbi.nlm.nih.gov/pubmed/23019491))
+* List of [molecular descriptors](https://www.rdkit.org/docs/GettingStartedInPython.html#list-of-available-descriptors) in `rdkit`
+* List of [fingerprints](https://www.rdkit.org/docs/GettingStartedInPython.html#list-of-available-fingerprints) in `rdkit`
+* Introduction to enrichment plots ([Applied Chemoinformatics, Wiley-VCH Verlag GmbH & Co. KGaA, Weinheim, (2018), **1**, 313-31](https://onlinelibrary.wiley.com/doi/10.1002/9783527806539.ch6h))
