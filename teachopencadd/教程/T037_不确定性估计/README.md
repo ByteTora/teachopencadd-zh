@@ -7,12 +7,12 @@
 - Michael Backenköhler, 2022, [Volkamer 实验室](https://volkamerlab.org), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
 
 
-*The predictive setting (and the model class) used in this talktorial is adapted from __Talktorial T022__.*
+*本教程中使用的预测设置（和模型类）改编自 __教程 T022__。*
 
 
 ## 本教程目标
 
-Researchers often focus on prediction quality alone. However, when applying a predictive model, researchers are also interested in how certain they can be in a specific prediction. Estimating and providing such information is the goal of uncertainty estimation. In this talktorial, we discuss some common methodologies and showcase ensemble methods in practice.
+研究人员通常只关注预测质量。然而，在应用预测模型时，研究人员也对他们在特定预测中的确定程度感兴趣。估计和提供此类信息是不确定性估计的目标。在本教程中，我们讨论一些常用方法论，并在实践中展示集成方法。
 
 
 ### 理论内容
@@ -43,4 +43,4 @@ Researchers often focus on prediction quality alone. However, when applying a pr
 * [Gawlikowski, Jakob, et al. "A survey of uncertainty in deep neural networks." _arXiv preprint_ (2021), arXiv:__2107.03342__](https://arxiv.org/abs/2107.03342)
 * [Sagi, O. and Rokach, L. "Ensemble learning: A survey". Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery, 8(4), (2018) p.e1249.](https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.1249?casa_token=1RRjvfS1_k4AAAAA%3AdR5WbRw9n8cp8wuVWx4j1ygfElNKbIJ9wXSmIeBd3C61pD1TEqX0bqswzRhNl8vY1rLDEhl29dseag)
 * [Scalia, Gabriele, et al. "Evaluating scalable uncertainty estimation methods for deep learning-based molecular property prediction." _Journal of chemical information and Modeling_ __60.6__ (2020): 2697-2717](https://pubs.acs.org/doi/pdf/10.1021/acs.jcim.9b00975)
-* __Talktorial T022__
+* __教程 T022__

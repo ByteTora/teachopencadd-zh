@@ -9,7 +9,7 @@
 
 ## 本教程目标
 
-Molecular representation by a SMILES string paved the way for applying natural language processing techniques to a broad range of molecule-related tasks. In this talktorial we will dive deeper into one of these techniques: recurrent neural networks (RNNs). First, we will describe different RNN architectures and then apply them to a regression task using the QM9 dataset.
+通过 SMILES 字符串的分子表示为将自然语言处理技术应用于广泛的分子相关任务铺平了道路。在本教程中，我们将深入探讨其中一种技术：循环神经网络（RNN）。首先，我们将介绍不同的 RNN 架构，然后将其应用于 QM9 数据集上的回归任务。
 
 
 ### 理论内容
@@ -33,11 +33,11 @@ Molecular representation by a SMILES string paved the way for applying natural l
 
 ### References
 
-#### Talktorials
-* __Talktorial T021__: One-Hot Encoding
-* __Talktorial T022__: Ligand-based screening: neural networks
-* __Talktorial T033__: Molecular Representations
-* __Talktorial T034__: GNN based property prediction
+#### 系列教程
+* __教程 T021__：独热编码
+* __教程 T022__：基于配体的筛选：神经网络
+* __教程 T033__：分子表示
+* __教程 T034__：基于 GNN 的性质预测
 
 
 #### Theoretical background
