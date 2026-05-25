@@ -1,34 +1,32 @@
 # T007 · 基于配体的筛选：机器学习
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
 * Jan Philipp Albrecht, CADD seminar 2018, Charité/FU Berlin
 * Jacob Gora, CADD seminar 2018, Charité/FU Berlin
-* Talia B. Kimber, 2019-2020, [Volkamer 实验室](https://volkamerlab.org)
-* Andrea Volkamer, 2019-2020, [Volkamer 实验室](https://volkamerlab.org)
+* Talia B. Kimber, 2019-2020, [Volkamer lab](https://volkamerlab.org)
+* Andrea Volkamer, 2019-2020, [Volkamer lab](https://volkamerlab.org)
 
 
-__教程 T007__：本教程是 [第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x) 中描述的 TeachOpenCADD 流程的一部分，包含教程 T001-T010。
+__教程 T007__：此教程是 TeachOpenCADD 流程的一部分，详见[第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)，包含教程 T001-T010。
 
 
-## 本教程目标
+## 本教程的目标
 
-由于更大的可用数据源，机器学习 (ML) 在药物发现中，尤其是在基于配体的虚拟筛选中获得了发展势头。在本教程中，我们将学习如何使用不同的监督式 ML 算法来预测新型化合物对我们关注靶点 (EGFR) 的活性。
+随着数据来源的不断扩大，机器学习（ML）在药物发现中，尤其在基于配体的虚拟筛选中获得了越来越多的关注。在本教程中，我们将学习如何使用不同的监督式 ML 算法来预测新型化合物对感兴趣靶标（EGFR）的活性。
 
-
-### _理论_ 内容
+### _理论_ 部分内容
 
 * 数据准备：分子编码
-* 机器学习 (ML)
-    * 监督式学习
+* 机器学习（ML）
+    * 监督学习
 * 模型验证与评估
     * 验证策略：K 折交叉验证
-    * 性能度量
+    * 性能指标
 
-
-### _实践_ 内容
+### _实践_ 部分内容
 
 * 加载化合物和活性数据
 * 数据准备
@@ -40,7 +38,6 @@ __教程 T007__：本教程是 [第一篇 TeachOpenCADD 论文](https://jcheminf
     * 支持向量分类器
     * 神经网络分类器
     * 交叉验证
-
 
 ### References
 
@@ -54,6 +51,6 @@ __教程 T007__：本教程是 [第一篇 TeachOpenCADD 论文](https://jcheminf
   * Sensitivity and specificity ([Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity))
   * ROC curve and AUC ([Wikipedia](https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve))
 * See also [github notebook by B. Merget](https://github.com/Team-SKI/Publications/tree/master/Profiling_prediction_of_kinase_inhibitors) from [*J. Med. Chem.*, 2017, 60, 474−485](https://pubs.acs.org/doi/10.1021/acs.jmedchem.6b01611) 
-* Activity cutoff $pIC_{50} = 6.3$ used in this talktorial
+* Activity cutoff $pIC_{50} = 6.3$ used in this 教程
   * Profiling Prediction of Kinase Inhibitors: Toward the Virtual Assay [<i>J. Med. Chem.</i> (2017), <b>60</b>, 474-485](https://doi.org/10.1021/acs.jmedchem.6b01611)
   * Notebook accompanying the publication mentioned before: [Notebook](https://github.com/Team-SKI/Publications/blob/master/Profiling_prediction_of_kinase_inhibitors/Build_ABL1_model.ipynb)

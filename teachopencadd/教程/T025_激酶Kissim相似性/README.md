@@ -1,41 +1,38 @@
-# T025 · Kinase similarity: Kinase pocket (KiSSim fingerprint)
+# T025 · 激酶相似性：激酶口袋（KiSSim指纹）
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Dominique Sydow, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Talia B. Kimber, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Andrea Volkamer, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+- Dominique Sydow, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Talia B. Kimber, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Andrea Volkamer, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
 
 
-## 本教程目标
+## 本教程的目标
 
-We will assess the similarity between a set of kinases from a structural point of view using the [KiSSim](https://kissim.readthedocs.io/en/latest/) fingerprint. This fingerprint describes the physicochemical and spatial properties in structurally resolved kinases.
+我们将使用[KiSSim](https://kissim.readthedocs.io/en/latest/)指纹从结构角度评估一组激酶之间的相似性。该指纹描述了结构解析的激酶中的物理化学和空间特性。
 
-_Note_: We focus on similarities between orthosteric kinase binding sites; similarities to allosteric binding sites are not covered.
+_注_：我们关注正构激酶结合位点之间的相似性；不涉及变构结合位点的相似性。
 
+### _理论_ 部分内容
 
-### 理论内容
+* 激酶数据集
+* 激酶相似性描述符：激酶口袋（KiSSim指纹）
+* 使用`opencadd.databases.klifs`获取KLiFS数据
 
-* Kinase dataset
-* Kinase similarity descriptor: Kinase pockets (KiSSim fingerprint)
-* Fetching KLIFS data with `opencadd.databases.klifs`
+### _实践_ 部分内容
 
-
-### 实践内容
-
-* Define the kinases of interest
-* Retrieve and preprocess data
-    * Set up a remote KLIFS session
-    * Fetch all structures describing these kinases
-    * Filter structures
-* Show kinase coverage
-* Calculate KiSSim fingerprints
-* Compare structures
-* Map structure to kinase distance matrix
-* Save kinase distance matrix
-
+* 定义感兴趣的激酶
+* 检索和预处理数据
+    * 设置远程KLiFS会话
+    * 获取描述这些激酶的所有结构
+    * 过滤结构
+* 显示激酶覆盖范围
+* 计算KiSSim指纹
+* 比较结构
+* 将结构映射到激酶距离矩阵
+* 保存激酶距离矩阵
 
 ### References
 

@@ -1,42 +1,39 @@
-# T020 · Analyzing molecular dynamics simulations
+# T020 · 分子动力学模拟分析
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Mareike Leja, 2020/21, Internship at [Volkamer 实验室, Charité](https://volkamerlab.org/) 
-- David Schaller, 2020/21, [Volkamer 实验室, Charité](https://volkamerlab.org/) 
-- Andrea Volkamer, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/) 
+- Mareike Leja, 2020/21, 实习于 [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- David Schaller, 2020/21, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Andrea Volkamer, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/) 
 
 
-## 本教程目标
+## 本教程的目标
 
-In this talktorial, we will introduce methods for the analysis of molecular dynamics (MD) simulations. The introduced methods include animated visualization, structural alignment, RMSD calculation as well as selected atom distances and hydrogen bond analysis. 
-Note, we will work with the simulation results (1ns, 100 frames) generated with **Talktorial T019** on the EGFR kinase ([PDB: 3POZ](https://www.rcsb.org/structure/3poz)) bound to inhibitor [03P](https://www.rcsb.org/ligand/03P). 
+在本教程中，我们将介绍分子动力学（MD）模拟的分析方法。介绍的方法包括动画可视化、结构比对、RMSD计算以及选定原子距离和氢键分析。
+注意，我们将使用**教程 T019** 在EGFR激酶（[PDB: 3POZ](https://www.rcsb.org/structure/3poz)）与抑制剂[03P](https://www.rcsb.org/ligand/03P)结合上生成的模拟结果（1ns，100帧）。
 
+### _理论_ 部分内容
 
-### 理论内容
-
-- MD simulations
-    - Application in the drug discovery process
-    - Flexible vs. static structures
-- Analyzing MD simulations
-  - Visualization
+- MD模拟
+    - 在药物发现过程中的应用
+    - 柔性vs.静态结构
+- 分析MD模拟
+  - 可视化
   - RMSD
-  - Hydrogen bond analysis
+  - 氢键分析
 
+### _实践_ 部分内容
 
-### 实践内容
-
-- Load and visualize the system
-- Alignment
-- RMSD of protein and ligand
-  - RMSD over time
-  - RMSD between frames
-- Interaction analysis
-  - Atomic distances
-  - Hydrogen bond analysis
-
+- 加载和可视化系统
+- 比对
+- 蛋白质和配体的RMSD
+  - RMSD随时间变化
+  - 帧间RMSD
+- 相互作用分析
+  - 原子距离
+  - 氢键分析
 
 ### References
 

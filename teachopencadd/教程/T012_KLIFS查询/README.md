@@ -1,50 +1,48 @@
 # T012 · 从 KLIFS 获取数据
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Dominique Sydow, 2019-2020, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Jaime Rodríguez-Guerra, 2019-2020, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- David Schaller, 2020, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+- Dominique Sydow, 2019-2020, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Jaime Rodríguez-Guerra, 2019-2020, [Volkamer lab, Charité](https://volkamerlab.org/)
+- David Schaller, 2020, [Volkamer lab, Charité](https://volkamerlab.org/)
 
 
-## 本教程目标
+## 本教程的目标
 
-[KLIFS](https://klifs.net/) is a database for kinase-ligand interaction fingerprints and structures. In this talktorial, we will use the programmatic access to this database (KLIFS OpenAPI) and the `opencadd` ([GitHub](https://github.com/volkamerlab/opencadd)) package to interact with its rich content. 
-First, we will use a query kinase ([EGFR](https://www.uniprot.org/uniprot/P00533)) to fetch all available protein structures and explore their bound ligands as well as interaction fingerprints. Then, we will explore the bioactivity data for the EGFR inhibitor [Gefitinib](https://pubchem.ncbi.nlm.nih.gov/compound/Gefitinib) in order to find off-targets. Last but not least, we offer a convenience function that allows to easily explore different kinases.
+[KLIFS](https://klifs.net/) 是一个激酶-配体相互作用指纹和结构数据库。
 
+首先，我们将使用一个查询激酶（[EGFR](https://www.uniprot.org/uniprot/P00533)）来获取所有可用的蛋白质结构，并探索其结合的配体以及相互作用指纹。然后，我们将探索 EGFR 抑制剂 [吉非替尼](https://pubchem.ncbi.nlm.nih.gov/compound/Gefitinib) 的生物活性数据，以寻找脱靶靶标。最后，我们提供了一个便捷函数，允许轻松探索不同的激酶。
 
-### 理论内容
+### _理论_ 部分内容
 
-- Kinases
-- EGFR and Gefitinib
-- KLIFS database
-- KLIFS OpenAPI
-- `opencadd`
+* 激酶
+* EGFR 与吉非替尼
+* KLIFS 数据库
+* KLIFS OpenAPI
+* `opencadd`
 
+### _实践_ 部分内容
 
-### 实践内容
-
-- Define kinase and ligand of interest: EGFR and Gefitinib
-- Generate a KLIFS Python client
-- Explore the KLIFS OpenAPI
-  - Kinase groups
-  - Kinase families
-  - Kinases
-  - Structures
-  - Interaction fingerprints
-  - Structure coordinates
-  - Ligands
-- Case study: EGFR (using `opencadd`)
-  - Get all structures for EGFR
-  - Average interaction fingerprint
-  - Select an example EGFR-Gefitinib structure
-  - Show the structure with `nglview`
-  - Show all kinase-bound ligands with `rdkit`
-  - Explore profiling data for Gefitinib
-- Explore a random kinase in KLIFS
-
+* 定义感兴趣的激酶和配体：EGFR 和吉非替尼
+* 生成 KLIFS Python 客户端
+* 探索 KLIFS OpenAPI
+  * 激酶组
+  * 激酶家族
+  * 激酶
+  * 结构
+  * 相互作用指纹
+  * 结构坐标
+  * 配体
+* 案例研究：EGFR（使用 `opencadd`）
+  * 获取 EGFR 的所有结构
+  * 平均相互作用指纹
+  * 选择一个 EGFR-吉非替尼结构示例
+  * 使用 `nglview` 显示结构
+  * 使用 `rdkit` 显示所有激酶结合配体
+  * 探索吉非替尼的筛选数据
+* 探索 KLIFS 中的随机激酶
 
 ### References
 

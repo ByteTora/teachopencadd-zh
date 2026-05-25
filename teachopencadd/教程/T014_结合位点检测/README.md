@@ -1,42 +1,39 @@
-# T014 · Binding site detection
+# T014 · 结合位点检测
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-* Adapted from Abishek Laxmanan Ravi Shankar, 2019, internship at Volkamer 实验室
-* Andrea Volkamer, 2020/21, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-* Dominique Sydow, 2020/21, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+* Adapted from Abishek Laxmanan Ravi Shankar, 2019, internship at Volkamer lab
+* Andrea Volkamer, 2020/21, [Volkamer lab, Charité](https://volkamerlab.org/)
+* Dominique Sydow, 2020/21, [Volkamer lab, Charité](https://volkamerlab.org/)
 
 
-## 本教程目标
+## 本教程的目标
 
-The binding site of a protein is the key to its function. In this talktorial, we introduce the concepts of computational binding site detection tools using DoGSiteScorer from the [protein.plus](https://proteins.plus/) web server, exemplified on an EGFR structure. 
-Additionally, we compare the results to the pre-defined KLIFS binding site by calculating the percentage of residues in accordance between the two sets.
+蛋白质的结合位点是其功能的关键。在本教程中，我们介绍使用 [protein.plus](https://proteins.plus/) 网络服务器的 DoGSiteScorer 进行计算结合位点检测的概念，并以 EGFR 结构为例进行说明。
+此外，我们通过计算两组之间一致残基的百分比，将结果与预定义的 KLIFS 结合位点进行比较。
 
+### _理论_ 部分内容
 
-### 理论内容
-
-* Protein binding sites
-* Binding site detection
-    * Methods overview
+* 蛋白质结合位点
+* 结合位点检测
+    * 方法概述
     * DoGSiteScorer
-* Comparison to KLIFS pocket
+* 与 KLIFS 口袋的比较
 
+### _实践_ 部分内容
 
-### 实践内容
-
-* Binding site detection using DoGSiteScorer
-    * Job submission of structure of interest
-    * Get DoGSiteScorer pocket metadata
-    * Pick the most suitable pocket
-    * Get best binding site file content
-    * Investigate detected pocket
-* Comparison between DoGSiteScorer and KLIFS pocket
-    * Get DoGSiteScorer pocket residues
-    * Get KLIFS pocket residues
-    * Overlap of pocket residues
-
+* 使用 DoGSiteScorer 进行结合位点检测
+    * 提交感兴趣结构的任务
+    * 获取 DoGSiteScorer 口袋元数据
+    * 选择最合适的口袋
+    * 获取最佳结合位点文件内容
+    * 研究检测到的口袋
+* DoGSiteScorer 与 KLIFS 口袋的比较
+    * 获取 DoGSiteScorer 口袋残基
+    * 获取 KLIFS 口袋残基
+    * 口袋残基重叠
 
 ### References
 * Prediction, Analysis, and Comparison of Active Sites [Volkamer <i>et al.</i>, (<b>2018</b>)](https://doi.org/10.1002/9783527806539.ch6g), book chapter in Applied Chemoinformatics: Achievements and Future Opportunities, Wiley

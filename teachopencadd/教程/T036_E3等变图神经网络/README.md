@@ -1,44 +1,41 @@
-# T036 · An introduction to E(3)-invariant graph neural networks
+# T036 · E(3)等变图神经网络导论
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Joschka Groß, 2022, [Chair for Modelling and Simulation](https://mosi.uni-saarland.de/), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
+- Joschka Groß, 2022, [建模与仿真教席](https://mosi.uni-saarland.de/), [NextAID项目](https://nextaid.cs.uni-saarland.de/), 萨尔大学
 
 
-## 本教程目标
+## 本教程的目标
 
-This talktorial is supposed to serve as an introduction to machine learning on point cloud representations of molecules with 3D conformer information, i.e., molecular graphs that are embedded into Euclidean space (see **Talktorial 033**). You will learn why Euclidean equivariance and invariance are important properties of neural networks (NNs) that take point clouds as input and learn how to implement and train such NNs. In addition to discussing them in theory, this notebook also aims to demonstrate the shortcomings of plain graph neural networks (GNNs) when working with point clouds practically.
+本教程旨在介绍对具有3D构象信息的分子点云表示进行机器学习（即嵌入到欧几里得空间中的分子图，见**教程 033**）。您将学习为什么欧几里得等变性和不变性是接受点云作为输入的神经网络（NN）的重要性质，并学习如何实现和训练此类NN。除了理论讨论外，本笔记本还旨在实际展示普通图神经网络（GNN）在处理点云时的不足。
 
+### _理论_ 部分内容
 
-### 理论内容
+* 为什么使用3D坐标？
+* 将分子表示为点云
+* 欧几里得空间中的等变性和不变性及其重要性
+* 如何构建$\text{E}(n)$-不变和等变模型
+* QM9数据集
 
-* Why 3D coordinates?
-* Representing molecules as point clouds
-* Equivariance and Invariance in euclidean space and why we care
-* How to construct $\text{E}(n)$-invariant and equivariant models
-* The QM9 dataset
+### _实践_ 部分内容
 
-
-### 实践内容
-
-* Visualization of point clouds
-* Set up and inspect the QM9 dataset
-  * Preprocessing
-  * Atomic number distribution and point cloud size
-  * Data split, distribution of regression target electronic spatial extent
-* Model implementation
-  * Plain "naive Euclidean" GNN
-  * Demo: Plain GNNs are not E(3)-invariant
-  * EGNN model
-  * Demo: Our EGNN is E(3)-invariant
-* Training and evaluation
-  * Setup
-  * Training the EGNN
-  * Training the plain GNN
-  * Comparative evaluation
-
+* 点云可视化
+* 设置并检查QM9数据集
+  * 预处理
+  * 原子数分布和点云大小
+  * 数据划分、回归目标电子空间范围分布
+* 模型实现
+  * 普通"朴素欧几里得"GNN
+  * 演示：普通GNN不是E(3)-不变的
+  * EGNN模型
+  * 演示：我们的EGNN是E(3)-不变的
+* 训练和评估
+  * 设置
+  * 训练EGNN
+  * 训练普通GNN
+  * 比较评估
 
 ### References
 

@@ -1,47 +1,44 @@
-# T022 · Ligand-based screening: neural networks
+# T022 · 基于配体的筛选：神经网络
 
-Developed in the CADD seminar 2020, Volkamer 实验室, Charité/FU Berlin 
+在CADD研讨会2020中开发，Volkamer实验室，夏里特医学院/柏林自由大学 
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Ahmed Atta, CADD Seminar 2020, Charité/FU Berlin
-- Sakshi Misra, internship (2020/21), [Volkamer 实验室](https://volkamerlab.org), Charité
-- Talia B. Kimber, 2020/21, [Volkamer 实验室](https://volkamerlab.org), Charité
-- Andrea Volkamer, 2021, [Volkamer 实验室](https://volkamerlab.org), Charité
+- Ahmed Atta, CADD研讨会, 夏里特医学院/柏林自由大学
+- Sakshi Misra, 实习 (2020/21), [Volkamer实验室](https://volkamerlab.org), 夏里特医学院
+- Talia B. Kimber, 2020/21, [Volkamer实验室](https://volkamerlab.org), 夏里特医学院
+- Andrea Volkamer, 2021, [Volkamer实验室](https://volkamerlab.org), 夏里特医学院
 
 
-## 本教程目标
+## 本教程的目标
 
-In recent years, the use of machine learning, and deep learning, in pharmaceutical research has shown promising results in addressing diverse problems in drug discovery. In this talktorial, we get familiar with the basics of neural networks. We will learn how to build a simple two layer neural network and train it on a subset of ChEMBL data in order to predict the pIC50 values of compounds against EGFR, the target of interest. Furthermore, we select three compounds from an external, unlabeled data set that are predicted to be the most active against that kinase.
+近年来，机器学习和深度学习在药物研究中的应用在解决药物发现中的多样化问题上展现了有前景的结果。在本教程中，我们将熟悉神经网络的基础知识。我们将学习如何构建一个简单的两层神经网络，并在ChEMBL数据的子集上训练它，以预测化合物对目标EGFR的pIC50值。此外，我们从一个外部未标记数据集中选出三个预测对该激酶活性最高的化合物。
 
+### _理论_ 部分内容
 
-### 理论内容
+- 生物学背景
+    - EGFR激酶
+    - 化合物活性度量
+    - 分子编码
+- 神经网络
+    - 什么是神经网络？
+    - 激活函数
+    - 损失函数
+- 训练神经网络
+- Keras工作流程
+- 神经网络的优点和应用
 
-- Biological background
-    - EGFR kinase
-    - Compound activity measures
-    - Molecule encoding
-- Neural networks
-    - What is a neural network?
-    - Activation function
-    - Loss function
-- Training a neural network
-- Keras workflow
-- Advantages and applications of neural networks
+### _实践_ 部分内容
 
-
-### 实践内容
-
-- Data preparation
-- Define neural network
-- Train the model
-- Evaluation & prediction on test set
-    - Scatter plot
-- Prediction on external/unlabeled data
-    - Select the top 3 compounds
-
+- 数据准备
+- 定义神经网络
+- 训练模型
+- 测试集评估与预测
+    - 散点图
+- 外部/未标记数据预测
+    - 选择前3个化合物
 
 ### References
 

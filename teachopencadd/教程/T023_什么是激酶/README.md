@@ -1,36 +1,33 @@
-# T023 · What is a kinase?
+# T023 · 什么是激酶？
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Dominique Sydow, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Talia B. Kimber, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Andrea Volkamer, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+- Dominique Sydow, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Talia B. Kimber, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Andrea Volkamer, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
 
 
-## 本教程目标
+## 本教程的目标
 
-In this talktorial, we will talk about kinases: why are they important in life and drug design, what do they look like, and what data resources are available?
-Finally, we select a set of kinases which will be analyzed in the forthcoming talktorials **T024**-**T028** with respect to their similarity, the goal being to gain insight into potential off-target effects.
+在本教程中，我们将讨论激酶：它们为什么在生命和药物设计中很重要，它们长什么样，以及有哪些数据资源可用？
+最后，我们将选择一组激酶，在接下来的教程**T024**-**T028**中分析它们的相似性，目标是深入了解潜在的脱靶效应。
 
+### _理论_ 部分内容
 
-### 理论内容
+- 激酶简述
+    - 人类激酶组
+    - 激酶结构和重要基序
+- 激酶资源
+    - 激酶结构及相关信息
+    - 生物活性数据
+- 激酶相似性：脱靶和混杂结合
+- 激酶数据集编译
 
-- Kinases in a nutshell
-    - The human kinome
-    - Kinase structures and important motifs
-- Kinase resources
-    - Kinase structures and related information
-    - Bioactivity data
-- Kinase similarity: Off-targets and promiscuous binding
-- Kinase dataset compilation
+### _实践_ 部分内容
 
-
-### 实践内容
-
-- Define the kinases of interest
-
+- 定义感兴趣的激酶
 
 ### References
 

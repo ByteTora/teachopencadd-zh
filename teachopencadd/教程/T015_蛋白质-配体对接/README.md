@@ -1,41 +1,38 @@
-# T015 · Protein ligand docking
+# T015 · 蛋白质-配体对接
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Jaime Rodríguez-Guerra, 2019-20, [Volkamer 实验室, Charité](https://volkamerlab.org/)  
-- Dominique Sydow, 2019-20, [Volkamer 实验室, Charité](https://volkamerlab.org/)  
-- Michele Wichmann, 2019-20, student work at [Volkamer 实验室, Charité](https://volkamerlab.org/)  
+- Jaime Rodríguez-Guerra, 2019-20, [Volkamer lab, Charité](https://volkamerlab.org/)  
+- Dominique Sydow, 2019-20, [Volkamer lab, Charité](https://volkamerlab.org/)  
+- Michele Wichmann, 2019-20, student work at [Volkamer lab, Charité](https://volkamerlab.org/)  
 - Maria Trofimova, CADD seminar, 2020, Charité/FU Berlin  
-- David Schaller, 2020-21, [Volkamer 实验室, Charité](https://volkamerlab.org/)  
-- Andrea Volkamer, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)  
+- David Schaller, 2020-21, [Volkamer lab, Charité](https://volkamerlab.org/)  
+- Andrea Volkamer, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)  
 
 
-## 本教程目标
+## 本教程的目标
 
-In this talktorial, we will use molecular docking to predict the binding mode of a small molecule in a protein binding site. The epidermal growth factor receptor ([EGFR](https://www.uniprot.org/uniprot/P00533)) will serve as a model system to explain important steps of a molecular docking workflow with the docking software [Smina](https://sourceforge.net/projects/smina/), a fork of Autodock Vina.
+在本教程中，我们将使用分子对接来预测小分子在蛋白质结合位点中的结合模式。表皮生长因子受体（[EGFR](https://www.uniprot.org/uniprot/P00533)）将作为模型系统，通过对接软件 [Smina](https://sourceforge.net/projects/smina/)（Autodock Vina 的一个分支）来解释分子对接工作流程的重要步骤。
 
+### _理论_ 部分内容
 
-### 理论内容
+* 分子对接
+* 采样算法
+* 评分函数
+* 局限性
+* 视觉检查
+* 对接软件
+  * 商用软件
+  * 免费软件（针对学术界）
 
-- Molecular docking
-- Sampling algorithms
-- Scoring functions
-- Limitations
-- Visual inspection
-- Docking software
-  - Commercial
-  - Free (for academics)
+### _实践_ 部分内容
 
-
-### 实践内容
-
-- Preparation of protein and ligand 
-- Binding site definition
-- Docking calculation
-- Docking results visualization
-
+* 蛋白质和配体的准备
+* 结合位点定义
+* 对接计算
+* 对接结果可视化
 
 ### References
 - Molecular docking:

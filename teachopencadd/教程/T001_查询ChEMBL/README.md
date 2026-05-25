@@ -1,27 +1,26 @@
-# T001 · 化合物数据获取 (ChEMBL)
+# T001 · 化合物数据获取（ChEMBL）
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Svetlana Leng, CADD seminar 2017, Volkamer 实验室, Charité/FU Berlin 
-- Paula Junge, CADD seminar 2018, Volkamer 实验室, Charité/FU Berlin
-- Dominique Sydow, 2019-2020, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Andrea Volkamer, 2020, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Yonghui Chen, 2020, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+- Svetlana Leng, CADD seminar 2017, Volkamer lab, Charité/FU Berlin 
+- Paula Junge, CADD seminar 2018, Volkamer lab, Charité/FU Berlin
+- Dominique Sydow, 2019-2020, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Andrea Volkamer, 2020, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Yonghui Chen, 2020, [Volkamer lab, Charité](https://volkamerlab.org/)
 
 
-__教程 T001__：本教程是 [第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x) 中描述的 TeachOpenCADD 流程的一部分，包含教程 T001-T010。
+__教程 T001__：此教程是 TeachOpenCADD 流程的一部分，详见[第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)，包含教程 T001-T010。
 
 
-## 本教程目标
+## 本教程的目标
 
-在本笔记本中，我们将了解更多关于 ChEMBL 数据库的知识，以及如何从 ChEMBL 提取数据，即目标靶点的（化合物，活性数据）配对。这些数据集可用于许多化学信息学任务，如相似性搜索、聚类或机器学习。
+在本教程中，我们将学习更多关于 ChEMBL 数据库的知识，以及如何从 ChEMBL 中提取数据，即获取感兴趣靶标的（化合物、活性数据）对。这些数据集可用于许多化学信息学任务，如相似性搜索、聚类或机器学习。
 
-我们的工作将包括查找针对特定靶点测试过的化合物，并过滤可用的生物活性数据。
+我们的工作包括查找针对特定靶标进行过测试的化合物，以及过滤可用的生物活性数据。
 
-
-### *理论* 内容
+### _理论_ 部分内容
 
 * ChEMBL 数据库
     * ChEMBL 网络服务
@@ -30,27 +29,25 @@ __教程 T001__：本教程是 [第一篇 TeachOpenCADD 论文](https://jcheminf
     * IC50 度量
     * pIC50 值
 
+### _实践_ 部分内容
 
-### *实践* 内容
-    
-**目标：获取给定靶点的化合物生物活性数据列表**
+**目标：获取给定靶标的化合物及其生物活性数据列表**
 
 * 连接 ChEMBL 数据库
-* 获取靶点数据（示例：EGFR 激酶）
-    * 获取并下载靶点数据
-    * 选择靶点 ChEMBL ID
+* 获取靶标数据（示例：EGFR 激酶）
+    * 获取并下载靶标数据
+    * 选择靶标的 ChEMBL ID
 * 获取生物活性数据
-    * 获取并下载靶点的生物活性数据
-    * 预处理并过滤生物活性数据
+    * 获取并下载靶标的生物活性数据
+    * 预处理和过滤生物活性数据
 * 获取化合物数据
     * 获取并下载化合物数据
-    * 预处理并过滤化合物数据
+    * 预处理和过滤化合物数据
 * 输出生物活性-化合物数据
-    * 合并生物活性和化合物数据，并添加 pIC50 值
-    * 绘制 pIC50 最高的分子
-    * 冻结生物活性数据到 ChEMBL 27
+    * 合并生物活性与化合物数据，并添加 pIC50 值
+    * 绘制具有最高 pIC50 值的分子
+    * 冻结生物活性数据至 ChEMBL 27
     * 写入输出文件
-
 
 ### References
 

@@ -1,41 +1,38 @@
-# T038 · Protein Ligand Interaction Prediction
+# T038 · 蛋白质-配体相互作用预测
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Roman Joeres, 2022, [Chair for Drug Bioinformatics, UdS and HIPS](https://www.helmholtz-hips.de/de/forschung/teams/team/wirkstoffbioinformatik/), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
+- Roman Joeres, 2022, [药物生物信息学教席, 萨尔大学/亥姆霍兹药物研究所](https://www.helmholtz-hips.de/de/forschung/teams/team/wirkstoffbioinformatik/), [NextAID项目](https://nextaid.cs.uni-saarland.de/), 萨尔大学
 
 
-## 本教程目标
+## 本教程的目标
 
-The goal of this talktorial is to introduce the reader to the field of protein-ligand interaction prediction using graph neural networks (GNNs). GNNs are especially useful for representing structural data such as proteins and chemical molecules (ligands) to a deep learning model. In this talktorial, we will show how to train a deep learning model to predict interactions between proteins and ligands.
+本教程的目标是向读者介绍使用图神经网络（GNN）进行蛋白质-配体相互作用预测的领域。GNN对于将蛋白质和化学分子（配体）等结构数据表示给深度学习模型特别有用。在本教程中，我们将展示如何训练深度学习模型来预测蛋白质和配体之间的相互作用。
 
+### _理论_ 部分内容
 
-### 理论内容
+* 蛋白质-配体相互作用预测的相关性
+* 工作流程
+* 生物学背景 - 蛋白质作为图
+* 技术背景
+  * 图同构网络
+  * 二元交叉熵损失
 
-* Relevance of protein-ligand interaction prediction
-* Workflow
-* Biological background - proteins as graphs
-* Technical background
-  * Graph Isomorphism Networks
-  * Binary Cross Entropy Loss
+### _实践_ 部分内容
 
-
-### 实践内容
-
-* Compute graph representations
-  * Ligands to graphs
-  * Proteins to graphs
-* Data Storages
-  * Data points
-  * Data set
-  * Data module
-* Network
-  * GNN encoder
-  * Full model
-* Training routine
-
+* 计算图表示
+  * 配体到图
+  * 蛋白质到图
+* 数据存储
+  * 数据点
+  * 数据集
+  * 数据模块
+* 网络
+  * GNN编码器
+  * 完整模型
+* 训练流程
 
 ### References
 

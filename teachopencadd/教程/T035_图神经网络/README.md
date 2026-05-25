@@ -1,34 +1,32 @@
-# T035 · GNN-based molecular property prediction
+# T035 · 基于GNN的分子性质预测
 
 
-**Note**: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
+**Note**: This 教程 is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.
 
 作者：
 
-* Paula Linh Kramer, 2022, [Volkamer 实验室](https://volkamerlab.org/), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
+* Paula Linh Kramer, 2022, [Volkamer实验室](https://volkamerlab.org/), [NextAID项目](https://nextaid.cs.uni-saarland.de/), 萨尔大学
 
 
-## 本教程目标
-In this tutorial, we will first explain the basic concepts of graph neural networks (GNNs) and present two different GNN architectures. We apply our neural networks to the `QM9` dataset, which is a dataset containing small molecules. With this dataset, we want to predict molecular properties. We demonstrate how to train and evaluate GNNs step by step using PyTorch Geometric.
+## 本教程的目标
 
+在本教程中，我们将首先解释图神经网络（GNN）的基本概念，并介绍两种不同的GNN架构。我们将神经网络应用于`QM9`数据集，这是一个包含小分子的数据集。利用该数据集，我们希望预测分子性质。我们将演示如何使用PyTorch Geometric逐步训练和评估GNN。
 
-### 理论内容
+### _理论_ 部分内容
 
-* GNN Tasks
-* Message Passing
-* Graph Convolutional Network (GCN)
-* Graph Isomorphism Network (GIN)
-* Training a GNN
-* Applications of GNNs
+* GNN任务
+* 消息传递
+* 图卷积网络（GCN）
+* 图同构网络（GIN）
+* 训练GNN
+* GNN的应用
 
+### _实践_ 部分内容
 
-### 实践内容
-
-* Dataset
-* Defining a GCN and GIN
-* Training a GNN
-* Evaluating the model
-
+* 数据集
+* 定义GCN和GIN
+* 训练GNN
+* 评估模型
 
 ### References
 

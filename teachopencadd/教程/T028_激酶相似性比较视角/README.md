@@ -1,47 +1,44 @@
-# T028 · Kinase similarity: Compare different perspectives
+# T028 · 激酶相似性：比较不同视角
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Talia B. Kimber, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Dominique Sydow, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Andrea Volkamer, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+- Talia B. Kimber, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Dominique Sydow, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Andrea Volkamer, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
 
 
-## 本教程目标
+## 本教程的目标
 
-We will compare different perspectives on kinase similarity, which were discussed in detail in previous notebooks:
+我们将比较先前笔记本中详细讨论的激酶相似性的不同视角：
 
-* **Talktorial T024**: Kinase pocket sequences (KLIFS pocket sequences)
-* **Talktorial T025**: Kinase pocket structures (KiSSim fingerprint based on KLIFS pocket residues)
-* **Talktorial T026**: Kinase-ligand interaction profiles (KLIFS IFPs based on KLIFS pocket residues)
-* **Talktorial T027**: Ligand profiling data (using ChEMBL29 bioactivity data)
+* **教程 T024**：激酶口袋序列（KLiFS口袋序列）
+* **教程 T025**：激酶口袋结构（基于KLiFS口袋残基的KiSSim指纹）
+* **教程 T026**：激酶-配体相互作用谱（基于KLiFS口袋残基的KLiFS IFP）
+* **教程 T027**：配体分析数据（使用ChEMBL29生物活性数据）
 
-_Note_: We focus only on similarities between orthosteric kinase binding sites; similarities to allosteric binding sites are not covered (T027 is an exception since the profiling data does not distinguish between binding sites).
+_注_：我们仅关注正构激酶结合位点之间的相似性；不涉及变构结合位点的相似性（T027例外，因为分析数据不区分结合位点）。
 
+### _理论_ 部分内容
 
-### 理论内容
+* 激酶数据集
+* 激酶相似性描述符（考虑4种不同方法）
+* 距离矩阵条件
 
-* Kinase dataset
-* Kinase similarity descriptor (considering 4 different methods)
-* Distance matrix conditions
+### _实践_ 部分内容
 
-
-### 实践内容
-
-* Load kinase similarity and distance matrices
-* Distance matrix conditions
-* Visualize similarity for example perspective
-  * Visualize kinase similarity matrix as heatmap
-  * Visualize similarity as dendrogram
-* Visualize similarities from the four different perspectives
-  * Preprocess distance matrices
-    * Normalize matrices
-    * Define kinase order
-  * Visualize kinase similarities
-  * Analysis of results
-
+* 加载激酶相似性和距离矩阵
+* 距离矩阵条件
+* 可视化示例视角的相似性
+  * 将激酶相似性矩阵可视化为热图
+  * 将相似性可视化为树状图
+* 可视化四个不同视角的相似性
+  * 预处理距离矩阵
+    * 归一化矩阵
+    * 定义激酶顺序
+  * 可视化激酶相似性
+  * 结果分析
 
 ### References
 

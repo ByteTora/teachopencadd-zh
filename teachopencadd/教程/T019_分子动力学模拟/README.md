@@ -1,54 +1,50 @@
-# T019 · Molecular dynamics simulation
+# T019 · 分子动力学模拟
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Pietro Gerletti, CADD seminar 2020, Charité/FU Berlin
-- Mareike Leja, 2020/21, Internship at [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Jeffrey R Wagner, 2020, [Open Force Field Consortium](https://openforcefield.org/)
-- David Schaller, 2020/21, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Andrea Volkamer, 2020/21, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+- Pietro Gerletti, CADD研讨会, 夏里特医学院/柏林自由大学
+- Mareike Leja, 2020/21, 实习于 [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Jeffrey R Wagner, 2020, [Open Force Field联盟](https://openforcefield.org/)
+- David Schaller, 2020/21, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Andrea Volkamer, 2020/21, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
 
 
-__Note__
+**注：**
 
-This talktorial was designed to be used with [Google Colab](https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/1bd7cb0c9f6379aebc0c1a0b1c7413685910cffa/teachopencadd/talktorials/019_md_simulation/talktorial.ipynb). It is also possible to use it on a local computer. However, performing the molecular dynamics simulation may take a considerably long time if no GPU is available.
+This 教程 was designed to be used with [Google Colab](https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/1bd7cb0c9f6379aebc0c1a0b1c7413685910cffa/teachopencadd/talktorials/019_md_simulation/talktorial.ipynb). It is also possible to use it on a local computer. However, performing the molecular dynamics simulation may take a considerably long time if no GPU is available.
 
-Also, note that this talktorial **will not run on Windows** for the time being (check progress in [this issue](https://github.com/volkamerlab/teachopencadd/issues/136)).
-
-
-## 本教程目标
+Also, note that this 教程 **will not run on Windows** for the time being (check progress in [this issue](https://github.com/volkamerlab/teachopencadd/issues/136)).
 
 
-In this talktorial, we will learn why molecular dynamics (MD) simulations are important for drug design and which steps are necessary to perform an MD simulation of a protein in complex with a ligand. The kinase EGFR will serve as sample system for simulation.
+## 本教程的目标
 
+在本教程中，我们将学习为什么分子动力学（MD）模拟对药物设计很重要，以及执行蛋白质-配体复合物MD模拟所需的步骤。激酶EGFR将作为模拟示例系统。
 
-### 理论内容
+### _理论_ 部分内容
 
-- Molecular dynamics
-- Force fields
-- Boundary conditions
-- MD simulations and drug design
-- EGFR kinase
+- 分子动力学
+- 力场
+- 边界条件
+- MD模拟与药物设计
+- EGFR激酶
 
+### _实践_ 部分内容
 
-### 实践内容
-
-- Installation on Google Colab
-- Adjust environment for local installations running on Linux or MacOS
-- Import dependencies
-- Download PDB file
-- Prepare the protein ligand complex
-  - Protein preparation
-  - Ligand preparation
-  - Merge protein and ligand
-- MD simulation set up
-  - Force field
-  - System
-- Perform the MD simulation
-- Download results
-
+- 在Google Colab上安装
+- 针对Linux或MacOS本地安装的环境调整
+- 导入依赖项
+- 下载PDB文件
+- 准备蛋白质-配体复合物
+  - 蛋白质准备
+  - 配体准备
+  - 合并蛋白质和配体
+- MD模拟设置
+  - 力场
+  - 系统
+- 执行MD模拟
+- 下载结果
 
 ### References
 

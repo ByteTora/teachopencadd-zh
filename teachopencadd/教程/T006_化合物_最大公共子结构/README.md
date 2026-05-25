@@ -1,37 +1,34 @@
 # T006 · 最大公共子结构
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
 - Oliver Nagel, CADD Seminars, 2017, Charité/FU Berlin
-- Jaime Rodríguez-Guerra, 2019-2020, [Volkamer 实验室](https://volkamerlab.org), Charité
-- Andrea Volkamer, 2019-2020, [Volkamer 实验室](https://volkamerlab.org), Charité
+- Jaime Rodríguez-Guerra, 2019-2020, [Volkamer lab](https://volkamerlab.org), Charité
+- Andrea Volkamer, 2019-2020, [Volkamer lab](https://volkamerlab.org), Charité
 
 
-__教程 T006__：本教程是 [第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x) 中描述的 TeachOpenCADD 流程的一部分，包含教程 T001-T010。
+__教程 T006__：此教程是 TeachOpenCADD 流程的一部分，详见[第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)，包含教程 T001-T010。
 
 
-## 本教程目标
+## 本教程的目标
 
 大规模化学数据的聚类和分类对于药物发现中各种化学应用领域的导航、分析和知识发现至关重要。
 
-在上一教程中，我们学习了如何对分子进行分组（聚类），并发现同一聚类中的分子彼此相似且共享共同骨架。除了视觉检查外，我们将在此学习如何计算一组分子共有的最大子结构。
+在上一教程中，我们学习了如何对分子进行分组（聚类），并发现同一聚类中的分子看起来彼此相似且共享共同骨架。除了视觉检查，我们将在此学习如何计算一组分子共有的最大子结构。
 
+### _理论_ 部分内容
 
-### *理论* 内容
-
-* 一组分子中最大公共子结构识别简介
+* 识别一组分子中最大公共子结构简介
 * FMCS 算法详解
 
+### _实践_ 部分内容
 
-### *实践* 内容
-
-* 加载并绘制分子
+* 加载和绘制分子
 * 使用不同输入参数运行 FMCS 算法
-* 更多样化的集合：从 ChEMBL 下载的 EGFR 化合物
-* 使用交互式截止值适应识别 MCS
-
+* 更多样化的数据集：从 ChEMBL 下载的 EGFR 化合物
+* 使用交互式截止值调整识别 MCS
 
 ### References
 

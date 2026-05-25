@@ -1,32 +1,29 @@
 # T011 · 在线 API 网络服务查询
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Jaime Rodríguez-Guerra, 2020-2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Dominique Sydow, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- David Schaller, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+- Jaime Rodríguez-Guerra, 2020-2021, [Volkamer lab, Charité](https://volkamerlab.org/)
+- Dominique Sydow, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
+- David Schaller, 2021, [Volkamer lab, Charité](https://volkamerlab.org/)
 
 
-## 本教程目标
+## 本教程的目标
 
-在本笔记本中，您将学习如何在药物设计的背景下，从 Python 中以编程方式使用在线网络服务。通过本教程的学习，您将熟悉 REST 服务和网页抓取。
+在本教程中，您将学习如何在药物设计背景下，从 Python 中以编程方式使用在线网络服务。学完本教程后，您将熟悉 REST 服务和网页抓取。
 
+### _理论_ 部分内容
 
-### 理论内容
+* 从服务器端角度的数据访问
 
-* 从服务器端视角的数据访问
-
-
-### 实践内容
+### _实践_ 部分内容
 
 * 下载静态文件
 * 访问动态生成的内容
 * 编程接口
 * 文档解析
 * 浏览器远程控制
-
 
 ### References
 

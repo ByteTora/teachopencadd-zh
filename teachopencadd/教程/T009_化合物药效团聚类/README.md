@@ -1,48 +1,43 @@
 # T009 · 基于配体的药效团
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
 - Pratik Dhakal, CADD seminar, 2017, Charité/FU Berlin
 - Florian Gusewski, CADD seminar, 2018, Charité/FU Berlin
-- Jaime Rodríguez-Guerra, [Volkamer 实验室](https://volkamerlab.org/), Charité
-- Dominique Sydow, [Volkamer 实验室](https://volkamerlab.org/), Charité
+- Jaime Rodríguez-Guerra, [Volkamer lab](https://volkamerlab.org/), Charité
+- Dominique Sydow, [Volkamer lab](https://volkamerlab.org/), Charité
 
 
-__教程 T009__：本教程是 [第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x) 中描述的 TeachOpenCADD 流程的一部分，包含教程 T001-T010。
+__教程 T009__：此教程是 TeachOpenCADD 流程的一部分，详见[第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)，包含教程 T001-T010。
 
 
-**注意**：请逐个单元格运行此笔记本。虽然也可以一次性运行所有单元格，但部分 nglview 3D 显示可能会缺失。
+**注：**请逐个单元格运行此教程。也可以一次性运行所有单元格，但部分 nglview 3D 显示可能会缺失。
 
 
-## 本教程目标
+## 本教程的目标
 
-在本教程中，我们使用上一教程中选择并对齐的已知 EGFR 配体，来识别每个配体的供体、受体和疏水药效团特征。然后将这些特征聚类以定义集合药效团，该药效团代表了已知 EGFR 配体集合的属性，可用于通过虚拟筛选搜索新的 EGFR 配体。
+在本教程中，我们使用上一教程中选择并比对好的已知 EGFR 配体，来识别每个配体的供体、受体和疏水药效团特征。然后将这些特征聚类以定义一个集成药效团，该药效团代表了已知 EGFR 配体集合的性质，可用于通过虚拟筛选搜索新型 EGFR 配体。
 
-
-## 学习目标
-
-
-### *理论* 内容
+### _理论_ 部分内容
 
 * 药效团建模
-  * 基于结构和配体的药效团建模
+  * 基于结构和基于配体的药效团建模
 * 基于药效团的虚拟筛选
 * 聚类：k-means
 
+### _实践_ 部分内容
 
-### *实践* 内容
-
-* 从上一教程获取预对齐的配体
+* 从上一教程获取预比对的配体
 * 使用 NGLView 显示配体
 * 提取药效团特征
 * 显示所有配体的药效团特征
   * 氢键供体
   * 氢键受体
   * 疏水接触
-* 按特征类型收集特征坐标
-* 生成集合药效团
+* 收集每种特征类型的特征坐标
+* 生成集成药效团
   * 设置 k-means 聚类的静态参数
   * 设置聚类选择的静态参数
   * 定义 k-means 聚类和聚类选择函数
@@ -53,8 +48,7 @@ __教程 T009__：本教程是 [第一篇 TeachOpenCADD 论文](https://jcheminf
   * 氢键供体
   * 氢键受体
   * 疏水接触
-* 显示集合药效团
-
+* 显示集成药效团
 
 ### References
 

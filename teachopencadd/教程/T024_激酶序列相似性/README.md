@@ -1,48 +1,45 @@
-# T024 · Kinase similarity: Sequence
+# T024 · 激酶相似性：序列
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Talia B. Kimber, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Dominique Sydow, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Andrea Volkamer, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+- Talia B. Kimber, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Dominique Sydow, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Andrea Volkamer, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
 
 
-## 本教程目标
+## 本教程的目标
 
-In this talktorial, we investigate sequence similarity for kinases of interest. KLIFS API is used to retrieve the $85$ residues of the pocket sequence for each kinase. 
+在本教程中，我们研究感兴趣激酶的序列相似性。使用KLiFS API检索每个激酶的口袋序列的$85$个残基。
 
-Two similarity measures are implemented:
+实现了两种相似性度量：
 
-   1. Sequence identity, i.e., the similarity which is based on character-wise discrepancy.
-   2. Sequence similarity, i.e., the similarity which is based on a substitution matrix, thus, reflecting similarities between amino acids.
-   
-_Note_: We focus on similarities between orthosteric kinase binding sites; similarities to allosteric binding sites are not covered.
+   1. 序列一致性，即基于字符差异的相似性。
+   2. 序列相似性，即基于替换矩阵的相似性，反映氨基酸之间的相似性。
 
+_注_：我们关注正构激酶结合位点之间的相似性；不涉及变构结合位点的相似性。
 
-### 理论内容
+### _理论_ 部分内容
 
-* Kinase dataset
-* Kinase similarity descriptor: Sequence
-    * Identity score
-    * Substitution score
-* From similarity matrix to distance matrix
+* 激酶数据集
+* 激酶相似性描述符：序列
+    * 一致性得分
+    * 替换得分
+* 从相似性矩阵到距离矩阵
 
+### _实践_ 部分内容
 
-### 实践内容
-
-* Define the kinases of interest
-* Retrieve sequences from KLIFS
-* Sequence similarity
-    * Identity score
-    * Substitution score
-* Kinase similarity
-  * Visualize similarity as kinase matrix
-  * Save kinase similarity matrix
-* Kinase distance matrix
-  * Save kinase distance matrix
-
+* 定义感兴趣的激酶
+* 从KLiFS检索序列
+* 序列相似性
+    * 一致性得分
+    * 替换得分
+* 激酶相似性
+  * 将相似性可视化为激酶矩阵
+  * 保存激酶相似性矩阵
+* 激酶距离矩阵
+  * 保存激酶距离矩阵
 
 ### References
 

@@ -1,6 +1,6 @@
 # T003 · 分子过滤：不想要的子结构
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
@@ -8,28 +8,25 @@
 - Sandra Krüger, CADD seminar, 2018, Charité/FU Berlin
 
 
-__教程 T003__：本教程是第一篇 TeachOpenCADD 出版物 ([_J. Cheminform._ (2019), **11**, 1-7](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)) 中描述的 TeachOpenCADD 流程的一部分，包含教程 T001-T010。
+__教程 T003__：此教程是 TeachOpenCADD 流程的一部分，详见第一篇 TeachOpenCADD 论文（[_J. Cheminform._ (2019), **11**, 1-7](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)），包含教程 T001-T010。
 
 
-## 本教程目标
+## 本教程的目标
 
-有些子结构我们更倾向于不包含在我们的筛选库中。在本教程中，我们将了解不同类型的不想要的子结构，以及如何使用 RDKit 查找、高亮和移除它们。
+有些子结构我们更倾向于不纳入筛选库。在本教程中，我们将了解不同类型的不想要的子结构，以及如何使用 RDKit 查找、高亮和移除它们。
 
-
-### 理论内容
+### _理论_ 部分内容
 
 * 不想要的子结构
-* Pan Assay Interference Compounds (PAINS)  
+* 泛分析干扰化合物（PAINS）
 
+### _实践_ 部分内容
 
-### 实践内容
-
-* 加载并可视化数据
+* 加载和可视化数据
 * 过滤 PAINS
 * 过滤不想要的子结构
 * 高亮子结构
 * 子结构统计
-
 
 ### References
 

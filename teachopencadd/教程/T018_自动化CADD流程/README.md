@@ -1,74 +1,59 @@
-# T018 · Automated pipeline for lead optimization
+# T018 · 自动化先导化合物优化流程
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Armin Ariamajd, 2021, CADD seminar 2021, Charité/Freie Universität Berlin
-- Melanie Vogel, 2021, CADD seminar 2021, Charité/Freie Universität Berlin
-- Andrea Volkamer, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Dominique Sydow, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Corey Taylor, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+- Armin Ariamajd, 2021, CADD研讨会, 夏里特医学院/柏林自由大学
+- Melanie Vogel, 2021, CADD研讨会, 夏里特医学院/柏林自由大学
+- Andrea Volkamer, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Dominique Sydow, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Corey Taylor, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
 
 
-## 本教程目标
+## 本教程的目标
 
-In this talktorial, we will learn how to develop an **automated structure-based virtual screening pipeline**. 
-The pipeline is **particularly suited for the hit expansion and lead optimization** phases of a drug discovery project, where a promising ligand (i.e. an initial hit or lead compound) needs to be structurally modified in order to improve its binding affinity and selectivity for the target protein. The general architecture of the pipeline can thus be summarized as follows (Figure 1).
+在本教程中，我们将学习如何开发一个**自动化的基于结构的虚拟筛选流程**。
+该流程**特别适用于药物发现项目中的先导化合物扩展和优化**阶段，即一个有前景的配体（如初始命中化合物或先导化合物）需要进行结构修饰以提高其对靶标蛋白的结合亲和力和选择性。该流程的总体架构可总结如下（图1）。
 
+* **输入**
+    * 靶标蛋白结构和有前景的配体（如先导或命中化合物），以及需要执行的过程说明。
 
-* **Input**
-    * Target protein structure and a promising ligand (e.g. lead or hit compound), plus specifications of the processes that need to be performed.
-      
-      
-* **Processes**
-    * Detection of the most druggable binding site for the given protein structure.
-    * Finding derivatives and structural analogs for the ligand, and filtering them based on drug-likeness. 
-    * Performing docking calculations on the detected protein binding site using the selected analogs.
-    * Analyzing and vizualizing predicted protein–ligand interactions and binding modes for each analog.
-    
-    
-* **Output**
-    * New ligand structure(s) optimized for affinity, selectivity and drug-likeness.
+* **过程**
+    * 检测给定蛋白质结构中最具成药性的结合位点。
+    * 寻找配体的衍生物和结构类似物，并根据类药性进行筛选。
+    * 使用选定的类似物对检测到的蛋白质结合位点进行对接计算。
+    * 分析并可视化每个类似物的预测蛋白质-配体相互作用和结合模式。
 
+* **输出**
+    * 优化了亲和力、选择性和类药性的新配体结构。
 
 ![Pipeline overview](images/sb_vs_pipeline.png)
 
-*Figure 1*: General architecture of the automated structure-based virtual screening pipeline.
+*图1*：自动化基于结构的虚拟筛选流程的总体架构。
 
+### _理论_ 部分内容
 
-<a id='#Contents-in-Theory'></a>
+- [药物设计流程](#Drug-design-pipeline)
+- [蛋白质结合位点](#Protein-binding-site)
+- [化学相似性搜索](#Chemical-similarity-search)
+- [分子对接](#Molecular-docking)
+- [蛋白质-配体相互作用](#Protein&mdash;ligand-interactions)
+- [对接结果的可视化检查](#Visual-inspection-of-docking-results)
 
-### Contents in [*Theory*](#Theory)
+### _实践_ 部分内容
 
-- [Drug design pipeline](#Drug-design-pipeline)
-- [Protein binding site](#Protein-binding-site) 
-- [Chemical similarity search](#Chemical-similarity-search)
-- [Molecular docking](#Molecular-docking)
-- [Protein&mdash;ligand interactions](#Protein&mdash;ligand-interactions)
-- [Visual inspection of docking results](#Visual-inspection-of-docking-results)
-
-[comment]: <> (If you change a title, you must update the TOC label, to make cross-references functional on our website!)
-
-
-<a id='Contents-in-Practical'></a>
-
-### Contents in [*Practical*](#Practical)
-
-- [Outline of the virtual screening pipeline](#Outline-of-the-virtual-screening-pipeline)
-- [Creating a new project](#Creating-a-new-project)
-- [The input data](#The-input-data)
-- [Processing the input protein data](#Processing-the-input-protein-data)
-- [Processing the input ligand data](#Processing-the-input-ligand-data)
-- [Binding site detection](#Binding-site-detection)
-- [Ligand similarity search](#Ligand-similarity-search)
-- [Docking calculations](#Docking-calculations)
-- [Analysis of protein&mdash;ligand interactions](#Analysis-of-protein&mdash;ligand-interactions)
-- [Selection of the best analog](#Selection-of-the-best-analog)
-- [Putting the pieces together: A fully automated pipeline](#Putting-the-pieces-together:-A-fully-automated-pipeline)
-
-[comment]: <> (If you change a title, you must update the TOC label, to make cross-references functional on our website!)
-
+- [虚拟筛选流程概述](#Outline-of-the-virtual-screening-pipeline)
+- [创建新项目](#Creating-a-new-project)
+- [输入数据](#The-input-data)
+- [处理输入蛋白质数据](#Processing-the-input-protein-data)
+- [处理输入配体数据](#Processing-the-input-ligand-data)
+- [结合位点检测](#Binding-site-detection)
+- [配体相似性搜索](#Ligand-similarity-search)
+- [对接计算](#Docking-calculations)
+- [蛋白质-配体相互作用分析](#Analysis-of-protein&mdash;ligand-interactions)
+- [选择最佳类似物](#Selection-of-the-best-analog)
+- [整合所有步骤：全自动流程](#Putting-the-pieces-together:-A-fully-automated-pipeline)
 
 ### References
 
@@ -84,7 +69,7 @@ The pipeline is **particularly suited for the hit expansion and lead optimizatio
     
     2. [*TeachOpenCADD* website](https://projects.volkamerlab.org/teachopencadd/index.html) at [Volkamer lab](https://volkamerlab.org/)
     
-    3. This talktorial is inspired by the *TeachOpenCADD* talktorials T013-T017
+    3. This 教程 is inspired by the *TeachOpenCADD* 教程 T013-T017
 
     
 * **Drug design pipeline**
@@ -114,9 +99,9 @@ The pipeline is **particularly suited for the hit expansion and lead optimizatio
     
     14. [*ProteinsPlus* website](https://proteins.plus/), and information regarding the usage of its *DoGSiteScorer* [REST-API](https://proteins.plus/help/dogsite_rest)
     
-    15. *TeachOpenCADD* talktorial on binding site detection: [Talktorial T014](https://projects.volkamerlab.org/teachopencadd/talktorials/T014_binding_site_detection.html)
+    15. *TeachOpenCADD* 教程 on binding site detection: [教程 T014](https://projects.volkamerlab.org/teachopencadd/talktorials/T014_binding_site_detection.html)
     
-    16. *TeachOpenCADD* talktorial on querying online API web-services: [Talktorial T011](https://projects.volkamerlab.org/teachopencadd/talktorials/T011_query_online_api_webservices.html)
+    16. *TeachOpenCADD* 教程 on querying online API web-services: [教程 T011](https://projects.volkamerlab.org/teachopencadd/talktorials/T011_query_online_api_webservices.html)
 
     
 * **Chemical similarity search and molecular fingerprints**
@@ -139,9 +124,9 @@ The pipeline is **particularly suited for the hit expansion and lead optimizatio
     
     25. Description of *PubChem*'s [custom substructure fingerprint](https://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.pdf) and [*Tanimoto* similarity measure](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-016-0163-1) used in its similarity search engine.  
     
-    26. *TeachOpenCADD* talktorial on compound similarity: [Talktorial T004](https://projects.volkamerlab.org/teachopencadd/talktorials/T004_compound_similarity.html)
+    26. *TeachOpenCADD* 教程 on compound similarity: [教程 T004](https://projects.volkamerlab.org/teachopencadd/talktorials/T004_compound_similarity.html)
     
-    27. *TeachOpenCADD* talktorial on data acquisition from *PubChem*: [Talktorial T013](https://projects.volkamerlab.org/teachopencadd/talktorials/T013_query_pubchem.html)
+    27. *TeachOpenCADD* 教程 on data acquisition from *PubChem*: [教程 T013](https://projects.volkamerlab.org/teachopencadd/talktorials/T013_query_pubchem.html)
     
     
 * **Chemical drug-likeness**
@@ -179,7 +164,7 @@ The pipeline is **particularly suited for the hit expansion and lead optimizatio
     
     42. [*Smina* documentation](https://sourceforge.net/projects/smina/)
     
-    43. *TeachOpenCADD* talktorial on protein–ligand docking: [Talktorial T015](https://projects.volkamerlab.org/teachopencadd/talktorials/T015_protein_ligand_docking.html)
+    43. *TeachOpenCADD* 教程 on protein–ligand docking: [教程 T015](https://projects.volkamerlab.org/teachopencadd/talktorials/T015_protein_ligand_docking.html)
     
     
 * **Protein-ligand interactions**
@@ -194,7 +179,7 @@ The pipeline is **particularly suited for the hit expansion and lead optimizatio
     
     48. [*PLIP* documentation](https://github.com/pharmai/plip)
     
-    49. *TeachOpenCADD* talktorial on protein-ligand interactions: [Talktorial T016](https://projects.volkamerlab.org/teachopencadd/talktorials/T016_protein_ligand_interactions.html)
+    49. *TeachOpenCADD* 教程 on protein-ligand interactions: [教程 T016](https://projects.volkamerlab.org/teachopencadd/talktorials/T016_protein_ligand_interactions.html)
 
     
 * **Visual inspection of docking results**
@@ -203,6 +188,6 @@ The pipeline is **particularly suited for the hit expansion and lead optimizatio
     
     51. [*NGLView* documentation](http://nglviewer.org/nglview/latest/api.html)
     
-    52. *TeachOpenCADD* talktorial on advanced NGLView usage: [Talktorial T017](https://projects.volkamerlab.org/teachopencadd/talktorials/T017_advanced_nglview_usage.html)
+    52. *TeachOpenCADD* 教程 on advanced NGLView usage: [教程 T017](https://projects.volkamerlab.org/teachopencadd/talktorials/T017_advanced_nglview_usage.html)
     
 </details>

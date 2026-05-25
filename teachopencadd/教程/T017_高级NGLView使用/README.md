@@ -1,46 +1,43 @@
-# T017 · Advanced NGLview usage
+# T017 · 高级NGLView使用
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Jaime Rodríguez-Guerra, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
-- Dominique Sydow, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+- Jaime Rodríguez-Guerra, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
+- Dominique Sydow, 2021, [Volkamer实验室, 夏里特医学院](https://volkamerlab.org/)
 
 
-## 本教程目标
+## 本教程的目标
 
-[NGLView](http://nglviewer.org/nglview/latest/) is a powerful Jupyter widget that allows you to show molecular structures in your notebooks in a 3D interactive view! It supports both single conformations and trajectories, as well as a plethora of representations. In this talktorial we will cover how to use it in different scenarios, from simpler cases to more intricate ones.
+[NGLView](http://nglviewer.org/nglview/latest/) 是一个强大的Jupyter小部件，可让您在笔记本中以3D交互视图展示分子结构！它同时支持单一构象和轨迹，以及丰富的表示形式。在本教程中，我们将介绍如何在不同场景下使用它，从简单案例到更复杂的案例。
 
+### _理论_ 部分内容
 
-### 理论内容
+* NGL与NGLView
+* NGL对象模型与术语
 
-* NGL and NGLView
-* NGL object model and terminology
+### _实践_ 部分内容
 
-
-### 实践内容
-
-* First steps: make sure everything works!
-    * Experiment with the interactive controls
-* Basic API usage:
-    * Show a structure using its PDB identifier
-    * Show a structure using a local file
-    * Saving the widget state as a screenshot for offline viewing
-    * Customize the representations
-    * Control representations by selections
-    * NMR and multimodel structures
-    * Load more than one structure
-    * Show and hide components
-* Advanced usage:
-    * Custom coloring schemes and representations
-    * Add geometric objects at selected atoms
-    * Create interactive interfaces
-    * Access the JavaScript layer
-* Troubleshooting tips:
-    * Check which Jupyter platform you are working from
-    * How to install `nglview`, the right way
-
+* 第一步：确保一切正常！
+    * 尝试交互式控件
+* 基本API使用：
+    * 使用PDB标识符展示结构
+    * 使用本地文件展示结构
+    * 保存控件状态为截图以供离线查看
+    * 自定义表示形式
+    * 通过选择控制表示形式
+    * NMR与多模型结构
+    * 加载多个结构
+    * 显示和隐藏组件
+* 高级使用：
+    * 自定义配色方案和表示形式
+    * 在选定原子上添加几何对象
+    * 创建交互式界面
+    * 访问JavaScript层
+* 故障排除技巧：
+    * 检查您正在使用的Jupyter平台
+    * 如何正确安装`nglview`
 
 ### References
 

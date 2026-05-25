@@ -1,40 +1,36 @@
-# T016 · Protein-ligand interactions
+# T016 · 蛋白质-配体相互作用
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Jaime Rodríguez-Guerra 2019-2020, [Volkamer 实验室](https://volkamerlab.org)
+- Jaime Rodríguez-Guerra 2019-2020, [Volkamer lab](https://volkamerlab.org)
 - Michele Wichmann, 2019-2020, Charité/FU Berlin
-- Yonghui Chen, 2020, [Volkamer 实验室](https://volkamerlab.org)
-- Talia B. Kimber, 2020, [Volkamer 实验室](https://volkamerlab.org)
-- Andrea Volkamer, 2020, [Volkamer 实验室](https://volkamerlab.org)
+- Yonghui Chen, 2020, [Volkamer lab](https://volkamerlab.org)
+- Talia B. Kimber, 2020, [Volkamer lab](https://volkamerlab.org)
+- Andrea Volkamer, 2020, [Volkamer lab](https://volkamerlab.org)
 
 
-## 本教程目标
+## 本教程的目标
 
-In this talktorial, we focus on protein-ligand interactions. Understanding such interactions, which are driving molecular recognition, are fundamental in drug design.
+在本教程中，我们专注于蛋白质-配体相互作用。理解这些驱动分子识别的相互作用是药物设计的基础。
+为此，我们使用两个 Python 工具：第一个是蛋白质-配体相互作用分析器（[PLIP](https://doi.org/10.1093/nar/gkv315)），用于深入了解任意样本复合物中的蛋白质-配体相互作用；第二个是 [NGLView](https://doi.org/10.1093/bioinformatics/btx789)，用于在 3D 空间中可视化这些相互作用。
 
-To this end, we use two Python tools: the first one, called the Protein–Ligand Interaction Profiler, or [PLIP](https://doi.org/10.1093/nar/gkv315), to get insight into protein-ligand interactions for any sample complex and the second, [NGLView](https://doi.org/10.1093/bioinformatics/btx789), to visualize the interactions in 3D.
+### _理论_ 部分内容
 
+* 蛋白质-配体相互作用
+* PLIP：蛋白质-配体相互作用分析器
+    * 网络服务
+    * 算法
+* 可视化：复合物与相互作用
 
-### 理论内容
+### _实践_ 部分内容
 
-- Protein-ligand interactions
-- PLIP: Protein–Ligand Interaction Profiler
-    - Web service
-    - Algorithm
-- Visualization: complex and interactions
-
-
-### 实践内容
-
-- PDB complex: example with EGFR
-- Profiling protein-ligand interactions using PLIP
-- Table of interaction types
-- Visualization with NGLView
-    - Analysis of interactions
-
+* PDB 复合物：以 EGFR 为例
+* 使用 PLIP 分析蛋白质-配体相互作用
+* 相互作用类型表格
+* 使用 NGLView 进行可视化
+    * 相互作用分析
 
 ### References
 

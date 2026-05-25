@@ -1,43 +1,41 @@
-# T037 · Uncertainty estimation
+# T037 · 不确定性估计
 
-**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
+**注：**此教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供可作为研究项目起点的流程模板。
 
 作者：
 
-- Michael Backenköhler, 2022, [Volkamer 实验室](https://volkamerlab.org), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
+- Michael Backenköhler, 2022, [Volkamer实验室](https://volkamerlab.org), [NextAID项目](https://nextaid.cs.uni-saarland.de/), 萨尔大学
 
 
-*本教程中使用的预测设置（和模型类）改编自 __教程 T022__。*
+*此教程使用的预测设置（和模型类）改编自__教程 T022__。*
 
 
-## 本教程目标
+## 本教程的目标
 
-研究人员通常只关注预测质量。然而，在应用预测模型时，研究人员也对他们在特定预测中的确定程度感兴趣。估计和提供此类信息是不确定性估计的目标。在本教程中，我们讨论一些常用方法论，并在实践中展示集成方法。
+研究人员通常只关注预测质量。然而，在应用预测模型时，研究人员也对特定预测的确定程度感兴趣。估计并提供此类信息是不确定性估计的目标。在本教程中，我们将讨论一些常见方法，并在实践中展示集成方法。
 
+### _理论_ 部分内容
 
-### 理论内容
+* 为什么模型不能也不应该确定
+* 校准
+* 方法概述
+    * 单确定性方法
+    * 集成方法
+    * 测试时数据增强
 
-* Why a model can't and shouldn't be certain
-* Calibration
-* Methods overview
-    * Single deterministic methods
-    * Ensemble methods
-    * Test-time data augmentation
+### _实践_ 部分内容
 
-
-### 实践内容
-* Data
-* Model
-    * Training
-    * Evaluation
-* Ensembles - Training a model multiple times
-    * Coverage of confidence intervals
-    * Calibration
-    * Ranking-based evaluation
-* Bagging ensemble - Training a model with varying data
-    * Ranking-based evaluation
-* Test-time data augmentation
-
+* 数据
+* 模型
+    * 训练
+    * 评估
+* 集成 - 多次训练模型
+    * 置信区间的覆盖范围
+    * 校准
+    * 基于排序的评估
+* Bagging集成 - 使用不同数据训练模型
+    * 基于排序的评估
+* 测试时数据增强
 
 ### References
 * [Gawlikowski, Jakob, et al. "A survey of uncertainty in deep neural networks." _arXiv preprint_ (2021), arXiv:__2107.03342__](https://arxiv.org/abs/2107.03342)
