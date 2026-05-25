@@ -1,21 +1,45 @@
-# T014 ·结合部位检测
+# T014 · Binding site detection
 
-* * 注意：** 这篇谈话文章是TeachOpenCADD的一部分，该平台旨在教授特定领域的技能并提供管道模板作为研究项目的起点。
+**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
 
 作者：
 
-* 改编自Abishek Laxmanan Ravi Shankar，2019年，在Thomamer实验室实习 * Andrea Thomamer，2020/21，[Thomamer实验室，Charité] (https：//volkamerab.org/） * Dominique Sydow，2020/21，[Amplamer Lab，Charité]（https：//volkamerab.org/)
+* Adapted from Abishek Laxmanan Ravi Shankar, 2019, internship at Volkamer 实验室
+* Andrea Volkamer, 2020/21, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+* Dominique Sydow, 2020/21, [Volkamer 实验室, Charité](https://volkamerlab.org/)
 
- ## 本期脱口秀的目标
 
-蛋白质的结合位点是其功能的关键。在这篇谈话文章中，我们介绍了使用[protein.plus] (https：//protins.plus/)网络服务器上的DoGiteScorer的计算结合位点检测工具的概念，以EGFR结构为例。 此外，我们通过计算两组之间的残基百分比，将结果与预定义的KlIFS结合位点进行比较。
+## 本教程目标
 
- # * 理论 * 内容
+The binding site of a protein is the key to its function. In this talktorial, we introduce the concepts of computational binding site detection tools using DoGSiteScorer from the [protein.plus](https://proteins.plus/) web server, exemplified on an EGFR structure. 
+Additionally, we compare the results to the pre-defined KLIFS binding site by calculating the percentage of residues in accordance between the two sets.
 
-* 蛋白结合位点 * 结合部位检测 * 方法概述 * DoGiteScorer * 与KlIFS口袋的比较
 
- # * 实用 * 中的内容
+### 理论内容
 
-* 使用DoGiteScorer检测结合位点 * 兴趣结构的职位提交 * 获取DoGiteScorer口袋元数据 * 挑选最合适的口袋 * 获取最佳绑定网站文件内容 * 调查检测到的口袋 * DoGiteScorer和KlIFS pocket之间的比较 * 获取DoGiteScorer口袋残留物 * 获取KlIFS口袋残留物 * 口袋残留物重叠
+* Protein binding sites
+* Binding site detection
+    * Methods overview
+    * DoGSiteScorer
+* Comparison to KLIFS pocket
 
- # 参考文献 * 活性部位的预测、分析和比较[Thomamer<i>等人</i>，（<b>2018</b>）] (https：//doi.org/10.1002/9783527806539.ch6g），《应用化学信息学：成就和未来机会》一书章节，威利 * DoGiteScorer，[Thomamer<i>等人。</i>，<i>J.Chem.Inf.Model</i>，（<b>2012</b>），52（2）：360-372]（https：//pubmed.ncbi.nlm.nih.gov/22148551/） * [ProteinsPlus]（https：//proteins.plus/）：大分子结构分析的门户网站。[Fährrolfes<i>等人</i>，<i>NAR</i>，（<b>2017</b>），3;45（W1）]（https：//pubmed.ncbi.nlm.nih.gov/28472372/） * [KLIFS]（https：//klifs.net/）：结构性kinase-配体相互作用数据库，[Kanev<i>等人</i>，<i>NAR</i>，（<b>2021</b>），49（D1）：D562-D569]（https：//academic.oup.com/nar/article/49/D1/D562/5934416) 
+
+### 实践内容
+
+* Binding site detection using DoGSiteScorer
+    * Job submission of structure of interest
+    * Get DoGSiteScorer pocket metadata
+    * Pick the most suitable pocket
+    * Get best binding site file content
+    * Investigate detected pocket
+* Comparison between DoGSiteScorer and KLIFS pocket
+    * Get DoGSiteScorer pocket residues
+    * Get KLIFS pocket residues
+    * Overlap of pocket residues
+
+
+### References
+* Prediction, Analysis, and Comparison of Active Sites [Volkamer <i>et al.</i>, (<b>2018</b>)](https://doi.org/10.1002/9783527806539.ch6g), book chapter in Applied Chemoinformatics: Achievements and Future Opportunities, Wiley
+* DoGSiteScorer, [Volkamer <i>et al.</i>, <i>J.Chem.Inf.Model</i>, (<b>2012</b>), 52(2):360-372](https://pubmed.ncbi.nlm.nih.gov/22148551/)
+* [ProteinsPlus](https://proteins.plus/): a web portal for structure analysis of macromolecules. [Fährrolfes <i>et al.</i>, <i>NAR</i>, (<b>2017</b>), 3;45(W1)](https://pubmed.ncbi.nlm.nih.gov/28472372/)
+* [KLIFS](https://klifs.net/): a structural kinase-ligand interaction database, [Kanev <i>et al.</i>, <i>NAR</i>, (<b>2021</b>), 49(D1):D562-D569](https://academic.oup.com/nar/article/49/D1/D562/5934416) 

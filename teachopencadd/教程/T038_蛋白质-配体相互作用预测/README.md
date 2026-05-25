@@ -1,40 +1,55 @@
-# T038 ·蛋白质配体相互作用预测
+# T038 · Protein Ligand Interaction Prediction
 
-**注意:** 这篇谈话文章是TeachOpenCADD的一部分，该平台旨在教授特定领域的技能并提供管道模板作为研究项目的起点。
+**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
 
 作者：
 
-- Roman Joeres，2022年，[UdS和HIPS药物生物信息学主席] (https：//www.helmholtz-hips.de/de/forschung/team/team/spokstoffbioinformatik/）[NextAID]（https：//nextaid.cs.uni-saarland.de/)项目，萨尔大学
+- Roman Joeres, 2022, [Chair for Drug Bioinformatics, UdS and HIPS](https://www.helmholtz-hips.de/de/forschung/teams/team/wirkstoffbioinformatik/), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
 
- ## 本期脱口秀的目标
 
-这篇谈话文章的目标是向读者介绍使用图神经网络（GNN）预测蛋白质-配体相互作用的领域。GNN对于将蛋白质和化学分子（配体）等结构数据表示为深度学习模型特别有用。在本期谈话中，我们将展示如何训练深度学习模型来预测蛋白质和配体之间的相互作用。
+## 本教程目标
 
- # *理论* 内容
+The goal of this talktorial is to introduce the reader to the field of protein-ligand interaction prediction using graph neural networks (GNNs). GNNs are especially useful for representing structural data such as proteins and chemical molecules (ligands) to a deep learning model. In this talktorial, we will show how to train a deep learning model to predict interactions between proteins and ligands.
 
-* 蛋白质-配体相互作用预测的相关性
-* 工作流 
-* 生物背景-蛋白质作为图表 
-* 技术背景 
-* 图同质网络 
-* 二元交叉熵损失
 
- # *实用* 中的内容
+### 理论内容
 
-* 计算图形表示 
-* 图形配体 
-* 蛋白质到图表 
-* 数据存储器 
-* 数据点 
-* 数据集 
-* 数据模块 
-* 网络 
-* GNN编码器 
-* 完整模型 
-* 训练例程
+* Relevance of protein-ligand interaction prediction
+* Workflow
+* Biological background - proteins as graphs
+* Technical background
+  * Graph Isomorphism Networks
+  * Binary Cross Entropy Loss
 
- # 参考文献
 
-* 理论背景 * 图形神经网络： Kipf，Welling：“使用图卷积网络的半监督分类”，[<i>arXiv</i>（2017）] (https：//arxiv.org/ab/1609.02907） 布朗斯坦等人：“几何深度学习：超越欧几里得数据”，[<i>IEEE Signal Process Magazine</i>（2017），<b>4</b>，18-42]（https：//doi.org/10.1109/MSP.2017.2693418） * 基于GNN的蛋白质-配体相互作用预测： Öztürk等人：“DeepDART：深度药物-靶点结合亲和力预测”，[<i>生物信息学</i>（2018），<b>34</b>，i821-i829]（https：//doi.org/10.1093/bioinformatics/bty593） 阮等人等人：“GraphDART：利用图神经网络预测药物-靶点结合亲和力”，[<i>生物信息学</i>（2021），<b>37</b>，1140-1147]（https：//doi.org/10.1093/bioinformatics/bta 921） * 图同质网络： 徐等人：“图神经网络有多强大？”，[<i>arXiv</i>（2018）]（https：//arxiv.org/ab/1810.00826)
+### 实践内容
 
-* 实践背景 * [PyTorch] (https：//pytorch.org/） * [PyTorch Geographic]（https：//pytorch-geographic.readthedocs.io/en/latest/） * [RDKit]（http：//rdkit.org/）：Greg Landrum，*RDKit Document *，[PDF]（https：//www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf)，发布日期：2019.09.1。 
+* Compute graph representations
+  * Ligands to graphs
+  * Proteins to graphs
+* Data Storages
+  * Data points
+  * Data set
+  * Data module
+* Network
+  * GNN encoder
+  * Full model
+* Training routine
+
+
+### References
+
+* Theoretical background
+    * Graph Neural Networks:
+      Kipf, Welling: "Semi-Supervised Classification with Graph Convolutional Networks", [<i>arXiv</i> (2017)](https://arxiv.org/abs/1609.02907)
+      Bronstein, et al.: "Geometric deep learning: going beyond Euclidean data", [<i>IEEE Signal Processing Magazine</i> (2017), <b>4</b>, 18-42](https://doi.org/10.1109/MSP.2017.2693418)
+    * GNN-based Protein-Ligand Interaction Prediction:
+      Öztürk, et al.: "DeepDTA: Deep drug-target binding affinity prediction", [<i>Bioinformatics</i> (2018), <b>34</b>, i821-i829](https://doi.org/10.1093/bioinformatics/bty593)
+      Nguyen, et. al.: "GraphDTA: Predicting drug-target binding affinity with graph neural networks", [<i>Bioinformatics</i> (2021), <b>37</b>, 1140-1147](https://doi.org/10.1093/bioinformatics/btaa921)
+    * Graph Isomorphism Network:
+      Xu, et al.: "How powerful are graph neural networks?", [<i>arXiv</i> (2018)](https://arxiv.org/abs/1810.00826)
+
+* Practical background
+    * [PyTorch](https://pytorch.org/)
+    * [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/)
+    * [RDKit](http://rdkit.org/): Greg Landrum, *RDKit Documentation*, [PDF](https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf), Release on 2019.09.1.

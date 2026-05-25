@@ -1,25 +1,41 @@
-# T011 ·查询在线API网络服务
+# T011 · 在线 API 网络服务查询
 
-* * 注意：** 这篇谈话文章是TeachOpenCADD的一部分，该平台旨在教授特定领域的技能并提供管道模板作为研究项目的起点。
+**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供作为研究项目起点的流程模板。
 
 作者：
 
-- Jaime Rodríguez-Guerra，2020-2021，[Amsteramer Lab，Charité] (https：//volkamerab.org/） - Dominique Sydow，2021年，[Amplamer Lab，Charité]（https：//volkamerab.org/） - David Scholer，2021年，[Amplamer实验室，Charité]（https：//volkamerab.org/)
+- Jaime Rodríguez-Guerra, 2020-2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+- Dominique Sydow, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
+- David Schaller, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/)
 
- ## 本期脱口秀的目标
 
-在本笔记本中，您将学习如何在药物设计的背景下以编程方式使用Python的在线网络服务。在本期谈话结束时，您将熟悉REST服务和Web抓取。
+## 本教程目标
 
- # 理论内容
+在本笔记本中，您将学习如何在药物设计的背景下，从 Python 中以编程方式使用在线网络服务。通过本教程的学习，您将熟悉 REST 服务和网页抓取。
 
-* 从服务器端角度进行数据访问
 
- # 实用内容
+### 理论内容
 
-* 下载静态文件 * 删除动态生成的内容 * 编程接口 * 文档解析 * 浏览器遥控器
+* 从服务器端视角的数据访问
 
- # 参考文献
 
-本指南非常实用，为了清晰起见省略了一些技术定义。然而，您还应该处理一些基本术语，以充分了解幕后发生的事情。
+### 实践内容
 
-* [客户端-服务器模型] (https：//en.wikipedia.org/wiki/Client%E2%80%93server_模型） * [Web API]（https：//en.wikipedia.org/wiki/Web_API） * [查询字符串]（https：//en.wikipedia.org/wiki/Credy_str串） * [REST]（https：//en.wikipedia.org/wiki/Representational_state_transfer） * [JSON]（https：//en.wikipedia.org/wiki/JSON） * [Swagger / OpenAPI]（https：//en.wikipedia.org/wiki/Swagger_（软件）） * [HTTP概述]（https：//developer.mozilla.org/en-US/docs/Web/HTTP/Overview) 
+* 下载静态文件
+* 访问动态生成的内容
+* 编程接口
+* 文档解析
+* 浏览器远程控制
+
+
+### References
+
+This guide is very practical and omits some technical definitions for the sake of clarity. However, you should also handle some basic terminology to fully understand what is going on behind the scenes.
+
+* [Client-server model](https://en.wikipedia.org/wiki/Client%E2%80%93server_model)
+* [Web API](https://en.wikipedia.org/wiki/Web_API)
+* [Query strings](https://en.wikipedia.org/wiki/Query_string)
+* [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)
+* [JSON](https://en.wikipedia.org/wiki/JSON)
+* [Swagger / OpenAPI](https://en.wikipedia.org/wiki/Swagger_(software))
+* [HTTP overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)

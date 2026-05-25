@@ -1,25 +1,48 @@
-# T033 ·分子表示
+# T033 · 分子表示
 
-* * 注意：** 这篇谈话文章是TeachOpenCADD的一部分，该平台旨在教授特定领域的技能并提供管道模板作为研究项目的起点。
+**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
 
 作者：
 
-- Gerrit Grosbmann，2022年，[建模和模拟主席] (https：//mosi.uni-saarland.de/people/gerrit/），[NextAID]（https：//nextaid.cs.uni-saarland.de/)项目，萨尔大学
+- Gerrit Großmann, 2022, [Chair for Modelling and Simulation](https://mosi.uni-saarland.de/people/gerrit/), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
 
- __Talktext T033__：该Talktext是TeachOpenCADD出版物中描述的TeachOpenCADD管道的一部分，由Talktext T033至T038组成。
 
- ## 本期脱口秀的目标
+__Talktorial T033__: This talktorial is part of the TeachOpenCADD pipeline described in the TeachOpenCADD publication, consisting of Talktorials T033 to T038.
 
-在这篇谈话文章中，我们为深度学习谈话进行了基础工作。 具体来说，我们了解了分子表示，并发现在计算机中表示分子并不是一项简单的任务。不同的表示方式有其特定的含义和（缺点）优势。
 
- # 理论内容
+## 本教程目标
 
-* 什么是分子？ * 分子表示 * 人类的分子代表 * 计算机时代的分子表示
+In this talktorial, we conduct the groundwork for the deep learning talktorials.
+Specifically, we learn about molecular representations and find that representing a molecule in a computer is not a trivial task. Different representations come with their specific implications and (dis-)advantages.
 
- # 实用内容
 
-* 构象异构 * 分子图 * 指纹
+### 理论内容
 
- # 参考文献
+* What is a molecule?
+* Molecular representations
+* Molecular Representations for Humans
+* Computer-age molecular representations
 
-* 数据库： * [UniProt蛋白质数据库](https://www.uniprot.org/) * [AlphaFold蛋白质结构数据库](https://alphafold.ebi.ac.uk/) * 文件： * [人工智能驱动的药物发现中的分子表示：回顾和实用guide](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00460-5#：~：text=Traditionally%2C%20molecules%20are%20represented%20as，of%20chemical%20structures%20in%20cheminformatics.) * [机器learning](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/wcms.1603)时代的分子表示回顾 * [从conformers](https://openreview.net/pdf?id=pjePBJjlBby)学习基于点的分子表示 * [学习与Rotations](https://openreview.net/pdf?id=hm2tNDdgaFK)键不变的分子手性的3D表示 * 对话： * 讲师T008**-蛋白质数据采集：蛋白质数据库(PDB) * 对话指南T017**-高级NGLview用法 * 深度学习专题讲座T033至T038 * [关于chirality](https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Map%3A_Organic_Chemistry_(Vollhardt_and_Schore)/05._Stereoisomers/5.1%3A_Chiral__Molecules)的教程 
+
+### Contents in Practical
+
+* Conformers
+* Molecular graphs
+* Fingerprints
+
+
+### References
+
+* Databases: 
+  * [UniProt Protein Database](https://www.uniprot.org/)
+  * [AlphaFold Protein Structure Database](https://alphafold.ebi.ac.uk/)
+* Papers: 
+  * [Molecular representations in AI-driven drug discovery: a review and practical guide](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00460-5#:~:text=Traditionally%2C%20molecules%20are%20represented%20as,of%20chemical%20structures%20in%20cheminformatics.)
+  * [A Review of molecular representation in the Age of machine learning](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/wcms.1603)
+  * [Point-based molecular representation learning from conformers](https://openreview.net/pdf?id=pjePBJjlBby)
+  * [Learning 3D Representations of Molecular Chirality with Invariance to Bond Rotations](https://openreview.net/pdf?id=hm2tNDdgaFK)
+* Talktorials: 
+  * **Talktorial T008** - Protein data acquisition: Protein Data Bank (PDB)
+  * **Talktorial T017** - Advanced NGLview usage
+  * Deep learning talktorials T033 to T038
+* [Tutorial on chirality](https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Map%3A_Organic_Chemistry_(Vollhardt_and_Schore)/05._Stereoisomers/5.1%3A_Chiral__Molecules)

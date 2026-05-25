@@ -1,25 +1,48 @@
-# T034 ·基于RNN的分子性质预测
+# T034 · RNN-based molecular property prediction
 
-* * 注意：** 这篇谈话文章是TeachOpenCADD的一部分，该平台旨在教授特定领域的技能并提供管道模板作为研究项目的起点。
+**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
 
 作者：
 
-- Azat Tagirdzhanov，2022年，[临床生物信息学主席] (https：//www.ccb.uni-saarland.de/），[NextAID]（https：//nextaid.cs.uni-saarland.de/)项目，萨尔大学
+- Azat Tagirdzhanov, 2022, [Chair for Clinical Bioinformatics](https://www.ccb.uni-saarland.de/), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
 
- ## 本期脱口秀的目标
 
-SMILES字符串的分子表示为将自然语言处理技术应用于广泛的分子相关任务铺平了道路。在这篇谈话文章中，我们将更深入地探讨其中一种技术：循环神经网络（RNN）。首先，我们将描述不同的RNN架构，然后使用QM 9数据集将它们应用于回归任务。
+## 本教程目标
 
- # * 理论 * 内容
+Molecular representation by a SMILES string paved the way for applying natural language processing techniques to a broad range of molecule-related tasks. In this talktorial we will dive deeper into one of these techniques: recurrent neural networks (RNNs). First, we will describe different RNN architectures and then apply them to a regression task using the QM9 dataset.
 
-* 分子作为文本 * 代币化和一热编码 * 循环神经网络（RNN） * 香草RNN * 培训RNN * 梯度消失 * Gated Recurrent Unit
 
- # * 实用 * 中的内容
+### 理论内容
 
-* 数据集 * 模型定义 * 培训 * 评价
+* Molecules as text
+    * Tokenization and one-hot encoding
+* Recurrent Neural Networks (RNNs)
+    * Vanilla RNN
+    * Training an RNN
+    * Vanishing gradients
+    * Gated Recurrent Unit
 
- # 参考文献
 
-# 谈话 * __Talkorial T021__：一热编码 * __Talkorial T022__：基于配体的筛选：神经网络 * __Talkorial T033__：分子表示 * __Talkorial T034__：基于GNN的属性预测
+### 实践内容
 
- # 理论背景 * Michael Phi，<i>回归神经网络插图指南</i>，[towardsociociancience] (https：//towardsocience.com/illusterad-guide-to-recurrent-neural-networks-79e5eb8049c9） * Michael Phi，<i>LSTM和GRU插图指南：分步解释</i>，[towardsscience]（https：//towardsscience.com/illusterad-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44 e9 eb 85 bf 21） * [现代回归神经网络]（https：//d2l.ai/chapter_recurrent-modern/index.html），<i>D2L.ai：具有多框架代码、数学和讨论的交互式深度学习书籍</i> * Denny Britz，<i>循环神经网络收件箱</i>，[dennybritz.com]（https：//dennybritz.com/posts/wildml/recurrent-neural-networks-tutorial-Part-1/） * Andrej Karpathy，<i>回归神经网络的不合理有效性</i>，[Andrej Karpathy博客]（https：//karpathy.github.io/2015/05/21/rnn-effectiveness/) 
+* Dataset
+* Model definition
+* Training
+* Evaluation
+
+
+### References
+
+#### Talktorials
+* __Talktorial T021__: One-Hot Encoding
+* __Talktorial T022__: Ligand-based screening: neural networks
+* __Talktorial T033__: Molecular Representations
+* __Talktorial T034__: GNN based property prediction
+
+
+#### Theoretical background
+* Michael Phi, <i>Illustrated Guide to Recurrent Neural Networks</i>, [towardsdatascience](https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9)
+* Michael Phi, <i>Illustrated Guide to LSTM’s and GRU’s: A step by-step explanation</i>, [towardsdatascience](https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21)
+* [Modern Recurrent Neural Networks](https://d2l.ai/chapter_recurrent-modern/index.html), <i>D2L.ai: Interactive Deep Learning Book with Multi-Framework Code, Math, and Discussions</i>
+* Denny Britz, <i>Recurrent Neural Networks Tutorial</i>, [dennybritz.com](https://dennybritz.com/posts/wildml/recurrent-neural-networks-tutorial-part-1/)
+* Andrej Karpathy, <i>The Unreasonable Effectiveness of Recurrent Neural Networks</i>, [Andrej Karpathy blog](https://karpathy.github.io/2015/05/21/rnn-effectiveness/)

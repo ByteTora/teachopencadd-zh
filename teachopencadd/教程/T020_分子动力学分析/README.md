@@ -1,25 +1,50 @@
-# T020 ·分析分子动力学模拟
+# T020 · Analyzing molecular dynamics simulations
 
-* * 注意：** 这篇谈话文章是TeachOpenCADD的一部分，该平台旨在教授特定领域的技能并提供管道模板作为研究项目的起点。
+**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
 
 作者：
 
-- Mareike Leja，2020/21，在[Amsteramer Lab，Charité]实习（https：//volkamerab.org/） - David Scholer，2020/21，[Amplamer Lab，Charité] (https：//volkamerab.org/） - Andrea Thomamer，2021年，[Thomamer Lab，Charité]（https：//volkamerab.org/) 
+- Mareike Leja, 2020/21, Internship at [Volkamer 实验室, Charité](https://volkamerlab.org/) 
+- David Schaller, 2020/21, [Volkamer 实验室, Charité](https://volkamerlab.org/) 
+- Andrea Volkamer, 2021, [Volkamer 实验室, Charité](https://volkamerlab.org/) 
 
- ## 本期脱口秀的目标
 
-在本期谈话中，我们将介绍分子动力学（MD）模拟的分析方法。介绍的方法包括动画可视化、结构对齐、RMSD计算以及选定的原子距离和键分析。 请注意，我们将使用 ** Talkorial T019** 生成的模拟结果（1 ns，100帧），该结果针对与抑制剂结合的EGFR同工酶（[TSB：3POZ] (https：//www.rcsb.org/structure/3poz））[03P]（https：//www.rcsb.org/rigand/03P)。 
+## 本教程目标
 
- # * 理论 * 内容
+In this talktorial, we will introduce methods for the analysis of molecular dynamics (MD) simulations. The introduced methods include animated visualization, structural alignment, RMSD calculation as well as selected atom distances and hydrogen bond analysis. 
+Note, we will work with the simulation results (1ns, 100 frames) generated with **Talktorial T019** on the EGFR kinase ([PDB: 3POZ](https://www.rcsb.org/structure/3poz)) bound to inhibitor [03P](https://www.rcsb.org/ligand/03P). 
 
-- MD模拟 - 在药物发现过程中的应用 - 灵活结构与静态结构 - 分析MD模拟 - 可视化 - RMSD - 氢键分析
 
- # * 实用 * 中的内容
+### 理论内容
 
-- 加载并可视化系统 - 对准 - 蛋白质和配体的RMSD - 随着时间的推移，RMSD - 帧之间的RMSD - 相互作用分析 - 原子距离 - 氢键分析
+- MD simulations
+    - Application in the drug discovery process
+    - Flexible vs. static structures
+- Analyzing MD simulations
+  - Visualization
+  - RMSD
+  - Hydrogen bond analysis
 
- # 参考文献
 
-理论背景：
+### 实践内容
 
-- MD模拟对药物发现的影响回顾（[_J Med Chem_（2016），**59**（9），4035 - 4061] (https：//doi.org/10.1021/acs.jmedchem.5b01684）） - 关于力场的评论（[_J Chem Inf Model_（2018），**58**（3），565-578]（https：//doi.org/10.1021/acs.jcim.8b00042）） - 关于氢键合的评论（[_PLoS One._（2010），**5（8）**，e12029]（https：//doi.org/10.1371%2Fjournal.pone.0012029）） - 分子相互作用指南（[_J. Med. Chem._ 2010，**53（14）**，5061-84]（https：//doi.org/10.1021/jm100112j）） - 维基百科关于[根均方偏差]的文章（https：//en.wikipedia.org/wiki/Root-mean-square_division） - [MDAnalysism]（https：//www.mdAnalysis.org/）和[NGL View]（https：//github.com/arose/nglview)的存储库 
+- Load and visualize the system
+- Alignment
+- RMSD of protein and ligand
+  - RMSD over time
+  - RMSD between frames
+- Interaction analysis
+  - Atomic distances
+  - Hydrogen bond analysis
+
+
+### References
+
+Theoretical Background:
+
+- Review on the impact of MD simulations in drug discovery ([_J Med Chem_ (2016), **59**(9), 4035‐4061](https://doi.org/10.1021/acs.jmedchem.5b01684))
+- Review on force fields ([_J Chem Inf Model_ (2018), **58**(3), 565-578](https://doi.org/10.1021/acs.jcim.8b00042))
+- Review on hydrogen bonding ([_PLoS One._ (2010), **5(8)**, e12029](https://doi.org/10.1371%2Fjournal.pone.0012029))
+- Guide to molecular interactions ([_J. Med. Chem._ 2010, **53(14)**, 5061-84](https://doi.org/10.1021/jm100112j))
+- Wikipedia Article about [root-mean-square deviation](https://en.wikipedia.org/wiki/Root-mean-square_deviation)
+- Repositories of [MDAnalysis](https://www.mdanalysis.org/) and [NGL View](https://github.com/arose/nglview)

@@ -1,25 +1,54 @@
-# T036 ·E（3）-不变图神经网络简介
+# T036 · An introduction to E(3)-invariant graph neural networks
 
-* * 注意：** 这篇谈话文章是TeachOpenCADD的一部分，该平台旨在教授特定领域的技能并提供管道模板作为研究项目的起点。
+**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并提供作为研究项目起点的流程模板。
 
 作者：
 
-- Joschka Grozen，2022年，[建模和模拟主席] (https：//mosi.uni-saarland.de/），[NextAID]（https：//nextaid.cs.uni-saarland.de/)项目，萨尔大学
+- Joschka Groß, 2022, [Chair for Modelling and Simulation](https://mosi.uni-saarland.de/), [NextAID](https://nextaid.cs.uni-saarland.de/) project, Saarland University
 
- ## 本期脱口秀的目标
 
-这篇谈话文章应该作为对具有3D形态信息的分子点云表示的机器学习的入门，即嵌入欧几里得空间的分子图（请参阅 ** Talkorial 033**）。您将了解为什么欧几里得等方差和不变性是以点云作为输入的神经网络（NN）的重要属性，并了解如何实现和训练此类NN。除了从理论上讨论它们之外，本笔记本还旨在演示普通图神经网络（GNN）在实际处理点云时的缺点。
+## 本教程目标
 
- # * 理论 * 内容
+This talktorial is supposed to serve as an introduction to machine learning on point cloud representations of molecules with 3D conformer information, i.e., molecular graphs that are embedded into Euclidean space (see **Talktorial 033**). You will learn why Euclidean equivariance and invariance are important properties of neural networks (NNs) that take point clouds as input and learn how to implement and train such NNs. In addition to discussing them in theory, this notebook also aims to demonstrate the shortcomings of plain graph neural networks (GNNs) when working with point clouds practically.
 
-* 为什么是3D坐标？ * 将分子表示为点云 * 欧几里得空间中的等变性和不变性以及我们关心的原因 * 如何构建$\text{E}（n）$-不变和等变模型 * QM 9数据集
 
- # * 实用 * 中的内容
+### 理论内容
 
-* 点云可视化 * 设置并检查QM 9数据集 * 预处理 * 原子数分布和点云大小 * 数据拆分、回归目标电子空间范围分布 * 模型实现 * 简单的“天真的欧几里得”GNN * 演示：纯GNN不是E（3）不变的 * EGNN模型 * 演示：我们的EGNN是E（3）不变的 * 训练和评价 * 设置 * 培训EGNN * 训练平原GNN * 比较评价
+* Why 3D coordinates?
+* Representing molecules as point clouds
+* Equivariance and Invariance in euclidean space and why we care
+* How to construct $\text{E}(n)$-invariant and equivariant models
+* The QM9 dataset
 
- # 参考文献
 
-# 理论 * 134K分子的量子化学结构和性质(QM9)**：[科学数据</i>(2014)](https://www.nature.com/articles/sdata201422/?ref=https://githubhelp.com) * MoleculeNet：分子机器学习的基准**：[<i>化学。科学</i>，2018年，<b>9</b>，513-530](https://pubs.rsc.org/en/content/articlehtml/2018/sc/c7sc02664a) * E(N)-等变图神经网络**：[<i>机器学习国际会议</i>(2021)，<b>139</b>，99323-9332](https://proceedings.mlr.press/v139/satorras21a.html) * SE(3)-转换器：3D旋转-平移等变注意网络**：[神经信息处理系统进展</i>(2021)，<b>33</b>，1970-1981](https://proceedings.neurips.cc/paper/2020/file/15231a7ce4ba789d13b722cc5c955834-Paper.pdf) * TorchMD-Net：基于神经网络的分子势等变转换器**：[Arxiv Preprint(2022年)</i>](https://arxiv.org/abs/2202.02541) * DiffDock**：[<i>arxiv预印</i>(2022年)](https://arxiv.org/abs/2210.01776)
+### 实践内容
 
-# 实用 * [Pytorch Geographic QM 9版本] (https：//pytorch-geographic.readthedocs.io/en/latest/modules/guardiets. html #torch_geographic. guardiets. QM 9) 
+* Visualization of point clouds
+* Set up and inspect the QM9 dataset
+  * Preprocessing
+  * Atomic number distribution and point cloud size
+  * Data split, distribution of regression target electronic spatial extent
+* Model implementation
+  * Plain "naive Euclidean" GNN
+  * Demo: Plain GNNs are not E(3)-invariant
+  * EGNN model
+  * Demo: Our EGNN is E(3)-invariant
+* Training and evaluation
+  * Setup
+  * Training the EGNN
+  * Training the plain GNN
+  * Comparative evaluation
+
+
+### References
+
+#### Theoretical
+* **Quantum chemistry structures and properties of 134k molecules (QM9)**: [<i>Scientific data</i> (2014)](https://www.nature.com/articles/sdata201422/?ref=https://githubhelp.com)
+* **MoleculeNet: a benchmark for molecular machine learning**: [<i>Chem. Sci.</i>, 2018, <b>9</b>, 513-530](https://pubs.rsc.org/en/content/articlehtml/2018/sc/c7sc02664a)
+* **E(n)-Equivariant Graph Neural Networks**: [<i>International conference on machine learning</i> (2021), <b>139</b>, 99323-9332](https://proceedings.mlr.press/v139/satorras21a.html)
+* **SE(3)-transformers: 3D roto-translation equivariant attention networks**: [<i>Advances in Neural Information Processing Systems</i> (2021), <b>33</b>, 1970-1981](https://proceedings.neurips.cc/paper/2020/file/15231a7ce4ba789d13b722cc5c955834-Paper.pdf)
+* **TorchMD-NET: Equivariant Transformers for Neural Network based Molecular Potentials**: [<i>arXiv preprint (2022)</i>](https://arxiv.org/abs/2202.02541)
+* **DiffDock**: [<i>arXiv preprint</i> (2022)](https://arxiv.org/abs/2210.01776)
+
+#### Practical
+* [Pytorch Geometric QM9 version](https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html#torch_geometric.datasets.QM9)

@@ -1,25 +1,59 @@
-# T007 ·基础配体的选择：机器学习
+# T007 · 基于配体的筛选：机器学习
 
-* * 注意：** 这篇谈话文章是TeachOpenCADD的一部分，该平台旨在教授特定领域的技能并提供管道模板作为研究项目的起点。
+**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供作为研究项目起点的流程模板。
 
 作者：
 
-* Jan Philipp Albrecht，2018年CADD研讨会，Charité/FU柏林 * Jacob Gora，2018年CADD研讨会，Charité/FU柏林 * 塔利亚·B Kimber，2019-2020，[Amplamer Lab] (https：volkamerlab.org） * Andrea Thomamer，2019-2020，[Thomamer实验室]（https：volkamerlab.org)
+* Jan Philipp Albrecht, CADD seminar 2018, Charité/FU Berlin
+* Jacob Gora, CADD seminar 2018, Charité/FU Berlin
+* Talia B. Kimber, 2019-2020, [Volkamer 实验室](https://volkamerlab.org)
+* Andrea Volkamer, 2019-2020, [Volkamer 实验室](https://volkamerlab.org)
 
- __Talktext T007__：该Talktext是[第一篇TeachOpenCADD论文] (https：//jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)中描述的TeachOpenCADD管道的一部分，由talkDoctors T001-T010组成。
 
- ## 这次音乐节的目的
+__教程 T007__：本教程是 [第一篇 TeachOpenCADD 论文](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x) 中描述的 TeachOpenCADD 流程的一部分，包含教程 T001-T010。
 
- 由于可用的数据来源更大，机器学习（ML）在药物发布方面发展势头强劲，其是在基础上匹配实体的虚拟选择方面。在这次颁奖典礼上，我们将学习如何使用不同的监督式 ML 算法来预测新化合物对我们感兴趣的指标（EGFR）的活性。
 
- # 内容*理论*
+## 本教程目标
 
-- 数据准备：子编码 - 机器学习（ML） * 监督学习 - 模型验证和评估 * 验证策略：K 折交叉验证 * 衡量标准
+由于更大的可用数据源，机器学习 (ML) 在药物发现中，尤其是在基于配体的虚拟筛选中获得了发展势头。在本教程中，我们将学习如何使用不同的监督式 ML 算法来预测新型化合物对我们关注靶点 (EGFR) 的活性。
 
- # 内容* 现实 *
 
-- 加载化合物和活性数据 - 数据准备 * 数据标注 * 分子编码 - 机器学习 * 辅助函数 * 随机森林分类器 * 支持向量分类器 * 神经网络分类器 * 交叉验证
+### _理论_ 内容
 
- # 引用
+* 数据准备：分子编码
+* 机器学习 (ML)
+    * 监督式学习
+* 模型验证与评估
+    * 验证策略：K 折交叉验证
+    * 性能度量
 
-* 《RDKit中的指纹》[slides](https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf)，G.Landrum，RDKit UGM，2012年 * 扩展连接指纹(ECFP)：罗杰斯、大卫和马修·哈恩。<扩展连接性指纹>[_化学信息和模型期刊_50.5(2010年)：742-754.](https://doi.org/10.1021/ci100050t) * 机器学习(ML)： * 随机林(RF)：Breiman，L.“随机森林”。[_机器学习_**45**，5-32(2001).](https://link.springer.com/article/10.1023%2FA%3A1010933404324) * 支持向量机：Cortes，C.，Vapnik，V.“支持向量网络”。[_机器学习_**20**，273-297(1995).](https://link.springer.com/article/10.1007%2FBF00994018) * 人工神经网络(ANN)：范·格文、马塞尔和桑德·博特。《人工神经网络作为神经信息处理的模型》[_计算神经科学前沿11(2017)：114.](https://doi.org/10.3389/fncom.2017.00114) * 性能： * 敏感性和特异性([Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity)) * ROC曲线和AuC([Wikipedia](https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve)) * 另见[B.Merget](https://github.com/Team-SKI/Publications/tree/master/Profiling_prediction_of_kinase_inhibitors)的GitHub笔记本电脑][*J.Med.Chem.*，2017，60,474−485](https://pubs.acs.org/doi/10.1021/acs.jmedchem.6b01611) * 本说明书中使用的活动中断$PIC_{50}=6.3$ * 对激酶抑制剂的分析预测：走向虚拟测试[J.Med.化学</i>(2017)，<b>60</b>，474-485](https://doi.org/10.1021/acs.jmedchem.6b01611) * 前面提到的出版物附带的笔记本：[Notebook](https://github.com/Team-SKI/Publications/blob/master/Profiling_prediction_of_kinase_inhibitors/Build_ABL1_model.ipynb) 
+
+### _实践_ 内容
+
+* 加载化合物和活性数据
+* 数据准备
+    * 数据标注
+    * 分子编码
+* 机器学习
+    * 辅助函数
+    * 随机森林分类器
+    * 支持向量分类器
+    * 神经网络分类器
+    * 交叉验证
+
+
+### References
+
+* "Fingerprints in the RDKit" [slides](https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf), G. Landrum, RDKit UGM 2012
+* Extended-connectivity fingerprints (ECFPs): Rogers, David, and Mathew Hahn. "Extended-connectivity fingerprints." [_Journal of chemical information and modeling_ 50.5 (2010): 742-754.](https://doi.org/10.1021/ci100050t)
+* Machine learning (ML):
+  * Random forest (RF): Breiman, L. "Random Forests". [_Machine Learning_ **45**, 5–32 (2001).](https://link.springer.com/article/10.1023%2FA%3A1010933404324)
+  * Support vector machines (SVM): Cortes, C., Vapnik, V. "Support-vector networks". [_Machine Learning_ **20**, 273–297 (1995).](https://link.springer.com/article/10.1007%2FBF00994018)
+  * Artificial neural networks (ANN): Van Gerven, Marcel, and Sander Bohte. "Artificial neural networks as models of neural information processing." [_Frontiers in Computational Neuroscience_ 11 (2017): 114.](https://doi.org/10.3389/fncom.2017.00114)
+* Performance: 
+  * Sensitivity and specificity ([Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity))
+  * ROC curve and AUC ([Wikipedia](https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve))
+* See also [github notebook by B. Merget](https://github.com/Team-SKI/Publications/tree/master/Profiling_prediction_of_kinase_inhibitors) from [*J. Med. Chem.*, 2017, 60, 474−485](https://pubs.acs.org/doi/10.1021/acs.jmedchem.6b01611) 
+* Activity cutoff $pIC_{50} = 6.3$ used in this talktorial
+  * Profiling Prediction of Kinase Inhibitors: Toward the Virtual Assay [<i>J. Med. Chem.</i> (2017), <b>60</b>, 474-485](https://doi.org/10.1021/acs.jmedchem.6b01611)
+  * Notebook accompanying the publication mentioned before: [Notebook](https://github.com/Team-SKI/Publications/blob/master/Profiling_prediction_of_kinase_inhibitors/Build_ABL1_model.ipynb)

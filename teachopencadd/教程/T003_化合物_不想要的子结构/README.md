@@ -1,17 +1,39 @@
-# T003 ·子选择：不想要的子结构
+# T003 · 分子过滤：不想要的子结构
 
-## 课程目标
+**注意：** 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定技能，并提供作为研究项目起点的流程模板。
 
-在我们的筛选库中，有些子结构是我们不希望包含的。在这个课程中，我们将学习不同类型的不想要的结构，以及如何使用RDKit来查找、突出显示和删除它们。
+作者：
 
-# 理论内容
+- Maximilian Driller, CADD seminar, 2017, Charité/FU Berlin
+- Sandra Krüger, CADD seminar, 2018, Charité/FU Berlin
 
-* 不想要的子结构 * 广泛分析干燥化学物质（PAIN）
 
-# 实践内容
+__教程 T003__：本教程是第一篇 TeachOpenCADD 出版物 ([_J. Cheminform._ (2019), **11**, 1-7](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x)) 中描述的 TeachOpenCADD 流程的一部分，包含教程 T001-T010。
 
-* 加载和可视化数据 * 选择痛苦 * 筛选不想要的子结构 * 突出显示子结构 * 子结构统计
 
-# 参考文献
+## 本教程目标
 
-* Pan Test干扰化合物（[wikipedia] (https：//en.wikipedia.org/wiki/Pan-assay_interference_compositions），[_J. Med. Chem._（2010），**53**，2719-2740]（https：//pubs.acs.org/doi/abs/10.1021/jm901137j）） * Brenk * 等人认为不需要的子结构 *（[_Chem. Med. Chem._（2008），**3**，435-44]（https：//onlinelibrary.wiley.com/doi/full/10.1002/guardc.200700139）） * 灵感来自Teach-Discover-Treat教程（[repository]（https：//github.com/sriniker/TDT-tutorial-2014/blob/master/TDT_challenge_tutorial.ipynb）） * RDKit（[仓库]（https：//github.com/rdkit/rdKit），[文档]（https：//www.rdkit.org/docs/index.html）)s
+有些子结构我们更倾向于不包含在我们的筛选库中。在本教程中，我们将了解不同类型的不想要的子结构，以及如何使用 RDKit 查找、高亮和移除它们。
+
+
+### 理论内容
+
+* 不想要的子结构
+* Pan Assay Interference Compounds (PAINS)  
+
+
+### 实践内容
+
+* 加载并可视化数据
+* 过滤 PAINS
+* 过滤不想要的子结构
+* 高亮子结构
+* 子结构统计
+
+
+### References
+
+* Pan Assay Interference compounds ([wikipedia](https://en.wikipedia.org/wiki/Pan-assay_interference_compounds), [_J. Med. Chem._ (2010), **53**, 2719-2740](https://pubs.acs.org/doi/abs/10.1021/jm901137j)) 
+* Unwanted substructures according to Brenk *et al.* ([_Chem. Med. Chem._ (2008), **3**, 435-44](https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139))
+* Inspired by a Teach-Discover-Treat tutorial ([repository](https://github.com/sriniker/TDT-tutorial-2014/blob/master/TDT_challenge_tutorial.ipynb))
+* RDKit ([repository](https://github.com/rdkit/rdkit), [documentation](https://www.rdkit.org/docs/index.html))
