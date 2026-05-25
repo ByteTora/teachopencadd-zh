@@ -17,7 +17,7 @@ def main():
     talktorials = Path("../../teachopencadd/教程/")
     print(talktorials)
     for path in talktorials.glob("*/"):
-        nbpath = path / "talktorial.ipynb"
+        nbpath = path / "talktorial_zh.ipynb"
         if not nbpath.exists():
             continue
         for ignore in IGNORE:
