@@ -95,7 +95,6 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -1136,9 +1135,7 @@ True
 <h2 id="延伸阅读">延伸阅读<a class="headerlink" href="#延伸阅读" title="Link to this heading">¶</a></h2>
 <section id="增强采样方法理论上，无偏的-MD-模拟应该能够模拟药物分子及其大分子靶标的结合和解离事件。然而，结合和解离事件的时间尺度在毫秒到秒的范围内。增强采样方法旨在加速构象采样（J-Med-Chem.-2016,-59(9),-4035-61）。其中一种是自由能微扰（FEP）（也称为炼金术自由能计算），它计算从状态-A-到另一个状态-B-时的自由能差。它通常用于先导化合物优化中，以评估配体的微小修改，这些修改可能会增强对目标靶标的结合亲和力。通过模拟几个中间（%22炼金术%22）状态，状态-A-的配体逐渐转变为状态-B-的配体（alchemistry）。另一种自由能计算技术是伞形采样（US）。US-通过使用能量偏倚执行分阶段模拟，强制沿集体变量（CV）进行采样。偏倚通常采用谐振势的形式，因此称为%22伞形%22。其目标是对沿-CV-的高能区域进行采样。然而，在药物设计中的应用受到高计算成本的限制。相比之下，受控-MD（SMD）采用不同的方法：它对系统施加外力。这些力是时间依赖性的，并促进配体从靶标上解离。SMD-计算施加在系统上的最终力。然后可以使用解离力谱来筛选对接计算得到的命中化合物，并区分活性分子和非活性分子。">
 <h3 id="增强采样方法理论上，无偏的-MD-模拟应该能够模拟药物分子及其大分子靶标的结合和解离事件。然而，结合和解离事件的时间尺度在毫秒到秒的范围内。增强采样方法旨在加速构象采样（J-Med-Chem.-2016,-59(9),-4035-61）。其中一种是自由能微扰（FEP）（也称为炼金术自由能计算），它计算从状态-A-到另一个状态-B-时的自由能差。它通常用于先导化合物优化中，以评估配体的微小修改，这些修改可能会增强对目标靶标的结合亲和力。通过模拟几个中间（%22炼金术%22）状态，状态-A-的配体逐渐转变为状态-B-的配体（alchemistry）。另一种自由能计算技术是伞形采样（US）。US-通过使用能量偏倚执行分阶段模拟，强制沿集体变量（CV）进行采样。偏倚通常采用谐振势的形式，因此称为%22伞形%22。其目标是对沿-CV-的高能区域进行采样。然而，在药物设计中的应用受到高计算成本的限制。相比之下，受控-MD（SMD）采用不同的方法：它对系统施加外力。这些力是时间依赖性的，并促进配体从靶标上解离。SMD-计算施加在系统上的最终力。然后可以使用解离力谱来筛选对接计算得到的命中化合物，并区分活性分子和非活性分子。">增强采样方法理论上，无偏的 MD 模拟应该能够模拟药物分子及其大分子靶标的结合和解离事件。然而，结合和解离事件的时间尺度在毫秒到秒的范围内。增强采样方法旨在加速构象采样（<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem. 2016, 59(9), 4035-61</a>）。其中一种是<strong>自由能微扰（FEP）</strong>（也称为炼金术自由能计算），它计算从状态 A 到另一个状态 B 时的自由能差。它通常用于先导化合物优化中，以评估配体的微小修改，这些修改可能会增强对目标靶标的结合亲和力。通过模拟几个中间（”炼金术”）状态，状态 A 的配体逐渐转变为状态 B 的配体（<a class="reference external" href="http://www.alchemistry.org/wiki/Main_Page">alchemistry</a>）。另一种自由能计算技术是<strong>伞形采样（US）</strong>。US 通过使用能量偏倚执行分阶段模拟，强制沿集体变量（CV）进行采样。偏倚通常采用谐振势的形式，因此称为”伞形”。其目标是对沿 CV 的高能区域进行采样。然而，在药物设计中的应用受到高计算成本的限制。相比之下，<strong>受控 MD（SMD）</strong>采用不同的方法：它对系统施加外力。这些力是时间依赖性的，并促进配体从靶标上解离。SMD 计算施加在系统上的最终力。然后可以使用解离力谱来筛选对接计算得到的命中化合物，并区分活性分子和非活性分子。<a class="headerlink" href="#增强采样方法理论上，无偏的-MD-模拟应该能够模拟药物分子及其大分子靶标的结合和解离事件。然而，结合和解离事件的时间尺度在毫秒到秒的范围内。增强采样方法旨在加速构象采样（J-Med-Chem.-2016,-59(9),-4035-61）。其中一种是自由能微扰（FEP）（也称为炼金术自由能计算），它计算从状态-A-到另一个状态-B-时的自由能差。它通常用于先导化合物优化中，以评估配体的微小修改，这些修改可能会增强对目标靶标的结合亲和力。通过模拟几个中间（%22炼金术%22）状态，状态-A-的配体逐渐转变为状态-B-的配体（alchemistry）。另一种自由能计算技术是伞形采样（US）。US-通过使用能量偏倚执行分阶段模拟，强制沿集体变量（CV）进行采样。偏倚通常采用谐振势的形式，因此称为%22伞形%22。其目标是对沿-CV-的高能区域进行采样。然而，在药物设计中的应用受到高计算成本的限制。相比之下，受控-MD（SMD）采用不同的方法：它对系统施加外力。这些力是时间依赖性的，并促进配体从靶标上解离。SMD-计算施加在系统上的最终力。然后可以使用解离力谱来筛选对接计算得到的命中化合物，并区分活性分子和非活性分子。" title="Link to this heading">¶</a></h3>
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_major": 2, "version_minor": 0}
-</script></section>
+</section>
 </section>
 </section>
 
