@@ -4,14 +4,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="T036 · An introduction to E(3)-invariant graph neural networks" />
+<meta property="og:title" content="T036 · E(3)-等变图神经网络入门" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T036_e3_equivariant_gnn.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Joschka Groß, 2022, Chair for Modelling and Simulation, NextAID project, Saarland University. Aim of this tal..." />
+<meta property="og:description" content="注： 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。 作者： Gerrit Großmann, 2022, 建模与仿真教席, NextAID 项目, 萨尔大学. 本教程的目标: 在 教程 T035 中，我们学习了如何将图神经网络（GNN）应用于分子。然而，分子图作为分子表示存在一个内在缺陷：它们忽略了至关重要的 3D 信息。本教程希望弥合这一差距，并介绍基于分子的 3D 点云表示来构建 GNN 的基本概念。 具体来说，我们将： 讨论为什么基于图的分子表示是有限的，以及为什么 3D 信息如此..." />
 <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
 <meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Joschka Groß, 2022, Chair for Modelling and Simulation, NextAID project, Saarland University. Aim of this tal..." />
+<meta name="description" content="注： 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。 作者： Gerrit Großmann, 2022, 建模与仿真教席, NextAID 项目, 萨尔大学. 本教程的目标: 在 教程 T035 中，我们学习了如何将图神经网络（GNN）应用于分子。然而，分子图作为分子表示存在一个内在缺陷：它们忽略了至关重要的 3D 信息。本教程希望弥合这一差距，并介绍基于分子的 3D 点云表示来构建 GNN 的基本概念。 具体来说，我们将： 讨论为什么基于图的分子表示是有限的，以及为什么 3D 信息如此..." />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -82,7 +82,7 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T036 · An introduction to E(3)-invariant graph neural networks &#8212; TeachOpenCADD 0.0.post1 documentation</title>
+    <title>T036 · E(3)-等变图神经网络入门 &#8212; TeachOpenCADD 0.0.post1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -100,8 +100,8 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T037 · Uncertainty estimation" href="T037_uncertainty_estimation.html" />
-    <link rel="prev" title="T035 · GNN-based molecular property prediction" href="T035_graph_neural_networks.html" />
+    <link rel="next" title="T037 · 不确定性估计" href="T037_uncertainty_estimation.html" />
+    <link rel="prev" title="T035 · 基于 GNN 的分子性质预测" href="T035_graph_neural_networks.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -140,7 +140,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">TeachOpenCADD</span>
-          <span class="md-header-nav__topic"> T036 · An introduction to E(3)-invariant graph neural networks </span>
+          <span class="md-header-nav__topic"> T036 · E(3)-等变图神经网络入门 </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -424,85 +424,73 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t036-e3-equivariant-gnn--page-root" class="md-nav__link">T036 · An introduction to E(3)-invariant graph neural networks</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t036-e3-equivariant-gnn--page-root" class="md-nav__link">T036 · E(3)-等变图神经网络入门</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#本教程的目标" class="md-nav__link">本教程的目标</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        <li class="md-nav__item"><a href="#理论-部分内容" class="md-nav__link"><em>理论</em> 部分内容</a>
         </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        <li class="md-nav__item"><a href="#实践-部分内容" class="md-nav__link"><em>实践</em> 部分内容</a>
         </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#参考文献" class="md-nav__link">参考文献</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#理论" class="md-nav__link">理论</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Theoretical" class="md-nav__link">Theoretical</a>
+        <li class="md-nav__item"><a href="#为什么需要-3D-坐标？" class="md-nav__link">为什么需要 3D 坐标？</a>
         </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a>
+        <li class="md-nav__item"><a href="#分子作为点云：数学背景" class="md-nav__link">分子作为点云：数学背景</a>
+        </li>
+        <li class="md-nav__item"><a href="#欧几里得空间中的等变性和不变性以及我们为什么关注" class="md-nav__link">欧几里得空间中的等变性和不变性以及我们为什么关注</a>
+        </li>
+        <li class="md-nav__item"><a href="#如何构造-E(n)-不变和等变模型" class="md-nav__link">如何构造 E(n)-不变和等变模型</a>
+        </li>
+        <li class="md-nav__item"><a href="#QM9-数据集" class="md-nav__link">QM9 数据集</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#实践" class="md-nav__link">实践</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#点云可视化" class="md-nav__link">点云可视化</a>
+        </li>
+        <li class="md-nav__item"><a href="#设置并检查-QM9-数据集" class="md-nav__link">设置并检查 QM9 数据集</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#预处理" class="md-nav__link">预处理</a>
+        </li>
+        <li class="md-nav__item"><a href="#原子序数分布和点云大小" class="md-nav__link">原子序数分布和点云大小</a>
+        </li>
+        <li class="md-nav__item"><a href="#数据拆分，回归目标电子空间范围的分布" class="md-nav__link">数据拆分，回归目标电子空间范围的分布</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#模型实现" class="md-nav__link">模型实现</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#简单的%22朴素欧几里得%22GNN" class="md-nav__link">简单的”朴素欧几里得”GNN</a>
+        </li>
+        <li class="md-nav__item"><a href="#示例：简单-GNN-不是-E(3)-不变的" class="md-nav__link">示例：简单 GNN 不是 E(3)-不变的</a>
+        </li>
+        <li class="md-nav__item"><a href="#EGNN-模型" class="md-nav__link">EGNN 模型</a>
+        </li>
+        <li class="md-nav__item"><a href="#示例：我们的-EGNN-是-E(3)-不变的" class="md-nav__link">示例：我们的 EGNN 是 E(3)-不变的</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#训练和评估" class="md-nav__link">训练和评估</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#训练-EGNN" class="md-nav__link">训练 EGNN</a>
+        </li>
+        <li class="md-nav__item"><a href="#训练简单-GNN" class="md-nav__link">训练简单 GNN</a>
+        </li>
+        <li class="md-nav__item"><a href="#对比评估" class="md-nav__link">对比评估</a>
         </li></ul>
             </nav>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Why-3D-coordinates?" class="md-nav__link">Why 3D coordinates?</a>
+        <li class="md-nav__item"><a href="#讨论" class="md-nav__link">讨论</a>
         </li>
-        <li class="md-nav__item"><a href="#Molecules-as-point-clouds:-mathematical-background" class="md-nav__link">Molecules as point clouds: mathematical background</a>
-        </li>
-        <li class="md-nav__item"><a href="#Equivariance-and-Invariance-in-Euclidean-space-and-why-we-care" class="md-nav__link">Equivariance and Invariance in Euclidean space and why we care</a>
-        </li>
-        <li class="md-nav__item"><a href="#How-to-construct-\text{E}(n)-invariant-and-equivariant-models" class="md-nav__link">How to construct <span class="math notranslate nohighlight">\(\text{E}(n)\)</span>-invariant and equivariant models</a>
-        </li>
-        <li class="md-nav__item"><a href="#The-QM9-dataset" class="md-nav__link">The QM9 dataset</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Practical</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Visualization-of-point-clouds" class="md-nav__link">Visualization of point clouds</a>
-        </li>
-        <li class="md-nav__item"><a href="#Set-up-and-inspect-the-QM9-dataset" class="md-nav__link">Set up and inspect the QM9 dataset</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Preprocessing" class="md-nav__link">Preprocessing</a>
-        </li>
-        <li class="md-nav__item"><a href="#Atomic-number-distribution-and-point-cloud-size" class="md-nav__link">Atomic number distribution and point cloud size</a>
-        </li>
-        <li class="md-nav__item"><a href="#Data-split,-distribution-of-regression-target-electronic-spatial-extent" class="md-nav__link">Data split, distribution of regression target electronic spatial extent</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Model-implementation" class="md-nav__link">Model implementation</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Plain-%22naive-Euclidean%22-GNN" class="md-nav__link">Plain “naive Euclidean” GNN</a>
-        </li>
-        <li class="md-nav__item"><a href="#Demo:-Plain-GNNs-are-not-\text{E(3)}-invariant" class="md-nav__link">Demo: Plain GNNs are not <span class="math notranslate nohighlight">\(\text{E(3)}\)</span>-invariant</a>
-        </li>
-        <li class="md-nav__item"><a href="#EGNN-model" class="md-nav__link">EGNN model</a>
-        </li>
-        <li class="md-nav__item"><a href="#Demo:-Our-EGNN-is-E(3)-invariant" class="md-nav__link">Demo: Our EGNN is <span class="math notranslate nohighlight">\(E(3)\)</span>-invariant</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Training-and-evaluation" class="md-nav__link">Training and evaluation</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Training-the-EGNN" class="md-nav__link">Training the EGNN</a>
-        </li>
-        <li class="md-nav__item"><a href="#Training-the-plain-GNN" class="md-nav__link">Training the plain GNN</a>
-        </li>
-        <li class="md-nav__item"><a href="#Comparative-evaluation" class="md-nav__link">Comparative evaluation</a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Summary" class="md-nav__link">Summary</a>
-        </li>
-        <li class="md-nav__item"><a href="#Caveats-of-our-approach" class="md-nav__link">Caveats of our approach</a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        <li class="md-nav__item"><a href="#测验" class="md-nav__link">测验</a>
         </li></ul>
             </nav>
         </li>
@@ -520,153 +508,174 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="T036-·-An-introduction-to-E(3)-invariant-graph-neural-networks">
-<h1 id="talktorials-t036-e3-equivariant-gnn--page-root">T036 · An introduction to E(3)-invariant graph neural networks<a class="headerlink" href="#talktorials-t036-e3-equivariant-gnn--page-root" title="Link to this heading">¶</a></h1>
-<p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
-<p>Authors:</p>
+  <section id="T036-·-E(3)-等变图神经网络入门">
+<h1 id="talktorials-t036-e3-equivariant-gnn--page-root">T036 · E(3)-等变图神经网络入门<a class="headerlink" href="#talktorials-t036-e3-equivariant-gnn--page-root" title="Link to this heading">¶</a></h1>
+<p><strong>注：</strong> 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。</p>
+<p>作者：</p>
 <ul class="simple">
-<li><p>Joschka Groß, 2022, <a class="reference external" href="https://mosi.uni-saarland.de/">Chair for Modelling and Simulation</a>, <a class="reference external" href="https://nextaid.cs.uni-saarland.de/">NextAID</a> project, Saarland University</p></li>
+<li><p>Gerrit Großmann, 2022, <a class="reference external" href="https://mosi.uni-saarland.de/people/gerrit/">建模与仿真教席</a>, <a class="reference external" href="https://nextaid.cs.uni-saarland.de/">NextAID</a> 项目, 萨尔大学</p></li>
 </ul>
-<section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
-<p>This talktorial is supposed to serve as an introduction to machine learning on point cloud representations of molecules with 3D conformer information, i.e., molecular graphs that are embedded into Euclidean space (see <strong>Talktorial 033</strong>). You will learn why Euclidean equivariance and invariance are important properties of neural networks (NNs) that take point clouds as input and learn how to implement and train such NNs. In addition to discussing them in theory, this notebook also aims to
-demonstrate the shortcomings of plain graph neural networks (GNNs) when working with point clouds practically.</p>
-<section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
+<section id="本教程的目标">
+<h2 id="本教程的目标">本教程的目标<a class="headerlink" href="#本教程的目标" title="Link to this heading">¶</a></h2>
+<p>在 <strong>教程 T035</strong> 中，我们学习了如何将图神经网络（GNN）应用于分子。然而，分子图作为分子表示存在一个内在缺陷：它们忽略了至关重要的 3D 信息。本教程希望弥合这一差距，并介绍基于分子的 3D 点云表示来构建 GNN 的基本概念。</p>
+<p>具体来说，我们将：</p>
+<ol class="arabic simple">
+<li><p>讨论为什么基于图的分子表示是有限的，以及为什么 3D 信息如此重要。</p></li>
+<li><p>讨论数学框架（等变性和不变性），该框架使我们能够以一种有原则的方式合并 3D 信息。</p></li>
+<li><p>在 QM9 数据集上实现 E(3)-不变 GNN（EGNN），以预测分子的空间范围。</p></li>
+</ol>
+<p>最后，我们希望你能确信，在数据可用的情况下，将 3D 信息纳入你的模型中是有价值的。</p>
+<section id="理论-部分内容">
+<h3 id="理论-部分内容"><em>理论</em> 部分内容<a class="headerlink" href="#理论-部分内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Why 3D coordinates?</p></li>
-<li><p>Representing molecules as point clouds</p></li>
-<li><p>Equivariance and Invariance in euclidean space and why we care</p></li>
-<li><p>How to construct <span class="math notranslate nohighlight">\(\text{E}(n)\)</span>-invariant and equivariant models</p></li>
-<li><p>The QM9 dataset</p></li>
+<li><p>为什么需要 3D 坐标？</p></li>
+<li><p>分子作为点云：数学背景</p></li>
+<li><p>欧几里得空间中的等变性和不变性以及我们为什么关注</p></li>
+<li><p>如何构建 E(n)-不变和等变模型</p></li>
+<li><p>关于 E(n)-不变 GNN（EGNN）的详细说明</p></li>
+<li><p>QM9 数据集</p></li>
 </ul>
 </section>
-<section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
+<section id="实践-部分内容">
+<h3 id="实践-部分内容"><em>实践</em> 部分内容<a class="headerlink" href="#实践-部分内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Visualization of point clouds</p></li>
-<li><p>Set up and inspect the QM9 dataset</p>
+<li><p>点云可视化</p></li>
+<li><p>设置并检查 QM9 数据集</p>
 <ul>
-<li><p>Preprocessing</p></li>
-<li><p>Atomic number distribution and point cloud size</p></li>
-<li><p>Data split, distribution of regression target electronic spatial extent</p></li>
+<li><p>预处理</p></li>
+<li><p>原子序数分布和点云大小</p></li>
+<li><p>数据拆分，回归目标分布</p></li>
 </ul>
 </li>
-<li><p>Model implementation</p>
+<li><p>模型实现</p>
 <ul>
-<li><p>Plain “naive Euclidean” GNN</p></li>
-<li><p>Demo: Plain GNNs are not E(3)-invariant</p></li>
-<li><p>EGNN model</p></li>
-<li><p>Demo: Our EGNN is E(3)-invariant</p></li>
+<li><p>简单的”朴素欧几里得”GNN</p></li>
+<li><p>示例：简单 GNN 不是 E(3)-不变的</p></li>
+<li><p>EGNN 模型</p></li>
+<li><p>示例：EGNN 是 E(3)-不变的</p></li>
 </ul>
 </li>
-<li><p>Training and evaluation</p>
+<li><p>训练和评估</p>
 <ul>
-<li><p>Setup</p></li>
-<li><p>Training the EGNN</p></li>
-<li><p>Training the plain GNN</p></li>
-<li><p>Comparative evaluation</p></li>
+<li><p>训练 EGNN</p></li>
+<li><p>训练简单 GNN</p></li>
+<li><p>对比评估</p></li>
 </ul>
 </li>
 </ul>
 </section>
-<section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h3>
-<section id="Theoretical">
-<h4 id="Theoretical">Theoretical<a class="headerlink" href="#Theoretical" title="Link to this heading">¶</a></h4>
+<section id="参考文献">
+<h3 id="参考文献">参考文献<a class="headerlink" href="#参考文献" title="Link to this heading">¶</a></h3>
+<p><strong>本教程中使用的论文和文章</strong></p>
 <ul class="simple">
-<li><p><strong>Quantum chemistry structures and properties of 134k molecules (QM9)</strong>: <a class="reference external" href="https://www.nature.com/articles/sdata201422/?ref=https://githubhelp.com">Scientific data (2014)</a></p></li>
-<li><p><strong>MoleculeNet: a benchmark for molecular machine learning</strong>: <a class="reference external" href="https://pubs.rsc.org/en/content/articlehtml/2018/sc/c7sc02664a">Chem. Sci., 2018, 9, 513-530</a></p></li>
-<li><p><strong>E(n)-Equivariant Graph Neural Networks</strong>: <a class="reference external" href="https://proceedings.mlr.press/v139/satorras21a.html">International conference on machine learning (2021), 139, 99323-9332</a></p></li>
-<li><p><strong>SE(3)-transformers: 3D roto-translation equivariant attention networks</strong>: <a class="reference external" href="https://proceedings.neurips.cc/paper/2020/file/15231a7ce4ba789d13b722cc5c955834-Paper.pdf">Advances in Neural Information Processing Systems (2021), 33, 1970-1981</a></p></li>
-<li><p><strong>TorchMD-NET: Equivariant Transformers for Neural Network based Molecular Potentials</strong>: <a class="reference external" href="https://arxiv.org/abs/2202.02541">arXiv preprint (2022)</a></p></li>
-<li><p><strong>DiffDock</strong>: <a class="reference external" href="https://arxiv.org/abs/2210.01776">arXiv preprint (2022)</a></p></li>
+<li><p><em>E(n) Equivariant Graph Neural Networks</em>, Satorras et al., 2021, <a class="reference external" href="https://arxiv.org/abs/2102.09844">[arXiv:2102.09844]</a></p></li>
+<li><p><em>Geometric Deep Learning on Molecular Representations</em>, Atz et al., 2021, <a class="reference external" href="https://www.nature.com/articles/s42256-021-00418-8">[Nature Machine Intelligence]</a></p></li>
+<li><p><em>Neural Message Passing for Quantum Chemistry</em>, Gilmer at al., 2017, <a class="reference external" href="https://arxiv.org/abs/1704.01212">[arXiv:1704.01212]</a></p></li>
+<li><p><em>Learning 3D Representations of Molecular Chirality with Invariance to Bond Rotations</em>, Großmann et al., 2022, <a class="reference external" href="https://openreview.net/forum?id=hm2tNDdgaFK">[OpenReview]</a></p></li>
 </ul>
-</section>
-<section id="Practical">
-<h4 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h4>
+<p><strong>等变性和不变性方面的其他优秀资源</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html#torch_geometric.datasets.QM9">Pytorch Geometric QM9 version</a></p></li>
+<li><p><em>A Practical Guide to Group Equivariant Deep Learning</em>, <a class="reference external" href="https://arxiv.org/abs/2304.06802">[arXiv:2304.06802]</a></p></li>
+<li><p><em>3D Graph Neural Networks for Molecular Property Prediction</em> (Webinar), <a class="reference external" href="https://www.youtube.com/watch?v=0gz64KcJsMw">[YouTube]</a></p></li>
+<li><p><em>Geometric Deep Learning: The Erlangen Programme of ML</em>, <a class="reference external" href="https://www.youtube.com/watch?v=w6Pw4MOzMvo">[YouTube]</a></p></li>
 </ul>
-</section>
-</section>
-</section>
-<section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
-<section id="Why-3D-coordinates?">
-<h3 id="Why-3D-coordinates?">Why 3D coordinates?<a class="headerlink" href="#Why-3D-coordinates?" title="Link to this heading">¶</a></h3>
+<p><strong>本教程中使用的软件包</strong></p>
 <ul class="simple">
-<li><p>Some properties are more easily derived when 3D coordinates are known.</p></li>
-<li><p>Sometimes the task is to predict properties that are directly linked to Euclidean space, e.g. future atom positions or forces that apply to atoms.</p></li>
-<li><p>Compared to molecular graph representations, we in principle only gain information. Covalent bonds can still be inferred from atom types and positions because they can be attributed to overlapping atomic orbitals. Note that one could still include structural information s.t. the model does not have to learn this information itself</p></li>
+<li><p>PyTorch Geometric, <a class="reference external" href="https://pytorch-geometric.readthedocs.io/">[Website]</a></p></li>
+<li><p>PyTorch, <a class="reference external" href="https://pytorch.org/">[Website]</a></p></li>
+<li><p>NGLView, <a class="reference external" href="http://nglviewer.org/nglview/latest/">[Website]</a></p></li>
 </ul>
-<p>An example CADD application that may require the use of 3D coordinates is protein-ligand docking (see <strong>Talktorial 015</strong>). <a class="reference external" href="https://arxiv.org/abs/2210.01776">Recent work from 2022</a> uses E(3) equivariant graph neural networks as the backbone for a generative model that learns to predict potential ligand docking positions (3D coordinates for the atoms of a given ligand) when additionally given protein structures with 3D information as input.</p>
-</section>
-<section id="Molecules-as-point-clouds:-mathematical-background">
-<h3 id="Molecules-as-point-clouds:-mathematical-background">Molecules as point clouds: mathematical background<a class="headerlink" href="#Molecules-as-point-clouds:-mathematical-background" title="Link to this heading">¶</a></h3>
-<p>In this talktorial we will focus on atoms and their 3D positions and ignore structural (bond) information. Our mathematical representations of a molecule is thus a point cloud (also see <strong>Talktorial T033</strong>), i.e., a tuple <span class="math notranslate nohighlight">\((X, Z)\)</span> where <span class="math notranslate nohighlight">\(Z \in \mathbb{R}^{m \times d}\)</span> is a matrix of <span class="math notranslate nohighlight">\(m\)</span> atoms represented by <span class="math notranslate nohighlight">\(d\)</span> features each and <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{m \times 3}\)</span> captures the atom 3D coordinates. We will assume that the coordinates correspond to a specific molecular
-conformation (see <strong>Talktorial T033</strong>) of the molecule.</p>
-</section>
-<section id="Equivariance-and-Invariance-in-Euclidean-space-and-why-we-care">
-<h3 id="Equivariance-and-Invariance-in-Euclidean-space-and-why-we-care">Equivariance and Invariance in Euclidean space and why we care<a class="headerlink" href="#Equivariance-and-Invariance-in-Euclidean-space-and-why-we-care" title="Link to this heading">¶</a></h3>
-<p>When representing molecules as graphs equi- and/or invariance w.r.t. to node permutations are desirable model properties (<strong>Talktorial T033/T035</strong>). When working with point clouds, i.e., when atoms/nodes are embedded into Euclidean space, we should also be concerned about Euclidean symmetry groups. These are groups of transformations <span class="math notranslate nohighlight">\(g: \mathbb{R}^n \to \mathbb{R}^n\)</span> that preserve distance, i.e., translations, rotations, reflections, or combinations thereof. For the Euclidean space
-<span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> with <span class="math notranslate nohighlight">\(n\)</span> spatial dimensions, one typically distinguishes between</p>
-<ul class="simple">
-<li><p>the Euclidean group <span class="math notranslate nohighlight">\(\text{E}(n)\)</span>, which consists of <em>all</em> distance-preserving transformations, and</p></li>
-<li><p>the special Euclidean group <span class="math notranslate nohighlight">\(\text{SE}(n)\)</span>, which consists only of translations and rotations.</p></li>
-</ul>
-<p>Say <span class="math notranslate nohighlight">\(\theta\)</span> is a model that learns atom embeddings <span class="math notranslate nohighlight">\(H = \theta(X, Z) \in \mathbb{R}^{m \times q}\)</span> where <span class="math notranslate nohighlight">\(q\)</span> is the number of embedding dimensions. We call <span class="math notranslate nohighlight">\(\theta\)</span> <span class="math notranslate nohighlight">\(\text{E}(n)\)</span>-<em>invariant</em>, if for all <span class="math notranslate nohighlight">\(g \in \text{E}(n)\)</span></p>
-<div class="math notranslate nohighlight">
-\[\theta(g(X), Z) = \theta(X, Z),\]</div>
-<p>where <span class="math notranslate nohighlight">\(g\)</span> is applied row-wise to <span class="math notranslate nohighlight">\(X\)</span>. Put simply the output of <span class="math notranslate nohighlight">\(\theta\)</span> remains unaffected, no matter how we rotate, translate, or reflect the molecule.</p>
-<p>If we consider a model that makes predictions about objects which are coupled to the Euclidean space <span class="math notranslate nohighlight">\(X' = \theta(X, Z) \in \mathbb{R}^{m \times n}\)</span> (e.g. future atom positions in a dynamical system), we can define <span class="math notranslate nohighlight">\(\text{E}(n)\)</span>-<em>equivariance</em> as</p>
-<div class="math notranslate nohighlight">
-\[\theta(g(X), Z) = g(\theta(X, Z)),\]</div>
-<p>for all <span class="math notranslate nohighlight">\(g \in \text{E}(n)\)</span> applied in row-wise fashion. This is saying that the output of <span class="math notranslate nohighlight">\(\theta\)</span> is transformed in the same way as its input. Note that this definition can easily be extended to arbitrary Euclidean features (velocities, electromagnetic forces, …).</p>
-<p>So, why do we care about these properties?</p>
-<p>Let’s assume our goal was to train a model that predicts the docking position of a ligand when given a fixed protein structure, also with 3D coordinates. Would you trust a model that predicted different relative positions for the ligand atoms when the protein was simply rotated by 180 degrees? If your answer is no, then you should consider using a model that is at least <span class="math notranslate nohighlight">\(\text{SE}(3)\)</span>-equivariant. In addition to being a “natural” choice given such considerations, euclidean equivariance
-empirically also increases the sample complexity (efficiency) of training and improves the model’s ability to generalize to unseen data.</p>
-<p><strong>To sum up</strong> it may be helpful to address the problem from a slightly different point of view: Point clouds as representations for molecular conformations are <em>not unique</em>. In fact, for one molecular conformation, there are <em>infinitely many</em> valid point cloud representations. If <span class="math notranslate nohighlight">\((X, Z)\)</span> is such a representation then <span class="math notranslate nohighlight">\((g(X), Z)\)</span> with <span class="math notranslate nohighlight">\(g \in \text{E}(3)\)</span> is too and there are infinitely many such <span class="math notranslate nohighlight">\(g\)</span>. All <span class="math notranslate nohighlight">\(\text{E}(3)\)</span>-invariance and equivariance are thus saying, is
-that our machine learning models <em>should not care</em> which of these representations we end up using.</p>
-<p><img alt="Figure title" src="../_images/2d_rotation_equivariance.png"/></p>
-<p><em>Figure 1:</em> An illustration of a 2D-rotationally equi- and invariant transformation <span class="math notranslate nohighlight">\(\phi\)</span>. Taken from <a class="reference external" href="https://proceedings.mlr.press/v139/satorras21a.html">the EGNN paper by Satoras et. al.</a></p>
-</section>
-<section id="How-to-construct-\text{E}(n)-invariant-and-equivariant-models">
-<h3 id="How-to-construct-\text{E}(n)-invariant-and-equivariant-models">How to construct <span class="math notranslate nohighlight">\(\text{E}(n)\)</span>-invariant and equivariant models<a class="headerlink" href="#How-to-construct-\text{E}(n)-invariant-and-equivariant-models" title="Link to this heading">¶</a></h3>
-<p>Constructing such models is simple if we focus on the fact that all <span class="math notranslate nohighlight">\(g \in \text{E}(n)\)</span> are <em>distance-preserving</em>. We will not give a <a class="reference external" href="https://proceedings.mlr.press/v139/satorras21a.html">fully-fledged proof</a>, but it should not come as a great surprise that a model which <em>only considers relative distances between atoms</em> for computing node (atom) embeddings is guaranteed to be <span class="math notranslate nohighlight">\(E(n)\)</span>-invariant. We can thus define a <em>message passing network</em> <span class="math notranslate nohighlight">\(\theta(Z, X)\)</span> with
-<span class="math notranslate nohighlight">\(l=1,\ldots,L\)</span> layers where</p>
-<div class="math notranslate nohighlight">
-\[h_{i}^0 = \psi_0(Z_i)\]</div>
-<div class="math notranslate nohighlight">
-\[d_{ij} = ||X_i - X_j||^2\]</div>
-<div class="math notranslate nohighlight">
-\[m_{ij}^{l} = \phi_{l}(h_i^l, h_j^l, d_{ij})  \quad \quad \text{for}~l=0,\ldots,L-1\]</div>
-<div class="math notranslate nohighlight">
-\[h_{i}^{l+1} = \psi_l(h_{i}^l, \sum_{j \neq i} m_{ij}^l) \quad \quad \text{for}~l=0,\ldots,L-1\]</div>
-<p>and <span class="math notranslate nohighlight">\(\psi_0\)</span> computes the initial node embeddings, the <span class="math notranslate nohighlight">\(\phi_l\)</span> MLPs <span class="math notranslate nohighlight">\(\text{}^1\)</span> construct messages and <span class="math notranslate nohighlight">\(\psi_l\)</span> MLPs take care of combining previous embeddings and aggregated messages into new embeddings. The final node embeddings <span class="math notranslate nohighlight">\(H = (h_1^L \ldots h_n^L)^t\)</span> computed by this scheme are <span class="math notranslate nohighlight">\(E(n)\)</span>-invariant.</p>
-<p>In the practical part, we will only predict properties that are not directly linked to the Euclidean space, so this kind of network suffices for our purposes. If your goal is to predict e.g. atom positions, you will need to define additional, slightly more sophisticated transformations to ensure that they are <span class="math notranslate nohighlight">\(E(3)\)</span>-equivariant, but they usually follow the same principle of only using distances in their computations. If you want to read up on this you can take a look at these papers</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://proceedings.mlr.press/v139/satorras21a.html">E(n) Equivariant Graph Neural Networks</a></p></li>
-<li><p><a class="reference external" href="https://proceedings.neurips.cc/paper/2020/file/15231a7ce4ba789d13b722cc5c955834-Paper.pdf">SE(3) Transformer</a></p></li>
-<li><p><a class="reference external" href="https://arxiv.org/abs/2202.02541">TorchMD-Net</a></p></li>
-</ul>
-<div class="line-block">
-<div class="line"><br/></div>
-<div class="line"><span class="math notranslate nohighlight">\(~^1\)</span> multi-layer perceptrons (MLPS) are stacks of multiple fully connected layers with non-linear activation functions (also see <strong>Talktorial T022</strong>)</div>
-</div>
-</section>
-<section id="The-QM9-dataset">
-<h3 id="The-QM9-dataset">The QM9 dataset<a class="headerlink" href="#The-QM9-dataset" title="Link to this heading">¶</a></h3>
-<p>The QM9 dataset <a class="reference external" href="https://www.nature.com/articles/sdata201422/?ref=https://githubhelp.com">[1]</a> <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html#torch_geometric.datasets.QM9">[2]</a> is part of the <a class="reference external" href="https://pubs.rsc.org/en/content/articlehtml/2018/sc/c7sc02664a">MoleculeNet benchmark</a> and consists of ~130k small, organic molecules with up to 9 heavy atoms. It also includes targets for various geometric, energetic, electronic and thermodynamic properties. Crucially,
-it also includes atom 3D coordinates, which makes it suitable for this talktorial.</p>
-</section>
-</section>
-<section id="id1">
-<h2 id="id1">Practical<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
-<p>For the practical part, we will be working with a <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html#torch_geometric.datasets.QM9">version of QM9 that is already included in PyTorch Geometric</a>, as implementing the dataset from scratch would go beyond the scope of this talktorial. We will just inspect the data and briefly discuss how point clouds can be represented by several tensors. Then we will demonstrate how one could use plain GNNs to work with point clouds and why
-this approach would yield models that are not <span class="math notranslate nohighlight">\(\text{E}(3)\)</span> invariant/equivariant. Finally, you will learn how to implement, train and evaluate equivariant GNNs.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">36</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install torch torch_geometric torch-scatter numpy matplotlib tqdm pandas notebook nbformat jupyterlab-widgets
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="理论">
+<h2 id="理论">理论<a class="headerlink" href="#理论" title="Link to this heading">¶</a></h2>
+<section id="为什么需要-3D-坐标？">
+<h3 id="为什么需要-3D-坐标？">为什么需要 3D 坐标？<a class="headerlink" href="#为什么需要-3D-坐标？" title="Link to this heading">¶</a></h3>
+<p>在 <strong>教程 T033</strong> 中，我们了解到分子有几种不同的表示方法。在 <strong>教程 T035</strong> 中，我们使用 <strong>分子图</strong> 作为 GNN 的输入。但正如我们在 <strong>教程 T033</strong> 中了解到的，分子图无法唯一地表征分子。回顾一下，2-丁醇（以及其他手性分子）的两种对映体具有相同的分子图（和相同的 SMILES），因此当仅使用 2D 分子图作为输入时，它们对于 GNN 来说是难以区分的。</p>
+<p>但分子的性质（如结合选择性）可能取决于其构型（即特定对映体）。在我们的分子性质预测任务中，如果图表示隐藏了这些细微差别，我们就无法期望我们的模型预测化学性质中依赖于构型的差异。</p>
+<p>因此，将 3D 信息纳入我们的分子表示中似乎是值得的。事实上，文献中有大量证据表明，纳入 3D 信息通常会提高分子性质预测的性能（参见 <a class="reference external" href="https://www.nature.com/articles/s42256-021-00418-8">Atz et al.</a> 的综述）。</p>
+<p>然而，正如我们将要讨论的，简单地用原子的 3D 坐标来增强分子图的节点特征，会引入一个全新的挑战，需要仔细考虑。</p>
+</section>
+<section id="分子作为点云：数学背景">
+<h3 id="分子作为点云：数学背景">分子作为点云：数学背景<a class="headerlink" href="#分子作为点云：数学背景" title="Link to this heading">¶</a></h3>
+<p>在 3D 空间中使用点云表示分子意味着我们为每个原子分配一个 3D 坐标 <span class="math notranslate nohighlight">\((x, y, z)\)</span>。对于具有 <span class="math notranslate nohighlight">\(n\)</span> 个原子的分子，我们将所有坐标堆叠到一个 <span class="math notranslate nohighlight">\(n \times 3\)</span> 矩阵中：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}X = \begin{pmatrix} x_1 &amp; y_1 &amp; z_1 \\  \vdots &amp; \vdots &amp; \vdots \\ x_n &amp; y_n &amp; z_n \end{pmatrix} \in \mathbb{R}^{n \times 3}\end{split}\]</div>
+<p>除了这些 3D 坐标，我们还有通常的节点特征 <span class="math notranslate nohighlight">\(h \in \mathbb{R}^{n \times d}\)</span>，例如原子类型和手性。</p>
+<p>虽然这种表示直观且完整，但它也提出了一些具有挑战性的问题。</p>
+<p>假设我们旋转一个分子（一种简单的操作，例如在计算机模拟中经常发生）。我们的点云表示会发生什么？旋转前，每个原子位于位置 <span class="math notranslate nohighlight">\((x, y, z)\)</span>。旋转后，每个原子位于一个新位置 <span class="math notranslate nohighlight">\((x', y', z')\)</span>。因此，3D 坐标会发生显著变化。然而，旋转一个分子会改变它的任何化学性质吗？<strong>通常不会</strong>（例外：在存在外部场的情况下，但这里假设没有外部场）。因此，无论我们是否旋转分子，像能量这样的性质都应该保持不变。</p>
+<p>因此，在理想情况下，我们的机器学习模型预测应该对旋转（以及平移和反射）具有<strong>不变性</strong>，而模型的中间层可能设计为具有<strong>等变性</strong>。</p>
+<p>让我们在下一节中形式化这些概念。</p>
+</section>
+<section id="欧几里得空间中的等变性和不变性以及我们为什么关注">
+<h3 id="欧几里得空间中的等变性和不变性以及我们为什么关注">欧几里得空间中的等变性和不变性以及我们为什么关注<a class="headerlink" href="#欧几里得空间中的等变性和不变性以及我们为什么关注" title="Link to this heading">¶</a></h3>
+<p>等变性和不变性是与变换相关的函数（=我们的模型）的属性。</p>
+<p>假设我们有一个函数 <span class="math notranslate nohighlight">\(f\)</span>（我们的神经网络），它将我们的点云 <span class="math notranslate nohighlight">\(X\)</span> 映射到某个输出 <span class="math notranslate nohighlight">\(y\)</span>（例如，一个分子性质）：</p>
+<div class="math notranslate nohighlight">
+\[y = f(X)\]</div>
+<p>其中 <span class="math notranslate nohighlight">\(X\)</span> 是我们的点云，<span class="math notranslate nohighlight">\(y\)</span> 是预测的分子性质（例如空间范围）。如果函数 <span class="math notranslate nohighlight">\(f\)</span> 是<strong>平移不变</strong>的，那么当我们在某个任意方向上移动整个点云时，输出 <span class="math notranslate nohighlight">\(y\)</span> 保持不变。类似地，<strong>旋转不变</strong>意味着，如果我们旋转点云，输出 <span class="math notranslate nohighlight">\(y\)</span> 保持不变。<strong>反射不变</strong>意味着，如果我们将点云镜像翻转，<span class="math notranslate nohighlight">\(y\)</span> 保持不变。<strong>不变性</strong>的数学定义是：</p>
+<div class="math notranslate nohighlight">
+\[f(g \cdot X) = f(X) \quad \forall g \in G\]</div>
+<p>其中 <span class="math notranslate nohighlight">\(g\)</span> 是<em>群元素</em>（例如，平移、旋转或反射），<span class="math notranslate nohighlight">\(G\)</span> 是<em>群</em>（例如，所有 3D 旋转的群）。”<span class="math notranslate nohighlight">\(g \cdot X\)</span>” 意味着将变换 <span class="math notranslate nohighlight">\(g\)</span> 应用于点云 <span class="math notranslate nohighlight">\(X\)</span>。</p>
+<p>另一方面，<strong>等变性</strong>意味着当我们变换 <span class="math notranslate nohighlight">\(f\)</span> 的输入时，输出也会以可预测的方式变换：</p>
+<div class="math notranslate nohighlight">
+\[f(g \cdot X) = g \cdot f(X)\]</div>
+<p>对于具有向量输出的函数（例如，预测分子偶极矩的模型），等变性是一个关键特性。对于在中间层计算分子嵌入的 GNN 来说，等变性也是一个有用的特性：如果我们旋转输入点云，那么这些嵌入也应该以可预测的方式旋转。</p>
+<p>在下文中，我们主要关注<strong>不变</strong>预测。然而，用于计算分子嵌入的框架是<strong>等变的</strong>。</p>
+<p>E(3) 群包含所有 3D 等距变换：旋转、平移和反射。SE(3) 群仅包含旋转和平移（不包括反射）。</p>
+<p>结合我们从 <strong>教程 T033</strong> 了解到的关于分子手性的知识，我们现在可以理解为什么对于许多任务来说，放弃反射不变性（即关注 SE(3) 而不是 E(3)）可能是有利的。</p>
+<p><strong>总结</strong>：也许换个角度来考虑这个问题会有所帮助：作为分子表示的点云是<strong>完备的</strong>（所有结构信息都包含在其中）。然而，点云不是<strong>唯一的</strong>：由于分子可以旋转/平移而不改变其性质，因此无限多的点云对应于同一个分子的相同化学性质。因此，我们的机器学习模型必须能够识别哪些点云表示相同的分子，即模型必须对刚性运动具有不变性。</p>
+<p>从原理上讲，解决这个问题有两种选择：</p>
+<ol class="arabic simple">
+<li><p><strong>对齐</strong>所有分子，使其朝向一致（例如，通过对齐惯性主轴）。这听起来很实用，但在高维空间中，这种对齐可能并不唯一。此外，在存在许多局部对称性的情况下，对齐可能不稳定。</p></li>
+<li><p>构建<strong>固有的不变模型</strong>。原则上，这是更可取的，因为它可以保证所期望的不变性，而不依赖于数据预处理。本教程正是遵循这一思路。</p></li>
+</ol>
+<p>遗憾的是，标准神经网络（如前馈网络或标准 GNN）并不保证对刚体变换具有不变性。在下一节中，我们讨论如何构建实现这种不变性的模型。</p>
+<p><img alt="drawing" class="no-scaled-link" src="../_images/2d_rotation_equivariance.png" style="width: 1000px;"/></p>
+<p><em>图 1</em>：等变性和不变性。两个旋转函数（红色表示）当应用于两个不同的输入（顶部和底部）时，以相同的方式变换。在（a）中，输出可以是向量（或一组向量）。在这种情况下，旋转函数应用于输入和输出。我们称之为等变函数。在（b）中，输出是一个标量，即单个数字。在这种情况下，函数是不变的：它不能旋转。图片来自 <a class="reference external" href="https://arxiv.org/abs/2102.09844">Satorras et al.</a>。</p>
+</section>
+<section id="如何构造-E(n)-不变和等变模型">
+<h3 id="如何构造-E(n)-不变和等变模型">如何构造 E(n)-不变和等变模型<a class="headerlink" href="#如何构造-E(n)-不变和等变模型" title="Link to this heading">¶</a></h3>
+<p>从数学上讲，构建不变模型的一种方法是在<strong>任意</strong>变换下不变的量上操作。两个原子 <span class="math notranslate nohighlight">\(i\)</span> 和 <span class="math notranslate nohighlight">\(j\)</span> 之间的距离 <span class="math notranslate nohighlight">\(d_{ij}\)</span> 是一个这样的量：无论你如何刚性移动分子，距离保持不变。</p>
+<div class="math notranslate nohighlight">
+\[d_{ij} = || \vec{x}_i - \vec{x}_j ||_2\]</div>
+<p>实际上，两个原子之间的向量差 <span class="math notranslate nohighlight">\(\(\vec{x}_i - \vec{x}_j\)\)</span> 对于平移是不变的，但它会随旋转而变化。然而，<strong>范数</strong> <span class="math notranslate nohighlight">\(||\cdot||\)</span> 在旋转下是不变的。因此，距离是 E(3)-不变的。</p>
+<p>在 GNN 中实现距离感知的方法是在消息传递步骤中考虑<strong>原子间距离</strong>。这正是 EGNN 论文（<a class="reference external" href="https://arxiv.org/abs/2102.09844">Satorras et al.</a>，2021）中的做法。</p>
+<p>我们将其实现在<strong>实践</strong>部分的 EGNN 模型。在消息传递 <span class="math notranslate nohighlight">\(m_{ij}\)</span> 期间，不仅节点特征 <span class="math notranslate nohighlight">\(h_i\)</span>、<span class="math notranslate nohighlight">\(h_j\)</span>，而且距离 <span class="math notranslate nohighlight">\(d_{ij}\)</span> 的（径向基函数展开）也会影响边缘消息。输出嵌入 <span class="math notranslate nohighlight">\(h'_i\)</span> 是聚合消息的函数。因此，嵌入函数 <span class="math notranslate nohighlight">\(f\)</span> 在 <span class="math notranslate nohighlight">\(h\)</span> 方面是 E(3)-不变的。</p>
+<p>EGNN 还更新了坐标嵌入 <span class="math notranslate nohighlight">\(\vec{x}'_i\)</span>：</p>
+<div class="math notranslate nohighlight">
+\[\vec{x}'_i = \vec{x}_i + \frac{1}{n} \sum_{j \neq i} (\vec{x}_i - \vec{x}_j) \phi_x(m_{ij})\]</div>
+<p>由于坐标更新仅取决于向量差和标量加权函数 <span class="math notranslate nohighlight">\(\phi_x(m_{ij})\)</span>，根据构造，<span class="math notranslate nohighlight">\(\vec{x}'_i\)</span> 坐标在平移下是不变的，并且对旋转是等变的。这是本教程中讨论的 E(3)-不变模型的核心思想。有关更多详细信息，请参阅 <a class="reference external" href="https://arxiv.org/abs/2102.09844">Satorras et al.</a>。</p>
+<p>EGNN 模型不仅具有保证的 E(3)-不变性，而且还计算量轻且易于实现（请参阅实践部分）。</p>
+</section>
+<section id="QM9-数据集">
+<h3 id="QM9-数据集">QM9 数据集<a class="headerlink" href="#QM9-数据集" title="Link to this heading">¶</a></h3>
+<p>本教程中使用的数据集是 QM9，它包含 ~130,000 个分子，其中每个分子最多 9 个重原子（C、O、N、F）。该数据集在 <strong>教程 T034</strong> 和 <strong>T035</strong> 中已有描述，用于预测分子性质，如偶极矩、内能、空间范围等。</p>
+<p>在本教程中，我们将预测<strong>电子空间范围</strong> <span class="math notranslate nohighlight">\(\langle R^2 \rangle\)</span>，它描述了电子云的物理范围。</p>
+<p>由于 QM9 已包含 3D 坐标，它是探索 E(3)-不变 GNN 的完美数据集。</p>
+</section>
+</section>
+<section id="实践">
+<h2 id="实践">实践<a class="headerlink" href="#实践" title="Link to this heading">¶</a></h2>
+<p>在实践部分，我们将使用 <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html#torch_geometric.datasets.QM9">QM9 的一个版本</a>，它已经包含在 PyTorch Geometric 中。</p>
+<p>由于运行大型数据集的实际训练循环可能很耗时，我们将 QM9 限制为 3000 个分子的子集。尽管如此，这足以证明概念。我们将训练模型预测<strong>电子空间范围</strong> <span class="math notranslate nohighlight">\(\langle R^2 \rangle\)</span>。</p>
+<p>但首先，让我们看看如何从结构层面访问和可视化 3D 坐标。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
@@ -683,17 +692,6 @@ this approach would yield models that are not <span class="math notranslate nohi
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">LongTensor</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"linux"</span><span class="p">,</span> <span class="s2">"darwin"</span><span class="p">)):</span>
-    <span class="o">!</span>mamba<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>-y<span class="w"> </span>-c<span class="w"> </span>pyg<span class="w"> </span>pyg
-    <span class="o">!</span>mamba<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>-y<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>pytorch_scatter
 </pre></div>
 </div>
 </div>
@@ -726,9 +724,9 @@ this approach would yield models that are not <span class="math notranslate nohi
 </pre></div>
 </div>
 </div>
-<section id="Visualization-of-point-clouds">
-<h3 id="Visualization-of-point-clouds">Visualization of point clouds<a class="headerlink" href="#Visualization-of-point-clouds" title="Link to this heading">¶</a></h3>
-<p>The following auxiliary function <code class="docutils literal notranslate"><span class="pre">plot_point_cloud_3d</span></code> will see heavy use later on for the visualization of model input and model outputs. Note that to visualize molecules rather than their tensor representations used for machine learning, it would be better to use e.g. <code class="docutils literal notranslate"><span class="pre">RDKit</span></code> or <code class="docutils literal notranslate"><span class="pre">NGLview</span></code>.</p>
+<section id="点云可视化">
+<h3 id="点云可视化">点云可视化<a class="headerlink" href="#点云可视化" title="Link to this heading">¶</a></h3>
+<p>对于可视化教程，我们加载单个分子（索引 0），并使用 <strong>教程 T017</strong> 中讨论过的 NGLViewer 进行可视化。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -785,7 +783,8 @@ this approach would yield models that are not <span class="math notranslate nohi
 <span class="sd">    mpl.axis.Axis</span>
 <span class="sd">        The new axis object for the 3D point cloud plot.</span>
 <span class="sd">    """</span>
-    <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="c1"># cmap = mpl.cm.get_cmap(cmap)</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colormaps</span><span class="p">[</span><span class="n">cmap</span><span class="p">]</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">ax_pos</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">"3d"</span><span class="p">)</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">pos</span>
     <span class="k">if</span> <span class="n">remove_axes_ticks</span><span class="p">:</span>
@@ -816,19 +815,17 @@ this approach would yield models that are not <span class="math notranslate nohi
     <span class="n">plot_point_cloud_3d</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax_pos</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Random test point clouds"</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># fig.tight_layout()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
 </div>
-<div class="output_area stderr docutils container">
+<div class="output_area docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_51907/441942460.py:53: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
-  cmap = mpl.cm.get_cmap(cmap)
-/tmp/ipykernel_51907/441942460.py:84: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations.
-  fig.tight_layout()
+Text(0.5, 0.98, 'Random test point clouds')
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -904,12 +901,11 @@ this approach would yield models that are not <span class="math notranslate nohi
 </div>
 </div>
 </section>
-<section id="Set-up-and-inspect-the-QM9-dataset">
-<h3 id="Set-up-and-inspect-the-QM9-dataset">Set up and inspect the QM9 dataset<a class="headerlink" href="#Set-up-and-inspect-the-QM9-dataset" title="Link to this heading">¶</a></h3>
-<section id="Preprocessing">
-<h4 id="Preprocessing">Preprocessing<a class="headerlink" href="#Preprocessing" title="Link to this heading">¶</a></h4>
-<p>For the sake of this tutorial, we will restrict ourselves to small molecules with at most 8 heavy atoms. Due to our decision to ignore structural information and treat molecules as point clouds, where every atom interacts with every other atom, we also need to extend the torch geometric <code class="docutils literal notranslate"><span class="pre">Data</span></code> objects with additional adjacency information that represents a complete graph without self-loops.</p>
-<p>For performance reasons, both of these steps are performed <em>once</em> when pre-processing the raw data using the <code class="docutils literal notranslate"><span class="pre">pre_filter</span></code> and <code class="docutils literal notranslate"><span class="pre">pre_transform</span></code> keyword arguments of the dataset class.</p>
+<section id="设置并检查-QM9-数据集">
+<h3 id="设置并检查-QM9-数据集">设置并检查 QM9 数据集<a class="headerlink" href="#设置并检查-QM9-数据集" title="Link to this heading">¶</a></h3>
+<section id="预处理">
+<h4 id="预处理">预处理<a class="headerlink" href="#预处理" title="Link to this heading">¶</a></h4>
+<p>首先，我们必须下载和解压原始数据（如果尚未完成）。如上所述，我们将使用整个数据集的子集以加快训练速度。我们还将过滤掉我们不需要的特定目标。无关的分子将被丢弃。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -1001,8 +997,8 @@ this approach would yield models that are not <span class="math notranslate nohi
 Num. examples in QM9 restricted to molecules with at most 8 heavy atoms: 21800
 </pre></div></div>
 </div>
-<p>NOTE: executing the above cell for the first time first downloads and then processes the raw data, which <strong>might take a while</strong>.</p>
-<p>Indexing the dataset we just created returns a single Pytorch Geometric <code class="docutils literal notranslate"><span class="pre">Data</span></code> object representing one molecular graph/point cloud. You can think of these objects as dictionaries with some extra utility methods already implemented.</p>
+<p><strong>注意</strong>：首次执行上述单元格会首先下载然后处理原始数据，这<strong>可能需要一些时间</strong>！QM9 数据集的下载量约为 100 MB（原始数据为 2.9 GB）。</p>
+<p>对我们刚刚创建的数据集进行索引会返回一个表示一个分子图/点云的 PyTorch Geometric <code class="docutils literal notranslate"><span class="pre">Data</span></code> 对象。每个分子在数据集中都有唯一的标识符（QM9 中的名称）。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -1019,10 +1015,10 @@ Num. examples in QM9 restricted to molecules with at most 8 heavy atoms: 21800
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], z=[5], name='gdb_1', idx=[1], complete_edge_index=[2, 20])
+Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], idx=[1], name='gdb_1', z=[5], complete_edge_index=[2, 20])
 </pre></div></div>
 </div>
-<p>For index 0 (name <code class="docutils literal notranslate"><span class="pre">gdb_1</span></code>) this should be the molecule CH4. We can check this by looking into the atomic numbers stored in the attributed named <code class="docutils literal notranslate"><span class="pre">z</span></code></p>
+<p>对于索引 0（名称为 <code class="docutils literal notranslate"><span class="pre">gdb_1</span></code>），应该是 CH4 分子。我们可以通过查看 <code class="docutils literal notranslate"><span class="pre">z</span></code> 张量中存储的原子序数来验证这一点：8 号元素是氧，1 号元素是氢，6 号元素是碳等。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -1040,16 +1036,34 @@ Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], z=[5
 tensor([6, 1, 1, 1, 1])
 </pre></div></div>
 </div>
-<p>For molecules with <code class="docutils literal notranslate"><span class="pre">N</span></code> atoms and <code class="docutils literal notranslate"><span class="pre">M</span></code> (covalent) bonds, the data objects also contain named tensors of shape</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Data.x</span></code>: <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">d_node)</span></code> node-level features (e.g. formal charge, membership to aromatic rings, chirality, …), but we will ignore them here and just use atomic numbers.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Data.y</span></code>: <code class="docutils literal notranslate"><span class="pre">(19,)</span></code> regression targets</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Data.edge_index</span></code>: <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">M)</span></code> edges between atoms derived from covalent bonds, stored as source and target node index pairs.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Data.edge_attr</span></code>: <code class="docutils literal notranslate"><span class="pre">(M,</span> <span class="pre">d_edge)</span></code> contains bond features (e.g. bond type, ring-membership, …)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Data.pos</span></code>: <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">3)</span></code> most interesting to us, atom 3D coordinates.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Data.complete_edge_index</span></code>: <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">(N-1)^2)</span></code>: the complete graph edge index (without self-loops) we added earlier.</p></li>
-</ul>
-<p>The input to our (point cloud) model we will implement later can be visualized using just <code class="docutils literal notranslate"><span class="pre">Data.z</span></code> as color and <code class="docutils literal notranslate"><span class="pre">Data.pos</span></code> as scatter plot positions. Note: the alpha channel of colors is used to convey depth-information.</p>
+<p>对于具有 <span class="math notranslate nohighlight">\(N\)</span> 个原子和 <span class="math notranslate nohighlight">\(M\)</span> 个（共价）键的分子，数据对象还包含形状如下的命名张量：</p>
+<table>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段</p></th>
+<th class="head"><p>形状</p></th>
+<th class="head"><p>内容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">z</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\((N,)\)</span></p></td>
+<td><p>原子序数（整数）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pos</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\((N, 3)\)</span></p></td>
+<td><p>3D 坐标</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\((19,)\)</span></p></td>
+<td><p>目标（我们使用索引 6 处的条目表示空间范围）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">edge_index</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\((2, M)\)</span></p></td>
+<td><p>分子图的边列表格式的邻接矩阵</p></td>
+</tr>
+</tbody>
+</table>
+<p>在后续中，我们感兴趣的是根据其 3D 坐标和节点特征来预测分子的空间范围。在我们的模型中，我们<strong>不</strong>使用边索引（即分子图），但从数据集中仍然可以使用它。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -1081,26 +1095,17 @@ tensor([[-0.0100,  1.0900,  0.0100],
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/tmp/ipykernel_51907/441942460.py:53: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
-  cmap = mpl.cm.get_cmap(cmap)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T036_e3_equivariant_gnn_32_1.png" src="../_images/talktorials_T036_e3_equivariant_gnn_32_1.png"/>
+<img alt="../_images/talktorials_T036_e3_equivariant_gnn_32_0.png" src="../_images/talktorials_T036_e3_equivariant_gnn_32_0.png"/>
 </div>
 </div>
 </section>
-<section id="Atomic-number-distribution-and-point-cloud-size">
-<h4 id="Atomic-number-distribution-and-point-cloud-size">Atomic number distribution and point cloud size<a class="headerlink" href="#Atomic-number-distribution-and-point-cloud-size" title="Link to this heading">¶</a></h4>
-<p>Now that our dataset is set up, and we have a basic understanding of how molecules are represented, we can try to visualize the properties of the entire dataset. Let us first look at the distribution of node-level features (atomic numbers) and the point cloud size (number of atoms) aggregated over the entire dataset.</p>
+<section id="原子序数分布和点云大小">
+<h4 id="原子序数分布和点云大小">原子序数分布和点云大小<a class="headerlink" href="#原子序数分布和点云大小" title="Link to this heading">¶</a></h4>
+<p>在深入实现之前，让我们看看数据集中的分子是什么样子的。首先，我们检查数据集中原子序数的分布。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -1108,7 +1113,7 @@ tensor([[-0.0100,  1.0900,  0.0100],
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_atoms</span><span class="p">,</span> <span class="n">ax_graph_size</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
 <span class="c1"># ax_atoms.hist(dataset.data.z[dataset.data.z != 1])</span>
-<span class="n">ax_atoms</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+<span class="n">ax_atoms</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>  <span class="c1"># previously dataset.data.z</span>
 <span class="n">ax_atoms</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Atomic number $z$"</span><span class="p">)</span>
 <span class="n">ax_atoms</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Count"</span><span class="p">)</span>
 <span class="n">num_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">dataset</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num_nodes</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">))]</span>
@@ -1119,27 +1124,21 @@ tensor([[-0.0100,  1.0900,  0.0100],
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/torch_geometric/data/in_memory_dataset.py:157: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. The data of the dataset is already cached, so any modifications to `data` will not be reflected when accessing its elements. Clearing the cache now by removing all elements in `dataset._data_list`. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
-  warnings.warn(msg)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T036_e3_equivariant_gnn_34_1.png" src="../_images/talktorials_T036_e3_equivariant_gnn_34_1.png"/>
+<img alt="../_images/talktorials_T036_e3_equivariant_gnn_34_0.png" src="../_images/talktorials_T036_e3_equivariant_gnn_34_0.png"/>
 </div>
 </div>
-<p>We can see that while fluorine atoms (number 9) show up in the data, they are heavily underrepresented (the bar at <span class="math notranslate nohighlight">\(z=9\)</span> is barely visible), which is not a nice property that is likely since we shrunk the dataset. The number of atoms seems to be roughly normally distributed, which is nice.</p>
+<p>我们可以看到，虽然氟原子（编号 9）出现在数据中，但其代表性严重不足（<span class="math notranslate nohighlight">\(z=9\)</span> 处的条形几乎看不见）。当我们拆分数据时，我们必须牢记这一点，因为大多数数据拆分方法只考虑目标值 <span class="math notranslate nohighlight">\(y\)</span>，而不考虑 <strong>z</strong> 的分布。如果数据拆分严重不平衡，<span class="math notranslate nohighlight">\(\hat{z}=9\)</span> 的分子可能只出现在测试集中，这将导致模型在面对这种分子时表现不佳。</p>
+<p>首先，让我们创建一个按原子序数拆分的数据集。</p>
+<p><strong>注意</strong>：对于这种特殊的数据拆分，我们利用 <code class="docutils literal notranslate"><span class="pre">z</span></code>（原子序数）可用的事实。然而，原子序数在分子之间通常是可变的，不是像典型的监督学习目标那样是一个全局标签：每个分子可以有数量不等的原子，这些原子可能具有不同的原子序数。这种高信息量的结构在标准的临床预测问题中并不典型，但在分子建模中却是常态。</p>
 </section>
-<section id="Data-split,-distribution-of-regression-target-electronic-spatial-extent">
-<h4 id="Data-split,-distribution-of-regression-target-electronic-spatial-extent">Data split, distribution of regression target electronic spatial extent<a class="headerlink" href="#Data-split,-distribution-of-regression-target-electronic-spatial-extent" title="Link to this heading">¶</a></h4>
-<p>Next, we will implement data splitting, choose a regression target and visualize the split w.r.t. to this target. Out of the 19 regression targets included in QM9, we’ll focus on <em>electronic spatial extent</em>, which, simply put, describes the volume of a molecule, so it should be a good fit for methods that use 3D information. Let us now start with implementing a <em>data module</em> that takes care of train/val/test splits and of indexing the correct target.</p>
+<section id="数据拆分，回归目标电子空间范围的分布">
+<h4 id="数据拆分，回归目标电子空间范围的分布">数据拆分，回归目标电子空间范围的分布<a class="headerlink" href="#数据拆分，回归目标电子空间范围的分布" title="Link to this heading">¶</a></h4>
+<p>现在，让我们按原子序数拆分数据：所有含有氟原子的分子进入测试集和验证集；所有不含氟的分子进入训练集。这是为了展示当数据拆分产生分布外测试集时会发生什么。这通常发生在低资源设置或探索性任务中。然而，在现实世界中，这样的拆分更为典型：我们几乎总是希望预测与我们已有的分子类型不同的分子性质。</p>
+<p>对于训练/验证/测试，我们按 70/15/15 的比例拆分。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -1208,7 +1207,7 @@ tensor([[-0.0100,  1.0900,  0.0100],
 </pre></div>
 </div>
 </div>
-<p>Now we can easily plot the target across the data split.</p>
+<p>现在我们可以轻松地绘制数据拆分中的目标分布。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -1216,7 +1215,9 @@ tensor([[-0.0100,  1.0900,  0.0100],
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_module</span> <span class="o">=</span> <span class="n">QM9DataModule</span><span class="p">()</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">target</span> <span class="o">=</span> <span class="n">data_module</span><span class="o">.</span><span class="n">dataset</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">target</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">data_module</span><span class="o">.</span><span class="n">dataset</span><span class="p">()</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="p">)</span>  <span class="c1"># (previously) target = data_module.dataset().data.y.flatten().numpy()</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="n">target</span><span class="p">[</span><span class="n">data_module</span><span class="o">.</span><span class="n">train_split</span><span class="p">],</span>
@@ -1245,8 +1246,12 @@ tensor([[-0.0100,  1.0900,  0.0100],
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/torch_geometric/data/in_memory_dataset.py:157: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
-  warnings.warn(msg)
+&lt;&gt;:15: SyntaxWarning: invalid escape sequence '\l'
+&lt;&gt;:15: SyntaxWarning: invalid escape sequence '\l'
+/tmp/ipykernel_266792/2426728866.py:15: SyntaxWarning: invalid escape sequence '\l'
+  ax1.set_ylabel("Electronic spatial extent $\langle R^2 \\rangle$")
+/tmp/ipykernel_266792/725946626.py:47: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  dataset.data.y = dataset.data.y[:, self.target_idx].view(-1, 1)
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1265,14 +1270,17 @@ Text(0.5, 0.98, 'Random data split - target distribution')
 <img alt="../_images/talktorials_T036_e3_equivariant_gnn_39_2.png" src="../_images/talktorials_T036_e3_equivariant_gnn_39_2.png"/>
 </div>
 </div>
-<p>You should be able to observe that random splits are typically very homogenous, which means measuring generalization capabilities with them can yield deceivingly good results.</p>
+<p>你应该能观察到随机拆分通常是非常同质的，这意味着在这些条件下测量泛化能力很容易（但不太有信息量）。另一方面，按原子序数拆分会创建非同质的数据拆分。测量这种条件（也称为分布外泛化）下的泛化能力要困难得多，但也更有信息量。</p>
+<p>在训练过程中，我们使用<strong>验证集</strong>进行早停和模型选择。<strong>测试集</strong>仅用于评估最终的泛化能力，在训练期间不会以任何方式使用。</p>
 </section>
 </section>
-<section id="Model-implementation">
-<h3 id="Model-implementation">Model implementation<a class="headerlink" href="#Model-implementation" title="Link to this heading">¶</a></h3>
-<section id="Plain-%22naive-Euclidean%22-GNN">
-<h4 id="Plain-%22naive-Euclidean%22-GNN">Plain “naive Euclidean” GNN<a class="headerlink" href="#Plain-%22naive-Euclidean%22-GNN" title="Link to this heading">¶</a></h4>
-<p>A naive way to incorporate 3D coordinates into a GNN for molecular graphs would be to interpret them as atom-level features that are simply combined with the other features. It is easy to implement a simple baseline model which does exactly this (see <strong>Talktorial T035</strong>). For its message-passing topology, our implementation uses the edges induced by bonds between atoms.</p>
+<section id="模型实现">
+<h3 id="模型实现">模型实现<a class="headerlink" href="#模型实现" title="Link to this heading">¶</a></h3>
+<section id="简单的%22朴素欧几里得%22GNN">
+<h4 id="简单的%22朴素欧几里得%22GNN">简单的”朴素欧几里得”GNN<a class="headerlink" href="#简单的%22朴素欧几里得%22GNN" title="Link to this heading">¶</a></h4>
+<p>我们将实现一个非常简单的 GNN，它使用 3D 坐标作为额外的节点特征。这个模型将是我们在实践部分实现的第二个模型 EGNN 的对照。</p>
+<p>该模型是一个简单的消息传递 GNN，使用与 <strong>T035</strong> 中<code class="docutils literal notranslate"><span class="pre">GCNConv</span></code>层类似的思想。它在这里被保留为一个简单的参考，以强调标准 GNN 的局限性。</p>
+<p>我们已经从理论部分了解到，在节点特征中包含坐标可能会因为等变性问题导致非最优学习。这个模型将作为对照实验。如果等变性实际上无关紧要，那么两个模型应该表现相似。如果在坐标中使用距离比使用原始坐标更好，那么 EGNN 应该优于简单的 GNN。在评估部分，我们将找出答案。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -1341,9 +1349,9 @@ Text(0.5, 0.98, 'Random data split - target distribution')
 </div>
 </div>
 </section>
-<section id="Demo:-Plain-GNNs-are-not-\text{E(3)}-invariant">
-<h4 id="Demo:-Plain-GNNs-are-not-\text{E(3)}-invariant">Demo: Plain GNNs are not <span class="math notranslate nohighlight">\(\text{E(3)}\)</span>-invariant<a class="headerlink" href="#Demo:-Plain-GNNs-are-not-\text{E(3)}-invariant" title="Link to this heading">¶</a></h4>
-<p>However, this approach is problematic because the corresponding atom embeddings of a regular GNN (from which we would also derive our final predictions) will not be <span class="math notranslate nohighlight">\(\text{E}(3)\)</span>-invariant. This can be demonstrated easily:</p>
+<section id="示例：简单-GNN-不是-E(3)-不变的">
+<h4 id="示例：简单-GNN-不是-E(3)-不变的">示例：简单 GNN 不是 E(3)-不变的<a class="headerlink" href="#示例：简单-GNN-不是-E(3)-不变的" title="Link to this heading">¶</a></h4>
+<p>让我们测试一个未训练的简单 GNN，通过比较原始数据与旋转版本上的预测来验证它是否违反等变性。我们还绘制了坐标作为参考。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -1374,7 +1382,8 @@ Text(0.5, 0.98, 'Random data split - target distribution')
 </pre></div>
 </div>
 </div>
-<p><em>NOTE</em>: you may need to run the cell below multiple times to find a model initialization for which non-invariance can easily be observed.</p>
+<p><strong>注意</strong>：你可能需要多次运行下面的单元格，才能找到一个可以轻松观察到非不变性的模型初始化。如果你已经看到了不变性，请重新运行单元格（这将创建一个新的随机模型）并重新扫描。</p>
+<p>如果参数初始化不幸地导致模型对所有输入都输出恒定的（可能为零）输出，就会出现这种非预期的”不变性”。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -1419,9 +1428,7 @@ Text(0.5, 0.98, 'Random data split - target distribution')
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_51907/441942460.py:53: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
-  cmap = mpl.cm.get_cmap(cmap)
-/tmp/ipykernel_51907/2912899843.py:32: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations.
+/tmp/ipykernel_266792/2912899843.py:32: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all Axes decorations.
   fig.tight_layout()
 </pre></div></div>
 </div>
@@ -1432,11 +1439,14 @@ Text(0.5, 0.98, 'Random data split - target distribution')
 <img alt="../_images/talktorials_T036_e3_equivariant_gnn_47_1.png" src="../_images/talktorials_T036_e3_equivariant_gnn_47_1.png"/>
 </div>
 </div>
-<p>When executing the above cells a few times, we can observe that rotating the molecule may <em>significantly</em> alter the atom embeddings obtained from the plain GNN model.</p>
+<p>多次执行上述单元格后，我们可以观察到旋转分子可能会在多次运行中<em>显著</em>改变原子的嵌入。从原则上来讲，这应该不会发生。因此，我们的简单 GNN 不是 E(3)-不变的。</p>
 </section>
-<section id="EGNN-model">
-<h4 id="EGNN-model">EGNN model<a class="headerlink" href="#EGNN-model" title="Link to this heading">¶</a></h4>
-<p>We now implement an <span class="math notranslate nohighlight">\(\text{E}(n)\)</span>-invariant GNN based on the principles outlined in the theory section.</p>
+<section id="EGNN-模型">
+<h4 id="EGNN-模型">EGNN 模型<a class="headerlink" href="#EGNN-模型" title="Link to this heading">¶</a></h4>
+<p>我们现在基于理论部分概述的原理实现一个 E(n)-不变 GNN。</p>
+<p>该实现直接遵循 <a class="reference external" href="https://arxiv.org/abs/2102.09844">Satorras et al.</a> 的 EGNN 论文。详细信息请参阅该论文。</p>
+<p>我们现在基于理论部分概述的原理实现一个 E(n)-不变 GNN。</p>
+<p>该实现直接遵循 <a class="reference external" href="https://arxiv.org/abs/2102.09844">Satorras et al.</a> 的 EGNN 论文。详细信息请参阅该论文。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -1566,9 +1576,9 @@ Text(0.5, 0.98, 'Random data split - target distribution')
 </div>
 </div>
 </section>
-<section id="Demo:-Our-EGNN-is-E(3)-invariant">
-<h4 id="Demo:-Our-EGNN-is-E(3)-invariant">Demo: Our EGNN is <span class="math notranslate nohighlight">\(E(3)\)</span>-invariant<a class="headerlink" href="#Demo:-Our-EGNN-is-E(3)-invariant" title="Link to this heading">¶</a></h4>
-<p>We can collect evidence that this model is indeed <span class="math notranslate nohighlight">\(\text{E}(n)\)</span>-invariant by repeating the experiment we conducted earlier.</p>
+<section id="示例：我们的-EGNN-是-E(3)-不变的">
+<h4 id="示例：我们的-EGNN-是-E(3)-不变的">示例：我们的 EGNN 是 E(3)-不变的<a class="headerlink" href="#示例：我们的-EGNN-是-E(3)-不变的" title="Link to this heading">¶</a></h4>
+<p>现在让我们为 EGNN 重复不变性测试（请注意，EGNN 的输出是分子嵌入，而不是预测）。我们使用（随机初始化的）EGNN 生成嵌入，并检查旋转前后的嵌入是否相同。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -1601,19 +1611,17 @@ Text(0.5, 0.98, 'Random data split - target distribution')
 
 <span class="n">ax4</span> <span class="o">=</span> <span class="n">plot_model_embedding</span><span class="p">(</span><span class="n">rotated_sample_data</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="mi">224</span><span class="p">)</span>
 <span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Model output for $(X, g(Z))$"</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># fig.tight_layout()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
 </div>
-<div class="output_area stderr docutils container">
+<div class="output_area docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_51907/441942460.py:53: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
-  cmap = mpl.cm.get_cmap(cmap)
-/tmp/ipykernel_51907/1099465595.py:21: UserWarning: Tight layout not applied. tight_layout cannot make axes width small enough to accommodate all axes decorations
-  fig.tight_layout()
+Text(0.5, 0.92, 'Model output for $(X, g(Z))$')
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1623,13 +1631,20 @@ Text(0.5, 0.98, 'Random data split - target distribution')
 <img alt="../_images/talktorials_T036_e3_equivariant_gnn_54_1.png" src="../_images/talktorials_T036_e3_equivariant_gnn_54_1.png"/>
 </div>
 </div>
-<p>You can execute the above cells as often as you like, with whatever input you choose, the atom embeddings will always be unaffected by the rotation applied to the model input.</p>
+<p>你可以随意多次执行上述单元格，无论你选择什么输入，原子嵌入在经过 E(3)-变换后总是相同的。因此，我们的 E(3)-不变模型是有效的。</p>
+<p>如果你好奇，你也可以在 EGNN 中通过将归一化距离恢复为原始 3D 坐标并重新运行不变性测试来验证这一点。在对原始坐标进行操作时，EGNN 将不再是不变的。</p>
 </section>
 </section>
-<section id="Training-and-evaluation">
-<h3 id="Training-and-evaluation">Training and evaluation<a class="headerlink" href="#Training-and-evaluation" title="Link to this heading">¶</a></h3>
-<p>Now that we have set up our data and implemented two different models for point clouds, we can start implementing a training and evaluation pipeline.</p>
-<p>We will follow the ubiquitous ML principle of also monitoring a validation loss in addition to the training loss. The validation loss acts as an estimate for how well the model generalizes and can be used for selecting a final model to be tested.</p>
+<section id="训练和评估">
+<h3 id="训练和评估">训练和评估<a class="headerlink" href="#训练和评估" title="Link to this heading">¶</a></h3>
+<p>我们在两个不同的数据拆分上训练模型：1) 随机拆分和 2) 按原子序数拆分。因此，我们有四种条件：</p>
+<ul class="simple">
+<li><p>简单 GNN + 随机拆分</p></li>
+<li><p>简单 GNN + 按原子序数拆分</p></li>
+<li><p>EGNN + 随机拆分</p></li>
+<li><p>EGNN + 按原子序数拆分</p></li>
+</ul>
+<p>在为期 30 个 epoch 的训练期间，我们在验证集上跟踪平均绝对误差（MAE）。一旦验证 MAE 在 10 个 epoch 内没有改善，我们就停止训练（早停）。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
@@ -1872,8 +1887,10 @@ Text(0.5, 0.98, 'Random data split - target distribution')
 </pre></div>
 </div>
 </div>
-<section id="Training-the-EGNN">
-<h4 id="Training-the-EGNN">Training the EGNN<a class="headerlink" href="#Training-the-EGNN" title="Link to this heading">¶</a></h4>
+<section id="训练-EGNN">
+<h4 id="训练-EGNN">训练 EGNN<a class="headerlink" href="#训练-EGNN" title="Link to this heading">¶</a></h4>
+<p>使用随机拆分和按原子序数拆分，在 30 个 epoch 内训练 EGNN，并跟踪验证 MAE。</p>
+<p><strong>注意</strong>：根据你机器的不同，这可能需要几分钟。如果时间太长，你可以稍后通过设置 <code class="docutils literal notranslate"><span class="pre">EPOCHS</span> <span class="pre">=</span> <span class="pre">10</span></code> 来缩短训练时间。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
@@ -1897,38 +1914,39 @@ Text(0.5, 0.98, 'Random data split - target distribution')
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/torch_geometric/data/in_memory_dataset.py:157: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
-  warnings.warn(msg)
-Epoch   1 / 25 | train_loss: 83816.98 | val_loss:  8249.58 | train_mae:   177.73 | val_mae:    62.58: 100%|█████████████████████████████████████████████████| 614/614 [00:28&lt;00:00, 21.82it/s]
-Epoch   2 / 25 | train_loss:  5193.82 | val_loss:  2884.07 | train_mae:    51.31 | val_mae:    34.33: 100%|█████████████████████████████████████████████████| 614/614 [00:21&lt;00:00, 28.63it/s]
-Epoch   3 / 25 | train_loss:  1847.79 | val_loss:   932.89 | train_mae:    29.56 | val_mae:    20.27: 100%|█████████████████████████████████████████████████| 614/614 [00:19&lt;00:00, 31.40it/s]
-Epoch   4 / 25 | train_loss:   853.45 | val_loss:   786.19 | train_mae:    20.28 | val_mae:    21.96: 100%|█████████████████████████████████████████████████| 614/614 [00:18&lt;00:00, 32.92it/s]
-Epoch   5 / 25 | train_loss:   619.10 | val_loss:   389.76 | train_mae:    17.42 | val_mae:    13.32: 100%|█████████████████████████████████████████████████| 614/614 [00:18&lt;00:00, 32.35it/s]
-Epoch   6 / 25 | train_loss:   479.23 | val_loss:   343.42 | train_mae:    15.32 | val_mae:    12.68: 100%|█████████████████████████████████████████████████| 614/614 [00:19&lt;00:00, 31.53it/s]
-Epoch   7 / 25 | train_loss:   383.88 | val_loss:   285.21 | train_mae:    13.70 | val_mae:    11.90: 100%|█████████████████████████████████████████████████| 614/614 [00:21&lt;00:00, 29.10it/s]
-Epoch   8 / 25 | train_loss:   306.98 | val_loss:   201.01 | train_mae:    12.24 | val_mae:     9.67: 100%|█████████████████████████████████████████████████| 614/614 [00:19&lt;00:00, 30.92it/s]
-Epoch   9 / 25 | train_loss:   259.13 | val_loss:   387.28 | train_mae:    11.30 | val_mae:    16.76: 100%|█████████████████████████████████████████████████| 614/614 [00:19&lt;00:00, 30.84it/s]
-Epoch  10 / 25 | train_loss:   265.28 | val_loss:   231.35 | train_mae:    11.62 | val_mae:    11.55: 100%|█████████████████████████████████████████████████| 614/614 [00:18&lt;00:00, 33.07it/s]
-Epoch  11 / 25 | train_loss:   187.75 | val_loss:   148.88 | train_mae:     9.50 | val_mae:     8.89: 100%|█████████████████████████████████████████████████| 614/614 [00:18&lt;00:00, 32.69it/s]
-Epoch  12 / 25 | train_loss:   168.02 | val_loss:   303.56 | train_mae:     9.35 | val_mae:    15.35: 100%|█████████████████████████████████████████████████| 614/614 [00:18&lt;00:00, 32.65it/s]
-Epoch  13 / 25 | train_loss:   153.95 | val_loss:    86.36 | train_mae:     9.01 | val_mae:     6.31: 100%|█████████████████████████████████████████████████| 614/614 [00:20&lt;00:00, 30.39it/s]
-Epoch  14 / 25 | train_loss:   136.87 | val_loss:    73.61 | train_mae:     8.50 | val_mae:     5.95: 100%|█████████████████████████████████████████████████| 614/614 [00:23&lt;00:00, 25.83it/s]
-Epoch  15 / 25 | train_loss:   111.18 | val_loss:   144.24 | train_mae:     7.67 | val_mae:    10.03: 100%|█████████████████████████████████████████████████| 614/614 [00:18&lt;00:00, 32.98it/s]
-Epoch  16 / 25 | train_loss:   110.45 | val_loss:   127.40 | train_mae:     7.69 | val_mae:     9.73: 100%|█████████████████████████████████████████████████| 614/614 [00:20&lt;00:00, 30.23it/s]
-Epoch  17 / 25 | train_loss:    88.18 | val_loss:    87.97 | train_mae:     6.83 | val_mae:     7.15: 100%|█████████████████████████████████████████████████| 614/614 [00:21&lt;00:00, 28.76it/s]
-Epoch  18 / 25 | train_loss:    96.38 | val_loss:    69.41 | train_mae:     7.21 | val_mae:     6.59: 100%|█████████████████████████████████████████████████| 614/614 [00:22&lt;00:00, 27.20it/s]
-Epoch  19 / 25 | train_loss:    66.19 | val_loss:   213.51 | train_mae:     5.91 | val_mae:    13.43: 100%|█████████████████████████████████████████████████| 614/614 [00:21&lt;00:00, 28.50it/s]
-Epoch  20 / 25 | train_loss:    97.42 | val_loss:    30.31 | train_mae:     6.86 | val_mae:     3.56: 100%|█████████████████████████████████████████████████| 614/614 [00:21&lt;00:00, 29.20it/s]
-Epoch  21 / 25 | train_loss:    66.18 | val_loss:    31.33 | train_mae:     5.98 | val_mae:     3.84: 100%|█████████████████████████████████████████████████| 614/614 [00:18&lt;00:00, 32.92it/s]
-Epoch  22 / 25 | train_loss:    64.28 | val_loss:    42.74 | train_mae:     5.82 | val_mae:     4.67: 100%|█████████████████████████████████████████████████| 614/614 [00:21&lt;00:00, 28.31it/s]
-Epoch  23 / 25 | train_loss:    65.13 | val_loss:   102.03 | train_mae:     5.96 | val_mae:     8.89: 100%|█████████████████████████████████████████████████| 614/614 [00:18&lt;00:00, 32.82it/s]
-Epoch  24 / 25 | train_loss:    71.31 | val_loss:   142.06 | train_mae:     6.10 | val_mae:     8.94: 100%|█████████████████████████████████████████████████| 614/614 [00:18&lt;00:00, 33.01it/s]
-Epoch  25 / 25 | train_loss:    63.18 | val_loss:    28.93 | train_mae:     5.71 | val_mae:     3.54: 100%|█████████████████████████████████████████████████| 614/614 [00:18&lt;00:00, 32.71it/s]
+/tmp/ipykernel_266792/725946626.py:47: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  dataset.data.y = dataset.data.y[:, self.target_idx].view(-1, 1)
+Epoch   1 / 25 | train_loss: 66117.19 | val_loss:  6971.78 | train_mae:   151.21 | val_mae:    63.00: 100%|█| 614/614 [00:19&lt;00:00, 32.09it/s
+Epoch   2 / 25 | train_loss:  3634.91 | val_loss:  1427.47 | train_mae:    41.55 | val_mae:    25.55: 100%|█| 614/614 [00:15&lt;00:00, 38.53it/s
+Epoch   3 / 25 | train_loss:   971.71 | val_loss:   739.19 | train_mae:    21.45 | val_mae:    20.76: 100%|█| 614/614 [00:17&lt;00:00, 35.45it/s
+Epoch   4 / 25 | train_loss:   643.31 | val_loss:   833.51 | train_mae:    17.91 | val_mae:    24.32: 100%|█| 614/614 [00:17&lt;00:00, 36.00it/s
+Epoch   5 / 25 | train_loss:   435.38 | val_loss:   972.27 | train_mae:    14.68 | val_mae:    27.91: 100%|█| 614/614 [00:16&lt;00:00, 37.39it/s
+Epoch   6 / 25 | train_loss:   342.28 | val_loss:   177.11 | train_mae:    13.23 | val_mae:     8.57: 100%|█| 614/614 [00:19&lt;00:00, 30.85it/s
+Epoch   7 / 25 | train_loss:   269.96 | val_loss:   155.81 | train_mae:    11.87 | val_mae:     8.54: 100%|█| 614/614 [00:17&lt;00:00, 35.32it/s
+Epoch   8 / 25 | train_loss:   285.35 | val_loss:   405.71 | train_mae:    11.32 | val_mae:    16.68: 100%|█| 614/614 [00:16&lt;00:00, 36.96it/s
+Epoch   9 / 25 | train_loss:   159.24 | val_loss:   195.82 | train_mae:     8.90 | val_mae:    11.12: 100%|█| 614/614 [00:16&lt;00:00, 37.32it/s
+Epoch  10 / 25 | train_loss:   152.02 | val_loss:   276.30 | train_mae:     8.84 | val_mae:    13.42: 100%|█| 614/614 [00:16&lt;00:00, 37.03it/s
+Epoch  11 / 25 | train_loss:   140.00 | val_loss:   227.73 | train_mae:     8.60 | val_mae:    12.72: 100%|█| 614/614 [00:16&lt;00:00, 36.82it/s
+Epoch  12 / 25 | train_loss:   116.59 | val_loss:   180.34 | train_mae:     7.77 | val_mae:    11.21: 100%|█| 614/614 [00:16&lt;00:00, 38.35it/s
+Epoch  13 / 25 | train_loss:   134.26 | val_loss:    79.05 | train_mae:     8.61 | val_mae:     6.78: 100%|█| 614/614 [00:15&lt;00:00, 39.34it/s
+Epoch  14 / 25 | train_loss:   126.46 | val_loss:    94.05 | train_mae:     8.09 | val_mae:     7.79: 100%|█| 614/614 [00:16&lt;00:00, 38.08it/s
+Epoch  15 / 25 | train_loss:    92.67 | val_loss:    98.36 | train_mae:     7.05 | val_mae:     8.14: 100%|█| 614/614 [00:18&lt;00:00, 33.09it/s
+Epoch  16 / 25 | train_loss:   115.40 | val_loss:    54.94 | train_mae:     8.05 | val_mae:     5.51: 100%|█| 614/614 [00:16&lt;00:00, 37.96it/s
+Epoch  17 / 25 | train_loss:    73.27 | val_loss:    40.33 | train_mae:     6.27 | val_mae:     4.33: 100%|█| 614/614 [00:17&lt;00:00, 35.99it/s
+Epoch  18 / 25 | train_loss:    92.75 | val_loss:   141.86 | train_mae:     6.92 | val_mae:    10.77: 100%|█| 614/614 [00:17&lt;00:00, 35.18it/s
+Epoch  19 / 25 | train_loss:    75.18 | val_loss:    40.66 | train_mae:     6.48 | val_mae:     4.57: 100%|█| 614/614 [00:23&lt;00:00, 26.36it/s
+Epoch  20 / 25 | train_loss:    81.59 | val_loss:    50.77 | train_mae:     6.73 | val_mae:     5.51: 100%|█| 614/614 [00:17&lt;00:00, 34.29it/s
+Epoch  21 / 25 | train_loss:    56.46 | val_loss:    37.03 | train_mae:     5.62 | val_mae:     4.67: 100%|█| 614/614 [00:17&lt;00:00, 34.76it/s
+Epoch  22 / 25 | train_loss:    69.27 | val_loss:   149.26 | train_mae:     6.08 | val_mae:    10.65: 100%|█| 614/614 [00:21&lt;00:00, 28.49it/s
+Epoch  23 / 25 | train_loss:    66.75 | val_loss:    32.96 | train_mae:     6.12 | val_mae:     4.24: 100%|█| 614/614 [00:20&lt;00:00, 30.10it/s
+Epoch  24 / 25 | train_loss:    64.72 | val_loss:    67.83 | train_mae:     5.80 | val_mae:     7.05: 100%|█| 614/614 [00:20&lt;00:00, 30.13it/s
+Epoch  25 / 25 | train_loss:    46.54 | val_loss:    75.05 | train_mae:     5.02 | val_mae:     7.78: 100%|█| 614/614 [00:19&lt;00:00, 31.38it/s
 </pre></div></div>
 </div>
 </section>
-<section id="Training-the-plain-GNN">
-<h4 id="Training-the-plain-GNN">Training the plain GNN<a class="headerlink" href="#Training-the-plain-GNN" title="Link to this heading">¶</a></h4>
+<section id="训练简单-GNN">
+<h4 id="训练简单-GNN">训练简单 GNN<a class="headerlink" href="#训练简单-GNN" title="Link to this heading">¶</a></h4>
+<p>使用随机拆分和按原子序数拆分，在 30 个 epoch 内训练简单 GNN。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
@@ -1951,116 +1969,115 @@ Epoch  25 / 25 | train_loss:    63.18 | val_loss:    28.93 | train_mae:     5.71
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Epoch   1 / 100 | train_loss: 131605.16 | val_loss: 51881.71 | train_mae:   257.84 | val_mae:   178.73: 100%|███████████████████████████████████████████████| 614/614 [00:10&lt;00:00, 59.30it/s]
-Epoch   2 / 100 | train_loss: 46252.38 | val_loss: 33482.20 | train_mae:   159.96 | val_mae:   139.05: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.94it/s]
-Epoch   3 / 100 | train_loss: 31016.87 | val_loss: 25729.41 | train_mae:   131.66 | val_mae:   118.91: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 81.91it/s]
-Epoch   4 / 100 | train_loss: 19575.64 | val_loss: 16162.15 | train_mae:   104.25 | val_mae:    95.53: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 82.16it/s]
-Epoch   5 / 100 | train_loss: 13219.30 | val_loss: 18588.67 | train_mae:    85.73 | val_mae:   111.78: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 78.85it/s]
-Epoch   6 / 100 | train_loss: 10594.13 | val_loss:  9926.80 | train_mae:    76.39 | val_mae:    69.72: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.72it/s]
-Epoch   7 / 100 | train_loss:  8526.29 | val_loss:  9002.18 | train_mae:    67.99 | val_mae:    67.95: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.48it/s]
-Epoch   8 / 100 | train_loss:  7094.07 | val_loss:  6584.26 | train_mae:    62.25 | val_mae:    56.78: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.69it/s]
-Epoch   9 / 100 | train_loss:  6621.97 | val_loss:  6924.00 | train_mae:    59.52 | val_mae:    58.06: 100%|████████████████████████████████████████████████| 614/614 [00:06&lt;00:00, 87.96it/s]
-Epoch  10 / 100 | train_loss:  6078.34 | val_loss:  6341.89 | train_mae:    56.62 | val_mae:    56.60: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.94it/s]
-Epoch  11 / 100 | train_loss:  5703.69 | val_loss:  6478.72 | train_mae:    55.66 | val_mae:    58.99: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 85.74it/s]
-Epoch  12 / 100 | train_loss:  5338.27 | val_loss:  5886.17 | train_mae:    53.40 | val_mae:    54.12: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 84.17it/s]
-Epoch  13 / 100 | train_loss:  5155.95 | val_loss:  5749.83 | train_mae:    52.08 | val_mae:    52.79: 100%|████████████████████████████████████████████████| 614/614 [00:06&lt;00:00, 87.90it/s]
-Epoch  14 / 100 | train_loss:  4964.06 | val_loss:  5171.14 | train_mae:    51.32 | val_mae:    49.19: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 85.07it/s]
-Epoch  15 / 100 | train_loss:  4871.12 | val_loss:  5170.29 | train_mae:    50.80 | val_mae:    49.65: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.82it/s]
-Epoch  16 / 100 | train_loss:  4644.91 | val_loss:  4882.15 | train_mae:    49.54 | val_mae:    46.48: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 85.09it/s]
-Epoch  17 / 100 | train_loss:  4630.13 | val_loss:  6608.02 | train_mae:    49.50 | val_mae:    58.90: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 81.44it/s]
-Epoch  18 / 100 | train_loss:  4616.51 | val_loss:  5037.78 | train_mae:    49.50 | val_mae:    49.18: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 80.24it/s]
-Epoch  19 / 100 | train_loss:  4216.14 | val_loss:  5161.73 | train_mae:    46.83 | val_mae:    47.26: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 77.75it/s]
-Epoch  20 / 100 | train_loss:  4141.20 | val_loss:  4744.50 | train_mae:    46.76 | val_mae:    46.50: 100%|████████████████████████████████████████████████| 614/614 [00:08&lt;00:00, 76.75it/s]
-Epoch  21 / 100 | train_loss:  4027.40 | val_loss:  4649.81 | train_mae:    46.30 | val_mae:    45.15: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 81.51it/s]
-Epoch  22 / 100 | train_loss:  3948.61 | val_loss:  4409.36 | train_mae:    45.76 | val_mae:    45.78: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 81.78it/s]
-Epoch  23 / 100 | train_loss:  3980.70 | val_loss:  4948.89 | train_mae:    45.73 | val_mae:    48.64: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 87.25it/s]
-Epoch  24 / 100 | train_loss:  3621.07 | val_loss:  4880.79 | train_mae:    43.77 | val_mae:    49.11: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.39it/s]
-Epoch  25 / 100 | train_loss:  3692.66 | val_loss:  6213.45 | train_mae:    44.01 | val_mae:    55.11: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 87.52it/s]
-Epoch  26 / 100 | train_loss:  3850.76 | val_loss:  4153.96 | train_mae:    45.27 | val_mae:    44.38: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.56it/s]
-Epoch  27 / 100 | train_loss:  3442.45 | val_loss:  4037.86 | train_mae:    42.52 | val_mae:    42.73: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.44it/s]
-Epoch  28 / 100 | train_loss:  3333.53 | val_loss:  4577.04 | train_mae:    41.92 | val_mae:    47.31: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 85.67it/s]
-Epoch  29 / 100 | train_loss:  3418.91 | val_loss:  3798.06 | train_mae:    42.22 | val_mae:    40.75: 100%|████████████████████████████████████████████████| 614/614 [00:06&lt;00:00, 88.26it/s]
-Epoch  30 / 100 | train_loss:  3373.68 | val_loss:  4033.93 | train_mae:    42.03 | val_mae:    41.66: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 87.06it/s]
-Epoch  31 / 100 | train_loss:  3111.80 | val_loss:  3682.38 | train_mae:    40.34 | val_mae:    40.78: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 87.05it/s]
-Epoch  32 / 100 | train_loss:  3117.61 | val_loss:  3806.91 | train_mae:    40.66 | val_mae:    41.78: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 87.66it/s]
-Epoch  33 / 100 | train_loss:  3206.69 | val_loss:  3581.51 | train_mae:    40.87 | val_mae:    40.26: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.08it/s]
-Epoch  34 / 100 | train_loss:  3079.73 | val_loss:  4547.30 | train_mae:    40.19 | val_mae:    45.41: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 79.78it/s]
-Epoch  35 / 100 | train_loss:  3149.01 | val_loss:  4522.56 | train_mae:    40.80 | val_mae:    45.55: 100%|████████████████████████████████████████████████| 614/614 [00:06&lt;00:00, 90.56it/s]
-Epoch  36 / 100 | train_loss:  2918.20 | val_loss:  3964.84 | train_mae:    39.13 | val_mae:    41.33: 100%|████████████████████████████████████████████████| 614/614 [00:06&lt;00:00, 95.45it/s]
-Epoch  37 / 100 | train_loss:  2908.17 | val_loss:  4062.00 | train_mae:    39.27 | val_mae:    42.20: 100%|████████████████████████████████████████████████| 614/614 [00:06&lt;00:00, 92.70it/s]
-Epoch  38 / 100 | train_loss:  2858.89 | val_loss:  3632.95 | train_mae:    39.15 | val_mae:    39.16: 100%|████████████████████████████████████████████████| 614/614 [00:06&lt;00:00, 93.83it/s]
-Epoch  39 / 100 | train_loss:  2911.77 | val_loss:  4292.41 | train_mae:    39.19 | val_mae:    45.72: 100%|████████████████████████████████████████████████| 614/614 [00:06&lt;00:00, 91.97it/s]
-Epoch  40 / 100 | train_loss:  2774.28 | val_loss:  4351.61 | train_mae:    38.52 | val_mae:    44.17: 100%|████████████████████████████████████████████████| 614/614 [00:08&lt;00:00, 74.30it/s]
-Epoch  41 / 100 | train_loss:  2828.55 | val_loss:  3983.95 | train_mae:    38.97 | val_mae:    43.67: 100%|████████████████████████████████████████████████| 614/614 [00:08&lt;00:00, 71.27it/s]
-Epoch  42 / 100 | train_loss:  2639.83 | val_loss:  3555.43 | train_mae:    37.39 | val_mae:    39.24: 100%|████████████████████████████████████████████████| 614/614 [00:06&lt;00:00, 89.57it/s]
-Epoch  43 / 100 | train_loss:  2802.29 | val_loss:  3784.69 | train_mae:    38.28 | val_mae:    40.87: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 84.90it/s]
-Epoch  44 / 100 | train_loss:  2669.42 | val_loss:  4253.03 | train_mae:    37.75 | val_mae:    42.04: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 80.92it/s]
-Epoch  45 / 100 | train_loss:  2543.59 | val_loss:  3882.21 | train_mae:    36.53 | val_mae:    41.58: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 84.11it/s]
-Epoch  46 / 100 | train_loss:  2563.37 | val_loss:  3912.68 | train_mae:    36.96 | val_mae:    41.34: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 85.72it/s]
-Epoch  47 / 100 | train_loss:  2559.09 | val_loss:  5493.43 | train_mae:    37.02 | val_mae:    51.46: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 85.71it/s]
-Epoch  48 / 100 | train_loss:  2576.10 | val_loss:  4768.31 | train_mae:    36.85 | val_mae:    52.41: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.25it/s]
-Epoch  49 / 100 | train_loss:  2398.73 | val_loss:  3751.79 | train_mae:    35.63 | val_mae:    38.73: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.18it/s]
-Epoch  50 / 100 | train_loss:  2565.22 | val_loss:  3555.04 | train_mae:    37.00 | val_mae:    37.67: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.84it/s]
-Epoch  51 / 100 | train_loss:  2360.89 | val_loss:  3545.71 | train_mae:    35.47 | val_mae:    40.19: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 87.31it/s]
-Epoch  52 / 100 | train_loss:  2467.34 | val_loss:  3806.81 | train_mae:    36.17 | val_mae:    40.76: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 87.50it/s]
-Epoch  53 / 100 | train_loss:  2312.26 | val_loss:  3497.13 | train_mae:    35.16 | val_mae:    37.88: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.50it/s]
-Epoch  54 / 100 | train_loss:  2167.41 | val_loss:  3487.33 | train_mae:    34.01 | val_mae:    36.67: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.55it/s]
-Epoch  55 / 100 | train_loss:  2185.56 | val_loss:  3963.23 | train_mae:    34.25 | val_mae:    40.11: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 77.66it/s]
-Epoch  56 / 100 | train_loss:  2280.32 | val_loss:  3320.05 | train_mae:    34.80 | val_mae:    36.47: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 85.87it/s]
-Epoch  57 / 100 | train_loss:  2211.96 | val_loss:  3721.73 | train_mae:    34.26 | val_mae:    39.31: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 87.31it/s]
-Epoch  58 / 100 | train_loss:  2284.40 | val_loss:  3462.30 | train_mae:    34.87 | val_mae:    38.11: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 85.90it/s]
-Epoch  59 / 100 | train_loss:  2304.63 | val_loss:  3297.33 | train_mae:    35.03 | val_mae:    36.64: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 87.13it/s]
-Epoch  60 / 100 | train_loss:  2117.74 | val_loss:  3451.63 | train_mae:    33.53 | val_mae:    38.31: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 85.60it/s]
-Epoch  61 / 100 | train_loss:  2247.47 | val_loss:  3426.57 | train_mae:    34.57 | val_mae:    39.07: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 87.00it/s]
-Epoch  62 / 100 | train_loss:  2037.65 | val_loss:  3057.25 | train_mae:    32.89 | val_mae:    36.22: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.02it/s]
-Epoch  63 / 100 | train_loss:  2076.61 | val_loss:  3299.59 | train_mae:    33.09 | val_mae:    35.54: 100%|████████████████████████████████████████████████| 614/614 [00:06&lt;00:00, 88.46it/s]
-Epoch  64 / 100 | train_loss:  2004.54 | val_loss:  3806.01 | train_mae:    32.72 | val_mae:    41.34: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.80it/s]
-Epoch  65 / 100 | train_loss:  1974.01 | val_loss:  3369.84 | train_mae:    32.42 | val_mae:    35.64: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 83.84it/s]
-Epoch  66 / 100 | train_loss:  1968.44 | val_loss:  3482.79 | train_mae:    32.30 | val_mae:    38.24: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 85.11it/s]
-Epoch  67 / 100 | train_loss:  1977.37 | val_loss:  3171.34 | train_mae:    32.50 | val_mae:    36.01: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.51it/s]
-Epoch  68 / 100 | train_loss:  1863.63 | val_loss:  3157.46 | train_mae:    31.64 | val_mae:    34.47: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.52it/s]
-Epoch  69 / 100 | train_loss:  1961.02 | val_loss:  3296.61 | train_mae:    32.31 | val_mae:    37.72: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 81.34it/s]
-Epoch  70 / 100 | train_loss:  1943.04 | val_loss:  3274.01 | train_mae:    32.25 | val_mae:    34.72: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 84.12it/s]
-Epoch  71 / 100 | train_loss:  1889.30 | val_loss:  3842.83 | train_mae:    31.79 | val_mae:    40.47: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 81.92it/s]
-Epoch  72 / 100 | train_loss:  1896.79 | val_loss:  4150.15 | train_mae:    31.78 | val_mae:    43.21: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 82.86it/s]
-Epoch  73 / 100 | train_loss:  1860.80 | val_loss:  3174.58 | train_mae:    31.54 | val_mae:    35.24: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 87.59it/s]
-Epoch  74 / 100 | train_loss:  1870.97 | val_loss:  3089.24 | train_mae:    31.62 | val_mae:    36.22: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 77.78it/s]
-Epoch  75 / 100 | train_loss:  1869.31 | val_loss:  3397.72 | train_mae:    31.83 | val_mae:    37.43: 100%|████████████████████████████████████████████████| 614/614 [00:08&lt;00:00, 71.10it/s]
-Epoch  76 / 100 | train_loss:  1723.28 | val_loss:  3294.50 | train_mae:    30.57 | val_mae:    34.38: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 82.95it/s]
-Epoch  77 / 100 | train_loss:  2041.00 | val_loss:  3031.84 | train_mae:    32.94 | val_mae:    34.34: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 76.83it/s]
-Epoch  78 / 100 | train_loss:  1670.29 | val_loss:  3470.53 | train_mae:    29.81 | val_mae:    38.44: 100%|████████████████████████████████████████████████| 614/614 [00:08&lt;00:00, 74.45it/s]
-Epoch  79 / 100 | train_loss:  1795.03 | val_loss:  3402.04 | train_mae:    31.12 | val_mae:    38.37: 100%|████████████████████████████████████████████████| 614/614 [00:09&lt;00:00, 65.54it/s]
-Epoch  80 / 100 | train_loss:  1769.94 | val_loss:  3149.87 | train_mae:    30.62 | val_mae:    33.53: 100%|████████████████████████████████████████████████| 614/614 [00:08&lt;00:00, 74.66it/s]
-Epoch  81 / 100 | train_loss:  1682.90 | val_loss:  3412.26 | train_mae:    30.09 | val_mae:    38.59: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 80.33it/s]
-Epoch  82 / 100 | train_loss:  1737.01 | val_loss:  3396.11 | train_mae:    30.41 | val_mae:    35.16: 100%|████████████████████████████████████████████████| 614/614 [00:08&lt;00:00, 69.65it/s]
-Epoch  83 / 100 | train_loss:  1967.99 | val_loss:  2990.12 | train_mae:    32.48 | val_mae:    33.36: 100%|████████████████████████████████████████████████| 614/614 [00:08&lt;00:00, 74.43it/s]
-Epoch  84 / 100 | train_loss:  1722.19 | val_loss:  3358.17 | train_mae:    30.33 | val_mae:    35.79: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 77.35it/s]
-Epoch  85 / 100 | train_loss:  1633.18 | val_loss:  3178.61 | train_mae:    29.64 | val_mae:    34.94: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 83.83it/s]
-Epoch  86 / 100 | train_loss:  1691.06 | val_loss:  3589.25 | train_mae:    30.34 | val_mae:    39.16: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 80.62it/s]
-Epoch  87 / 100 | train_loss:  1573.87 | val_loss:  3321.35 | train_mae:    29.09 | val_mae:    34.73: 100%|████████████████████████████████████████████████| 614/614 [00:08&lt;00:00, 70.68it/s]
-Epoch  88 / 100 | train_loss:  1624.47 | val_loss:  3328.78 | train_mae:    29.65 | val_mae:    36.73: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 80.53it/s]
-Epoch  89 / 100 | train_loss:  1566.87 | val_loss:  2961.29 | train_mae:    28.97 | val_mae:    34.25: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 83.01it/s]
-Epoch  90 / 100 | train_loss:  1622.22 | val_loss:  3082.79 | train_mae:    29.63 | val_mae:    35.45: 100%|████████████████████████████████████████████████| 614/614 [00:08&lt;00:00, 68.98it/s]
-Epoch  91 / 100 | train_loss:  1658.47 | val_loss:  2969.16 | train_mae:    30.08 | val_mae:    33.32: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 79.57it/s]
-Epoch  92 / 100 | train_loss:  1495.98 | val_loss:  3389.66 | train_mae:    28.39 | val_mae:    34.39: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 77.54it/s]
-Epoch  93 / 100 | train_loss:  1512.13 | val_loss:  3102.99 | train_mae:    28.54 | val_mae:    34.93: 100%|████████████████████████████████████████████████| 614/614 [00:08&lt;00:00, 73.15it/s]
-Epoch  94 / 100 | train_loss:  1489.28 | val_loss:  3190.44 | train_mae:    28.52 | val_mae:    35.37: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 85.53it/s]
-Epoch  95 / 100 | train_loss:  1651.04 | val_loss:  2940.62 | train_mae:    29.94 | val_mae:    32.10: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.13it/s]
-Epoch  96 / 100 | train_loss:  1529.36 | val_loss:  3137.99 | train_mae:    28.90 | val_mae:    34.13: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.59it/s]
-Epoch  97 / 100 | train_loss:  1531.24 | val_loss:  3489.23 | train_mae:    28.92 | val_mae:    38.00: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 87.50it/s]
-Epoch  98 / 100 | train_loss:  1580.89 | val_loss:  2815.52 | train_mae:    29.14 | val_mae:    32.56: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 78.90it/s]
-Epoch  99 / 100 | train_loss:  1518.98 | val_loss:  3225.39 | train_mae:    28.69 | val_mae:    32.25: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 85.77it/s]
-Epoch 100 / 100 | train_loss:  1555.37 | val_loss:  3180.20 | train_mae:    29.11 | val_mae:    35.67: 100%|████████████████████████████████████████████████| 614/614 [00:07&lt;00:00, 86.09it/s]
+/tmp/ipykernel_266792/725946626.py:47: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  dataset.data.y = dataset.data.y[:, self.target_idx].view(-1, 1)
+Epoch   1 / 100 | train_loss: 138428.00 | val_loss: 51434.91 | train_mae:   265.84 | val_mae:   174.82: 100%|█| 614/614 [00:12&lt;00:00, 48.79it
+Epoch   2 / 100 | train_loss: 45491.57 | val_loss: 38601.97 | train_mae:   159.92 | val_mae:   152.12: 100%|█| 614/614 [00:08&lt;00:00, 75.56it/
+Epoch   3 / 100 | train_loss: 32663.50 | val_loss: 26977.25 | train_mae:   137.04 | val_mae:   123.96: 100%|█| 614/614 [00:07&lt;00:00, 80.88it/
+Epoch   4 / 100 | train_loss: 21058.25 | val_loss: 19948.90 | train_mae:   108.99 | val_mae:   109.06: 100%|█| 614/614 [00:06&lt;00:00, 91.75it/
+Epoch   5 / 100 | train_loss: 14425.80 | val_loss: 11117.14 | train_mae:    89.09 | val_mae:    77.76: 100%|█| 614/614 [00:07&lt;00:00, 81.62it/
+Epoch   6 / 100 | train_loss: 10055.06 | val_loss: 13629.70 | train_mae:    73.85 | val_mae:    89.90: 100%|█| 614/614 [00:07&lt;00:00, 81.03it/
+Epoch   7 / 100 | train_loss:  8229.63 | val_loss:  7422.24 | train_mae:    66.81 | val_mae:    61.37: 100%|█| 614/614 [00:07&lt;00:00, 79.12it/
+Epoch   8 / 100 | train_loss:  6902.42 | val_loss:  6424.46 | train_mae:    61.24 | val_mae:    56.87: 100%|█| 614/614 [00:07&lt;00:00, 82.77it/
+Epoch   9 / 100 | train_loss:  6179.14 | val_loss:  6623.75 | train_mae:    57.61 | val_mae:    58.58: 100%|█| 614/614 [00:09&lt;00:00, 67.56it/
+Epoch  10 / 100 | train_loss:  5453.79 | val_loss: 12236.40 | train_mae:    54.01 | val_mae:    84.64: 100%|█| 614/614 [00:08&lt;00:00, 76.47it/
+Epoch  11 / 100 | train_loss:  5668.06 | val_loss:  5012.31 | train_mae:    55.01 | val_mae:    49.31: 100%|█| 614/614 [00:08&lt;00:00, 74.48it/
+Epoch  12 / 100 | train_loss:  5311.66 | val_loss:  5185.35 | train_mae:    52.90 | val_mae:    51.00: 100%|█| 614/614 [00:07&lt;00:00, 86.64it/
+Epoch  13 / 100 | train_loss:  4924.23 | val_loss:  5321.03 | train_mae:    51.05 | val_mae:    51.25: 100%|█| 614/614 [00:06&lt;00:00, 88.22it/
+Epoch  14 / 100 | train_loss:  4550.85 | val_loss:  5673.16 | train_mae:    49.04 | val_mae:    53.83: 100%|█| 614/614 [00:06&lt;00:00, 89.98it/
+Epoch  15 / 100 | train_loss:  4669.94 | val_loss:  4868.59 | train_mae:    49.75 | val_mae:    49.65: 100%|█| 614/614 [00:07&lt;00:00, 87.48it/
+Epoch  16 / 100 | train_loss:  4389.07 | val_loss:  5144.82 | train_mae:    48.35 | val_mae:    52.28: 100%|█| 614/614 [00:06&lt;00:00, 91.81it/
+Epoch  17 / 100 | train_loss:  4322.82 | val_loss:  5059.60 | train_mae:    47.63 | val_mae:    50.52: 100%|█| 614/614 [00:06&lt;00:00, 89.02it/
+Epoch  18 / 100 | train_loss:  4173.94 | val_loss:  4343.57 | train_mae:    46.95 | val_mae:    45.22: 100%|█| 614/614 [00:07&lt;00:00, 84.85it/
+Epoch  19 / 100 | train_loss:  4106.99 | val_loss:  6066.48 | train_mae:    46.70 | val_mae:    57.55: 100%|█| 614/614 [00:06&lt;00:00, 88.38it/
+Epoch  20 / 100 | train_loss:  4126.98 | val_loss:  4036.04 | train_mae:    46.10 | val_mae:    42.94: 100%|█| 614/614 [00:07&lt;00:00, 84.11it/
+Epoch  21 / 100 | train_loss:  3639.71 | val_loss:  4827.14 | train_mae:    43.64 | val_mae:    46.86: 100%|█| 614/614 [00:06&lt;00:00, 89.95it/
+Epoch  22 / 100 | train_loss:  3773.26 | val_loss:  4242.22 | train_mae:    44.46 | val_mae:    43.75: 100%|█| 614/614 [00:06&lt;00:00, 91.24it/
+Epoch  23 / 100 | train_loss:  3597.99 | val_loss:  4592.35 | train_mae:    43.43 | val_mae:    46.89: 100%|█| 614/614 [00:06&lt;00:00, 89.42it/
+Epoch  24 / 100 | train_loss:  3806.05 | val_loss:  7357.94 | train_mae:    45.06 | val_mae:    63.55: 100%|█| 614/614 [00:06&lt;00:00, 89.41it/
+Epoch  25 / 100 | train_loss:  3880.20 | val_loss:  4028.01 | train_mae:    45.66 | val_mae:    43.00: 100%|█| 614/614 [00:07&lt;00:00, 79.21it/
+Epoch  26 / 100 | train_loss:  3459.60 | val_loss:  4888.76 | train_mae:    42.41 | val_mae:    50.22: 100%|█| 614/614 [00:07&lt;00:00, 79.77it/
+Epoch  27 / 100 | train_loss:  3451.75 | val_loss:  4098.92 | train_mae:    42.37 | val_mae:    44.24: 100%|█| 614/614 [00:07&lt;00:00, 87.08it/
+Epoch  28 / 100 | train_loss:  3431.63 | val_loss:  5881.57 | train_mae:    42.48 | val_mae:    55.93: 100%|█| 614/614 [00:06&lt;00:00, 88.15it/
+Epoch  29 / 100 | train_loss:  3324.00 | val_loss:  4281.48 | train_mae:    41.77 | val_mae:    43.54: 100%|█| 614/614 [00:06&lt;00:00, 99.43it/
+Epoch  30 / 100 | train_loss:  3048.03 | val_loss:  4210.18 | train_mae:    39.72 | val_mae:    45.45: 100%|█| 614/614 [00:06&lt;00:00, 101.42it
+Epoch  31 / 100 | train_loss:  3100.04 | val_loss:  3945.57 | train_mae:    40.23 | val_mae:    42.70: 100%|█| 614/614 [00:06&lt;00:00, 92.92it/
+Epoch  32 / 100 | train_loss:  3032.20 | val_loss:  4045.67 | train_mae:    39.78 | val_mae:    43.02: 100%|█| 614/614 [00:06&lt;00:00, 94.68it/
+Epoch  33 / 100 | train_loss:  2858.04 | val_loss:  4048.15 | train_mae:    38.42 | val_mae:    40.29: 100%|█| 614/614 [00:06&lt;00:00, 89.93it/
+Epoch  34 / 100 | train_loss:  3079.48 | val_loss:  3850.15 | train_mae:    40.07 | val_mae:    41.43: 100%|█| 614/614 [00:06&lt;00:00, 94.63it/
+Epoch  35 / 100 | train_loss:  3001.95 | val_loss:  4036.27 | train_mae:    39.77 | val_mae:    41.76: 100%|█| 614/614 [00:06&lt;00:00, 93.48it/
+Epoch  36 / 100 | train_loss:  2843.03 | val_loss:  4333.80 | train_mae:    38.39 | val_mae:    43.24: 100%|█| 614/614 [00:06&lt;00:00, 88.48it/
+Epoch  37 / 100 | train_loss:  2754.17 | val_loss:  3550.40 | train_mae:    37.84 | val_mae:    38.28: 100%|█| 614/614 [00:06&lt;00:00, 89.45it/
+Epoch  38 / 100 | train_loss:  2787.80 | val_loss:  3573.66 | train_mae:    38.30 | val_mae:    39.53: 100%|█| 614/614 [00:06&lt;00:00, 91.76it/
+Epoch  39 / 100 | train_loss:  2728.16 | val_loss:  4363.83 | train_mae:    37.74 | val_mae:    42.76: 100%|█| 614/614 [00:06&lt;00:00, 97.40it/
+Epoch  40 / 100 | train_loss:  2853.23 | val_loss:  4104.48 | train_mae:    38.47 | val_mae:    44.58: 100%|█| 614/614 [00:07&lt;00:00, 87.29it/
+Epoch  41 / 100 | train_loss:  2562.41 | val_loss:  3648.69 | train_mae:    36.65 | val_mae:    41.34: 100%|█| 614/614 [00:06&lt;00:00, 88.64it/
+Epoch  42 / 100 | train_loss:  2716.89 | val_loss:  3855.26 | train_mae:    38.11 | val_mae:    40.84: 100%|█| 614/614 [00:06&lt;00:00, 89.12it/
+Epoch  43 / 100 | train_loss:  2696.06 | val_loss:  3781.96 | train_mae:    37.57 | val_mae:    42.09: 100%|█| 614/614 [00:06&lt;00:00, 90.18it/
+Epoch  44 / 100 | train_loss:  2448.92 | val_loss:  3840.73 | train_mae:    35.96 | val_mae:    39.47: 100%|█| 614/614 [00:07&lt;00:00, 86.77it/
+Epoch  45 / 100 | train_loss:  2501.35 | val_loss:  3616.25 | train_mae:    36.19 | val_mae:    39.69: 100%|█| 614/614 [00:06&lt;00:00, 93.45it/
+Epoch  46 / 100 | train_loss:  2371.15 | val_loss:  3765.96 | train_mae:    35.27 | val_mae:    40.86: 100%|█| 614/614 [00:06&lt;00:00, 89.32it/
+Epoch  47 / 100 | train_loss:  2585.89 | val_loss:  5280.95 | train_mae:    37.11 | val_mae:    51.39: 100%|█| 614/614 [00:07&lt;00:00, 87.15it/
+Epoch  48 / 100 | train_loss:  2426.30 | val_loss:  3431.36 | train_mae:    35.80 | val_mae:    37.20: 100%|█| 614/614 [00:06&lt;00:00, 90.13it/
+Epoch  49 / 100 | train_loss:  2319.34 | val_loss:  3949.29 | train_mae:    34.75 | val_mae:    42.83: 100%|█| 614/614 [00:07&lt;00:00, 86.16it/
+Epoch  50 / 100 | train_loss:  2384.04 | val_loss:  3955.69 | train_mae:    35.51 | val_mae:    43.40: 100%|█| 614/614 [00:07&lt;00:00, 87.16it/
+Epoch  51 / 100 | train_loss:  2382.00 | val_loss:  3827.22 | train_mae:    35.48 | val_mae:    42.16: 100%|█| 614/614 [00:07&lt;00:00, 87.36it/
+Epoch  52 / 100 | train_loss:  2272.24 | val_loss:  3576.74 | train_mae:    34.50 | val_mae:    39.61: 100%|█| 614/614 [00:06&lt;00:00, 90.60it/
+Epoch  53 / 100 | train_loss:  2365.31 | val_loss:  3524.98 | train_mae:    35.28 | val_mae:    38.00: 100%|█| 614/614 [00:06&lt;00:00, 89.39it/
+Epoch  54 / 100 | train_loss:  2225.20 | val_loss:  3274.19 | train_mae:    34.11 | val_mae:    36.17: 100%|█| 614/614 [00:06&lt;00:00, 89.20it/
+Epoch  55 / 100 | train_loss:  2208.05 | val_loss:  3707.02 | train_mae:    33.91 | val_mae:    37.85: 100%|█| 614/614 [00:07&lt;00:00, 86.36it/
+Epoch  56 / 100 | train_loss:  2432.48 | val_loss:  3554.89 | train_mae:    36.11 | val_mae:    36.73: 100%|█| 614/614 [00:07&lt;00:00, 85.81it/
+Epoch  57 / 100 | train_loss:  2118.48 | val_loss:  3276.67 | train_mae:    33.55 | val_mae:    35.17: 100%|█| 614/614 [00:06&lt;00:00, 88.34it/
+Epoch  58 / 100 | train_loss:  2239.47 | val_loss:  3635.07 | train_mae:    34.54 | val_mae:    36.98: 100%|█| 614/614 [00:07&lt;00:00, 85.82it/
+Epoch  59 / 100 | train_loss:  2160.33 | val_loss:  3575.36 | train_mae:    33.70 | val_mae:    38.25: 100%|█| 614/614 [00:06&lt;00:00, 98.01it/
+Epoch  60 / 100 | train_loss:  2185.91 | val_loss:  3745.45 | train_mae:    34.02 | val_mae:    39.25: 100%|█| 614/614 [00:06&lt;00:00, 94.82it/
+Epoch  61 / 100 | train_loss:  2031.85 | val_loss:  3294.09 | train_mae:    32.66 | val_mae:    35.78: 100%|█| 614/614 [00:06&lt;00:00, 94.08it/
+Epoch  62 / 100 | train_loss:  2068.71 | val_loss:  3264.70 | train_mae:    32.79 | val_mae:    36.57: 100%|█| 614/614 [00:06&lt;00:00, 91.62it/
+Epoch  63 / 100 | train_loss:  2107.03 | val_loss:  3363.92 | train_mae:    33.19 | val_mae:    36.63: 100%|█| 614/614 [00:06&lt;00:00, 91.91it/
+Epoch  64 / 100 | train_loss:  2056.81 | val_loss:  4335.63 | train_mae:    32.88 | val_mae:    42.70: 100%|█| 614/614 [00:06&lt;00:00, 90.89it/
+Epoch  65 / 100 | train_loss:  2176.35 | val_loss:  3378.45 | train_mae:    34.02 | val_mae:    35.97: 100%|█| 614/614 [00:06&lt;00:00, 88.89it/
+Epoch  66 / 100 | train_loss:  1910.26 | val_loss:  4439.82 | train_mae:    31.70 | val_mae:    44.33: 100%|█| 614/614 [00:07&lt;00:00, 80.17it/
+Epoch  67 / 100 | train_loss:  2032.89 | val_loss:  3187.86 | train_mae:    32.88 | val_mae:    36.09: 100%|█| 614/614 [00:06&lt;00:00, 93.84it/
+Epoch  68 / 100 | train_loss:  1873.30 | val_loss:  3268.85 | train_mae:    31.31 | val_mae:    36.48: 100%|█| 614/614 [00:07&lt;00:00, 86.54it/
+Epoch  69 / 100 | train_loss:  2060.11 | val_loss:  4305.95 | train_mae:    32.75 | val_mae:    41.76: 100%|█| 614/614 [00:06&lt;00:00, 92.09it/
+Epoch  70 / 100 | train_loss:  2060.91 | val_loss:  3138.68 | train_mae:    33.04 | val_mae:    35.57: 100%|█| 614/614 [00:06&lt;00:00, 94.72it/
+Epoch  71 / 100 | train_loss:  1832.22 | val_loss:  3233.32 | train_mae:    31.07 | val_mae:    35.47: 100%|█| 614/614 [00:06&lt;00:00, 94.34it/
+Epoch  72 / 100 | train_loss:  1913.31 | val_loss:  3345.99 | train_mae:    31.91 | val_mae:    33.92: 100%|█| 614/614 [00:06&lt;00:00, 88.33it/
+Epoch  73 / 100 | train_loss:  1922.30 | val_loss:  3219.53 | train_mae:    31.93 | val_mae:    35.13: 100%|█| 614/614 [00:06&lt;00:00, 93.09it/
+Epoch  74 / 100 | train_loss:  1785.15 | val_loss:  3267.10 | train_mae:    30.70 | val_mae:    36.30: 100%|█| 614/614 [00:07&lt;00:00, 85.12it/
+Epoch  75 / 100 | train_loss:  1781.82 | val_loss:  3169.38 | train_mae:    30.77 | val_mae:    33.73: 100%|█| 614/614 [00:06&lt;00:00, 92.54it/
+Epoch  76 / 100 | train_loss:  1889.98 | val_loss:  3502.62 | train_mae:    31.81 | val_mae:    36.70: 100%|█| 614/614 [00:07&lt;00:00, 87.52it/
+Epoch  77 / 100 | train_loss:  1692.07 | val_loss:  3112.67 | train_mae:    29.93 | val_mae:    33.90: 100%|█| 614/614 [00:07&lt;00:00, 83.92it/
+Epoch  78 / 100 | train_loss:  1809.70 | val_loss:  3470.53 | train_mae:    31.04 | val_mae:    38.07: 100%|█| 614/614 [00:07&lt;00:00, 85.95it/
+Epoch  79 / 100 | train_loss:  1844.54 | val_loss:  3681.33 | train_mae:    31.39 | val_mae:    37.46: 100%|█| 614/614 [00:07&lt;00:00, 79.55it/
+Epoch  80 / 100 | train_loss:  1773.72 | val_loss:  3249.89 | train_mae:    30.74 | val_mae:    36.67: 100%|█| 614/614 [00:07&lt;00:00, 83.86it/
+Epoch  81 / 100 | train_loss:  1714.23 | val_loss:  3350.90 | train_mae:    30.15 | val_mae:    33.86: 100%|█| 614/614 [00:07&lt;00:00, 86.95it/
+Epoch  82 / 100 | train_loss:  1693.88 | val_loss:  3183.65 | train_mae:    30.01 | val_mae:    35.27: 100%|█| 614/614 [00:06&lt;00:00, 89.20it/
+Epoch  83 / 100 | train_loss:  1706.33 | val_loss:  3187.38 | train_mae:    30.16 | val_mae:    34.83: 100%|█| 614/614 [00:07&lt;00:00, 85.45it/
+Epoch  84 / 100 | train_loss:  1690.95 | val_loss:  3212.86 | train_mae:    30.23 | val_mae:    35.37: 100%|█| 614/614 [00:07&lt;00:00, 87.31it/
+Epoch  85 / 100 | train_loss:  1704.96 | val_loss:  3099.92 | train_mae:    30.11 | val_mae:    34.55: 100%|█| 614/614 [00:06&lt;00:00, 91.61it/
+Epoch  86 / 100 | train_loss:  1608.58 | val_loss:  3167.75 | train_mae:    29.46 | val_mae:    32.83: 100%|█| 614/614 [00:07&lt;00:00, 87.14it/
+Epoch  87 / 100 | train_loss:  1599.75 | val_loss:  3383.06 | train_mae:    29.29 | val_mae:    35.64: 100%|█| 614/614 [00:07&lt;00:00, 77.04it/
+Epoch  88 / 100 | train_loss:  1722.12 | val_loss:  3162.14 | train_mae:    30.39 | val_mae:    34.22: 100%|█| 614/614 [00:07&lt;00:00, 81.44it/
+Epoch  89 / 100 | train_loss:  1588.47 | val_loss:  3059.91 | train_mae:    29.07 | val_mae:    34.22: 100%|█| 614/614 [00:07&lt;00:00, 87.04it/
+Epoch  90 / 100 | train_loss:  1645.78 | val_loss:  3337.42 | train_mae:    29.82 | val_mae:    34.92: 100%|█| 614/614 [00:06&lt;00:00, 88.08it/
+Epoch  91 / 100 | train_loss:  1552.12 | val_loss:  3381.09 | train_mae:    28.87 | val_mae:    35.82: 100%|█| 614/614 [00:06&lt;00:00, 88.33it/
+Epoch  92 / 100 | train_loss:  1498.45 | val_loss:  3259.24 | train_mae:    28.37 | val_mae:    35.96: 100%|█| 614/614 [00:07&lt;00:00, 85.62it/
+Epoch  93 / 100 | train_loss:  1605.30 | val_loss:  2970.56 | train_mae:    29.27 | val_mae:    33.50: 100%|█| 614/614 [00:06&lt;00:00, 88.03it/
+Epoch  94 / 100 | train_loss:  1517.56 | val_loss:  3071.38 | train_mae:    28.56 | val_mae:    33.70: 100%|█| 614/614 [00:07&lt;00:00, 86.98it/
+Epoch  95 / 100 | train_loss:  1596.66 | val_loss:  3051.22 | train_mae:    29.29 | val_mae:    32.94: 100%|█| 614/614 [00:06&lt;00:00, 87.89it/
+Epoch  96 / 100 | train_loss:  1501.88 | val_loss:  3909.67 | train_mae:    28.39 | val_mae:    42.53: 100%|█| 614/614 [00:07&lt;00:00, 81.50it/
+Epoch  97 / 100 | train_loss:  1517.75 | val_loss:  3317.24 | train_mae:    28.60 | val_mae:    38.13: 100%|█| 614/614 [00:07&lt;00:00, 86.06it/
+Epoch  98 / 100 | train_loss:  1563.06 | val_loss:  3015.17 | train_mae:    29.08 | val_mae:    32.99: 100%|█| 614/614 [00:07&lt;00:00, 82.13it/
+Epoch  99 / 100 | train_loss:  1445.95 | val_loss:  2912.29 | train_mae:    27.87 | val_mae:    31.94: 100%|█| 614/614 [00:07&lt;00:00, 87.53it/
+Epoch 100 / 100 | train_loss:  1487.12 | val_loss:  3027.48 | train_mae:    28.50 | val_mae:    32.68: 100%|█| 614/614 [00:07&lt;00:00, 87.10it/
 </pre></div></div>
 </div>
 </section>
-<section id="Comparative-evaluation">
-<h4 id="Comparative-evaluation">Comparative evaluation<a class="headerlink" href="#Comparative-evaluation" title="Link to this heading">¶</a></h4>
-<p>Let us now compare the trained EGNN and GNN baseline model. First note that in terms of capacity (measured by the number of trainable parameters) the models are very similar. But be aware that the comparison is still not completely fair, because</p>
-<ul class="simple">
-<li><p>the EGNN is a <em>message-passing</em> neural network while the baseline GNN is a type of <em>graph convolutional</em> neural network</p></li>
-<li><p>the EGNN is run on complete graphs, whereas the baseline GNN uses the bond adjacency info, which could also be a disadvantage</p></li>
-</ul>
+<section id="对比评估">
+<h4 id="对比评估">对比评估<a class="headerlink" href="#对比评估" title="Link to this heading">¶</a></h4>
+<p>首先，让我们绘制四种条件下的损失和验证 MAE。</p>
+<p><strong>注意</strong>：在第二个图中，在按原子序数拆分的条件下，简单 GNN 的验证 MAE 可能是 NaN（不可见），如果某个批次中出现了 <code class="docutils literal notranslate"><span class="pre">edge_index</span></code> 为空的情况（即分子图没有边）。这是标准 GNN 在处理非常小的分子时的一个已知问题。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -2082,8 +2099,7 @@ GCN has 52417 parameters
 EGNN has 51969 parameters
 </pre></div></div>
 </div>
-<p>Plotting the loss and validation MAE for each epoch, we can observe that the EGNN training progresses <em>much</em> faster and yields <em>much</em> better results, even though it is trained for a smaller number of epochs (note that loss and MAE are in log-scale).</p>
-<p>Surprisingly the validation loss/MAE for the EGNN is sometimes <em>lower</em> than the train loss/MAE. This might be explained by the fact that the data split is <em>very</em> homogenous, and the validation data contains fewer outliers than the train data (see box plots from the section on distribution of regression target across splits).</p>
+<p>绘制每个 epoch 的损失和验证 MAE，我们可以观察到 EGNN 的训练过程<em>远</em>快于简单 GNN，并且达到了更低的验证误差。此外，EGNN 在随机拆分和按原子序数拆分之间的性能差异小于简单 GNN。这证实了我们的假设，即 E(3)-不变模型可以更好地泛化到分布外数据。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
@@ -2115,7 +2131,7 @@ EGNN has 51969 parameters
 <img alt="../_images/talktorials_T036_e3_equivariant_gnn_67_0.png" src="../_images/talktorials_T036_e3_equivariant_gnn_67_0.png"/>
 </div>
 </div>
-<p>This performance improvement can also be observed in the held-out test data. For testing, we select the best model as the model that had the lowest validation MAE each.</p>
+<p>这种性能提升也可以在保留的测试数据中观察到。在测试时，我们选择在验证数据上平均绝对误差最低的模型。然后，我们计算这些模型在测试数据上的 MAE。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
@@ -2133,17 +2149,26 @@ EGNN has 51969 parameters
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/tmp/ipykernel_266792/725946626.py:47: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  dataset.data.y = dataset.data.y[:, self.target_idx].view(-1, 1)
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-EGNN test MAE: 3.4511184202421696
-GNN test MAE: 31.881833081726633
+EGNN test MAE: 4.340438702784547
+GNN test MAE: 32.60893801067947
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -2151,19 +2176,19 @@ GNN test MAE: 31.881833081726633
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">gcn_targets</span><span class="p">,</span> <span class="n">gcn_preds</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"GNN"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">egnn_targets</span><span class="p">,</span> <span class="n">egnn_preds</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"EGNN"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Model prediction"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Ground truth $\langle R^2 </span><span class="se">\\</span><span class="s2">rangle$"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"Ground truth $\langle R^2 \rangle$"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Test performance"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x7f663bf0f700&gt;
+&lt;matplotlib.legend.Legend at 0x7f4d56ee9400&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -2173,44 +2198,34 @@ GNN test MAE: 31.881833081726633
 <img alt="../_images/talktorials_T036_e3_equivariant_gnn_70_1.png" src="../_images/talktorials_T036_e3_equivariant_gnn_70_1.png"/>
 </div>
 </div>
-<p>These findings support our initial hypothesis that <span class="math notranslate nohighlight">\(\text{E}(3)\)</span>-invariant models lead to faster learning and improved generalization performance.</p>
+<p>这些发现支持了我们最初的假设，即 E(3)-不变模型能够比非不变模型更快地学习和更好地泛化。虽然这是一个小规模的实验，但结果与文献中的报告一致。</p>
 </section>
 </section>
 </section>
-<section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
-<section id="Summary">
-<h3 id="Summary">Summary<a class="headerlink" href="#Summary" title="Link to this heading">¶</a></h3>
-<p>You have now seen, theoretically and practically, why we need <span class="math notranslate nohighlight">\((S)E(3)\)</span> to work with point cloud representations of molecules and how to implement, train and evaluate them. The dataset used here is not directly relevant to CADD, but the practical importance of <span class="math notranslate nohighlight">\((S)E(3)\)</span> equi-/invariance definitely carries over to more relevant applications such as protein ligand docking. Recent work on molecular representation learning also suggests that 3D point clouds are favored for a broad range
-of property prediction tasks more relevant to CADD such as toxicity prediction.</p>
-</section>
-<section id="Caveats-of-our-approach">
-<h3 id="Caveats-of-our-approach">Caveats of our approach<a class="headerlink" href="#Caveats-of-our-approach" title="Link to this heading">¶</a></h3>
-<p>At this point, we should also go over some final caveats with the EGNN presented here and our approach in general:</p>
-<ol class="arabic simple">
-<li><p>Our model assumes that every atom interacts with every other atom, i.e. the neighborhood of node <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(N(i) = \{j \neq i\}\)</span> is complete. This approach has quadratic complexity meaning its more computationally expensive (go back to the model training and compare how long one epoch takes compared to the plain GNN) and thus might not be scalable to larger molecules. In this case we could restrict interactions by instead using</p>
+<section id="讨论">
+<h2 id="讨论">讨论<a class="headerlink" href="#讨论" title="Link to this heading">¶</a></h2>
+<p>在本次教程中，我们：</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(k\)</span>-nearest neighborhoods, i.e. <span class="math notranslate nohighlight">\(|N(i)| = k\)</span> contains the <span class="math notranslate nohighlight">\(k\)</span> nodes with the smallest euclidean distance to <span class="math notranslate nohighlight">\(i\)</span>,</p></li>
-<li><p>or spherical neighborhoods with a fixed radius <span class="math notranslate nohighlight">\(\delta\)</span> instead, i.e. <span class="math notranslate nohighlight">\(N(i) = \{j \mid ||X_i - X_j||^2 \leq \delta\}\)</span></p></li>
+<li><p>讨论了为什么 3D 点云是分子的有用表示。</p></li>
+<li><p>了解了 E(3)-不变模型背后的概念。</p></li>
+<li><p>在 QM9 数据子集上实现了 E(3)-不变 GNN。</p></li>
+<li><p>展示了我们的 E(3)-不变模型确实具有该特性，并且与非不变模型相比，在随机和分布外数据拆分上表现更好。</p></li>
 </ul>
-</li>
-<li><p>Our EGNN model is <span class="math notranslate nohighlight">\(E(3)\)</span>-invariant. Note that some molecular properties are <em>sensitive</em> to reflection, In such settings, <span class="math notranslate nohighlight">\(SE(3)\)</span>-invariance should be the preferred model property (see <strong>Talktorial T033</strong>).</p></li>
-<li><p>Random data splits are considered bad practice for measuring the capability of a molecular machine learning model to generalize to unseen data (see <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0391-2">this paper</a> which analyzes and discusses this issue in-depth for QM9)</p></li>
-</ol>
+<p>这是一个充满希望的信号，即在分子性质预测中纳入 3D 信息应该被视为标准做法。然而，挑战依然存在：</p>
+<ul class="simple">
+<li><p><strong>性能：</strong> 我们只训练了 30 个 epoch（且仅使用 3000 个分子）来演示概念。对于现实世界的应用，更长时间的训练和更大的数据集（例如完整的 QM9 数据集）是必不可少的。</p></li>
+<li><p><strong>构象集合：</strong> 我们使用每个分子的单一构象进行训练和测试。然而，分子在现实中是动态的：它们可以通过键旋转改变其构象，并且在某些情况下，只有部分构象是可观察到的。分子可以具有生物活性，即使其最低能量构象并不完全符合这种形式。对于可能需要多构象感知的构象集合，<strong>不变性</strong>甚至可能是有害的（ <a class="reference external" href="https://openreview.net/forum?id=hm2tNDdgaFK">Großmann et al.</a>）。</p></li>
+<li><p><strong>数据可用性：</strong> 3D 坐标通常来自昂贵的实验（例如 X 射线晶体学）或计算费用高昂的模拟（例如 DFT）。对于许多分子，3D 坐标并不容易获得。然而，像 AlphaFold 这样的工具现在可以预测蛋白质的 3D 结构。对于小分子，像 <a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/acs.jcim.0c00025">ETKDG</a> 这样的工具可以预测构象。</p></li>
+</ul>
+<p>尽管存在这些挑战，3D 感知的深度学习模型可能会在药物发现中变得越来越重要。</p>
 </section>
-</section>
-<section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
-<ol class="arabic">
-<li><p>In addition to 3D coordinates, what is strictly required for inference of covalent bonds between atoms?</p></li>
-<li><p>What is the difference between equivariance and invariance?</p></li>
-<li><p>True or false? <span class="math notranslate nohighlight">\(SE(3)\)</span> contains transformations which are not included in <span class="math notranslate nohighlight">\(E(3)\)</span>.</p></li>
-<li><p>True or false? The atom embeddings <span class="math notranslate nohighlight">\(h\)</span> computed by iterating the following message passing scheme for a fixed number of steps are <span class="math notranslate nohighlight">\(E(3)\)</span>-invariant</p>
-<div class="math notranslate nohighlight">
-\[m_{ij}^{l} = \phi_{l}(h_i^l, h_j^l, X_i - X_j)\]</div>
-<div class="math notranslate nohighlight">
-\[h_{i}^{l+1} = \psi_l(h_{i}^l, \sum_{j \neq i} m_{ij}^l)\]</div>
-</li>
+<section id="测验">
+<h2 id="测验">测验<a class="headerlink" href="#测验" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>为什么分子的 3D 点云表示是唯一的（每个分子一个表示），但不是完备的？反过来呢？</p></li>
+<li><p>在 GNN 的消息传递框架中融入 3D 信息时，我们面临哪些挑战？</p></li>
+<li><p>为什么不直接将坐标作为（原始）节点特征添加到标准 GNN 中？</p></li>
+<li><p>你能想到 GNN 可能不是最优的分子性质预测场景吗？</p></li>
 </ol>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
@@ -2227,7 +2242,7 @@ of property prediction tasks more relevant to CADD such as toxicity prediction.<
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="T035_graph_neural_networks.html" title="T035 · GNN-based molecular property prediction"
+            <a href="T035_graph_neural_networks.html" title="T035 · 基于 GNN 的分子性质预测"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -2236,17 +2251,17 @@ of property prediction tasks more relevant to CADD such as toxicity prediction.<
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> T035 · GNN-based molecular property prediction </span>
+                      class="md-footer-nav__direction"> "Previous" </span> T035 · 基于 GNN 的分子性质预测 </span>
               </div>
             </a>
           
           
-            <a href="T037_uncertainty_estimation.html" title="T037 · Uncertainty estimation"
+            <a href="T037_uncertainty_estimation.html" title="T037 · 不确定性估计"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> T037 · Uncertainty estimation </span>
+                class="md-footer-nav__direction"> "Next" </span> T037 · 不确定性估计 </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

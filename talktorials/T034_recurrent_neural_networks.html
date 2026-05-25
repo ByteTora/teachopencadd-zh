@@ -4,14 +4,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="T034 · RNN-based molecular property prediction" />
+<meta property="og:title" content="T034 · 基于 RNN 的分子性质预测" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T034_recurrent_neural_networks.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Azat Tagirdzhanov, 2022, Chair for Clinical Bioinformatics, NextAID project, Saarland University. Aim of this..." />
+<meta property="og:description" content="注： 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。 作者： Azat Tagirdzhanov, 2022, 临床生物信息学教席, NextAID 项目, 萨尔大学. 本教程的目标: 通过 SMILES 字符串表示分子，为将自然语言处理技术应用于广泛的分子相关任务铺平了道路。在本教程中，我们将深入探讨其中一种技术：循环神经网络（RNN）。首先，我们将描述不同的 RNN 架构，然后将其应用于 QM9 数据集上的回归任务。 理论 部分内容: 分子作为文本- 分词和独热编码., 循环神经网络（..." />
 <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
 <meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Azat Tagirdzhanov, 2022, Chair for Clinical Bioinformatics, NextAID project, Saarland University. Aim of this..." />
+<meta name="description" content="注： 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。 作者： Azat Tagirdzhanov, 2022, 临床生物信息学教席, NextAID 项目, 萨尔大学. 本教程的目标: 通过 SMILES 字符串表示分子，为将自然语言处理技术应用于广泛的分子相关任务铺平了道路。在本教程中，我们将深入探讨其中一种技术：循环神经网络（RNN）。首先，我们将描述不同的 RNN 架构，然后将其应用于 QM9 数据集上的回归任务。 理论 部分内容: 分子作为文本- 分词和独热编码., 循环神经网络（..." />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -82,7 +82,7 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T034 · RNN-based molecular property prediction &#8212; TeachOpenCADD 0.0.post1 documentation</title>
+    <title>T034 · 基于 RNN 的分子性质预测 &#8212; TeachOpenCADD 0.0.post1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -100,8 +100,8 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T035 · GNN-based molecular property prediction" href="T035_graph_neural_networks.html" />
-    <link rel="prev" title="T033 · Molecular representations" href="T033_molecular_representations.html" />
+    <link rel="next" title="T035 · 基于 GNN 的分子性质预测" href="T035_graph_neural_networks.html" />
+    <link rel="prev" title="T033 · 分子表示" href="T033_molecular_representations.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -140,7 +140,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">TeachOpenCADD</span>
-          <span class="md-header-nav__topic"> T034 · RNN-based molecular property prediction </span>
+          <span class="md-header-nav__topic"> T034 · 基于 RNN 的分子性质预测 </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -424,49 +424,49 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t034-recurrent-neural-networks--page-root" class="md-nav__link">T034 · RNN-based molecular property prediction</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t034-recurrent-neural-networks--page-root" class="md-nav__link">T034 · 基于 RNN 的分子性质预测</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#本教程的目标" class="md-nav__link">本教程的目标</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        <li class="md-nav__item"><a href="#理论-部分内容" class="md-nav__link"><em>理论</em> 部分内容</a>
         </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        <li class="md-nav__item"><a href="#实践-部分内容" class="md-nav__link"><em>实践</em> 部分内容</a>
         </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#参考文献" class="md-nav__link">参考文献</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Talktorials" class="md-nav__link">Talktorials</a>
+        <li class="md-nav__item"><a href="#系列教程" class="md-nav__link">系列教程</a>
         </li>
-        <li class="md-nav__item"><a href="#Theoretical-background" class="md-nav__link">Theoretical background</a>
+        <li class="md-nav__item"><a href="#理论背景" class="md-nav__link">理论背景</a>
         </li></ul>
             </nav>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#理论" class="md-nav__link">理论</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Molecules-as-text" class="md-nav__link">Molecules as text</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#分子作为文本" class="md-nav__link">分子作为文本</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Tokenization-and-one-hot-encoding" class="md-nav__link">Tokenization and one-hot encoding</a>
+        <li class="md-nav__item"><a href="#分词和独热编码" class="md-nav__link">分词和独热编码</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Recurrent-Neural-Networks-(RNNs)" class="md-nav__link">Recurrent Neural Networks (RNNs)</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#循环神经网络（RNN）" class="md-nav__link">循环神经网络（RNN）</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Vanilla-RNN" class="md-nav__link">Vanilla RNN</a>
+        <li class="md-nav__item"><a href="#标准-RNN（Vanilla-RNN）" class="md-nav__link">标准 RNN（Vanilla RNN）</a>
         </li>
-        <li class="md-nav__item"><a href="#Training-an-RNN" class="md-nav__link">Training an RNN</a>
+        <li class="md-nav__item"><a href="#训练-RNN" class="md-nav__link">训练 RNN</a>
         </li>
-        <li class="md-nav__item"><a href="#Vanishing-gradients" class="md-nav__link">Vanishing gradients</a>
+        <li class="md-nav__item"><a href="#梯度消失" class="md-nav__link">梯度消失</a>
         </li>
-        <li class="md-nav__item"><a href="#Gated-Recurrent-Unit" class="md-nav__link">Gated Recurrent Unit</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#门控循环单元（GRU）" class="md-nav__link">门控循环单元（GRU）</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Reset-gate" class="md-nav__link">Reset gate</a>
+        <li class="md-nav__item"><a href="#重置门" class="md-nav__link">重置门</a>
         </li>
-        <li class="md-nav__item"><a href="#Update-gate" class="md-nav__link">Update gate</a>
+        <li class="md-nav__item"><a href="#更新门" class="md-nav__link">更新门</a>
         </li>
-        <li class="md-nav__item"><a href="#Hidden-state-candidate" class="md-nav__link">Hidden state candidate</a>
+        <li class="md-nav__item"><a href="#隐藏状态候选" class="md-nav__link">隐藏状态候选</a>
         </li>
-        <li class="md-nav__item"><a href="#Hidden-state-update" class="md-nav__link">Hidden state update</a>
+        <li class="md-nav__item"><a href="#隐藏状态更新" class="md-nav__link">隐藏状态更新</a>
         </li></ul>
             </nav>
         </li></ul>
@@ -474,25 +474,25 @@
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#实践" class="md-nav__link">实践</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Dataset" class="md-nav__link">Dataset</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#数据集" class="md-nav__link">数据集</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Preprocessing" class="md-nav__link">Preprocessing</a>
+        <li class="md-nav__item"><a href="#预处理" class="md-nav__link">预处理</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Models" class="md-nav__link">Models</a>
+        <li class="md-nav__item"><a href="#模型" class="md-nav__link">模型</a>
         </li>
-        <li class="md-nav__item"><a href="#Training" class="md-nav__link">Training</a>
+        <li class="md-nav__item"><a href="#训练" class="md-nav__link">训练</a>
         </li>
-        <li class="md-nav__item"><a href="#Evaluation" class="md-nav__link">Evaluation</a>
+        <li class="md-nav__item"><a href="#评估" class="md-nav__link">评估</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        <li class="md-nav__item"><a href="#讨论" class="md-nav__link">讨论</a>
         </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        <li class="md-nav__item"><a href="#测验" class="md-nav__link">测验</a>
         </li></ul>
             </nav>
         </li>
@@ -510,56 +510,56 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="T034-·-RNN-based-molecular-property-prediction">
-<h1 id="talktorials-t034-recurrent-neural-networks--page-root">T034 · RNN-based molecular property prediction<a class="headerlink" href="#talktorials-t034-recurrent-neural-networks--page-root" title="Link to this heading">¶</a></h1>
-<p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
-<p>Authors:</p>
+  <section id="T034-·-基于-RNN-的分子性质预测">
+<h1 id="talktorials-t034-recurrent-neural-networks--page-root">T034 · 基于 RNN 的分子性质预测<a class="headerlink" href="#talktorials-t034-recurrent-neural-networks--page-root" title="Link to this heading">¶</a></h1>
+<p><strong>注：</strong> 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。</p>
+<p>作者：</p>
 <ul class="simple">
-<li><p>Azat Tagirdzhanov, 2022, <a class="reference external" href="https://www.ccb.uni-saarland.de/">Chair for Clinical Bioinformatics</a>, <a class="reference external" href="https://nextaid.cs.uni-saarland.de/">NextAID</a> project, Saarland University</p></li>
+<li><p>Azat Tagirdzhanov, 2022, <a class="reference external" href="https://www.ccb.uni-saarland.de/">临床生物信息学教席</a>, <a class="reference external" href="https://nextaid.cs.uni-saarland.de/">NextAID</a> 项目, 萨尔大学</p></li>
 </ul>
-<section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
-<p>Molecular representation by a SMILES string paved the way for applying natural language processing techniques to a broad range of molecule-related tasks. In this talktorial we will dive deeper into one of these techniques: recurrent neural networks (RNNs). First, we will describe different RNN architectures and then apply them to a regression task using the QM9 dataset.</p>
-<section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
+<section id="本教程的目标">
+<h2 id="本教程的目标">本教程的目标<a class="headerlink" href="#本教程的目标" title="Link to this heading">¶</a></h2>
+<p>通过 SMILES 字符串表示分子，为将自然语言处理技术应用于广泛的分子相关任务铺平了道路。在本教程中，我们将深入探讨其中一种技术：循环神经网络（RNN）。首先，我们将描述不同的 RNN 架构，然后将其应用于 QM9 数据集上的回归任务。</p>
+<section id="理论-部分内容">
+<h3 id="理论-部分内容"><em>理论</em> 部分内容<a class="headerlink" href="#理论-部分内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Molecules as text</p>
+<li><p>分子作为文本</p>
 <ul>
-<li><p>Tokenization and one-hot encoding</p></li>
+<li><p>分词和独热编码</p></li>
 </ul>
 </li>
-<li><p>Recurrent Neural Networks (RNNs)</p>
+<li><p>循环神经网络（RNN）</p>
 <ul>
-<li><p>Vanilla RNN</p></li>
-<li><p>Training an RNN</p></li>
-<li><p>Vanishing gradients</p></li>
-<li><p>Gated Recurrent Unit</p></li>
+<li><p>标准 RNN</p></li>
+<li><p>训练 RNN</p></li>
+<li><p>梯度消失</p></li>
+<li><p>门控循环单元</p></li>
 </ul>
 </li>
 </ul>
 </section>
-<section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
+<section id="实践-部分内容">
+<h3 id="实践-部分内容"><em>实践</em> 部分内容<a class="headerlink" href="#实践-部分内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Dataset</p></li>
-<li><p>Model definition</p></li>
-<li><p>Training</p></li>
-<li><p>Evaluation</p></li>
+<li><p>数据集</p></li>
+<li><p>模型定义</p></li>
+<li><p>训练</p></li>
+<li><p>评估</p></li>
 </ul>
 </section>
-<section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h3>
-<section id="Talktorials">
-<h4 id="Talktorials">Talktorials<a class="headerlink" href="#Talktorials" title="Link to this heading">¶</a></h4>
+<section id="参考文献">
+<h3 id="参考文献">参考文献<a class="headerlink" href="#参考文献" title="Link to this heading">¶</a></h3>
+<section id="系列教程">
+<h4 id="系列教程">系列教程<a class="headerlink" href="#系列教程" title="Link to this heading">¶</a></h4>
 <ul class="simple">
-<li><p><strong>Talktorial T021</strong>: One-Hot Encoding</p></li>
-<li><p><strong>Talktorial T022</strong>: Ligand-based screening: neural networks</p></li>
-<li><p><strong>Talktorial T033</strong>: Molecular Representations</p></li>
-<li><p><strong>Talktorial T034</strong>: GNN based property prediction</p></li>
+<li><p><strong>教程 T021</strong>：独热编码</p></li>
+<li><p><strong>教程 T022</strong>：基于配体的筛选：神经网络</p></li>
+<li><p><strong>教程 T033</strong>：分子表示</p></li>
+<li><p><strong>教程 T035</strong>：基于 GNN 的性质预测</p></li>
 </ul>
 </section>
-<section id="Theoretical-background">
-<h4 id="Theoretical-background">Theoretical background<a class="headerlink" href="#Theoretical-background" title="Link to this heading">¶</a></h4>
+<section id="理论背景">
+<h4 id="理论背景">理论背景<a class="headerlink" href="#理论背景" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Michael Phi, Illustrated Guide to Recurrent Neural Networks, <a class="reference external" href="https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9">towardsdatascience</a></p></li>
 <li><p>Michael Phi, Illustrated Guide to LSTM’s and GRU’s: A step by-step explanation, <a class="reference external" href="https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21">towardsdatascience</a></p></li>
@@ -567,23 +567,36 @@
 <li><p>Denny Britz, Recurrent Neural Networks Tutorial, <a class="reference external" href="https://dennybritz.com/posts/wildml/recurrent-neural-networks-tutorial-part-1/">dennybritz.com</a></p></li>
 <li><p>Andrej Karpathy, The Unreasonable Effectiveness of Recurrent Neural Networks, <a class="reference external" href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/">Andrej Karpathy blog</a></p></li>
 </ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">34</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 </section>
-<section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
-<section id="Molecules-as-text">
-<h3 id="Molecules-as-text">Molecules as text<a class="headerlink" href="#Molecules-as-text" title="Link to this heading">¶</a></h3>
-<p>To apply machine learning to molecular data, it is necessary to first convert the molecules into a representation that can be used as input to the machine learning models. We have already discussed numerous ways of molecular representations in <strong>Talktorial T033</strong>. In this talktorial we will be using a textual representation of molecules by SMILES strings.</p>
-<p>The string representation of molecules paves the way for applying natural language processing (NLP) techniques to molecular data. In recent years, there has been significant progress in NLP models including, most famously, recurrent neural networks and transformers. These models proved to be good at capturing text semantics and, when applied to SMILES strings, can capture the structure of the molecule in its textual representation.</p>
-<section id="Tokenization-and-one-hot-encoding">
-<h4 id="Tokenization-and-one-hot-encoding">Tokenization and one-hot encoding<a class="headerlink" href="#Tokenization-and-one-hot-encoding" title="Link to this heading">¶</a></h4>
-<p>Like other machine learning models, NLP models are designed to operate with numeric inputs. We have already discussed how to transform SMILES strings into numerical form in <strong>Talktorial T021</strong>. Here, we will only briefly go through the key steps:</p>
+<section id="理论">
+<h2 id="理论">理论<a class="headerlink" href="#理论" title="Link to this heading">¶</a></h2>
+<section id="分子作为文本">
+<h3 id="分子作为文本">分子作为文本<a class="headerlink" href="#分子作为文本" title="Link to this heading">¶</a></h3>
+<p>要将机器学习应用于分子数据，首先需要将分子转换为可以用作机器学习模型输入的表示。我们已经在 <strong>教程 T033</strong> 中讨论了许多分子表示的方法。在本教程中，我们将使用 SMILES 字符串的文本形式来表示分子。</p>
+<p>分子的字符串表示为将自然语言处理（NLP）技术应用于分子数据铺平了道路。近年来，NLP 模型取得了显著进展，其中最著名的是循环神经网络和变压器模型。这些模型被证明擅长捕捉文本语义，当应用于 SMILES 字符串时，可以捕捉分子在其文本表示中的结构。</p>
+<section id="分词和独热编码">
+<h4 id="分词和独热编码">分词和独热编码<a class="headerlink" href="#分词和独热编码" title="Link to this heading">¶</a></h4>
+<p>与其他机器学习模型一样，NLP 模型设计用于处理数值输入。我们已经在 <strong>教程 T021</strong> 中讨论了如何将 SMILES 字符串转换为数值形式。在此，我们仅简要介绍关键步骤：</p>
 <ul>
-<li><p>To transform a string into a sequence of vectors, the string is first split into meaningful chunks called <em>tokens</em>. For example, one way of tokenizing a SMILES string <code class="docutils literal notranslate"><span class="pre">C=CCl</span></code> is to split it into individual atomic and branch symbols: <code class="docutils literal notranslate"><span class="pre">[C,</span> <span class="pre">=,</span> <span class="pre">C,</span> <span class="pre">Cl]</span></code>.</p></li>
-<li><p>All possible tokens form a <em>vocabulary</em>. The vocabulary is usually derived from the dataset and contains a fixed amount of the most common tokens among all the data. Depending on the application, the vocabulary might also contain special tokens marking out-of-vocabulary tokens, padding symbols, and more. In our example, only limited to this particular compound, the vocabulary will look like <code class="docutils literal notranslate"><span class="pre">[C,</span> <span class="pre">Cl,</span> <span class="pre">=]</span></code>. Replacing the tokens with their indices in the vocabulary gets us to another
-representation, <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">2,</span> <span class="pre">0,</span> <span class="pre">1]</span></code>.</p></li>
-<li><p>Finally, the sequence of token indices is transformed to a sequence of binary vectors using one-hot encoding:</p>
+<li><p>要将字符串转换为向量序列，首先将字符串拆分为有意义的块，称为<em>标记</em>。例如，对 SMILES 字符串 <code class="docutils literal notranslate"><span class="pre">C=CCl</span></code> 进行分词的一种方法是将其拆分为单个原子和分支符号：<code class="docutils literal notranslate"><span class="pre">[C,</span> <span class="pre">=,</span> <span class="pre">C,</span> <span class="pre">Cl]</span></code>。</p></li>
+<li><p>所有可能的标记构成一个<em>词汇表</em>。词汇表通常从数据集中导出，并包含所有数据中最常见标记的固定数量。根据应用的不同，词汇表还可能包含标记词汇表外标记、填充符号等的特殊标记。在我们的示例中，仅限此化合物，词汇表看起来是 <code class="docutils literal notranslate"><span class="pre">[C,</span> <span class="pre">Cl,</span> <span class="pre">=]</span></code>。将标记替换为它们在词汇表中的索引，我们得到另一种表示 <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">2,</span> <span class="pre">0,</span> <span class="pre">1]</span></code>。</p></li>
+<li><p>最后，使用独热编码将标记索引序列转换为二进制向量序列：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix},~
 \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix},~
@@ -593,71 +606,69 @@ representation, <code class="docutils literal notranslate"><span class="pre">[0,
 </ul>
 </section>
 </section>
-<section id="Recurrent-Neural-Networks-(RNNs)">
-<h3 id="Recurrent-Neural-Networks-(RNNs)">Recurrent Neural Networks (RNNs)<a class="headerlink" href="#Recurrent-Neural-Networks-(RNNs)" title="Link to this heading">¶</a></h3>
-<p>Recurrent neural networks (RNNs) are designed to handle sequential data. To do so, they introduce the notion of time. Elements of the input sequence are processed one after another, with the output of the current time step being passed to the next one as an additional input. This is done by introducing a special type of connection called a <em>recurrent connection</em> (hence the name). This architecture allows RNNs to accumulate information about the past and as a result capture dependencies between
-elements in the sequence.</p>
-<p>The figure below illustrates the basic principle of an RNN. An RNN cell has a hidden state vector <span class="math notranslate nohighlight">\(h_t\)</span> which is updated at each time step <span class="math notranslate nohighlight">\(t\)</span> and is responsible for aggregating the information about the previous elements of the input sequence. The update is performed by combining the input <span class="math notranslate nohighlight">\(x_t\)</span> with the hidden state of the previous step <span class="math notranslate nohighlight">\(h_{t-1}\)</span>, passed to the RNN cell by the recurrent connection (Figure 1, on the left).</p>
-<p>To better visualize how RNN processes sequences of data it is helpful to unfold the network in time (Figure 1, on the right). The RNN is unfolded by duplicating each unit at each time step and sharing the weights and biases across all the units. The unfolded representation shows that RNNs can be viewed as feed-forward neural networks with shared parameters.</p>
+<section id="循环神经网络（RNN）">
+<h3 id="循环神经网络（RNN）">循环神经网络（RNN）<a class="headerlink" href="#循环神经网络（RNN）" title="Link to this heading">¶</a></h3>
+<p>循环神经网络（RNN）专为处理序列数据而设计。为此，它们引入了时间的概念。输入序列的元素一个接一个地被处理，当前时间步的输出作为额外的输入传递到下一个时间步。这是通过引入一种称为<em>循环连接</em>的特殊连接类型来实现的（因此得名）。这种架构允许 RNN 积累关于过去的信息，从而捕捉序列中元素之间的依赖关系。</p>
+<p>下图说明了 RNN 的基本原理。RNN 单元有一个隐藏状态向量 <span class="math notranslate nohighlight">\(h_t\)</span>，它在每个时间步 <span class="math notranslate nohighlight">\(t\)</span> 被更新，负责聚合关于输入序列先前元素的信息。更新是通过将输入 <span class="math notranslate nohighlight">\(x_t\)</span> 与上一个时间步的隐藏状态 <span class="math notranslate nohighlight">\(h_{t-1}\)</span> 组合来执行的，该隐藏状态通过循环连接传递到 RNN 单元（图 1，左侧）。</p>
+<p>为了更好地可视化 RNN 如何处理数据序列，将网络在时间上展开是有帮助的（图 1，右侧）。RNN 通过在每个时间步复制每个单元并在所有单元之间共享权重和偏置来展开。展开的表示表明 RNN 可以视为具有共享参数的前馈神经网络。</p>
 <p><img alt="RNN" src="../_images/rnn-unfolded-800.png"/></p>
-<p><em>Figure 1:</em> Two ways of representing a recurrent neural network: compressed (left) and unfolded in time (right).</p>
-<p>The mechanism behind the computation of the hidden state varies depending on the architecture. Examples of RNN architectures include Vanilla RNN, Long Short-Term Memory (LSTM), and Gated Recurrent Units (GRUs).</p>
-<section id="Vanilla-RNN">
-<h4 id="Vanilla-RNN">Vanilla RNN<a class="headerlink" href="#Vanilla-RNN" title="Link to this heading">¶</a></h4>
-<p>In a Vanilla RNN the hidden state is updated according to the following recurrence relation,</p>
+<p><em>图 1：</em> 表示循环神经网络的两种方式：压缩形式（左）和在时间上展开的形式（右）。</p>
+<p>隐藏状态计算背后的机制因架构而异。RNN 架构的示例包括标准 RNN（Vanilla RNN）、长短期记忆网络（LSTM）和门控循环单元（GRU）。</p>
+<section id="标准-RNN（Vanilla-RNN）">
+<h4 id="标准-RNN（Vanilla-RNN）">标准 RNN（Vanilla RNN）<a class="headerlink" href="#标准-RNN（Vanilla-RNN）" title="Link to this heading">¶</a></h4>
+<p>在标准 RNN 中，隐藏状态根据以下递推关系更新：</p>
 <div class="math notranslate nohighlight">
 \[h_{t} = \tanh( W x_{t} + U h_{t-1} + b),~~~t=1,2,\dots,L.\]</div>
-<p>Here <span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(U\)</span> are weight matrices, and <span class="math notranslate nohighlight">\(b\)</span> is a bias vector. The initial hidden state <span class="math notranslate nohighlight">\(h_0\)</span> is usually seeded as a vector of zeros. Model weights <span class="math notranslate nohighlight">\(W\)</span>, <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are shared between all the time steps.</p>
+<p>这里 <span class="math notranslate nohighlight">\(W\)</span> 和 <span class="math notranslate nohighlight">\(U\)</span> 是权重矩阵，<span class="math notranslate nohighlight">\(b\)</span> 是偏置向量。初始隐藏状态 <span class="math notranslate nohighlight">\(h_0\)</span> 通常设为零向量。模型权重 <span class="math notranslate nohighlight">\(W\)</span>、<span class="math notranslate nohighlight">\(U\)</span> 和 <span class="math notranslate nohighlight">\(b\)</span> 在所有时间步之间共享。</p>
 </section>
-<section id="Training-an-RNN">
-<h4 id="Training-an-RNN">Training an RNN<a class="headerlink" href="#Training-an-RNN" title="Link to this heading">¶</a></h4>
-<p>Similar to other neural networks, RNNs are trained using a backpropagation algorithm. A flavor of the algorithm used in RNNs is called <em>backpropagation through time</em> or BPTT for short. BPTT applies backpropagation to the unfolded network to compute the gradient of the loss function for the network weights taking into account parameter sharing.</p>
+<section id="训练-RNN">
+<h4 id="训练-RNN">训练 RNN<a class="headerlink" href="#训练-RNN" title="Link to this heading">¶</a></h4>
+<p>与其他神经网络类似，RNN 使用反向传播算法进行训练。RNN 中使用的一种变体称为<em>随时间反向传播</em>（BPTT）。BPTT 将反向传播应用于展开的网络，以计算网络权重的损失函数梯度，同时考虑参数共享。</p>
 </section>
-<section id="Vanishing-gradients">
-<h4 id="Vanishing-gradients">Vanishing gradients<a class="headerlink" href="#Vanishing-gradients" title="Link to this heading">¶</a></h4>
-<p>Vanilla RNNs are susceptible to a problem called <em>vanishing gradients</em>. This problem occurs in deep neural networks when the gradients of the weights of the first layers of the network become very small as they are backpropagated through the network. This can lead to slow training and poor performance. In RNNs, the backpropagation is applied to the unfolded network which tends to be very deep. Furthermore, all copies of the RNN cells in the unfolded network share the same weights, which can
-cause gradients to diminish exponentially fast. For more details on the vanishing gradients problem, please refer to the blog post: <a class="reference external" href="https://dennybritz.com/posts/wildml/recurrent-neural-networks-tutorial-part-3/">Backpropagation Through Time and Vanishing Gradients</a>.</p>
+<section id="梯度消失">
+<h4 id="梯度消失">梯度消失<a class="headerlink" href="#梯度消失" title="Link to this heading">¶</a></h4>
+<p>标准 RNN 容易受到称为<em>梯度消失</em>的问题的影响。当网络靠前层的权重梯度在通过网络反向传播时变得非常小时，深度神经网络中就会出现这个问题。这可能导致训练缓慢和性能不佳。在 RNN 中，反向传播应用于展开的网络，而展开的网络往往非常深。此外，展开网络中 RNN 单元的所有副本共享相同的权重，这可能导致梯度以指数速度减小。有关梯度消失问题的更多详细信息，请参阅博客文章：<a class="reference external" href="https://dennybritz.com/posts/wildml/recurrent-neural-networks-tutorial-part-3/">随时间反向传播和梯度消失</a>。</p>
 </section>
-<section id="Gated-Recurrent-Unit">
-<h4 id="Gated-Recurrent-Unit">Gated Recurrent Unit<a class="headerlink" href="#Gated-Recurrent-Unit" title="Link to this heading">¶</a></h4>
-<p>A Gated recurrent unit (GRU) is a more advanced architecture of the recurrent network that aims to solve the vanishing gradient problem. In addition to the hidden state vector, GRU introduces the so-called <em>update gate</em> and <em>reset gate</em>. These two vectors help the model to decide which information should be passed forward. They can be trained to keep information from long ago, without washing it through time or removing information that is irrelevant to the prediction.</p>
-<section id="Reset-gate">
-<h5 id="Reset-gate">Reset gate<a class="headerlink" href="#Reset-gate" title="Link to this heading">¶</a></h5>
-<p>This gate is used by the GRU cell to decide how much of the past information to forget. It is calculated using the formula</p>
+<section id="门控循环单元（GRU）">
+<h4 id="门控循环单元（GRU）">门控循环单元（GRU）<a class="headerlink" href="#门控循环单元（GRU）" title="Link to this heading">¶</a></h4>
+<p>门控循环单元（GRU）是一种更先进的循环网络架构，旨在解决梯度消失问题。除了隐藏状态向量之外，GRU 还引入了所谓的<em>更新门</em>和<em>重置门</em>。这两个向量帮助模型决定哪些信息应该向前传递。它们可以被训练为保留从很久以前的信息，而不会随时间流逝而冲掉，或者去除与预测无关的信息。</p>
+<section id="重置门">
+<h5 id="重置门">重置门<a class="headerlink" href="#重置门" title="Link to this heading">¶</a></h5>
+<p>该门由 GRU 单元用于决定要忘记多少过去的信息。它的计算公式如下：</p>
 <div class="math notranslate nohighlight">
 \[r_t = \sigma(W_{r} x_t + U_{r} h_{t-1} + b_r).\]</div>
-<p>The input vector <span class="math notranslate nohighlight">\(x_t\)</span> is multiplied by the weight matrix <span class="math notranslate nohighlight">\(W_r\)</span>. The hidden state from the previous time steps <span class="math notranslate nohighlight">\(h_{t-1}\)</span> is also plugged into the cell and is multiplied by its weight matrix <span class="math notranslate nohighlight">\(U_r\)</span>. Both results are added together with a bias vector <span class="math notranslate nohighlight">\(b_r\)</span> and passed through a sigmoid activation function to limit the output to a range between 0 and 1.</p>
+<p>输入向量 <span class="math notranslate nohighlight">\(x_t\)</span> 与权重矩阵 <span class="math notranslate nohighlight">\(W_r\)</span> 相乘。来自前一个时间步的隐藏状态 <span class="math notranslate nohighlight">\(h_{t-1}\)</span> 也被输入到单元中，并与它的权重矩阵 <span class="math notranslate nohighlight">\(U_r\)</span> 相乘。两个结果与偏置向量 <span class="math notranslate nohighlight">\(b_r\)</span> 相加，然后通过 sigmoid 激活函数将输出限制在 0 到 1 之间。</p>
 </section>
-<section id="Update-gate">
-<h5 id="Update-gate">Update gate<a class="headerlink" href="#Update-gate" title="Link to this heading">¶</a></h5>
-<p>The update gate is calculated using a similar formula,</p>
+<section id="更新门">
+<h5 id="更新门">更新门<a class="headerlink" href="#更新门" title="Link to this heading">¶</a></h5>
+<p>更新门使用类似的公式计算：</p>
 <div class="math notranslate nohighlight">
 \[z_t = \sigma(W_{z} x_t + U_{z} h_{t-1} + b_z),\]</div>
-<p>but it has its own weights <span class="math notranslate nohighlight">\(W_z\)</span>, <span class="math notranslate nohighlight">\(U_z\)</span>, <span class="math notranslate nohighlight">\(b_z\)</span>, and serves a different purpose. As we will see below, the update gate helps the GRU cell to decide how much of the past information should be passed to the future step.</p>
+<p>但它有自己的权重 <span class="math notranslate nohighlight">\(W_z\)</span>、<span class="math notranslate nohighlight">\(U_z\)</span>、<span class="math notranslate nohighlight">\(b_z\)</span>，并且服务于不同的目的。如下所示，更新门帮助 GRU 单元决定有多少过去的信息应该传递到未来的步骤。</p>
 </section>
-<section id="Hidden-state-candidate">
-<h5 id="Hidden-state-candidate">Hidden state candidate<a class="headerlink" href="#Hidden-state-candidate" title="Link to this heading">¶</a></h5>
-<p>A candidate’s hidden state stores the relevant information from the past. It is calculated as follows:</p>
+<section id="隐藏状态候选">
+<h5 id="隐藏状态候选">隐藏状态候选<a class="headerlink" href="#隐藏状态候选" title="Link to this heading">¶</a></h5>
+<p>候选隐藏状态存储来自过去的相关信息。它的计算方式如下：</p>
 <div class="math notranslate nohighlight">
 \[\hat{h}_t = \tanh(W_{h} x_t + U_{h}(r_t \odot h_{t-1}) + b_h),\]</div>
-<p>where <span class="math notranslate nohighlight">\(\odot\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Hadamard_product_(matrices)">element-wise product</a> and <span class="math notranslate nohighlight">\(r_t\)</span> is the reset gate vector introduced above. This formula looks similar to how the hidden state is updated in a simple RNN cell, but here the hidden state from the previous time step <span class="math notranslate nohighlight">\(h_{t-1}\)</span> is multiplied by the reset gate vector <span class="math notranslate nohighlight">\(r_t\)</span>. Due to sigmoid activation, components of <span class="math notranslate nohighlight">\(r_t\)</span> take values between 0 and 1. Using the reset gate the model can learn
-which information is not relevant and should be discarded. If, for example, an <span class="math notranslate nohighlight">\(i\)</span>-th component of <span class="math notranslate nohighlight">\(r_t\)</span> is close to 0, then the memory contained in the <span class="math notranslate nohighlight">\(i\)</span>-th component of <span class="math notranslate nohighlight">\(h_{t-1}\)</span> will be discarded in the candidate vector.</p>
+<p>其中 <span class="math notranslate nohighlight">\(\odot\)</span> 是<a class="reference external" href="https://en.wikipedia.org/wiki/Hadamard_product_(matrices)">逐元素乘积</a>，<span class="math notranslate nohighlight">\(r_t\)</span> 是上面介绍的重置门向量。这个公式看起来类似于简单 RNN 单元中隐藏状态的更新方式，但这里前一个时间步的隐藏状态 <span class="math notranslate nohighlight">\(h_{t-1}\)</span> 与重置门向量 <span class="math notranslate nohighlight">\(r_t\)</span> 相乘。由于 sigmoid 激活，<span class="math notranslate nohighlight">\(r_t\)</span> 的分量取值在 0 和 1 之间。通过使用重置门，模型可以学习哪些信息不相关并应被丢弃。例如，如果 <span class="math notranslate nohighlight">\(r_t\)</span> 的第 <span class="math notranslate nohighlight">\(i\)</span> 个分量接近 0，则 <span class="math notranslate nohighlight">\(h_{t-1}\)</span> 的第 <span class="math notranslate nohighlight">\(i\)</span>
+个分量中包含的记忆将在候选向量中被丢弃。</p>
 </section>
-<section id="Hidden-state-update">
-<h5 id="Hidden-state-update">Hidden state update<a class="headerlink" href="#Hidden-state-update" title="Link to this heading">¶</a></h5>
-<p>Finally, the hidden state is updated as a mixture of <span class="math notranslate nohighlight">\(h_{t-1}\)</span> and the hidden state candidate,</p>
+<section id="隐藏状态更新">
+<h5 id="隐藏状态更新">隐藏状态更新<a class="headerlink" href="#隐藏状态更新" title="Link to this heading">¶</a></h5>
+<p>最后，隐藏状态更新为 <span class="math notranslate nohighlight">\(h_{t-1}\)</span> 和隐藏状态候选的混合：</p>
 <div class="math notranslate nohighlight">
 \[h_t =   z_t \odot h_{t-1} + (1-z_t) \odot  \hat{h}_t.\]</div>
-<p>Here, the update gate vector <span class="math notranslate nohighlight">\(z_t\)</span> controls how much information to collect from the candidate vector <span class="math notranslate nohighlight">\(\hat{h}_t\)</span> and how much from the previous steps <span class="math notranslate nohighlight">\(h_{t-1}\)</span>.</p>
+<p>这里，更新门向量 <span class="math notranslate nohighlight">\(z_t\)</span> 控制从候选向量 <span class="math notranslate nohighlight">\(\hat{h}_t\)</span> 中收集多少信息，以及从上一步 <span class="math notranslate nohighlight">\(h_{t-1}\)</span> 中保留多少信息。</p>
 </section>
 </section>
 </section>
 </section>
-<section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
-<p>In the practical section, we will apply recurrent neural networks to a regression task.</p>
+<section id="实践">
+<h2 id="实践">实践<a class="headerlink" href="#实践" title="Link to this heading">¶</a></h2>
+<p>在实践部分，我们将把循环神经网络应用于一个回归任务。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -676,19 +687,19 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use cuda if available</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 如果可用则使用 cuda</span>
 <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cuda"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"cpu"</span><span class="p">)</span>
 
-<span class="c1"># seed random generator</span>
+<span class="c1"># 设置随机种子</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
@@ -696,21 +707,21 @@ which information is not relevant and should be discarded. If, for example, an <
 </pre></div>
 </div>
 </div>
-<section id="Dataset">
-<h3 id="Dataset">Dataset<a class="headerlink" href="#Dataset" title="Link to this heading">¶</a></h3>
-<p>In this talktorial we use <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/2.2.0/modules/datasets.html#torch_geometric.datasets.QM9">QM9</a> dataset from the <a class="reference external" href="https://arxiv.org/abs/1703.00564">MoleculeNet</a> paper. This dataset consists of about 130,000 molecules together with their quantum chemical properties.</p>
+<section id="数据集">
+<h3 id="数据集">数据集<a class="headerlink" href="#数据集" title="Link to this heading">¶</a></h3>
+<p>在本教程中，我们使用来自 <a class="reference external" href="https://arxiv.org/abs/1703.00564">MoleculeNet</a> 论文的 <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/2.2.0/modules/datasets.html#torch_geometric.datasets.QM9">QM9</a> 数据集。该数据集包含大约 130,000 个分子及其量子化学性质。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the dataset</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 加载数据集</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA</span><span class="p">,</span> <span class="s2">"qm9.csv.gz"</span><span class="p">),</span> <span class="n">compression</span><span class="o">=</span><span class="s2">"gzip"</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -881,18 +892,18 @@ which information is not relevant and should be discarded. If, for example, an <
 <p>5 rows × 21 columns</p>
 </div></div>
 </div>
-<p>In this talktorial we will build a model predicting one of the properties – the dipole moment <code class="docutils literal notranslate"><span class="pre">mu</span></code> – based on the string representation of the molecule provided in the <code class="docutils literal notranslate"><span class="pre">smiles</span></code> column in the table above.</p>
-<section id="Preprocessing">
-<h4 id="Preprocessing">Preprocessing<a class="headerlink" href="#Preprocessing" title="Link to this heading">¶</a></h4>
-<p>First, define the classes and helper functions we will be using for the data preprocessing</p>
+<p>在本教程中，我们将构建一个模型，根据上表中 <code class="docutils literal notranslate"><span class="pre">smiles</span></code> 列提供的分子字符串表示来预测其中一个性质——偶极矩 <code class="docutils literal notranslate"><span class="pre">mu</span></code>。</p>
+<section id="预处理">
+<h4 id="预处理">预处理<a class="headerlink" href="#预处理" title="Link to this heading">¶</a></h4>
+<p>首先，定义我们将用于数据预处理的类和辅助函数。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SmilesTokenizer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    A simple regex-based tokenizer adapted from the deepchem smiles_tokenizer package.</span>
-<span class="sd">    SMILES regex pattern for the tokenization is designed by Schwaller et. al., ACS Cent. Sci 5 (2019)</span>
+<span class="sd">    一个基于正则表达式的简单分词器，改编自 deepchem 的 smiles_tokenizer 包。</span>
+<span class="sd">    分词所用的 SMILES 正则表达式模式由 Schwaller et. al., ACS Cent. Sci 5 (2019) 设计。</span>
 <span class="sd">    """</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -922,20 +933,20 @@ which information is not relevant and should be discarded. If, for example, an <
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_vocab</span><span class="p">(</span><span class="n">smiles_list</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">max_vocab_size</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Builds a vocabulary of N=max_vocab_size most common tokens from list of SMILES strings.</span>
+<span class="sd">    从 SMILES 字符串列表中构建由 N=max_vocab_size 个最常见标记组成的词汇表。</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    smiles_list : List[str]</span>
-<span class="sd">        List of SMILES strings.</span>
+<span class="sd">        SMILES 字符串列表。</span>
 <span class="sd">    tokenizer : SmilesTokenizer</span>
 <span class="sd">    max_vocab_size : int</span>
-<span class="sd">        Maximum size of vocabulary.</span>
+<span class="sd">        词汇表的最大大小。</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -975,9 +986,9 @@ which information is not relevant and should be discarded. If, for example, an <
 </pre></div>
 </div>
 </div>
-<p>Let’s have a look at how these functions work with a simple example. Here, we will be using the same SMILES string as in the Theoretical section.</p>
+<p>让我们通过一个简单的示例来看这些函数如何工作。这里，我们将使用与理论部分相同的 SMILES 字符串。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">SmilesTokenizer</span><span class="p">()</span>
@@ -1008,28 +1019,28 @@ OHE:
  [0. 0. 0. 1.]]
 </pre></div></div>
 </div>
-<p>Now, we apply these preprocessing steps to our data. For the sake of reducing the runtime, we will be using only a random subset of the whole QM9 dataset. The dataset is split into training, validation and test sets. We build the vocabulary and define the transformation of the target based only on the training set.</p>
+<p>现在，我们将这些预处理步骤应用于数据。为了减少运行时间，我们将仅使用整个 QM9 数据集的一个随机子集。数据集被分为训练集、验证集和测试集。我们仅基于训练集构建词汇表并定义目标的变换。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_size</span> <span class="o">=</span> <span class="mi">50000</span>
 <span class="n">n_train</span> <span class="o">=</span> <span class="mi">40000</span>
 <span class="n">n_test</span> <span class="o">=</span> <span class="n">n_val</span> <span class="o">=</span> <span class="mi">5000</span>
 
-<span class="c1"># get a sample</span>
+<span class="c1"># 获取样本</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">sample_size</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="c1"># select columns from the data frame</span>
+<span class="c1"># 从数据框中选择列</span>
 <span class="n">smiles</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"mu"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 
-<span class="c1"># build a vocab using the training data</span>
+<span class="c1"># 使用训练数据构建词汇表</span>
 <span class="n">max_vocab_size</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">vocab</span> <span class="o">=</span> <span class="n">build_vocab</span><span class="p">(</span><span class="n">smiles</span><span class="p">[:</span><span class="n">n_train</span><span class="p">],</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">max_vocab_size</span><span class="p">)</span>
 <span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
 
-<span class="c1"># transform smiles to one-hot encoded tensors and apply padding</span>
+<span class="c1"># 将 SMILES 转换为独热编码 encoded tensors and apply padding</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">pad_sequence</span><span class="p">(</span>
     <span class="n">sequences</span><span class="o">=</span><span class="p">[</span><span class="n">smiles_to_ohe</span><span class="p">(</span><span class="n">smi</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">vocab</span><span class="p">)</span> <span class="k">for</span> <span class="n">smi</span> <span class="ow">in</span> <span class="n">smiles</span><span class="p">],</span>
     <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -1068,15 +1079,15 @@ OHE:
 </div>
 </section>
 </section>
-<section id="Models">
-<h3 id="Models">Models<a class="headerlink" href="#Models" title="Link to this heading">¶</a></h3>
-<p>In this talktorial we compare two recurrent networks. Both of them contain a single recurrent layer followed by a fully-connected layer transforming the hidden state from the last time step to a one-dimensional output. In the <code class="docutils literal notranslate"><span class="pre">RNNRegressionModel</span></code> we use a vanilla RNN architecture, while in <code class="docutils literal notranslate"><span class="pre">GRURegressionModel</span></code> a more advanced GRU architecture.</p>
+<section id="模型">
+<h3 id="模型">模型<a class="headerlink" href="#模型" title="Link to this heading">¶</a></h3>
+<p>在本教程中，我们比较两种循环网络。它们都包含一个循环层，后接一个全连接层，将最后一个时间步的隐藏状态转换为一维输出。在 <code class="docutils literal notranslate"><span class="pre">RNNRegressionModel</span></code> 中，我们使用标准 RNN 架构，而在 <code class="docutils literal notranslate"><span class="pre">GRURegressionModel</span></code> 中，我们使用更先进的 GRU 架构。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RNNRegressionModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Vanilla RNN with one recurrent layer"""</span>
+<span class="w">    </span><span class="sd">"""带有一个循环层的标准 RNN"""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
@@ -1085,9 +1096,9 @@ OHE:
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        input_size : int</span>
-<span class="sd">            The number of expected features in the input vector</span>
+<span class="sd">            输入向量中期望的特征数量</span>
 <span class="sd">        hidden_size : int</span>
-<span class="sd">            The number of features in the hidden state</span>
+<span class="sd">            隐藏状态的特征数量</span>
 
 <span class="sd">        """</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">RNNRegressionModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -1116,9 +1127,9 @@ OHE:
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        input_size : int</span>
-<span class="sd">            The number of expected features in the input vector</span>
+<span class="sd">            输入向量中期望的特征数量</span>
 <span class="sd">        hidden_size : int</span>
-<span class="sd">            The number of features in the hidden state</span>
+<span class="sd">            隐藏状态的特征数量</span>
 
 <span class="sd">        """</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">GRURegressionModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -1139,14 +1150,14 @@ OHE:
 </div>
 </div>
 </section>
-<section id="Training">
-<h3 id="Training">Training<a class="headerlink" href="#Training" title="Link to this heading">¶</a></h3>
+<section id="训练">
+<h3 id="训练">训练<a class="headerlink" href="#训练" title="Link to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ModelTrainer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""A class that provides training and validation infrastructure for the model and keeps track of training and validation metrics."""</span>
+<span class="w">    </span><span class="sd">"""为模型提供训练和验证基础设施，并跟踪训练和验证指标的类。"""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clip_gradients</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
@@ -1155,9 +1166,9 @@ OHE:
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        model : nn.Module</span>
-<span class="sd">            a model</span>
+<span class="sd">            模型</span>
 <span class="sd">        lr : float</span>
-<span class="sd">            learning rate for one training step</span>
+<span class="sd">            学习率 for one training step</span>
 
 <span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
@@ -1250,9 +1261,9 @@ OHE:
 </pre></div>
 </div>
 </div>
-<p>Now we define the models and train them for 50 epochs. The hidden state has the same dimension for both models.</p>
+<p>现在我们定义模型并训练它们 50 个 epoch。两种模型的隐藏状态维度相同。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_rnn</span> <span class="o">=</span> <span class="n">ModelTrainer</span><span class="p">(</span>
@@ -1263,7 +1274,7 @@ OHE:
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_rnn</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span>
@@ -1276,15 +1287,15 @@ OHE:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Epoch 000 | train_loss: 1.00060 | val_loss: 0.93796
-Epoch 010 | train_loss: 0.63237 | val_loss: 0.56349
-Epoch 020 | train_loss: 0.54434 | val_loss: 0.49586
-Epoch 030 | train_loss: 0.51031 | val_loss: 0.47032
-Epoch 040 | train_loss: 0.47616 | val_loss: 0.44936
-Epoch 050 | train_loss: 0.46097 | val_loss: 0.49712
+Epoch 010 | train_loss: 0.63185 | val_loss: 0.56341
+Epoch 020 | train_loss: 0.53801 | val_loss: 0.49376
+Epoch 030 | train_loss: 0.50546 | val_loss: 0.45505
+Epoch 040 | train_loss: 0.48365 | val_loss: 0.44333
+Epoch 050 | train_loss: 0.46981 | val_loss: 0.43694
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_gru</span> <span class="o">=</span> <span class="n">ModelTrainer</span><span class="p">(</span>
@@ -1295,7 +1306,7 @@ Epoch 050 | train_loss: 0.46097 | val_loss: 0.49712
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_gru</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span>
@@ -1316,11 +1327,11 @@ Epoch 050 | train_loss: 0.29032 | val_loss: 0.31914
 </pre></div></div>
 </div>
 </section>
-<section id="Evaluation">
-<h3 id="Evaluation">Evaluation<a class="headerlink" href="#Evaluation" title="Link to this heading">¶</a></h3>
-<p>First, we compare our models’ performance during training. We have plotted the losses on the training and validation sets on each epoch. As we can see, the GRU model trains faster and has better overall performance compared to the Vanilla RNN.</p>
+<section id="评估">
+<h3 id="评估">评估<a class="headerlink" href="#评估" title="Link to this heading">¶</a></h3>
+<p>首先，我们比较模型在训练期间的表现。我们绘制了每个 epoch 在训练集和验证集上的损失。正如我们所见，GRU 模型训练更快，并且与标准 RNN 相比具有更好的整体性能。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">model_rnn</span><span class="o">.</span><span class="n">train_loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"RNN train"</span><span class="p">)</span>
@@ -1337,12 +1348,12 @@ Epoch 050 | train_loss: 0.29032 | val_loss: 0.31914
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T034_recurrent_neural_networks_45_0.png" src="../_images/talktorials_T034_recurrent_neural_networks_45_0.png"/>
+<img alt="../_images/talktorials_T034_recurrent_neural_networks_46_0.png" src="../_images/talktorials_T034_recurrent_neural_networks_46_0.png"/>
 </div>
 </div>
-<p>To further evaluate the performance of the models, we calculate the loss on the testing set and visually compare the predictions to the ground truth values. As we can see from the plot, Vanilla RNN tends to produce more skewed predictions compared to the GRU model.</p>
+<p>为了进一步评估模型的性能，我们计算测试集上的损失，并将预测值与真实值进行视觉比较。从图中可以看出，与 GRU 模型相比，标准 RNN 倾向于产生更偏斜的预测。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1374,7 +1385,7 @@ Epoch 050 | train_loss: 0.29032 | val_loss: 0.31914
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-RNN test loss: 0.497
+RNN test loss: 0.437
 GRU test loss: 0.319
 </pre></div></div>
 </div>
@@ -1382,21 +1393,21 @@ GRU test loss: 0.319
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T034_recurrent_neural_networks_47_1.png" src="../_images/talktorials_T034_recurrent_neural_networks_47_1.png"/>
+<img alt="../_images/talktorials_T034_recurrent_neural_networks_48_1.png" src="../_images/talktorials_T034_recurrent_neural_networks_48_1.png"/>
 </div>
 </div>
 </section>
 </section>
-<section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
-<p>Natural language processing-based models proved to be a powerful tool for a wide range of molecular tasks. In this talktorial we introduced the basics of Recurrent Neural Network architectures and demonstrated their application to the regression task on the QM9 dataset. We have learned how to pre-process SMILES strings, build a model using PyTorch, and train the model to predict the dipole moment of the molecule.</p>
+<section id="讨论">
+<h2 id="讨论">讨论<a class="headerlink" href="#讨论" title="Link to this heading">¶</a></h2>
+<p>基于自然语言处理的模型被证明是广泛应用于分子相关任务的强大工具。在本教程中，我们介绍了循环神经网络架构的基础知识，并演示了它们在 QM9 数据集上的回归任务中的应用。我们学习了如何预处理 SMILES 字符串、使用 PyTorch 构建模型，以及训练模型预测分子的偶极矩。</p>
 </section>
-<section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
+<section id="测验">
+<h2 id="测验">测验<a class="headerlink" href="#测验" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
-<li><p>What problems do the recurrent neural networks experience during training?</p></li>
-<li><p>In this talktorial we used a regex-based tokenizer. What other tokenization approaches could be used?</p></li>
-<li><p>Why Gated recurrent unit architecture is better for capturing long-term relations?</p></li>
+<li><p>循环神经网络在训练过程中会遇到什么问题？</p></li>
+<li><p>在本教程中，我们使用了基于正则表达式的分词器。还可以使用哪些其他分词方法？</p></li>
+<li><p>为什么门控循环单元架构更适合捕捉长期依赖关系？</p></li>
 </ol>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
@@ -1413,7 +1424,7 @@ GRU test loss: 0.319
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="T033_molecular_representations.html" title="T033 · Molecular representations"
+            <a href="T033_molecular_representations.html" title="T033 · 分子表示"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -1422,17 +1433,17 @@ GRU test loss: 0.319
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> T033 · Molecular representations </span>
+                      class="md-footer-nav__direction"> "Previous" </span> T033 · 分子表示 </span>
               </div>
             </a>
           
           
-            <a href="T035_graph_neural_networks.html" title="T035 · GNN-based molecular property prediction"
+            <a href="T035_graph_neural_networks.html" title="T035 · 基于 GNN 的分子性质预测"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> T035 · GNN-based molecular property prediction </span>
+                class="md-footer-nav__direction"> "Next" </span> T035 · 基于 GNN 的分子性质预测 </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

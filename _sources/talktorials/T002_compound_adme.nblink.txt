@@ -1,1 +1,1 @@
-{"path": "../../teachopencadd/\u6559\u7a0b/T002_\u5316\u5408\u7269ADME/talktorial.ipynb", "extra-media": ["../../teachopencadd/\u6559\u7a0b/T002_\u5316\u5408\u7269ADME/images"]}
+{"path": "../../teachopencadd/\u6559\u7a0b/T002_\u5316\u5408\u7269ADME/talktorial_zh.ipynb", "extra-media": ["../../teachopencadd/\u6559\u7a0b/T002_\u5316\u5408\u7269ADME/images"]}

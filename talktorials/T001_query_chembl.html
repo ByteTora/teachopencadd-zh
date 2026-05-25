@@ -8,10 +8,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T001_query_chembl.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="课程目标: 在此notebook中，我们将会学到更多有关CHEMBL数据库的知识，以及如何从CHEMBL数据库中提取数据,例如:特定靶点的(化合物，活性)数据对。这些数据集合可以用在很多化学信息学的下游任务中，如相似性搜索、聚类或机器学习中。 我们的工作将包括寻找针对特定靶点进行测试的化合物，并筛选可用的生物活性数据。 原理部分: ChEMBL 数据库- ChEMBL web services, ChEMBL web resource client., 化合物活性衡量指标- IC50 衡量, pIC50 值.. 实战部分: 目标: 针对特定靶点获取小分子的活性数据列表 连接ChEMBL数..." />
+<meta property="og:description" content="注意： 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域技能，并为研究项目提供管道模板作为起点。 作者： Svetlana Leng, CADD seminar 2017, Volkamer lab, Charité/FU Berlin, Paula Junge, CADD seminar 2018, Volkamer lab, Charité/FU Berlin, Dominique Sydow, 2019-2020, Volkamer lab, Charité, Andrea Volkamer, 2020, Volkamer lab, Charité, Yong..." />
 <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
 <meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="课程目标: 在此notebook中，我们将会学到更多有关CHEMBL数据库的知识，以及如何从CHEMBL数据库中提取数据,例如:特定靶点的(化合物，活性)数据对。这些数据集合可以用在很多化学信息学的下游任务中，如相似性搜索、聚类或机器学习中。 我们的工作将包括寻找针对特定靶点进行测试的化合物，并筛选可用的生物活性数据。 原理部分: ChEMBL 数据库- ChEMBL web services, ChEMBL web resource client., 化合物活性衡量指标- IC50 衡量, pIC50 值.. 实战部分: 目标: 针对特定靶点获取小分子的活性数据列表 连接ChEMBL数..." />
+<meta name="description" content="注意： 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域技能，并为研究项目提供管道模板作为起点。 作者： Svetlana Leng, CADD seminar 2017, Volkamer lab, Charité/FU Berlin, Paula Junge, CADD seminar 2018, Volkamer lab, Charité/FU Berlin, Dominique Sydow, 2019-2020, Volkamer lab, Charité, Andrea Volkamer, 2020, Volkamer lab, Charité, Yong..." />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -100,7 +100,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T002 · 分子筛选：ADME和类药性标准" href="T002_compound_adme.html" />
+    <link rel="next" title="T002 · 分子筛选：ADME 和类先导化合物标准" href="T002_compound_adme.html" />
     <link rel="prev" title="Complete list of talktorials" href="../all_talktorials.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
@@ -426,21 +426,27 @@
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#talktorials-t001-query-chembl--page-root" class="md-nav__link">T001 · 化合物数据获取 (ChEMBL)</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#课程目标" class="md-nav__link">课程目标</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#本教程目标" class="md-nav__link">本教程目标</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#原理部分" class="md-nav__link"><em>原理部分</em></a>
+        <li class="md-nav__item"><a href="#理论内容" class="md-nav__link">理论内容</a>
         </li>
-        <li class="md-nav__item"><a href="#实战部分" class="md-nav__link"><em>实战部分</em></a>
+        <li class="md-nav__item"><a href="#实践内容" class="md-nav__link">实践内容</a>
         </li>
         <li class="md-nav__item"><a href="#参考文献" class="md-nav__link">参考文献</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#原理" class="md-nav__link">原理</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#理论" class="md-nav__link">理论</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#ChEMBL-数据库" class="md-nav__link">ChEMBL 数据库</a>
+        <li class="md-nav__item"><a href="#ChEMBL-数据库" class="md-nav__link">ChEMBL 数据库</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#ChEMBL-Web-服务" class="md-nav__link">ChEMBL Web 服务</a>
         </li>
-        <li class="md-nav__item"><a href="#化合物活性衡量指标" class="md-nav__link">化合物活性衡量指标</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#ChEMBL-Web-资源客户端" class="md-nav__link">ChEMBL Web 资源客户端</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#化合物活性度量" class="md-nav__link">化合物活性度量</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#IC50-值" class="md-nav__link">IC50 值</a>
         </li>
@@ -450,43 +456,43 @@
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#练习" class="md-nav__link">练习</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#实践" class="md-nav__link">实践</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#连接CHEMBL数据库" class="md-nav__link">连接CHEMBL数据库</a>
+        <li class="md-nav__item"><a href="#连接-ChEMBL-数据库" class="md-nav__link">连接 ChEMBL 数据库</a>
         </li>
-        <li class="md-nav__item"><a href="#获取靶点数据(EGFR-激酶)" class="md-nav__link">获取靶点数据(EGFR 激酶)</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#获取靶标数据（EGFR-激酶）" class="md-nav__link">获取靶标数据（EGFR 激酶）</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#从ChEMBL拉取靶点数据" class="md-nav__link">从ChEMBL拉取靶点数据</a>
+        <li class="md-nav__item"><a href="#获取靶标数据" class="md-nav__link">获取靶标数据</a>
         </li>
-        <li class="md-nav__item"><a href="#从CHEMBL数据库下载靶点信息" class="md-nav__link">从CHEMBL数据库下载靶点信息</a>
+        <li class="md-nav__item"><a href="#下载靶标数据" class="md-nav__link">下载靶标数据</a>
         </li>
-        <li class="md-nav__item"><a href="#选择靶点(靶点ChEMBL-ID)" class="md-nav__link">选择靶点(靶点ChEMBL ID)</a>
+        <li class="md-nav__item"><a href="#选择靶标（靶标-ChEMBL-ID）" class="md-nav__link">选择靶标（靶标 ChEMBL ID）</a>
         </li></ul>
             </nav>
         </li>
         <li class="md-nav__item"><a href="#获取生物活性数据" class="md-nav__link">获取生物活性数据</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#从CHEMBL靶点获取生物活性数据" class="md-nav__link">从CHEMBL靶点获取生物活性数据</a>
+        <li class="md-nav__item"><a href="#获取靶标的生物活性数据" class="md-nav__link">获取靶标的生物活性数据</a>
         </li>
-        <li class="md-nav__item"><a href="#从CHEMBL下载活性数据" class="md-nav__link">从CHEMBL下载活性数据</a>
+        <li class="md-nav__item"><a href="#从-ChEMBL-下载生物活性数据" class="md-nav__link">从 ChEMBL 下载生物活性数据</a>
         </li>
-        <li class="md-nav__item"><a href="#预处理和筛选" class="md-nav__link">预处理和筛选</a>
+        <li class="md-nav__item"><a href="#预处理和筛选生物活性数据" class="md-nav__link">预处理和筛选生物活性数据</a>
         </li></ul>
             </nav>
         </li>
         <li class="md-nav__item"><a href="#获取化合物数据" class="md-nav__link">获取化合物数据</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#从ChEMBL获取化合物数据" class="md-nav__link">从ChEMBL获取化合物数据</a>
+        <li class="md-nav__item"><a href="#id17" class="md-nav__link">获取化合物数据</a>
         </li>
-        <li class="md-nav__item"><a href="#从ChEMBL下载化合物数据" class="md-nav__link">从ChEMBL下载化合物数据</a>
+        <li class="md-nav__item"><a href="#下载化合物数据" class="md-nav__link">下载化合物数据</a>
         </li>
-        <li class="md-nav__item"><a href="#预处理和过滤化合物数据" class="md-nav__link">预处理和过滤化合物数据</a>
+        <li class="md-nav__item"><a href="#预处理和筛选化合物数据" class="md-nav__link">预处理和筛选化合物数据</a>
         </li></ul>
             </nav>
         </li>
         <li class="md-nav__item"><a href="#输出（生物活性-化合物）数据" class="md-nav__link">输出（生物活性-化合物）数据</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#合并数据集" class="md-nav__link">合并数据集</a>
+        <li class="md-nav__item"><a href="#合并两个数据集" class="md-nav__link">合并两个数据集</a>
         </li>
         <li class="md-nav__item"><a href="#添加-pIC50-值" class="md-nav__link">添加 pIC50 值</a>
         </li>
@@ -503,10 +509,6 @@
         <li class="md-nav__item"><a href="#讨论" class="md-nav__link">讨论</a>
         </li>
         <li class="md-nav__item"><a href="#课后思考" class="md-nav__link">课后思考</a>
-        </li>
-        <li class="md-nav__item"><a href="#本文作者" class="md-nav__link">本文作者</a>
-        </li>
-        <li class="md-nav__item"><a href="#翻译校对" class="md-nav__link">翻译校对</a>
         </li></ul>
             </nav>
         </li>
@@ -526,56 +528,66 @@
             
   <section id="T001-·-化合物数据获取-(ChEMBL)">
 <h1 id="talktorials-t001-query-chembl--page-root">T001 · 化合物数据获取 (ChEMBL)<a class="headerlink" href="#talktorials-t001-query-chembl--page-root" title="Link to this heading">¶</a></h1>
-<section id="课程目标">
-<h2 id="课程目标">课程目标<a class="headerlink" href="#课程目标" title="Link to this heading">¶</a></h2>
-<p>在此notebook中，我们将会学到更多有关CHEMBL数据库的知识，以及如何从CHEMBL数据库中提取数据,例如:特定靶点的(化合物，活性)数据对。这些数据集合可以用在很多化学信息学的下游任务中，如相似性搜索、聚类或机器学习中。</p>
-<p>我们的工作将包括寻找针对特定靶点进行测试的化合物，并筛选可用的生物活性数据。</p>
-<section id="原理部分">
-<h3 id="原理部分"><em>原理部分</em><a class="headerlink" href="#原理部分" title="Link to this heading">¶</a></h3>
+<p><strong>注意：</strong> 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域技能，并为研究项目提供管道模板作为起点。</p>
+<p>作者：</p>
+<ul class="simple">
+<li><p>Svetlana Leng, CADD seminar 2017, Volkamer lab, Charité/FU Berlin</p></li>
+<li><p>Paula Junge, CADD seminar 2018, Volkamer lab, Charité/FU Berlin</p></li>
+<li><p>Dominique Sydow, 2019-2020, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+<li><p>Andrea Volkamer, 2020, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+<li><p>Yonghui Chen, 2020, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
+</ul>
+<p><strong>教程 T001</strong>：本教程是 <a class="reference external" href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-019-0351-x">首篇 TeachOpenCADD 论文</a> 中描述的 TeachOpenCADD 流程的一部分，包括 T001-T010 教程。</p>
+<section id="本教程目标">
+<h2 id="本教程目标">本教程目标<a class="headerlink" href="#本教程目标" title="Link to this heading">¶</a></h2>
+<p>在本 notebook 中，我们将更多地了解 ChEMBL 数据库，以及如何从中提取数据，即针对感兴趣靶标的（化合物、活性数据）配对。这些数据集可用于许多化学信息学任务，如相似性搜索、聚类或机器学习。</p>
+<p>我们的工作将包括查找针对特定靶标进行测试的化合物，并筛选可用的生物活性数据。</p>
+<section id="理论内容">
+<h3 id="理论内容">理论内容<a class="headerlink" href="#理论内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>ChEMBL 数据库</p>
 <ul>
-<li><p>ChEMBL web services</p></li>
-<li><p>ChEMBL web resource client</p></li>
+<li><p>ChEMBL Web 服务</p></li>
+<li><p>ChEMBL Web 资源客户端</p></li>
 </ul>
 </li>
-<li><p>化合物活性衡量指标</p>
+<li><p>化合物活性度量</p>
 <ul>
-<li><p>IC50 衡量</p></li>
+<li><p>IC50 值</p></li>
 <li><p>pIC50 值</p></li>
 </ul>
 </li>
 </ul>
 </section>
-<section id="实战部分">
-<h3 id="实战部分"><em>实战部分</em><a class="headerlink" href="#实战部分" title="Link to this heading">¶</a></h3>
-<p><strong>目标: 针对特定靶点获取小分子的活性数据列表</strong></p>
+<section id="实践内容">
+<h3 id="实践内容">实践内容<a class="headerlink" href="#实践内容" title="Link to this heading">¶</a></h3>
+<p><strong>目标：获取针对给定靶标的化合物生物活性数据列表</strong></p>
 <ul class="simple">
-<li><p>连接ChEMBL数据库</p></li>
-<li><p>获取靶点数据(示例: EGFR激酶)</p>
+<li><p>连接 ChEMBL 数据库</p></li>
+<li><p>获取靶标数据（示例：EGFR 激酶）</p>
 <ul>
-<li><p>拉取并下载靶点数据</p></li>
-<li><p>选择靶点ChEMBL ID</p></li>
+<li><p>获取并下载靶标数据</p></li>
+<li><p>选择靶标 ChEMBL ID</p></li>
 </ul>
 </li>
-<li><p>获取活性数据</p>
+<li><p>获取生物活性数据</p>
 <ul>
-<li><p>拉取并下载特定靶点的生物活性数据</p></li>
-<li><p>预处理和筛选生物活性数据、</p></li>
+<li><p>获取并下载靶标的生物活性数据</p></li>
+<li><p>预处理和筛选生物活性数据</p></li>
 </ul>
 </li>
 <li><p>获取化合物数据</p>
 <ul>
-<li><p>拉取并下载化合物数据</p></li>
-<li><p>预处理和过滤化合物数据</p></li>
+<li><p>获取并下载化合物数据</p></li>
+<li><p>预处理和筛选化合物数据</p></li>
 </ul>
 </li>
-<li><p>输出 生物活性-化合物 数据</p>
+<li><p>输出生物活性-化合物数据</p>
 <ul>
-<li><p>合并活性和化合物数据, 并添加pIC50值</p></li>
-<li><p>画出pIC50值分布图</p></li>
-<li><p>保持在ChEMBL 27 版本</p></li>
-<li><p>保存结果到文件</p></li>
+<li><p>合并生物活性和化合物数据，并添加 pIC50 值</p></li>
+<li><p>绘制 pIC50 最高的分子</p></li>
+<li><p>将生物活性数据冻结到 ChEMBL 27</p></li>
+<li><p>写入输出文件</p></li>
 </ul>
 </li>
 </ul>
@@ -583,56 +595,103 @@
 <section id="参考文献">
 <h3 id="参考文献">参考文献<a class="headerlink" href="#参考文献" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>ChEMBL bioactivity database: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210557/">Gaulton et al., Nucleic Acids Res. (2017), 45(Database issue), D945–D954</a></p></li>
-<li><p>ChEMBL web services: <a class="reference external" href="https://academic.oup.com/nar/article/43/W1/W612/2467881">Davies et al., Nucleic Acids Res. (2015), 43, 612-620</a></p></li>
-<li><p><a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL web-interface</a></p></li>
-<li><p>GitHub <a class="reference external" href="https://github.com/chembl/chembl_webresource_client">ChEMBL web rescource client</a></p></li>
-<li><p>The EBI RDF platform: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/24413672">Jupp et al., Bioinformatics (2014), 30(9), 1338-9</a></p></li>
-<li><p>Info on half maximal inhibitory concentration: <a class="reference external" href="https://en.wikipedia.org/wiki/IC50">(p)IC50</a></p></li>
-<li><p><a class="reference external" href="https://www.uniprot.org/">UniProt website</a></p></li>
+<li><p>ChEMBL 生物活性数据库：<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5210557/">Gaulton et al., Nucleic Acids Res. (2017), 45(Database issue), D945–D954</a></p></li>
+<li><p>ChEMBL Web 服务：<a class="reference external" href="https://academic.oup.com/nar/article/43/W1/W612/2467881">Davies et al., Nucleic Acids Res. (2015), 43, 612-620</a></p></li>
+<li><p><a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL Web 界面</a></p></li>
+<li><p>GitHub <a class="reference external" href="https://github.com/chembl/chembl_webresource_client">ChEMBL Web 资源客户端</a></p></li>
+<li><p>EBI RDF 平台：<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/24413672">Jupp et al., Bioinformatics (2014), 30(9), 1338-9</a></p></li>
+<li><p>关于半数最大抑制浓度的信息：<a class="reference external" href="https://en.wikipedia.org/wiki/IC50">(p)IC50</a></p></li>
+<li><p><a class="reference external" href="https://www.uniprot.org/">UniProt 网站</a></p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">1</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="理论">
+<h2 id="理论">理论<a class="headerlink" href="#理论" title="Link to this heading">¶</a></h2>
+<section id="ChEMBL-数据库">
+<h3 id="ChEMBL-数据库">ChEMBL 数据库<a class="headerlink" href="#ChEMBL-数据库" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><p>“ChEMBL 是一个人工维护的、具有类药性质的生物活性分子数据库。它汇集了化学、生物活性和基因组数据，以帮助将基因组信息转化为有效的新药。”（<a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL 网站</a>）</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>开放的大规模生物活性数据库</p></li>
+<li><p><strong>当前数据内容（截至 2020 年 9 月，ChEMBL 27）：</strong></p>
+<ul>
+<li><p>超过 190 万个不同化合物</p></li>
+<li><p>超过 1600 万个活性值</p></li>
+<li><p>实验映射到约 13,000 个靶标</p></li>
+</ul>
+</li>
+<li><p><strong>数据来源</strong>包括科学文献、PubChem 生物实验、被忽视疾病药物倡议（DNDi）、BindingDB 数据库等</p></li>
+<li><p>ChEMBL 数据可通过 <a class="reference external" href="https://www.ebi.ac.uk/chembl/">Web 界面</a>、<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pubmed/24413672">EBI-RDF 平台</a> 和 <a class="reference external" href="https://github.com/chembl/chembl_webresource_client">ChEMBL Web 资源客户端</a> 访问</p></li>
+</ul>
+<section id="ChEMBL-Web-服务">
+<h4 id="ChEMBL-Web-服务">ChEMBL Web 服务<a class="headerlink" href="#ChEMBL-Web-服务" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>RESTful Web 服务</p></li>
+<li><p>ChEMBL Web 服务版本 2.x 资源模式：</p></li>
+</ul>
+<!---
+![ChEMBL web service schema](images/chembl_webservices_schema_diagram.jpg)
+---><p><img alt="ChEMBL web service schema" src="../_images/chembl_webservices_schema_diagram.jpg"/></p>
+<p><em>图 1：</em> “<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4489243/figure/F2/">ChEMBL Web 服务模式图</a>。椭圆形代表 ChEMBL Web 服务资源，两个资源之间的连线表示它们共享一个公共属性。箭头方向显示可以找到资源类型主要信息的位置。虚线表示两个资源之间的关系行为不同。例如，<code class="docutils literal notranslate"><span class="pre">Image</span></code> 资源提供 <code class="docutils literal notranslate"><span class="pre">Molecule</span></code> 的图形化表示。” 图和说明取自：<a class="reference external" href="https://academic.oup.com/nar/article/43/W1/W612/2467881">Nucleic Acids Res. (2015), 43, 612-620</a>。</p>
+</section>
+<section id="ChEMBL-Web-资源客户端">
+<h4 id="ChEMBL-Web-资源客户端">ChEMBL Web 资源客户端<a class="headerlink" href="#ChEMBL-Web-资源客户端" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>用于访问 ChEMBL 数据的 Python 客户端库</p></li>
+<li><p>处理与 HTTPS 协议的交互</p></li>
+<li><p>结果的惰性求值 -&gt; 减少网络请求数量</p></li>
 </ul>
 </section>
 </section>
-<section id="原理">
-<h2 id="原理">原理<a class="headerlink" href="#原理" title="Link to this heading">¶</a></h2>
-<section id="ChEMBL-数据库">
-<h3 id="ChEMBL-数据库">ChEMBL 数据库<a class="headerlink" href="#ChEMBL-数据库" title="Link to this heading">¶</a></h3>
-<p><img alt="ChEMBL web service schema" src="../_images/CHEMBL_cover.png"/> &gt;”ChEMBL 是一个人工整理的生物活性分子数据库，这些分子具有类似药物的属性。它汇集了化学、生物活性和基因组数据，以帮助将基因组信息转化为有效的新药物.” (<a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL 网站</a>)</p>
-</section>
-<section id="化合物活性衡量指标">
-<h3 id="化合物活性衡量指标">化合物活性衡量指标<a class="headerlink" href="#化合物活性衡量指标" title="Link to this heading">¶</a></h3>
+<section id="化合物活性度量">
+<h3 id="化合物活性度量">化合物活性度量<a class="headerlink" href="#化合物活性度量" title="Link to this heading">¶</a></h3>
 <section id="IC50-值">
 <h4 id="IC50-值">IC50 值<a class="headerlink" href="#IC50-值" title="Link to this heading">¶</a></h4>
 <ul class="simple">
-<li><p><a class="reference external" href="https://baike.baidu.com/item/%E5%8D%8A%E6%8A%91%E5%88%B6%E6%B5%93%E5%BA%A6/6174649?fr=ge_ala">半抑制浓度(Half maximal inhibitory concentration)</a></p></li>
-<li><p>表明需要多少特定药物或其他物质来抑制某个生物过程的一半</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/IC50">半数最大抑制浓度</a></p></li>
+<li><p>表示某种特定药物或其他物质需要多少才能抑制给定生物过程的一半</p></li>
 </ul>
-<p><img alt="Wiki_Example_IC50_curve_demonstrating_visually_how_IC50_is_derived" src="../_images/Wiki_Example_IC50_curve_demonstrating_visually_how_IC50_is_derived.png"/></p>
-<p><em>Fiugure 2:</em> 如何推导 IC50 值的示例：</p>
+<p><img alt="Wiki_Example_IC50_curve" src="../_images/Wiki_Example_IC50_curve_demonstrating_visually_how_IC50_is_derived.png"/></p>
+<p><em>图 2：</em> IC50 值推导原理的可视化演示：</p>
 <ol class="lowerroman simple">
-<li><p>将抑制数据排列在 y 轴上，将浓度的对数排列在 x 轴上。 (ii) 确定最大和最小抑制。 (iii) IC50 是曲线通过 50% 抑制水平时的浓度。 图片 <a class="reference external" href="https://en.wikipedia.org/wiki/IC50#/media/File:Example_IC50_curve_demonstrating_visually_how_IC50_is_derived.png">“Example IC50 curve demonstrating visually how IC50 is derived”</a> 由 JesseAlanGordon 创作，遵循 <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> 许可协议。</p></li>
+<li><p>在 y 轴上绘制抑制数据，在 x 轴上绘制 log（浓度）。(ii) 确定最大抑制和最小抑制。(iii) IC50 是曲线通过 50% 抑制水平时的浓度。图 <a class="reference external" href="https://en.wikipedia.org/wiki/IC50#/media/File:Example_IC50_curve_demonstrating_visually_how_IC50_is_derived.png">“Example IC50 curve”</a> 由 JesseAlanGordon 提供，根据 <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> 许可。</p></li>
 </ol>
 </section>
 <section id="pIC50-值">
 <h4 id="pIC50-值">pIC50 值<a class="headerlink" href="#pIC50-值" title="Link to this heading">¶</a></h4>
 <ul class="simple">
-<li><p>为了便于比较具有大范围值并且以不同单位（M, nM, …）给出的IC50值，通常使用pIC50值。</p></li>
-<li><p>pIC50 是将IC50值转换为摩尔单位后的负对数： $ pIC_{50} = -log_{10}(IC_{50})$，其中 $ IC_{50} $ 以摩尔单位M表示。</p></li>
-<li><p>更高的pIC50值表示药物的效力呈指数级增长。</p></li>
-<li><p>注意，转换可以根据各自的IC50单位进行调整，例如对于纳摩尔nM：$pIC_{50} = -log_{10}(IC_{50}*10^{-9})= 9-log_{10}(IC_{50}) $</p></li>
+<li><p>为了便于比较 IC50 值（这些值范围很大且以不同单位表示，如 M、nM 等），通常使用 pIC50 值</p></li>
+<li><p>pIC50 是将 IC50 值转换为摩尔单位后的负对数： $ pIC_{50} = -log_{10}(IC_{50}) $，其中 $ IC_{50}$ 以 M 为单位</p></li>
+<li><p>较高的 pIC50 值表示药物的效力呈指数级增强</p></li>
+<li><p>注意，转换可以根据相应的 IC50 单位进行调整，例如对于 nM：$pIC_{50} = -log_{10}(IC_{50}*10^{-9})= 9-log_{10}(IC_{50}) $</p></li>
 </ul>
 <p>其他活性度量：</p>
-<p>除了IC50和pIC50，还使用其他生物活性度量方法，例如平衡常数 <a class="reference external" href="https://en.wikipedia.org/wiki/Equilibrium_constant">KI</a> 和半最大有效浓度 <a class="reference external" href="https://en.wikipedia.org/wiki/EC50">EC50</a>。</p>
+<p>除了 IC50 和 pIC50 之外，还使用其他生物活性度量，如平衡常数 <a class="reference external" href="https://en.wikipedia.org/wiki/Equilibrium_constant">KI</a> 和半数最大效应浓度 <a class="reference external" href="https://en.wikipedia.org/wiki/EC50">EC50</a>。</p>
 </section>
 </section>
 </section>
-<section id="练习">
-<h2 id="练习">练习<a class="headerlink" href="#练习" title="Link to this heading">¶</a></h2>
-<p>在接下来的内容中，我们想要下载所有已针对我们感兴趣的目标——<strong>表皮生长因子受体激酶</strong>（<a class="reference external" href="https://www.uniprot.org/uniprot/P00533">EGFR</a>）进行测试的分子。</p>
-<section id="连接CHEMBL数据库">
-<h3 id="连接CHEMBL数据库">连接CHEMBL数据库<a class="headerlink" href="#连接CHEMBL数据库" title="Link to this heading">¶</a></h3>
-<p>首先，导入ChEMBL web resource client和其他Python库</p>
-<div class="nbinput nblast docutils container">
+<section id="实践">
+<h2 id="实践">实践<a class="headerlink" href="#实践" title="Link to this heading">¶</a></h2>
+<p>接下来，我们想要下载所有针对我们感兴趣的靶标——<strong>表皮生长因子受体</strong>（<a class="reference external" href="https://www.uniprot.org/uniprot/P00533">EGFR</a>）激酶——进行过测试的分子。</p>
+<section id="连接-ChEMBL-数据库">
+<h3 id="连接-ChEMBL-数据库">连接 ChEMBL 数据库<a class="headerlink" href="#连接-ChEMBL-数据库" title="Link to this heading">¶</a></h3>
+<p>首先，导入 ChEMBL Web 资源客户端以及其他 Python 库。</p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -649,6 +708,15 @@
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/opt/miniconda3/envs/T001_3120/lib/python3.12/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div></div>
+</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -658,7 +726,7 @@
 </pre></div>
 </div>
 </div>
-<p>接下来创建资源对象API</p>
+<p>接下来，我们创建用于 API 访问的资源对象。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -687,13 +755,13 @@ chembl_webresource_client.query_set.QuerySet
 </pre></div></div>
 </div>
 </section>
-<section id="获取靶点数据(EGFR-激酶)">
-<h3 id="获取靶点数据(EGFR-激酶)">获取靶点数据(EGFR 激酶)<a class="headerlink" href="#获取靶点数据(EGFR-激酶)" title="Link to this heading">¶</a></h3>
+<section id="获取靶标数据（EGFR-激酶）">
+<h3 id="获取靶标数据（EGFR-激酶）">获取靶标数据（EGFR 激酶）<a class="headerlink" href="#获取靶标数据（EGFR-激酶）" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>从<a class="reference external" href="https://www.uniprot.org/">UniProt website</a>获取目标靶点的 UniProt ID(EGFR kinase: <a class="reference external" href="http://www.uniprot.org/uniprot/P00533">P00533</a>)</p></li>
-<li><p>使用UniProt ID获取靶点信息</p></li>
+<li><p>从 <a class="reference external" href="https://www.uniprot.org/">UniProt 网站</a> 获取感兴趣靶标的 UniProt ID（EGFR 激酶：<a class="reference external" href="http://www.uniprot.org/uniprot/P00533">P00533</a>）</p></li>
+<li><p>使用 UniProt ID 获取靶标信息</p></li>
 </ul>
-<p>PS：你也可以利用UniProt ID获取其他感兴趣的靶点</p>
+<p>如果您对其他靶标感兴趣，可以选择不同的 UniProt ID。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -702,13 +770,13 @@ chembl_webresource_client.query_set.QuerySet
 </pre></div>
 </div>
 </div>
-<section id="从ChEMBL拉取靶点数据">
-<h4 id="从ChEMBL拉取靶点数据">从ChEMBL拉取靶点数据<a class="headerlink" href="#从ChEMBL拉取靶点数据" title="Link to this heading">¶</a></h4>
+<section id="获取靶标数据">
+<h4 id="获取靶标数据">获取靶标数据<a class="headerlink" href="#获取靶标数据" title="Link to this heading">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 从CHEMBL数据库只获取定义的靶点信息</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 从 ChEMBL 获取靶标信息，但限制为仅指定值</span>
 <span class="n">targets</span> <span class="o">=</span> <span class="n">targets_api</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">target_components__accession</span><span class="o">=</span><span class="n">uniprot_id</span><span class="p">)</span><span class="o">.</span><span class="n">only</span><span class="p">(</span>
     <span class="s2">"target_chembl_id"</span><span class="p">,</span> <span class="s2">"organism"</span><span class="p">,</span> <span class="s2">"pref_name"</span><span class="p">,</span> <span class="s2">"target_type"</span>
 <span class="p">)</span>
@@ -725,9 +793,13 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 </pre></div></div>
 </div>
 </section>
-<section id="从CHEMBL数据库下载靶点信息">
-<h4 id="从CHEMBL数据库下载靶点信息">从CHEMBL数据库下载靶点信息<a class="headerlink" href="#从CHEMBL数据库下载靶点信息" title="Link to this heading">¶</a></h4>
-<p>查询结果存储在<code class="docutils literal notranslate"><span class="pre">targets</span></code>变量中, 是一个 <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code>, 也即结果不会直接从CHEMBL获取，只有请求时才会有(在这里我们使用 <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.from_records</span></code>方法)。</p>
+<section id="下载靶标数据">
+<h4 id="下载靶标数据">下载靶标数据<a class="headerlink" href="#下载靶标数据" title="Link to this heading">¶</a></h4>
+<p>查询结果存储在 <code class="docutils literal notranslate"><span class="pre">targets</span></code> 中，这是一个 <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code>，即在我们要求之前不会从 ChEMBL 获取结果（这里使用 <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.from_records</span></code>）。</p>
+<p>有关 <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> 数据类型的更多信息：</p>
+<blockquote>
+<div><p>QuerySet 是惰性的——创建 QuerySet 的行为不涉及任何数据库活动。您可以整天堆叠过滤器，在 QuerySet 被求值之前，Django 实际上不会运行查询。 (<a class="reference external" href="https://docs.djangoproject.com/en/3.0/topics/db/queries/#querysets-are-lazy">querysets-are-lazy</a>)</p>
+</div></blockquote>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -770,14 +842,14 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 <tr>
 <th>0</th>
 <td>Homo sapiens</td>
-<td>Epidermal growth factor receptor erbB1</td>
+<td>Epidermal growth factor receptor</td>
 <td>CHEMBL203</td>
 <td>SINGLE PROTEIN</td>
 </tr>
 <tr>
 <th>1</th>
 <td>Homo sapiens</td>
-<td>Epidermal growth factor receptor erbB1</td>
+<td>Epidermal growth factor receptor</td>
 <td>CHEMBL203</td>
 <td>SINGLE PROTEIN</td>
 </tr>
@@ -819,7 +891,7 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 <tr>
 <th>7</th>
 <td>Homo sapiens</td>
-<td>VHL/EGFR</td>
+<td>von Hippel-Lindau disease tumor suppressor/EGFR</td>
 <td>CHEMBL4523998</td>
 <td>PROTEIN-PROTEIN INTERACTION</td>
 </tr>
@@ -830,15 +902,36 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 <td>CHEMBL4802031</td>
 <td>PROTEIN-PROTEIN INTERACTION</td>
 </tr>
+<tr>
+<th>9</th>
+<td>Homo sapiens</td>
+<td>CCN2-EGFR</td>
+<td>CHEMBL5465557</td>
+<td>PROTEIN-PROTEIN INTERACTION</td>
+</tr>
+<tr>
+<th>10</th>
+<td>Homo sapiens</td>
+<td>Microtubule-associated protein 1 light chain 3...</td>
+<td>CHEMBL6066839</td>
+<td>PROTEIN-PROTEIN INTERACTION</td>
+</tr>
+<tr>
+<th>11</th>
+<td>Homo sapiens</td>
+<td>Glucose-induced degradation protein 4 homolog/...</td>
+<td>CHEMBL6066845</td>
+<td>PROTEIN-PROTEIN INTERACTION</td>
+</tr>
 </tbody>
 </table>
 </div></div>
 </div>
 </section>
-<section id="选择靶点(靶点ChEMBL-ID)">
-<h4 id="选择靶点(靶点ChEMBL-ID)">选择靶点(靶点ChEMBL ID)<a class="headerlink" href="#选择靶点(靶点ChEMBL-ID)" title="Link to this heading">¶</a></h4>
-<p>在检查了上述表格后，我们选择：</p>
-<p><code class="docutils literal notranslate"><span class="pre">CHEMBL203</span></code>: 这是一个蛋白单体，代表人类表皮生长因子受体(EGFR, 也叫erbB1)</p>
+<section id="选择靶标（靶标-ChEMBL-ID）">
+<h4 id="选择靶标（靶标-ChEMBL-ID）">选择靶标（靶标 ChEMBL ID）<a class="headerlink" href="#选择靶标（靶标-ChEMBL-ID）" title="Link to this heading">¶</a></h4>
+<p>检查条目后，我们选择第一个条目作为我们感兴趣的靶标：</p>
+<p><code class="docutils literal notranslate"><span class="pre">CHEMBL203</span></code>：它是一个单一蛋白，代表人表皮生长因子受体（EGFR，也称为 erbB1）</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -854,14 +947,14 @@ The type of the targets is "&lt;class 'chembl_webresource_client.query_set.Query
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-organism                                      Homo sapiens
-pref_name           Epidermal growth factor receptor erbB1
-target_chembl_id                                 CHEMBL203
-target_type                                 SINGLE PROTEIN
+organism                                Homo sapiens
+pref_name           Epidermal growth factor receptor
+target_chembl_id                           CHEMBL203
+target_type                           SINGLE PROTEIN
 Name: 0, dtype: object
 </pre></div></div>
 </div>
-<p>接下来保存选择的ChEMBL ID</p>
+<p>保存选定的 ChEMBL ID。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -884,15 +977,15 @@ The target ChEMBL ID is CHEMBL203
 </section>
 <section id="获取生物活性数据">
 <h3 id="获取生物活性数据">获取生物活性数据<a class="headerlink" href="#获取生物活性数据" title="Link to this heading">¶</a></h3>
-<p>现在，我们想要查询定义靶点的生物活性数据</p>
-<section id="从CHEMBL靶点获取生物活性数据">
-<h4 id="从CHEMBL靶点获取生物活性数据">从CHEMBL靶点获取生物活性数据<a class="headerlink" href="#从CHEMBL靶点获取生物活性数据" title="Link to this heading">¶</a></h4>
-<p>在这一步，我们获取活性数据且仅考虑：</p>
+<p>现在，我们要查询感兴趣靶标的生物活性数据。</p>
+<section id="获取靶标的生物活性数据">
+<h4 id="获取靶标的生物活性数据">获取靶标的生物活性数据<a class="headerlink" href="#获取靶标的生物活性数据" title="Link to this heading">¶</a></h4>
+<p>在此步骤中，我们获取生物活性数据并过滤，仅考虑</p>
 <ul class="simple">
-<li><p>人类蛋白;</p></li>
-<li><p>IC50活性数据;</p></li>
-<li><p>关系为<code class="docutils literal notranslate"><span class="pre">'='</span></code></p></li>
-<li><p>结合数据(文章类型 <code class="docutils literal notranslate"><span class="pre">'B'</span></code>).</p></li>
+<li><p>人类蛋白，</p></li>
+<li><p>生物活性类型 IC50，</p></li>
+<li><p>精确测量值（关系符 <code class="docutils literal notranslate"><span class="pre">'='</span></code>），以及</p></li>
+<li><p>结合数据（实验类型 <code class="docutils literal notranslate"><span class="pre">'B'</span></code>）。</p></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -923,10 +1016,10 @@ The target ChEMBL ID is CHEMBL203
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Length and type of bioactivities object: 10924, &lt;class 'chembl_webresource_client.query_set.QuerySet'&gt;
+Length and type of bioactivities object: 17107, &lt;class 'chembl_webresource_client.query_set.QuerySet'&gt;
 </pre></div></div>
 </div>
-<p>我们的生物活性数据集中的每个条目包含以下信息：</p>
+<p>我们生物活性集合中的每个条目都包含以下信息：</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -966,32 +1059,161 @@ Length and type of first element: 13, &lt;class 'dict'&gt;
 </pre></div></div>
 </div>
 </section>
-<section id="从CHEMBL下载活性数据">
-<h4 id="从CHEMBL下载活性数据">从CHEMBL下载活性数据<a class="headerlink" href="#从CHEMBL下载活性数据" title="Link to this heading">¶</a></h4>
-<p>最后，我们以 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> 的 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 形式下载了 <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code>。</p>
+<section id="从-ChEMBL-下载生物活性数据">
+<h4 id="从-ChEMBL-下载生物活性数据">从 ChEMBL 下载生物活性数据<a class="headerlink" href="#从-ChEMBL-下载生物活性数据" title="Link to this heading">¶</a></h4>
+<p>最后，我们将 <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> 下载为 <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>。</p>
 <blockquote>
-<div><p><strong>注意</strong>：这一步不应该超过2分钟，如果超过了，请尝试从 “从 ChEMBL 获取目标的生物活性数据” 重新运行所有单元格，或者阅读下面的消息：</p>
+<div><p><strong>注意</strong>：此步骤不应超过 2 分钟，如果超过，请尝试从<em>“获取靶标的生物活性数据”</em>开始重新运行所有单元格，或阅读以下信息：</p>
 </div></blockquote>
-<details><summary><p>加载数据的本地版本（如果您在获取数据时遇到任何问题）</p>
-</summary><p>如果您在查询 ChEMBL 数据库时遇到困难，我们也提供了您将在下面单元格构建的结果 dataframe。如果您想使用保存的版本，请使用以下代码来获取 <code class="docutils literal notranslate"><span class="pre">bioactivities_df</span></code>：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 将下面单元格的第一行替换为这行代码</span>
+<details><summary><p>加载本地版本的数据（如果在获取数据时遇到任何问题）</p>
+</summary><p>如果您在查询 ChEMBL 数据库时遇到困难，我们还提供了您将在下面单元格中构建的结果 DataFrame。如果您想使用已保存的版本，请改用以下代码来获取 <code class="docutils literal notranslate"><span class="pre">bioactivities_df</span></code>：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 将下面单元格中的第一行替换为这行</span>
 <span class="n">bioactivities_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"EGFR_bioactivities_CHEMBL27.csv.zip"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</details><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># bioactivities_df = pd.read_csv(DATA / "EGFR_bioactivities_CHEMBL27.csv.zip", index_col=0)</span>
-
-<span class="n">bioactivities_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">bioactivities</span><span class="p">)</span>
-
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioactivities_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">bioactivities</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"DataFrame shape: </span><span class="si">{</span><span class="n">bioactivities_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="n">bioactivities_df</span>
+<span class="n">bioactivities_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<p>注意，前两行描述了相同的活性数据，我们会在接下来的步骤中移除这些数据。</p>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+DataFrame shape: (17107, 13)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>activity_id</th>
+<th>assay_chembl_id</th>
+<th>assay_description</th>
+<th>assay_type</th>
+<th>molecule_chembl_id</th>
+<th>relation</th>
+<th>standard_units</th>
+<th>standard_value</th>
+<th>target_chembl_id</th>
+<th>target_organism</th>
+<th>type</th>
+<th>units</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>32260</td>
+<td>CHEMBL674637</td>
+<td>Inhibitory activity towards tyrosine phosphory...</td>
+<td>B</td>
+<td>CHEMBL68920</td>
+<td>=</td>
+<td>nM</td>
+<td>41.0</td>
+<td>CHEMBL203</td>
+<td>Homo sapiens</td>
+<td>IC50</td>
+<td>uM</td>
+<td>0.041</td>
+</tr>
+<tr>
+<th>1</th>
+<td>32267</td>
+<td>CHEMBL674637</td>
+<td>Inhibitory activity towards tyrosine phosphory...</td>
+<td>B</td>
+<td>CHEMBL69960</td>
+<td>=</td>
+<td>nM</td>
+<td>170.0</td>
+<td>CHEMBL203</td>
+<td>Homo sapiens</td>
+<td>IC50</td>
+<td>uM</td>
+<td>0.17</td>
+</tr>
+<tr>
+<th>2</th>
+<td>32680</td>
+<td>CHEMBL677833</td>
+<td>In vitro inhibition of Epidermal growth factor...</td>
+<td>B</td>
+<td>CHEMBL137635</td>
+<td>=</td>
+<td>nM</td>
+<td>9300.0</td>
+<td>CHEMBL203</td>
+<td>Homo sapiens</td>
+<td>IC50</td>
+<td>uM</td>
+<td>9.3</td>
+</tr>
+<tr>
+<th>3</th>
+<td>32770</td>
+<td>CHEMBL674643</td>
+<td>Inhibitory concentration of EGF dependent auto...</td>
+<td>B</td>
+<td>CHEMBL306988</td>
+<td>=</td>
+<td>nM</td>
+<td>500000.0</td>
+<td>CHEMBL203</td>
+<td>Homo sapiens</td>
+<td>IC50</td>
+<td>uM</td>
+<td>500.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>32772</td>
+<td>CHEMBL674643</td>
+<td>Inhibitory concentration of EGF dependent auto...</td>
+<td>B</td>
+<td>CHEMBL66879</td>
+<td>=</td>
+<td>nM</td>
+<td>3000000.0</td>
+<td>CHEMBL203</td>
+<td>Homo sapiens</td>
+<td>IC50</td>
+<td>uM</td>
+<td>3000.0</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>请注意，前两行描述的是同一条生物活性条目；我们将在稍后的去重步骤中删除此类重复。还要注意，我们有 <code class="docutils literal notranslate"><span class="pre">standard_units</span></code>/<code class="docutils literal notranslate"><span class="pre">units</span></code> 和 <code class="docutils literal notranslate"><span class="pre">standard_values</span></code>/<code class="docutils literal notranslate"><span class="pre">values</span></code> 列；在接下来的步骤中，我们将使用标准化列（由 ChEMBL 标准化），因此我们删除另外两列。</p>
+<p>如果我们使用 <code class="docutils literal notranslate"><span class="pre">units</span></code> 和 <code class="docutils literal notranslate"><span class="pre">values</span></code> 列，我们可能需要将许多不同单位的值都转换为 nM：</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -1009,7 +1231,8 @@ Length and type of first element: 13, &lt;class 'dict'&gt;
 array(['uM', 'nM', 'pM', 'M', "10'3 uM", "10'1 ug/ml", 'ug ml-1',
        "10'-1microM", "10'1 uM", "10'-1 ug/ml", "10'-2 ug/ml", "10'2 uM",
        "10'-3 ug/ml", "10'-2microM", '/uM', "10'-6g/ml", 'mM', 'umol/L',
-       'nmol/L', "10'-10M", "10'-7M", 'nmol', '10^-8M'], dtype=object)
+       'nmol/L', "10'-10M", "10'-7M", 'nmol', '10^-8M', '10^3 uM'],
+      dtype=object)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1133,17 +1356,18 @@ array(['uM', 'nM', 'pM', 'M', "10'3 uM", "10'1 ug/ml", 'ug ml-1',
 </div></div>
 </div>
 </section>
-<section id="预处理和筛选">
-<h4 id="预处理和筛选">预处理和筛选<a class="headerlink" href="#预处理和筛选" title="Link to this heading">¶</a></h4>
+<section id="预处理和筛选生物活性数据">
+<h4 id="预处理和筛选生物活性数据">预处理和筛选生物活性数据<a class="headerlink" href="#预处理和筛选生物活性数据" title="Link to this heading">¶</a></h4>
 <ol class="arabic simple">
-<li><p>将 <code class="docutils literal notranslate"><span class="pre">standard_value</span></code> 从 <code class="docutils literal notranslate"><span class="pre">object</span></code> 转为 <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
-<li><p>删除缺失值</p></li>
-<li><p>只保留 <code class="docutils literal notranslate"><span class="pre">standard_unit</span> <span class="pre">==</span> <span class="pre">nM</span></code></p></li>
-<li><p>删除重复数据</p></li>
-<li><p>重新设置 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 索引</p></li>
+<li><p>将 <code class="docutils literal notranslate"><span class="pre">standard_value</span></code> 的数据类型从 <code class="docutils literal notranslate"><span class="pre">object</span></code> 转换为 <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p>删除有缺失值的条目</p></li>
+<li><p>仅保留 <code class="docutils literal notranslate"><span class="pre">standard_unit</span> <span class="pre">==</span> <span class="pre">nM</span></code> 的条目</p></li>
+<li><p>删除重复分子</p></li>
+<li><p>重置 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 索引</p></li>
 <li><p>重命名列</p></li>
 </ol>
-<p><strong>1. 将 ``standard_value`` 从 ``object`` 转为 ``float``</strong></p>
+<p><strong>1. 将 “standard_value” 的数据类型从 “object” 转换为 “float”</strong></p>
+<p>字段 <code class="docutils literal notranslate"><span class="pre">standard_value</span></code> 保存标准化（此处为 IC50）值。为了使这些值在后续计算中可用，将值转换为浮点数。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -1201,8 +1425,8 @@ type                   object
 dtype: object
 </pre></div></div>
 </div>
-<p><strong>2. 删除缺失值</strong></p>
-<p>使用 <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> 参数和<code class="docutils literal notranslate"><span class="pre">dropna</span></code>方法删除缺失值</p>
+<p><strong>2. 删除有缺失值的条目</strong></p>
+<p>使用参数 <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> 直接在当前 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 中删除值。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -1217,20 +1441,18 @@ dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (10923, 11)
+DataFrame shape: (17106, 11)
 </pre></div></div>
 </div>
-<p><strong>3. 只保留 ``standard_unit == nM``</strong></p>
-<p>我们只保留<code class="docutils literal notranslate"><span class="pre">nM</span></code>单位,所以删除其他单位</p>
+<p><strong>3. 仅保留 “standard_unit == nM” 的条目</strong></p>
+<p>我们只想保留 nM 单位的生物活性条目，因此删除所有其他单位的条目。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Units in downloaded data: </span><span class="si">{</span><span class="n">bioactivities_df</span><span class="p">[</span><span class="s1">'standard_units'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">"Number of non-nM entries:</span><span class="se">\</span>
-<span class="s2">    </span><span class="si">{</span><span class="n">bioactivities_df</span><span class="p">[</span><span class="n">bioactivities_df</span><span class="p">[</span><span class="s1">'standard_units'</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'nM'</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
-<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of non-nM entries:</span><span class="se">\</span>
+<span class="s2">    </span><span class="si">{</span><span class="n">bioactivities_df</span><span class="p">[</span><span class="n">bioactivities_df</span><span class="p">[</span><span class="s1">'standard_units'</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'nM'</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1239,8 +1461,8 @@ DataFrame shape: (10923, 11)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Units in downloaded data: ['nM' 'ug.mL-1' '/uM']
-Number of non-nM entries:    69
+Units in downloaded data: ['nM' 'ug.mL-1' '/uM' '10^3 uM']
+Number of non-nM entries:    71
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1273,11 +1495,12 @@ Units after filtering: ['nM']
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (10854, 11)
+DataFrame shape: (17035, 11)
 </pre></div></div>
 </div>
-<p><strong>4. 删除重复数据</strong></p>
-<p>有时相同的小分子 (<code class="docutils literal notranslate"><span class="pre">molecule_chembl_id</span></code>) 经常被测试多次，所以我们只保留在表格中第一次出现的数据。</p>
+<p><strong>4. 删除重复分子</strong></p>
+<p>有时同一分子（<code class="docutils literal notranslate"><span class="pre">molecule_chembl_id</span></code>）被测试了多次，在这种情况下，我们仅保留第一个。</p>
+<p>注意，其他选择可以是保留具有最佳值的那个，或者保留相应化合物所有实验结果的平均值。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
@@ -1292,11 +1515,11 @@ DataFrame shape: (10854, 11)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (7081, 11)
+DataFrame shape: (9996, 11)
 </pre></div></div>
 </div>
-<p><strong>5. 重新设置 ``DataFrame`` 索引</strong></p>
-<p>由于我们删除了一些行，但我们稍后想要连续地迭代索引，我们重置索引以保持连续性。</p>
+<p><strong>5. 重置 DataFrame 索引</strong></p>
+<p>由于我们删除了一些行，但稍后需要遍历索引，因此我们重置索引使其连续。</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -1553,18 +1776,19 @@ DataFrame shape: (7081, 11)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (7081, 11)
+DataFrame shape: (9996, 11)
 </pre></div></div>
 </div>
+<p>我们现在有一组 <strong>5575</strong> 个分子 ID 及其对应的 IC50 值，用于我们的靶标激酶。</p>
 </section>
 </section>
 <section id="获取化合物数据">
 <h3 id="获取化合物数据">获取化合物数据<a class="headerlink" href="#获取化合物数据" title="Link to this heading">¶</a></h3>
-<p>我们已经有了一个<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>，其中包含了所有针对EGFR测试的分子（以及相应的测量生物活性）。</p>
-<p>现在，我们想要获取与各自生物活性ChEMBL ID相关联的分子结构。</p>
-<section id="从ChEMBL获取化合物数据">
-<h4 id="从ChEMBL获取化合物数据">从ChEMBL获取化合物数据<a class="headerlink" href="#从ChEMBL获取化合物数据" title="Link to this heading">¶</a></h4>
-<p>让我们看看那些我们定义了生物活性数据的ChEMBL中的化合物：获取与筛选的生物活性数据相关联的化合物的ChEMBL ID和结构。</p>
+<p>我们有一个 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>，包含所有针对 EGFR 测试过的分子（以及相应的生物活性测量值）。</p>
+<p>现在，我们要获取与生物活性 ChEMBL ID 关联的分子的分子结构。</p>
+<section id="id17">
+<h4 id="id17">获取化合物数据<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h4>
+<p>让我们看看来自 ChEMBL 的、我们有相应生物活性数据的化合物：我们获取与筛选后的生物活性数据关联的化合物的 ChEMBL ID 和结构。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -1576,11 +1800,11 @@ DataFrame shape: (7081, 11)
 </div>
 </div>
 </section>
-<section id="从ChEMBL下载化合物数据">
-<h4 id="从ChEMBL下载化合物数据">从ChEMBL下载化合物数据<a class="headerlink" href="#从ChEMBL下载化合物数据" title="Link to this heading">¶</a></h4>
-<p>我们想要将<code class="docutils literal notranslate"><span class="pre">QuerySet</span></code>对象导出到<code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>。考虑到数据量，<strong>这可能需要一些时间。</strong> 因此，我们首先将通过<code class="docutils literal notranslate"><span class="pre">tqdm</span></code>获取记录列表，这样我们就可以有一个漂亮的进度条和一些预计完成时间。然后，我们可以将化合物列表传递给DataFrame。</p>
+<section id="下载化合物数据">
+<h4 id="下载化合物数据">下载化合物数据<a class="headerlink" href="#下载化合物数据" title="Link to this heading">¶</a></h4>
+<p>同样，我们要将 <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> 对象导出为 <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>。考虑到数据量，<strong>这可能需要一些时间。</strong> 因此，我们将首先通过 <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> 获取记录列表，这样我们可以看到一个漂亮的进度条和一些预计时间。然后我们可以将化合物列表传递给 DataFrame。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tqdm</span><span class="p">(</span><span class="n">compounds_provider</span><span class="p">))</span>
@@ -1590,11 +1814,13 @@ DataFrame shape: (7081, 11)
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2224b605a8704d3aa2b7c6ec3f265104", "version_major": 2, "version_minor": 0}</script></div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+100%|██████████| 9996/9996 [00:06&lt;00:00, 1515.54it/s]
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span>
@@ -1609,11 +1835,11 @@ DataFrame shape: (7081, 11)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (7081, 2)
+DataFrame shape: (9996, 2)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1621,7 +1847,7 @@ DataFrame shape: (7081, 2)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1678,16 +1904,16 @@ DataFrame shape: (7081, 2)
 </div></div>
 </div>
 </section>
-<section id="预处理和过滤化合物数据">
-<h4 id="预处理和过滤化合物数据">预处理和过滤化合物数据<a class="headerlink" href="#预处理和过滤化合物数据" title="Link to this heading">¶</a></h4>
+<section id="预处理和筛选化合物数据">
+<h4 id="预处理和筛选化合物数据">预处理和筛选化合物数据<a class="headerlink" href="#预处理和筛选化合物数据" title="Link to this heading">¶</a></h4>
 <ol class="arabic simple">
-<li><p>删除有缺失条目的记录</p></li>
-<li><p>通过分子_chembl_id删除重复的分子</p></li>
-<li><p>获取具有标准SMILES的分子</p></li>
+<li><p>删除有缺失值的条目</p></li>
+<li><p>删除重复分子（按 molecule_chembl_id）</p></li>
+<li><p>获取具有标准 SMILES 的分子</p></li>
 </ol>
-<p><strong>1. 删除有缺失条目的记录</strong></p>
+<p><strong>1. 删除缺少分子结构条目的条目</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"any"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1700,12 +1926,12 @@ DataFrame shape: (7081, 2)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (7074, 2)
+DataFrame shape: (9979, 2)
 </pre></div></div>
 </div>
-<p><strong>2. 删除重复的分子</strong></p>
+<p><strong>2. 删除重复分子</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s2">"molecule_chembl_id"</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">"first"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1718,13 +1944,13 @@ DataFrame shape: (7074, 2)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (7074, 2)
+DataFrame shape: (9979, 2)
 </pre></div></div>
 </div>
-<p><strong>3. 获取具有标准SMILES的分子</strong></p>
-<p>到目前为止，我们有多种不同的分子结构表示。我们只想保留标准SMILES表示。</p>
+<p><strong>3. 获取具有标准 SMILES 的分子</strong></p>
+<p>到目前为止，我们有多种不同的分子结构表示。我们只想保留标准 SMILES。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">molecule_structures</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -1732,7 +1958,7 @@ DataFrame shape: (7074, 2)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1741,7 +1967,7 @@ dict_keys(['canonical_smiles', 'molfile', 'standard_inchi', 'standard_inchi_key'
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">canonical_smiles</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1763,12 +1989,12 @@ dict_keys(['canonical_smiles', 'molfile', 'standard_inchi', 'standard_inchi_key'
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (7074, 2)
+DataFrame shape: (9979, 2)
 </pre></div></div>
 </div>
-<p>再次检查：移除所有没有标准SMILES字符串的分子。</p>
+<p>完整性检查：删除所有没有标准 SMILES 字符串的分子。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compounds_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"any"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1781,16 +2007,16 @@ DataFrame shape: (7074, 2)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (7074, 2)
+DataFrame shape: (9979, 2)
 </pre></div></div>
 </div>
 </section>
 </section>
 <section id="输出（生物活性-化合物）数据">
 <h3 id="输出（生物活性-化合物）数据">输出（生物活性-化合物）数据<a class="headerlink" href="#输出（生物活性-化合物）数据" title="Link to this heading">¶</a></h3>
-<p><strong>化合物和生物活性数据的总结</strong></p>
+<p><strong>化合物和生物活性数据摘要</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Bioactivities filtered: </span><span class="si">{</span><span class="n">bioactivities_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -1803,11 +2029,11 @@ DataFrame shape: (7074, 2)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Bioactivities filtered: 7081
+Bioactivities filtered: 9996
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1819,7 +2045,7 @@ Index(['activity_id', 'assay_chembl_id', 'assay_description', 'assay_type',
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Compounds filtered: </span><span class="si">{</span><span class="n">compounds_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -1832,11 +2058,11 @@ Index(['activity_id', 'assay_chembl_id', 'assay_description', 'assay_type',
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Compounds filtered: 7074
+Compounds filtered: 9979
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1844,27 +2070,27 @@ Compounds filtered: 7074
 Index(['molecule_chembl_id', 'smiles'], dtype='object')
 </pre></div></div>
 </div>
-<section id="合并数据集">
-<h4 id="合并数据集">合并数据集<a class="headerlink" href="#合并数据集" title="Link to this heading">¶</a></h4>
-<p>根据化合物的ChEMBL ID (<code class="docutils literal notranslate"><span class="pre">molecule_chembl_id</span></code>)，将<code class="docutils literal notranslate"><span class="pre">bioactivities_df</span></code>和<code class="docutils literal notranslate"><span class="pre">compounds_df</span></code>中的值合并到<code class="docutils literal notranslate"><span class="pre">output_df</span></code>中，保留以下列：</p>
+<section id="合并两个数据集">
+<h4 id="合并两个数据集">合并两个数据集<a class="headerlink" href="#合并两个数据集" title="Link to this heading">¶</a></h4>
+<p>基于化合物的 ChEMBL ID（<code class="docutils literal notranslate"><span class="pre">molecule_chembl_id</span></code>），将 <code class="docutils literal notranslate"><span class="pre">bioactivities_df</span></code> 和 <code class="docutils literal notranslate"><span class="pre">compounds_df</span></code> 中的重要值合并到 <code class="docutils literal notranslate"><span class="pre">output_df</span></code> 中，保留以下列：</p>
 <ul class="simple">
-<li><p>ChEMBL ID: <code class="docutils literal notranslate"><span class="pre">molecule_chembl_id</span></code></p></li>
-<li><p>SMILES: <code class="docutils literal notranslate"><span class="pre">smiles</span></code></p></li>
-<li><p>单位: <code class="docutils literal notranslate"><span class="pre">units</span></code></p></li>
-<li><p>IC50: <code class="docutils literal notranslate"><span class="pre">IC50</span></code></p></li>
+<li><p>ChEMBL ID：<code class="docutils literal notranslate"><span class="pre">molecule_chembl_id</span></code></p></li>
+<li><p>SMILES：<code class="docutils literal notranslate"><span class="pre">smiles</span></code></p></li>
+<li><p>单位：<code class="docutils literal notranslate"><span class="pre">units</span></code></p></li>
+<li><p>IC50：<code class="docutils literal notranslate"><span class="pre">IC50</span></code></p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merge DataFrames</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 合并 DataFrame</span>
 <span class="n">output_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
     <span class="n">bioactivities_df</span><span class="p">[[</span><span class="s2">"molecule_chembl_id"</span><span class="p">,</span> <span class="s2">"IC50"</span><span class="p">,</span> <span class="s2">"units"</span><span class="p">]],</span>
     <span class="n">compounds_df</span><span class="p">,</span>
     <span class="n">on</span><span class="o">=</span><span class="s2">"molecule_chembl_id"</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="c1"># Reset row indices</span>
+<span class="c1"># 重置行索引</span>
 <span class="n">output_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dataset with </span><span class="si">{</span><span class="n">output_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> entries."</span><span class="p">)</span>
@@ -1876,11 +2102,11 @@ Index(['molecule_chembl_id', 'smiles'], dtype='object')
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Dataset with 7074 entries.
+Dataset with 9979 entries.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span><span class="o">.</span><span class="n">dtypes</span>
@@ -1888,7 +2114,7 @@ Dataset with 7074 entries.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1901,7 +2127,7 @@ dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -1909,7 +2135,7 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2015,9 +2241,9 @@ dtype: object
 </section>
 <section id="添加-pIC50-值">
 <h4 id="添加-pIC50-值">添加 pIC50 值<a class="headerlink" href="#添加-pIC50-值" title="Link to this heading">¶</a></h4>
-<p>可以看到，低IC50值很难读（值分布在多个尺度上），这就是为什么我们将IC50值转换为pIC50。</p>
+<p>如您所见，较低的 IC50 值难以阅读（数值分布在多个数量级上），因此我们将 IC50 值转换为 pIC50。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_ic50_to_pic50</span><span class="p">(</span><span class="n">IC50_value</span><span class="p">):</span>
@@ -2027,16 +2253,16 @@ dtype: object
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 对化合物的DataFrame的每一行应用转换</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 对化合物 DataFrame 的每一行应用转换</span>
 <span class="n">output_df</span><span class="p">[</span><span class="s2">"pIC50"</span><span class="p">]</span> <span class="o">=</span> <span class="n">output_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">convert_ic50_to_pic50</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">IC50</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -2044,7 +2270,7 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2122,9 +2348,9 @@ dtype: object
 <section id="绘制化合物数据">
 <h4 id="绘制化合物数据">绘制化合物数据<a class="headerlink" href="#绘制化合物数据" title="Link to this heading">¶</a></h4>
 <p>让我们看看我们收集的数据集。</p>
-<p>首先，我们绘制pIC50值的分布情况。</p>
+<p>首先，我们绘制 pIC50 值分布图</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">"pIC50"</span><span class="p">)</span>
@@ -2132,7 +2358,7 @@ dtype: object
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2144,12 +2370,12 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T001_query_chembl_87_1.png" src="../_images/talktorials_T001_query_chembl_87_1.png"/>
+<img alt="../_images/talktorials_T001_query_chembl_92_1.png" src="../_images/talktorials_T001_query_chembl_92_1.png"/>
 </div>
 </div>
-<p>在接下来的步骤中，我们将向<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>添加一列用于RDKit分子对象，并查看具有最高pIC50值的分子结构。</p>
+<p>在接下来的步骤中，我们为 <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> 添加一列 RDKit 分子对象，并查看 pIC50 值最高分子的结构。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 添加分子列</span>
@@ -2158,20 +2384,20 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#按 pIC50值排列小分子</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 按 pIC50 排序分子</span>
 <span class="n">output_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">"pIC50"</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># 重设索引</span>
+<span class="c1"># 重置索引</span>
 <span class="n">output_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>展示三个活性最高的分子，即具有最高pIC50值的分子。</p>
+<p>显示三种最活跃的分子，即 pIC50 值最高的分子。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">"smiles"</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -2179,7 +2405,7 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2215,7 +2441,7 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 <td>0.003</td>
 <td>nM</td>
 <td>11.522879</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7fcdd0bec7b0&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x1190015b0&gt;</td>
 </tr>
 <tr>
 <th>1</th>
@@ -2223,7 +2449,7 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 <td>0.006</td>
 <td>nM</td>
 <td>11.221849</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7fcdd0be3e40&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x118f74d60&gt;</td>
 </tr>
 <tr>
 <th>2</th>
@@ -2231,14 +2457,14 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 <td>0.006</td>
 <td>nM</td>
 <td>11.221849</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7fcdd0bd6e40&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x118f63e60&gt;</td>
 </tr>
 </tbody>
 </table>
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 准备保存数据集：删除 ROMol 列</span>
@@ -2252,20 +2478,21 @@ array([[&lt;Axes: title={'center': 'pIC50'}&gt;]], dtype=object)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DataFrame shape: (7074, 5)
+DataFrame shape: (9979, 5)
 </pre></div></div>
 </div>
 </section>
 <section id="将输出数据冻结到-ChEMBL-27">
 <h4 id="将输出数据冻结到-ChEMBL-27">将输出数据冻结到 ChEMBL 27<a class="headerlink" href="#将输出数据冻结到-ChEMBL-27" title="Link to this heading">¶</a></h4>
-<p>这是一个技术步骤：通常，我们会使用我们刚刚创建的数据集（最新数据集）继续工作。</p>
-<p>然而，在 TeachOpenCADD 平台上，我们倾向于将数据集冻结到某个特定的 ChEMBL 版本（例如 <a class="reference external" href="http://doi.org/10.6019/CHEMBL.database.27">ChEMBL 27</a>），以便本教程和其他教程在未来不会发生变化（这有助于我们维护教程）。</p>
-<div class="alert alert-block alert-info"><p>Note: 如果您希望在最新数据集上运行这个笔记本，或者如果您想将其用于另一个目标，请注释掉下面的单元格。</p>
+<p>这是一个技术步骤：通常，我们会继续使用刚刚创建的数据集（最新数据集）。</p>
+<p>然而，在 TeachOpenCADD 平台上，我们倾向于将数据集冻结到某个 ChEMBL 版本（即 <a class="reference external" href="http://doi.org/10.6019/CHEMBL.database.27">ChEMBL 27</a>），以便本教程和我们的 CADD 管道中下游的其他教程在未来不会发生变化（有助于我们维护这些教程）。</p>
+<div class="alert alert-block alert-info"><p>注意：如果您希望在本 notebook 中使用最新数据集，或者想将其用于其他靶标，请注释下面的单元格。</p>
 </div><div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 禁用此单元格以解冻数据集</span>
+<span class="n">output_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
     <span class="n">DATA</span> <span class="o">/</span> <span class="s2">"EGFR_compounds_ea055ef.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">float_precision</span><span class="o">=</span><span class="s2">"round_trip"</span>
 <span class="p">)</span>
 <span class="n">output_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -2273,7 +2500,7 @@ DataFrame shape: (7074, 5)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2348,7 +2575,7 @@ DataFrame shape: (7074, 5)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"DataFrame shape: </span><span class="si">{</span><span class="n">output_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -2367,9 +2594,9 @@ DataFrame shape: (5568, 5)
 </section>
 <section id="将输出数据写入文件">
 <h4 id="将输出数据写入文件">将输出数据写入文件<a class="headerlink" href="#将输出数据写入文件" title="Link to this heading">¶</a></h4>
-<p>我们希望在接下来的教程中使用这个生物活性-化合物数据集，因此我们将数据保存为 <code class="docutils literal notranslate"><span class="pre">csv</span></code> 文件。 请注意，在保存数据时，建议删除分子列（该列仅包含分子的图像）。</p>
+<p>我们希望在后续教程中使用这个生物活性-化合物数据集，因此将数据保存为 <code class="docutils literal notranslate"><span class="pre">csv</span></code> 文件。 注意，在保存数据时最好删除分子列（该列仅包含分子的图像）。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"EGFR_compounds.csv"</span><span class="p">)</span>
@@ -2378,7 +2605,7 @@ DataFrame shape: (5568, 5)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2453,7 +2680,7 @@ DataFrame shape: (5568, 5)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"DataFrame shape: </span><span class="si">{</span><span class="n">output_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -2474,41 +2701,17 @@ DataFrame shape: (5568, 5)
 </section>
 <section id="讨论">
 <h2 id="讨论">讨论<a class="headerlink" href="#讨论" title="Link to this heading">¶</a></h2>
-<p>在本教程中，我们从 ChEMBL 数据库中收集了我们感兴趣目标的生物活性数据。 我们对数据集进行了筛选，只包含具有测量 IC50 生物活性值的分子。</p>
-<p>请注意，ChEMBL 数据来自不同的来源。化合物数据是由世界各地的不同实验室和人员生成的。因此，在使用这个数据集进行预测时，我们必须谨慎。在解释结果以及确定我们对预测的信心程度时，始终重要的是要考虑数据的来源以及数据生产测定的一致性。</p>
-<p>在接下来的教程中，我们将通过 Lipinski 的五规则和不想要的子结构来过滤我们获得的数据。另一个重要步骤是对分子数据进行<em>清洗</em>。由于这在我们任何教程中都没有展示（尚未），我们希望引用 <a class="reference external" href="https://github.com/flatkinson/standardiser">Standardiser 库</a> 或 <a class="reference external" href="https://molvs.readthedocs.io/en/latest/">MolVS</a> 作为这项任务的有用工具。</p>
+<p>在本教程中，我们从 ChEMBL 数据库中收集了感兴趣靶标的生物活性数据。 我们对数据集进行了筛选，使其仅包含具有 IC50 生物活性测量值的分子。</p>
+<p>请注意，ChEMBL 数据来自各种来源。化合物数据是由世界各地的不同实验室、不同人生成的。因此，我们必须谨慎对待使用此数据集所做的预测。在解释结果和确定对预测有多少信心时，始终需要考虑数据的来源以及数据生产实验的一致性。</p>
+<p>在接下来的教程中，我们将通过 Lipinski 的”五规则”和不想要的子结构来筛选我们获取的数据。另一个重要的步骤是<em>清洗</em>分子数据。虽然我们的教程中（尚未）展示这一点，我们推荐参考 <a class="reference external" href="https://github.com/flatkinson/standardiser">Standardiser 库</a> 或 <a class="reference external" href="https://molvs.readthedocs.io/en/latest/">MolVS</a> 作为执行此任务的有用工具。</p>
 </section>
 <section id="课后思考">
 <h2 id="课后思考">课后思考<a class="headerlink" href="#课后思考" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>在这个教程中，我们从 ChEMBL 下载了分子和生物活性数据。ChEMBL 数据库还有什么其他用途？</p></li>
-<li><p>IC50 和 EC50 之间有什么区别？</p></li>
-<li><p>我们可以如何使用从 ChEMBL 提取的数据？</p></li>
+<li><p>在本教程中，我们从 ChEMBL 下载了分子和生物活性数据。ChEMBL 数据库还有什么其他用途？</p></li>
+<li><p>IC50 和 EC50 有什么区别？</p></li>
+<li><p>从 ChEMBL 提取的数据可以用来做什么？</p></li>
 </ul>
-</section>
-<section id="本文作者">
-<h2 id="本文作者">本文作者<a class="headerlink" href="#本文作者" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>Svetlana Leng, CADD seminar 2017, Volkamer lab, Charité/FU Berlin</p></li>
-<li><p>Paula Junge, CADD seminar 2018, Volkamer lab, Charité/FU Berlin</p></li>
-<li><p>Dominique Sydow, 2019-2020, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
-<li><p>Andrea Volkamer, 2020, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
-<li><p>Yonghui Chen, 2020, <a class="reference external" href="https://volkamerlab.org/">Volkamer lab, Charité</a></p></li>
-</ul>
-</section>
-<section id="翻译校对">
-<h2 id="翻译校对">翻译校对<a class="headerlink" href="#翻译校对" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>ByteTora</p></li>
-</ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></section>
@@ -2538,12 +2741,12 @@ DataFrame shape: (5568, 5)
             </a>
           
           
-            <a href="T002_compound_adme.html" title="T002 · 分子筛选：ADME和类药性标准"
+            <a href="T002_compound_adme.html" title="T002 · 分子筛选：ADME 和类先导化合物标准"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> T002 · 分子筛选：ADME和类药性标准 </span>
+                class="md-footer-nav__direction"> "Next" </span> T002 · 分子筛选：ADME 和类先导化合物标准 </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

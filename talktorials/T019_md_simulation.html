@@ -4,14 +4,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="T019 · Molecular dynamics simulation" />
+<meta property="og:title" content="T019 · 分子动力学模拟注意： 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定的技能，并为研究项目提供流程模板作为起点。作者：- Pietro Gerletti, CADD 研讨会 2020, Charité/FU Berlin- Mareike Leja, 2020/21, 实习于 Volkamer Lab, Charité- Jeffrey R Wagner, 2020, Open Force Field Consortium- David Schaller, 2020/21, Volkamer Lab, Charité- Andrea Volkamer, 2020/21, Volkamer Lab, Charité" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T019_md_simulation.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Pietro Gerletti, CADD seminar 2020, Charité/FU Berlin, Mareike Leja, 2020/21, Internship at Volkamer Lab, Cha..." />
+<meta property="og:description" content="__注意__本教程设计用于 Google Colab 。也可以在本地计算机上使用。但如果没有 GPU，执行分子动力学模拟可能需要相当长的时间。另外，请注意本教程 目前无法在 Windows 上运行 （请关注 此问题进展 ）。 本教程目标: 在本教程中，我们将学习为什么分子动力学（MD）模拟对药物设计很重要，以及执行蛋白质与配体复合物的 MD 模拟需要哪些步骤。激酶 EGFR 将作为模拟的示例系统。 理论 章节内容- 分子动力学- 力场- 边界条件- MD 模拟与药物设计- EGFR 激酶: 实践 章节内容- Google Colab 安装- 调整本地安装环境（Linux 或 MacOS）..." />
 <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
 <meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Pietro Gerletti, CADD seminar 2020, Charité/FU Berlin, Mareike Leja, 2020/21, Internship at Volkamer Lab, Cha..." />
+<meta name="description" content="__注意__本教程设计用于 Google Colab 。也可以在本地计算机上使用。但如果没有 GPU，执行分子动力学模拟可能需要相当长的时间。另外，请注意本教程 目前无法在 Windows 上运行 （请关注 此问题进展 ）。 本教程目标: 在本教程中，我们将学习为什么分子动力学（MD）模拟对药物设计很重要，以及执行蛋白质与配体复合物的 MD 模拟需要哪些步骤。激酶 EGFR 将作为模拟的示例系统。 理论 章节内容- 分子动力学- 力场- 边界条件- MD 模拟与药物设计- EGFR 激酶: 实践 章节内容- Google Colab 安装- 调整本地安装环境（Linux 或 MacOS）..." />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -82,7 +82,7 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T019 · Molecular dynamics simulation &#8212; TeachOpenCADD 0.0.post1 documentation</title>
+    <title>T019 · 分子动力学模拟注意： 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定的技能，并为研究项目提供流程模板作为起点。作者：- Pietro Gerletti, CADD 研讨会 2020, Charité/FU Berlin- Mareike Leja, 2020/21, 实习于 Volkamer Lab, Charité- Jeffrey R Wagner, 2020, Open Force Field Consortium- David Schaller, 2020/21, Volkamer Lab, Charité- Andrea Volkamer, 2020/21, Volkamer Lab, Charité &#8212; TeachOpenCADD 0.0.post1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -100,8 +100,8 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T020 · Analyzing molecular dynamics simulations" href="T020_md_analysis.html" />
-    <link rel="prev" title="T018 · Automated pipeline for lead optimization" href="T018_automated_cadd_pipeline.html" />
+    <link rel="next" title="T020 · 分子动力学模拟分析" href="T020_md_analysis.html" />
+    <link rel="prev" title="T018 · 用于先导优化的自动化流程" href="T018_automated_cadd_pipeline.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -140,7 +140,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">TeachOpenCADD</span>
-          <span class="md-header-nav__topic"> T019 · Molecular dynamics simulation </span>
+          <span class="md-header-nav__topic"> T019 · 分子动力学模拟注意： 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定的技能，并为研究项目提供流程模板作为起点。作者：- Pietro Gerletti, CADD 研讨会 2020, Charité/FU Berlin- Mareike Leja, 2020/21, 实习于 Volkamer Lab, Charité- Jeffrey R Wagner, 2020, Open Force Field Consortium- David Schaller, 2020/21, Volkamer Lab, Charité- Andrea Volkamer, 2020/21, Volkamer Lab, Charité </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -424,73 +424,69 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t019-md-simulation--page-root" class="md-nav__link">T019 · Molecular dynamics simulation</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t019-md-simulation--page-root" class="md-nav__link">T019 · 分子动力学模拟<strong>注意：</strong> 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定的技能，并为研究项目提供流程模板作为起点。作者：- Pietro Gerletti, CADD 研讨会 2020, Charité/FU Berlin- Mareike Leja, 2020/21, 实习于 Volkamer Lab, Charité- Jeffrey R Wagner, 2020, Open Force Field Consortium- David Schaller, 2020/21, Volkamer Lab, Charité- Andrea Volkamer, 2020/21, Volkamer Lab, Charité</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#本教程目标" class="md-nav__link">本教程目标</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        <li class="md-nav__item"><a href="#理论-章节内容--分子动力学--力场--边界条件--MD-模拟与药物设计--EGFR-激酶" class="md-nav__link"><em>理论</em> 章节内容- 分子动力学- 力场- 边界条件- MD 模拟与药物设计- EGFR 激酶</a>
         </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        <li class="md-nav__item"><a href="#实践-章节内容--Google-Colab-安装--调整本地安装环境（Linux-或-MacOS）--导入依赖--下载-PDB-文件--准备蛋白质-配体复合物---蛋白质准备---配体准备---合并蛋白质与配体--MD-模拟设置---力场---系统--执行-MD-模拟--下载结果" class="md-nav__link"><em>实践</em> 章节内容- Google Colab 安装- 调整本地安装环境（Linux 或 MacOS）- 导入依赖- 下载 PDB 文件- 准备蛋白质-配体复合物 - 蛋白质准备 - 配体准备 - 合并蛋白质与配体- MD 模拟设置 - 力场 - 系统- 执行 MD 模拟- 下载结果</a>
         </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        <li class="md-nav__item"><a href="#参考文献--MD-模拟在药物发现中影响的综述-(J-Med-Chem-(2016),-59(9),-4035‐4061)--MD-模拟背后物理学和最佳实践综述-(Living-J-Comp-Mol-Sci-(2019),-1(1),-5957)--力场综述-(J-Chem-Inf-Model-(2018),-58(3),-565-578)--EGFR-在癌症中作用的综述-(Cancers-(Basel)-(2017),-9(5),-52)--来自-Pierre-Simon-Laplace-的统计知识总结-(Théorie-Analytique-des-Probabilités-Gauthier-Villars-(1820),-3)--灵感来自-Jaime-Rodríguez-Guerra-的笔记本-(github)--OpenMM-和-OpenMM-Forcefields、RDKit、PyPDB、MDTraj、PDBFixer-的仓库--关于-MD-模拟、AMBER-和-力场-的维基百科文章" class="md-nav__link">参考文献- MD 模拟在药物发现中影响的综述 (J Med Chem (2016), 59(9), 4035‐4061)- MD 模拟背后物理学和最佳实践综述 (Living J Comp Mol Sci (2019), 1(1), 5957)- 力场综述 (J Chem Inf Model (2018), 58(3), 565-578)- EGFR 在癌症中作用的综述 (Cancers (Basel) (2017), 9(5), 52)- 来自 Pierre-Simon Laplace 的统计知识总结 (Théorie Analytique des Probabilités Gauthier-Villars (1820), 3)- 灵感来自 Jaime Rodríguez-Guerra 的笔记本 (github)- OpenMM 和 OpenMM Forcefields、RDKit、PyPDB、MDTraj、PDBFixer 的仓库- 关于 MD 模拟、AMBER 和 力场 的维基百科文章</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#理论" class="md-nav__link">理论</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Molecular-dynamics" class="md-nav__link">Molecular dynamics</a>
+        <li class="md-nav__item"><a href="#分子动力学" class="md-nav__link">分子动力学</a>
         </li>
-        <li class="md-nav__item"><a href="#Force-fields" class="md-nav__link">Force fields</a>
+        <li class="md-nav__item"><a href="#力场" class="md-nav__link">力场</a>
         </li>
-        <li class="md-nav__item"><a href="#Boundary-conditions" class="md-nav__link">Boundary conditions</a>
+        <li class="md-nav__item"><a href="#边界条件通常，分子系统在填充有溶剂（如水）的盒子中进行模拟。这些盒子尺寸有限，这会导致盒子边界处或附近的分子出现问题。它们应该与哪些分子相互作用？周期性边界条件可以通过模拟理论上无限的系统来避免此类边界伪影。盒子一个边界处的分子与盒子另一侧边界处的分子相互作用。这模拟了一种情况，即模拟盒被自身的副本包围。在可视化此类-MD-模拟时，我们经常观察到粒子从一侧离开盒子（图-3）。然而，它们同时以相同的速度重新出现在盒子的另一侧。对于周期性边界条件下的模拟，建议使用足够大的模拟盒，使得被模拟的大分子不会与其相邻镜像接触。" class="md-nav__link">边界条件通常，分子系统在填充有溶剂（如水）的盒子中进行模拟。这些盒子尺寸有限，这会导致盒子边界处或附近的分子出现问题。它们应该与哪些分子相互作用？周期性边界条件可以通过模拟理论上无限的系统来避免此类边界伪影。盒子一个边界处的分子与盒子另一侧边界处的分子相互作用。这模拟了一种情况，即模拟盒被自身的副本包围。在可视化此类 MD 模拟时，我们经常观察到粒子从一侧离开盒子（图 3）。然而，它们同时以相同的速度重新出现在盒子的另一侧。对于周期性边界条件下的模拟，建议使用足够大的模拟盒，使得被模拟的大分子不会与其相邻镜像接触。</a>
         </li>
-        <li class="md-nav__item"><a href="#MD-simulations-and-drug-design" class="md-nav__link">MD simulations and drug design</a>
+        <li class="md-nav__item"><a href="#MD-模拟与药物设计MD-模拟为配体与其靶标结合的高度动态过程提供了宝贵的见解。当配体（或药物）在溶液中接近大分子（蛋白质）时，它遇到的是一个处于不断运动状态的结构。此外，配体可能诱导大分子发生构象变化，以最佳方式容纳小分子。这种构象可能无法通过静态方法发现。因此，在静态无配体结构中未观察到，但可以通过-MD-模拟发现的结合位点有时被称为隐性结合位点（J-Med-Chem-(2016),-59(9),-4035‐4061）。使用-MD-模拟识别这些结合位点可以启动新的药物发现活动。在药物发现过程的后期，MD-模拟也可用于在执行更昂贵和耗时的体外测试之前评估计算识别的小分子的质量。总的来说，MD-模拟是计算药物设计中的宝贵资产。" class="md-nav__link">MD 模拟与药物设计MD 模拟为配体与其靶标结合的高度动态过程提供了宝贵的见解。当配体（或药物）在溶液中接近大分子（蛋白质）时，它遇到的是一个处于不断运动状态的结构。此外，配体可能诱导大分子发生构象变化，以最佳方式容纳小分子。这种构象可能无法通过静态方法发现。因此，在静态无配体结构中未观察到，但可以通过 MD 模拟发现的结合位点有时被称为<em>隐性结合位点</em>（J Med Chem (2016), 59(9), 4035‐4061）。使用 MD 模拟识别这些结合位点可以启动新的药物发现活动。在药物发现过程的后期，MD 模拟也可用于在执行更昂贵和耗时的<em>体外</em>测试之前评估计算识别的小分子的质量。总的来说，MD 模拟是计算药物设计中的宝贵资产。</a>
         </li>
-        <li class="md-nav__item"><a href="#EGFR-kinase" class="md-nav__link">EGFR kinase</a>
+        <li class="md-nav__item"><a href="#EGFR-激酶表皮生长因子受体（EGFR）是一个重要的药物靶点，与癌症和炎症有关（Wikipedia）。它是一种跨膜蛋白，具有细胞外受体结构域和细胞内激酶结构域。内源性配体表皮生长因子的结合通过二聚化和自磷酸化激活激酶结构域。激活的激酶结构域随后可以磷酸化下游信号蛋白，触发-DNA-合成和细胞增殖（Cancers-(Basel)-(2017),-9(5),-52）。抑制这种激酶是几种已获批癌症药物的作用机制基础（DrugBank）。在本教程中，我们使用该激酶的-PDB-结构-3POZ，其与小分子抑制剂-03P-形成复合物，以执行-MD-模拟（PDB:-3POZ）。" class="md-nav__link">EGFR 激酶<strong>表</strong>皮<strong>生</strong>长<strong>因</strong>子<strong>受</strong>体（EGFR）是一个重要的药物靶点，与癌症和炎症有关（Wikipedia）。它是一种跨膜蛋白，具有细胞外受体结构域和细胞内激酶结构域。内源性配体表皮生长因子的结合通过二聚化和自磷酸化激活激酶结构域。激活的激酶结构域随后可以磷酸化下游信号蛋白，触发 DNA 合成和细胞增殖（Cancers (Basel) (2017), 9(5), 52）。抑制这种激酶是几种已获批癌症药物的作用机制基础（DrugBank）。在本教程中，我们使用该激酶的 PDB 结构 <strong>3POZ</strong>，其与小分子抑制剂 <strong>03P</strong> 形成复合物，以执行 MD 模拟（PDB: 3POZ）。</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#实践现在我们将使用分子动力学引擎-OpenMM-来执行-MD-模拟，这是一个用于分子模拟的高性能工具包。它是开源的，可以用作应用程序或库。我们将把它用作-Python-库。" class="md-nav__link">实践现在我们将使用分子动力学引擎 OpenMM 来执行 MD 模拟，这是一个用于分子模拟的高性能工具包。它是开源的，可以用作应用程序或库。我们将把它用作 Python 库。</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Installation-on-Google-Colab" class="md-nav__link">Installation on Google Colab</a>
+        <li class="md-nav__item"><a href="#导入依赖" class="md-nav__link">导入依赖</a>
         </li>
-        <li class="md-nav__item"><a href="#Adjust-environment-for-local-installations-running-on-Linux-or-MacOS" class="md-nav__link">Adjust environment for local installations running on Linux or MacOS</a>
+        <li class="md-nav__item"><a href="#下载-PDB-文件蛋白质数据库（PDB）允许通过-URL-轻松下载文件。" class="md-nav__link">下载 PDB 文件蛋白质数据库（PDB）允许通过 URL 轻松下载文件。</a>
         </li>
-        <li class="md-nav__item"><a href="#Import-dependencies" class="md-nav__link">Import dependencies</a>
-        </li>
-        <li class="md-nav__item"><a href="#Download-PDB-file" class="md-nav__link">Download PDB file</a>
-        </li>
-        <li class="md-nav__item"><a href="#Prepare-the-protein-ligand-complex" class="md-nav__link">Prepare the protein ligand complex</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#准备蛋白质-配体复合物" class="md-nav__link">准备蛋白质-配体复合物</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Protein-preparation" class="md-nav__link">Protein preparation</a>
+        <li class="md-nav__item"><a href="#蛋白质准备成功模拟的关键部分是正确且完整的系统。从蛋白质数据库检索的晶体结构通常缺少原子（主要是氢），并且可能包含非标准残基。在本教程中，我们将使用-Python-包-PDBFixer-来准备蛋白质结构。然而，共结晶的配体不能由-PDBFixer-很好地处理，因此将单独准备。" class="md-nav__link">蛋白质准备成功模拟的关键部分是正确且完整的系统。从蛋白质数据库检索的晶体结构通常缺少原子（主要是氢），并且可能包含非标准残基。在本教程中，我们将使用 Python 包 PDBFixer 来准备蛋白质结构。然而，共结晶的配体不能由 PDBFixer 很好地处理，因此将单独准备。</a>
         </li>
-        <li class="md-nav__item"><a href="#Prepare-ligand" class="md-nav__link">Prepare ligand</a>
+        <li class="md-nav__item"><a href="#配体准备" class="md-nav__link">配体准备</a>
         </li>
-        <li class="md-nav__item"><a href="#Merge-protein-and-ligand" class="md-nav__link">Merge protein and ligand</a>
+        <li class="md-nav__item"><a href="#合并蛋白质与配体下一步，我们想要使用-Python-包-MDTraj-合并准备好的蛋白质和配体结构。MDTraj-可以处理准备好的蛋白质，它当前是一个-PDBFixer-分子，这种格式具有与-OpenMM-Modeller-拓扑和位置类似且通常可互换的拓扑和原子位置。然而，对于配体，我们需要进行多次转换，因为它当前是一个-RDKit-分子。" class="md-nav__link">合并蛋白质与配体下一步，我们想要使用 Python 包 MDTraj 合并准备好的蛋白质和配体结构。MDTraj 可以处理准备好的蛋白质，它当前是一个 PDBFixer 分子，这种格式具有与 OpenMM Modeller 拓扑和位置类似且通常可互换的拓扑和原子位置。然而，对于配体，我们需要进行多次转换，因为它当前是一个 RDKit 分子。</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#MD-simulation-set-up" class="md-nav__link">MD simulation set up</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#MD-模拟设置现在我们可以使用准备好的复合物来设置-MD-模拟。" class="md-nav__link">MD 模拟设置现在我们可以使用准备好的复合物来设置 MD 模拟。</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Force-field" class="md-nav__link">Force field</a>
+        <li class="md-nav__item"><a href="#力场常见的力场如-AMBER-具有氨基酸、核酸、水和离子的参数，通常提供多种选项供根据目标选择。我们使用随-OpenMM-提供的-amber14-all.xml-力场文件，其中包含蛋白质、DNA、RNA-和脂质的参数。对于溶剂化，我们使用标准的三位点水模型-TIP3P。然而，配体的参数不包括在内。为了生成这些参数，我们可以使用通用-AMBER-力场-（GAFF），它在-Python-包-OpenMM-Forcefields-中实现。以下函数生成一个包含标准-AMBER-参数的力场对象，并在需要时额外包含一个小分子的参数。" class="md-nav__link">力场常见的力场如 AMBER 具有氨基酸、核酸、水和离子的参数，通常提供多种选项供根据目标选择。我们使用随 OpenMM 提供的 <code class="docutils literal notranslate"><span class="pre">amber14-all.xml</span></code> 力场文件，其中包含蛋白质、DNA、RNA 和脂质的参数。对于溶剂化，我们使用标准的三位点水模型 TIP3P。然而，配体的参数不包括在内。为了生成这些参数，我们可以使用<strong>通</strong>用 <strong>AMBER</strong> <strong>力</strong>场 （GAFF），它在 Python 包 OpenMM Forcefields 中实现。以下函数生成一个包含标准 AMBER 参数的力场对象，并在需要时额外包含一个小分子的参数。</a>
         </li>
-        <li class="md-nav__item"><a href="#System" class="md-nav__link">System</a>
+        <li class="md-nav__item"><a href="#系统" class="md-nav__link">系统</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Perform-the-MD-simulation" class="md-nav__link">Perform the MD simulation</a>
+        <li class="md-nav__item"><a href="#执行-MD-模拟现在一切都已设置好，我们可以执行模拟了。我们需要设置起始位置并最小化系统的能量，以获得低能量的起始构象，这对于减少因严重原子碰撞而导致模拟失败的可能性很重要。能量最小化的系统将被保存。" class="md-nav__link">执行 MD 模拟现在一切都已设置好，我们可以执行模拟了。我们需要设置起始位置并最小化系统的能量，以获得低能量的起始构象，这对于减少因严重原子碰撞而导致模拟失败的可能性很重要。能量最小化的系统将被保存。</a>
         </li>
-        <li class="md-nav__item"><a href="#Download-results" class="md-nav__link">Download results</a>
+        <li class="md-nav__item"><a href="#下载结果如果您在-Google-Colab-上运行，可以执行以下单元格来下载-MD-模拟结果。" class="md-nav__link">下载结果如果您在 Google Colab 上运行，可以执行以下单元格来下载 MD 模拟结果。</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        <li class="md-nav__item"><a href="#讨论我们已成功执行了蛋白质-配体复合物的-MD-模拟。然而，我们仅模拟了相当短的时间，以保持教程的执行时间较短。要解决药物设计中的关键问题，通常需要更长的模拟。MD-模拟的计算成本仍然过高，无法用于此目的。因此，人们开发了所谓的增强采样方法，旨在加速构象采样。一些最常用的方法在下面的延伸阅读部分讨论。此外，我们没有包括平衡步骤，该步骤通常用于在开始模拟前将系统从-0-K-缓慢加热到-300-K，并且在模拟包括脂质双层的更敏感系统时可能很重要。配体和蛋白质的质子化是分开进行的，这是次优的，因为蛋白质残基和配体的质子化状态相互影响。然而，我们没有找到满足所有要求的免费开源解决方案。非常欢迎建议！如果您想学习如何可视化和分析轨迹，可以参考本仓库中的教程-T020。" class="md-nav__link">讨论我们已成功执行了蛋白质-配体复合物的 MD 模拟。然而，我们仅模拟了相当短的时间，以保持教程的执行时间较短。要解决药物设计中的关键问题，通常需要更长的模拟。MD 模拟的计算成本仍然过高，无法用于此目的。因此，人们开发了所谓的增强采样方法，旨在加速构象采样。一些最常用的方法在下面的<strong>延伸阅读</strong>部分讨论。此外，我们没有包括平衡步骤，该步骤通常用于在开始模拟前将系统从 0 K 缓慢加热到 300 K，并且在模拟包括脂质双层的更敏感系统时可能很重要。配体和蛋白质的质子化是分开进行的，这是次优的，因为蛋白质残基和配体的质子化状态相互影响。然而，我们没有找到满足所有要求的免费开源解决方案。非常欢迎建议！如果您想学习如何可视化和分析轨迹，可以参考本仓库中的<strong>教程 T020</strong>。</a>
         </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        <li class="md-nav__item"><a href="#测验*-AMBER-力场考虑了哪些分子间和分子内力？您能想到哪些力没有被考虑吗？*-使用相同参数运行本教程两次，您会期望看到完全相同的模拟结果吗？*-尝试对一个没有配体的蛋白质进行短时间（10ps，每-1ps-快照）的模拟。您可以在-PDB-上找到各种结构，或者使用-EGFR-激酶并移除配体。" class="md-nav__link">测验* AMBER 力场考虑了哪些分子间和分子内力？您能想到哪些力没有被考虑吗？* 使用相同参数运行本教程两次，您会期望看到完全相同的模拟结果吗？* 尝试对一个没有配体的蛋白质进行短时间（10ps，每 1ps 快照）的模拟。您可以在 PDB 上找到各种结构，或者使用 EGFR 激酶并移除配体。</a>
         </li>
-        <li class="md-nav__item"><a href="#Further-reading" class="md-nav__link">Further reading</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#延伸阅读" class="md-nav__link">延伸阅读</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Enhanced-sampling-methods" class="md-nav__link">Enhanced sampling methods</a>
+        <li class="md-nav__item"><a href="#增强采样方法理论上，无偏的-MD-模拟应该能够模拟药物分子及其大分子靶标的结合和解离事件。然而，结合和解离事件的时间尺度在毫秒到秒的范围内。增强采样方法旨在加速构象采样（J-Med-Chem.-2016,-59(9),-4035-61）。其中一种是自由能微扰（FEP）（也称为炼金术自由能计算），它计算从状态-A-到另一个状态-B-时的自由能差。它通常用于先导化合物优化中，以评估配体的微小修改，这些修改可能会增强对目标靶标的结合亲和力。通过模拟几个中间（%22炼金术%22）状态，状态-A-的配体逐渐转变为状态-B-的配体（alchemistry）。另一种自由能计算技术是伞形采样（US）。US-通过使用能量偏倚执行分阶段模拟，强制沿集体变量（CV）进行采样。偏倚通常采用谐振势的形式，因此称为%22伞形%22。其目标是对沿-CV-的高能区域进行采样。然而，在药物设计中的应用受到高计算成本的限制。相比之下，受控-MD（SMD）采用不同的方法：它对系统施加外力。这些力是时间依赖性的，并促进配体从靶标上解离。SMD-计算施加在系统上的最终力。然后可以使用解离力谱来筛选对接计算得到的命中化合物，并区分活性分子和非活性分子。" class="md-nav__link">增强采样方法理论上，无偏的 MD 模拟应该能够模拟药物分子及其大分子靶标的结合和解离事件。然而，结合和解离事件的时间尺度在毫秒到秒的范围内。增强采样方法旨在加速构象采样（J Med Chem. 2016, 59(9), 4035-61）。其中一种是<strong>自由能微扰（FEP）</strong>（也称为炼金术自由能计算），它计算从状态 A 到另一个状态 B 时的自由能差。它通常用于先导化合物优化中，以评估配体的微小修改，这些修改可能会增强对目标靶标的结合亲和力。通过模拟几个中间（”炼金术”）状态，状态 A 的配体逐渐转变为状态 B 的配体（alchemistry）。另一种自由能计算技术是<strong>伞形采样（US）</strong>。US 通过使用能量偏倚执行分阶段模拟，强制沿集体变量（CV）进行采样。偏倚通常采用谐振势的形式，因此称为”伞形”。其目标是对沿 CV 的高能区域进行采样。然而，在药物设计中的应用受到高计算成本的限制。相比之下，<strong>受控 MD（SMD）</strong>采用不同的方法：它对系统施加外力。这些力是时间依赖性的，并促进配体从靶标上解离。SMD 计算施加在系统上的最终力。然后可以使用解离力谱来筛选对接计算得到的命中化合物，并区分活性分子和非活性分子。</a>
         </li></ul>
             </nav>
         </li></ul>
@@ -510,301 +506,77 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="T019-·-Molecular-dynamics-simulation">
-<h1 id="talktorials-t019-md-simulation--page-root">T019 · Molecular dynamics simulation<a class="headerlink" href="#talktorials-t019-md-simulation--page-root" title="Link to this heading">¶</a></h1>
-<p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
-<p>Authors:</p>
-<ul class="simple">
-<li><p>Pietro Gerletti, CADD seminar 2020, Charité/FU Berlin</p></li>
-<li><p>Mareike Leja, 2020/21, Internship at <a class="reference external" href="https://volkamerlab.org/">Volkamer Lab, Charité</a></p></li>
-<li><p>Jeffrey R Wagner, 2020, <a class="reference external" href="https://openforcefield.org/">Open Force Field Consortium</a></p></li>
-<li><p>David Schaller, 2020/21, <a class="reference external" href="https://volkamerlab.org/">Volkamer Lab, Charité</a></p></li>
-<li><p>Andrea Volkamer, 2020/21, <a class="reference external" href="https://volkamerlab.org/">Volkamer Lab, Charité</a></p></li>
-</ul>
-<p><strong>Note</strong></p>
-<p>This talktorial was designed to be used with <a class="reference external" href="https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/1bd7cb0c9f6379aebc0c1a0b1c7413685910cffa/teachopencadd/talktorials/019_md_simulation/talktorial.ipynb">Google Colab</a>. It is also possible to use it on a local computer. However, performing the molecular dynamics simulation may take a considerably long time if no GPU is available.</p>
-<p>Also, note that this talktorial <strong>will not run on Windows</strong> for the time being (check progress in <a class="reference external" href="https://github.com/volkamerlab/teachopencadd/issues/136">this issue</a>).</p>
-<section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
-<p>In this talktorial, we will learn why molecular dynamics (MD) simulations are important for drug design and which steps are necessary to perform an MD simulation of a protein in complex with a ligand. The kinase EGFR will serve as sample system for simulation.</p>
-<section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p>Molecular dynamics</p></li>
-<li><p>Force fields</p></li>
-<li><p>Boundary conditions</p></li>
-<li><p>MD simulations and drug design</p></li>
-<li><p>EGFR kinase</p></li>
-</ul>
+  <section id="T019-·-分子动力学模拟注意：-本教程是-TeachOpenCADD-的一部分，该平台旨在教授领域特定的技能，并为研究项目提供流程模板作为起点。作者：--Pietro-Gerletti,-CADD-研讨会-2020,-Charité/FU-Berlin--Mareike-Leja,-2020/21,-实习于-Volkamer-Lab,-Charité--Jeffrey-R-Wagner,-2020,-Open-Force-Field-Consortium--David-Schaller,-2020/21,-Volkamer-Lab,-Charité--Andrea-Volkamer,-2020/21,-Volkamer-Lab,-Charité">
+<h1 id="talktorials-t019-md-simulation--page-root">T019 · 分子动力学模拟<strong>注意：</strong> 本教程是 TeachOpenCADD 的一部分，该平台旨在教授领域特定的技能，并为研究项目提供流程模板作为起点。作者：- Pietro Gerletti, CADD 研讨会 2020, Charité/FU Berlin- Mareike Leja, 2020/21, 实习于 <a class="reference external" href="#talktorials-t019-md-simulation--page-root">Volkamer Lab, Charité</a>- Jeffrey R Wagner, 2020, <a class="reference external" href="#talktorials-t019-md-simulation--page-root">Open Force Field Consortium</a>- David Schaller, 2020/21, <a class="reference external" href="#talktorials-t019-md-simulation--page-root">Volkamer Lab, Charité</a>- Andrea Volkamer, 2020/21, <a class="reference external" href="#talktorials-t019-md-simulation--page-root">Volkamer Lab, Charité</a><a class="headerlink" href="#talktorials-t019-md-simulation--page-root" title="Link to this heading">¶</a></h1>
+<p>__注意__本教程设计用于 <a class="reference external" href="https://colab.research.google.com/github/volkamerlab/teachopencadd/blob/1bd7cb0c9f6379aebc0c1a0b1c7413685910cffa/teachopencadd/talktorials/019_md_simulation/talktorial.ipynb">Google Colab</a>。也可以在本地计算机上使用。但如果没有 GPU，执行分子动力学模拟可能需要相当长的时间。另外，请注意本教程<strong>目前无法在 Windows 上运行</strong>（请关注<a class="reference external" href="https://github.com/volkamerlab/teachopencadd/issues/136">此问题进展</a>）。</p>
+<section id="本教程目标">
+<h2 id="本教程目标">本教程目标<a class="headerlink" href="#本教程目标" title="Link to this heading">¶</a></h2>
+<p>在本教程中，我们将学习为什么分子动力学（MD）模拟对药物设计很重要，以及执行蛋白质与配体复合物的 MD 模拟需要哪些步骤。激酶 EGFR 将作为模拟的示例系统。</p>
+<section id="理论-章节内容--分子动力学--力场--边界条件--MD-模拟与药物设计--EGFR-激酶">
+<h3 id="理论-章节内容--分子动力学--力场--边界条件--MD-模拟与药物设计--EGFR-激酶"><em>理论</em> 章节内容- 分子动力学- 力场- 边界条件- MD 模拟与药物设计- EGFR 激酶<a class="headerlink" href="#理论-章节内容--分子动力学--力场--边界条件--MD-模拟与药物设计--EGFR-激酶" title="Link to this heading">¶</a></h3>
 </section>
-<section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p>Installation on Google Colab</p></li>
-<li><p>Adjust environment for local installations running on Linux or MacOS</p></li>
-<li><p>Import dependencies</p></li>
-<li><p>Download PDB file</p></li>
-<li><p>Prepare the protein ligand complex</p>
-<ul>
-<li><p>Protein preparation</p></li>
-<li><p>Ligand preparation</p></li>
-<li><p>Merge protein and ligand</p></li>
-</ul>
-</li>
-<li><p>MD simulation set up</p>
-<ul>
-<li><p>Force field</p></li>
-<li><p>System</p></li>
-</ul>
-</li>
-<li><p>Perform the MD simulation</p></li>
-<li><p>Download results</p></li>
-</ul>
+<section id="实践-章节内容--Google-Colab-安装--调整本地安装环境（Linux-或-MacOS）--导入依赖--下载-PDB-文件--准备蛋白质-配体复合物---蛋白质准备---配体准备---合并蛋白质与配体--MD-模拟设置---力场---系统--执行-MD-模拟--下载结果">
+<h3 id="实践-章节内容--Google-Colab-安装--调整本地安装环境（Linux-或-MacOS）--导入依赖--下载-PDB-文件--准备蛋白质-配体复合物---蛋白质准备---配体准备---合并蛋白质与配体--MD-模拟设置---力场---系统--执行-MD-模拟--下载结果"><em>实践</em> 章节内容- Google Colab 安装- 调整本地安装环境（Linux 或 MacOS）- 导入依赖- 下载 PDB 文件- 准备蛋白质-配体复合物 - 蛋白质准备 - 配体准备 - 合并蛋白质与配体- MD 模拟设置 - 力场 - 系统- 执行 MD 模拟- 下载结果<a class="headerlink" href="#实践-章节内容--Google-Colab-安装--调整本地安装环境（Linux-或-MacOS）--导入依赖--下载-PDB-文件--准备蛋白质-配体复合物---蛋白质准备---配体准备---合并蛋白质与配体--MD-模拟设置---力场---系统--执行-MD-模拟--下载结果" title="Link to this heading">¶</a></h3>
 </section>
-<section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p>Review on the impact of MD simulations in drug discovery (<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem (2016), 59(9), 4035‐4061</a>)</p></li>
-<li><p>Review on the physics behind MD simulations and best practices (<a class="reference external" href="https://doi.org/10.33011/livecoms.1.1.5957">Living J Comp Mol Sci (2019), 1(1), 5957</a>)</p></li>
-<li><p>Review on force fields (<a class="reference external" href="https://doi.org/10.1021/acs.jcim.8b00042">J Chem Inf Model (2018), 58(3), 565-578</a>)</p></li>
-<li><p>Review on EGFR in cancer (<a class="reference external" href="https://dx.doi.org/10.3390%2Fcancers9050052">Cancers (Basel) (2017), 9(5), 52</a>)</p></li>
-<li><p>Summarized statistical knowledge from Pierre-Simon Laplace (<a class="reference external" href="https://archive.org/details/uvrescompltesde31fragoog/page/n15/mode/2up">Théorie Analytique des Probabilités Gauthier-Villars (1820), 3)</a></p></li>
-<li><p>Inspired by a notebook form Jaime Rodríguez-Guerra (<a class="reference external" href="https://github.com/jaimergp/uab-msc-bioinf/blob/master/MD%20Simulation%20and%20Analysis%20in%20a%20Notebook.ipynb">github</a>)</p></li>
-<li><p>Repositories of <a class="reference external" href="https://github.com/openmm/openmm">OpenMM</a> and <a class="reference external" href="https://github.com/openmm/openmmforcefields">OpenMM Forcefields</a>, <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a>, <a class="reference external" href="https://github.com/williamgilpin/pypdb">PyPDB</a>, <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a>, <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a></p></li>
-<li><p>Wikipedia articles about <a class="reference external" href="https://en.wikipedia.org/wiki/Molecular_dynamics">MD simulations</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/AMBER">AMBER</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Force_field_(chemistry)">force fields</a> in general</p></li>
-</ul>
-</section>
-</section>
-<section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
-<section id="Molecular-dynamics">
-<h3 id="Molecular-dynamics">Molecular dynamics<a class="headerlink" href="#Molecular-dynamics" title="Link to this heading">¶</a></h3>
-<p>Molecular dynamics is a computational method analyzing the movements and interactions of atoms and molecules of a defined system. The method stems from theoretical physics, where it was developed in the 1950s (Alder and Wainwright in <a class="reference external" href="https://doi.org/10.1063/1.1730376">J Chem Phys (1959), 31(2), 459</a>), although the ideas behind it can be dated much earlier:</p>
-<blockquote>
-<div><p>An intelligence which could, at any moment, comprehend all the forces by which nature is animated and the respective positions of the beings of which it is composed, and moreover, if this intelligence were far-reaching enough to subject these data to analysis, it would encompass in that formula both the movements of the largest bodies in the universe and those of the lightest atom: to it nothing would be uncertain, and the future, as well as the past, would be present to its eyes. The human
-mind offers us, in the perfection which it has given to astronomy, a faint sketch of this intelligence. (Pierre-Simon Laplace, 1820)</p>
-</div></blockquote>
-<p>Let us just take this statement by Laplace as the ideological substrate underneath molecular dynamics simulations. In other terms, we can approximate the behavior of a physical system by knowing the characteristics of its components and applying Newton’s laws of motion. By solving the equations of motion, we can obtain a molecular trajectory of the system, which is a series of snapshots with the positions and velocities of all its particles, as well as its potential energy. To do so, we define
-functions, called force fields, which provide an approximate description of all the forces applied to each particle in the system. We then use numerical integrators to solve the initial value problem for the system and obtain the trajectory. As it sounds, the process requires quite a bit of processing power and it was only few years ago that MD started seeing a more widespread use, especially in the field of computational chemistry and biology, as well as in drug discovery (<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem (2016),
-59(9), 4035‐4061</a>).</p>
-<p><img alt="MD_rotor_250K_1ns.gif" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MD_rotor_250K_1ns.gif"/></p>
-<p><strong>Figure 1</strong>: Molecular dynamics simulation of the rotation of a supramolecule composed of three molecules in a confined nanoscopic pore (Palma et al. via <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=34866205">Wikimedia</a>).</p>
-</section>
-<section id="Force-fields">
-<h3 id="Force-fields">Force fields<a class="headerlink" href="#Force-fields" title="Link to this heading">¶</a></h3>
-<p>Force fields describe the forces between atoms within and between molecules. They are parametric equations with components for different forces (bond stretching, van-der-Waals and more). The parameter values are usually derived experimentally and change for each MD scenario, depending on the molecules involved and the simulation settings. The result is a mathematical description of the energy landscape of the system, in which the forces acting on each particle result from the gradient of the
-potential energy with respect to the coordinates of the atoms.</p>
-<p>Several force fields are available, each with its own characteristics (<a class="reference external" href="https://doi.org/10.1021/acs.jcim.8b00042">J Chem Inf Model (2018), 58(3), 565-578</a>). In this notebook, we will use a member of the AMBER force field family, which are widely used for MD simulations of proteins. Their functional form is:</p>
-<div class="math notranslate nohighlight">
-\[V(r^N) = \sum_{i \in  bonds}k_{bi} (l_i-l^0_i)^2 + \sum_{i \in  angles}k_{ai}(\theta_i - \theta^0_i)^2 + \sum_{i\in torsions} \sum_n \frac{1}{2} V_i^n[1+cos(nw_i-\gamma_i)]\]</div>
-<div class="math notranslate nohighlight">
-\[+ \sum_{j=1}^{N-1}\sum_{I=j+1}^{N} f_{ij}\in ij [(\frac{r^0_{ij}}{r_{ij}})^{12}-2(\frac{r^0_{ij}}{r_{ij}})^{6}]+\frac{q_iq_j}{4\pi \in_0 r_{ij}}\]</div>
-<p>The formula consists of a sum of different components. The first three components contain information about bond lengths, angles and torsions (intramolecular forces). The last component describes intermolecular, non-bonded forces like van-der-Waals forces and electrostatic interactions. The various parameters, denoted by a superscript 0, depend on the force field used and vary between all members of the AMBER force field family. Note that these force fields assume fixed-charge particles and do
-not allow polarization, nor do they consider how a local charge influences its surroundings.</p>
-<p>The following visual representation of force fields components shows the same concepts in a more intuitive way.</p>
-<p><img alt="MM_PEF.png" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MM_PEF.png"/></p>
-<p><strong>Figure 2</strong>: Components of a molecular mechanics force field (Edboas via <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=4194424">Wikimedia</a>).</p>
-</section>
-<section id="Boundary-conditions">
-<h3 id="Boundary-conditions">Boundary conditions<a class="headerlink" href="#Boundary-conditions" title="Link to this heading">¶</a></h3>
-<p>Often, molecular systems are simulated in a box filled with solvent such as water. These boxes are of finite size, which results in problems for molecules at or near the box boundaries. With which molecules should those interact? Periodic boundary conditions can avoid such boundary artifacts by simulating a theoretically infinite system. Molecules at one boundary of the box thereby interact with molecules at the boundary on the other side of the box. This mimics a situation, in which the
-simulation box is surrounded by replicas of itself. When visualizing such MD simulations, one can often observe that particles leave the box at one side (Fig. 3). However, they re-appear at the same time on the other side of the box with the same velocity. For simulations under periodic boundary conditions, it is recommended to use a simulation box large enough, so that the simulated macromolecule does not come into contact with neighboring images of itself.</p>
-<p><img alt="MD_water.gif" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MD_water.gif"/></p>
-<p><strong>Figure 3</strong>: Molecular dynamics simulation of water molecules with periodic boundary conditions (Kmckiern via <a class="reference external" href="https://commons.wikimedia.org/wiki/File:MD_water.gif">Wikimedia</a>).</p>
-</section>
-<section id="MD-simulations-and-drug-design">
-<h3 id="MD-simulations-and-drug-design">MD simulations and drug design<a class="headerlink" href="#MD-simulations-and-drug-design" title="Link to this heading">¶</a></h3>
-<p>MD simulations give valuable insights into the highly dynamic process of ligand binding to their target. When a ligand (or a drug) approaches a macromolecule (protein) in solution, it encounters a structure in constant motion. Also, ligands may induce conformational changes in the macromolecule that can best accommodate the small molecule. Such conformations may not be discovered with static methods. Accordingly, binding sites that are not observed in static ligand-free structures, but can be
-discovered with MD simulations, are sometimes called <em>cryptic binding sites</em> (<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem (2016), 59(9), 4035‐4061</a>). The identification of such binding sites with MD simulation can kickstart new drug discovery campaigns. Later in the drug discovery process, MD simulations can also be used to estimate the quality of computationally identified small molecules before performing more costly and time-intensive <em>in vitro</em> tests. Altogether, MD
-simulations pose a valuable asset in computational drug design.</p>
-</section>
-<section id="EGFR-kinase">
-<h3 id="EGFR-kinase">EGFR kinase<a class="headerlink" href="#EGFR-kinase" title="Link to this heading">¶</a></h3>
-<p>The <strong>E</strong>pidermal <strong>G</strong>rowth <strong>F</strong>actor <strong>R</strong>eceptor (EGFR) is an important drug target with implications in cancer and inflammation (<a class="reference external" href="https://en.wikipedia.org/wiki/Epidermal_growth_factor_receptor">Wikipedia</a>). It is a transmembrane protein with an extracellular receptor domain and an intracellular kinase domain. The binding of the endogenous ligand epidermal growth factor results in activation of the kinase domain via dimerization and autophosphorylation. The activated kinase domain
-can then phosphorylate downstream signaling proteins triggering DNA synthesis and cell proliferation (<a class="reference external" href="https://dx.doi.org/10.3390%2Fcancers9050052">Cancers (Basel) (2017), 9(5), 52</a>). Inhibition of this kinase is the underlying mechanism of action of several already approved cancer drugs (<a class="reference external" href="https://go.drugbank.com/bio_entities/BE0000767">DrugBank</a>). In this talktorial, we use the PDB structure <strong>3POZ</strong> of this kinase, which is in complex with the small molecule inhibitor <strong>03P</strong>, to
-perform an MD simulation (<a class="reference external" href="https://www.rcsb.org/structure/3poz">PDB: 3POZ</a>).</p>
-<p><img alt="3poz_assembly-1.jpeg" src="https://github.com/volkamerlab/teachopencadd/raw/ed3b2b6b655589d71355295af4c89363a63558b9/teachopencadd/talktorials/018_md_simulation/images/3poz_assembly-1.jpeg"/></p>
-<p><strong>Figure 4</strong>: Structure 3POZ of the EGFR kinase domain bound to inhibitor 03P (<a class="reference external" href="https://www.rcsb.org/structure/3poz">PDB: 3POZ</a>).</p>
-</section>
-</section>
-<section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
-<p>We will now proceed to perform an MD simulation using the molecular dynamics engine <a class="reference external" href="https://github.com/openmm/openmm">OpenMM</a>, a high performance toolkit for molecular simulation. It is open source and can be used as application or library. We will use it as Python library.</p>
-<section id="Installation-on-Google-Colab">
-<h3 id="Installation-on-Google-Colab">Installation on Google Colab<a class="headerlink" href="#Installation-on-Google-Colab" title="Link to this heading">¶</a></h3>
-<p>The following code cells will install all required packages, if you are working on <a class="reference external" href="https://colab.research.google.com/notebooks/intro.ipynb">Google Colab</a>. Installing the <a class="reference external" href="https://github.com/jaimergp/condacolab">condacolab</a> package will restart the kernel, which is intended. This notebook can also be used on a local computer but requires considerable computing power.</p>
+<section id="参考文献--MD-模拟在药物发现中影响的综述-(J-Med-Chem-(2016),-59(9),-4035‐4061)--MD-模拟背后物理学和最佳实践综述-(Living-J-Comp-Mol-Sci-(2019),-1(1),-5957)--力场综述-(J-Chem-Inf-Model-(2018),-58(3),-565-578)--EGFR-在癌症中作用的综述-(Cancers-(Basel)-(2017),-9(5),-52)--来自-Pierre-Simon-Laplace-的统计知识总结-(Théorie-Analytique-des-Probabilités-Gauthier-Villars-(1820),-3)--灵感来自-Jaime-Rodríguez-Guerra-的笔记本-(github)--OpenMM-和-OpenMM-Forcefields、RDKit、PyPDB、MDTraj、PDBFixer-的仓库--关于-MD-模拟、AMBER-和-力场-的维基百科文章">
+<h3 id="参考文献--MD-模拟在药物发现中影响的综述-(J-Med-Chem-(2016),-59(9),-4035‐4061)--MD-模拟背后物理学和最佳实践综述-(Living-J-Comp-Mol-Sci-(2019),-1(1),-5957)--力场综述-(J-Chem-Inf-Model-(2018),-58(3),-565-578)--EGFR-在癌症中作用的综述-(Cancers-(Basel)-(2017),-9(5),-52)--来自-Pierre-Simon-Laplace-的统计知识总结-(Théorie-Analytique-des-Probabilités-Gauthier-Villars-(1820),-3)--灵感来自-Jaime-Rodríguez-Guerra-的笔记本-(github)--OpenMM-和-OpenMM-Forcefields、RDKit、PyPDB、MDTraj、PDBFixer-的仓库--关于-MD-模拟、AMBER-和-力场-的维基百科文章">参考文献- MD 模拟在药物发现中影响的综述 (<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem (2016), 59(9), 4035‐4061</a>)- MD 模拟背后物理学和最佳实践综述 (<a class="reference external" href="https://doi.org/10.33011/livecoms.1.1.5957">Living J Comp Mol Sci (2019), 1(1), 5957</a>)- 力场综述 (<a class="reference external" href="https://doi.org/10.1021/acs.jcim.8b00042">J Chem Inf Model (2018), 58(3), 565-578</a>)- EGFR 在癌症中作用的综述 (<a class="reference external" href="https://dx.doi.org/10.3390%2Fcancers9050052">Cancers (Basel) (2017), 9(5), 52</a>)- 来自 Pierre-Simon Laplace 的统计知识总结 (<a class="reference external" href="https://archive.org/details/uvrescompltesde31fragoog/page/n15/mode/2up">Théorie Analytique des Probabilités Gauthier-Villars (1820), 3)</a>- 灵感来自 Jaime Rodríguez-Guerra 的笔记本 (<a class="reference external" href="https://github.com/jaimergp/uab-msc-bioinf/blob/master/MD%20Simulation%20and%20Analysis%20in%20a%20Notebook.ipynb">github</a>)- <a class="reference external" href="https://github.com/openmm/openmm">OpenMM</a> 和 <a class="reference external" href="https://github.com/openmm/openmmforcefields">OpenMM Forcefields</a>、<a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a>、<a class="reference external" href="https://github.com/williamgilpin/pypdb">PyPDB</a>、<a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a>、<a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> 的仓库- 关于 <a class="reference external" href="https://en.wikipedia.org/wiki/Molecular_dynamics">MD 模拟</a>、<a class="reference external" href="https://en.wikipedia.org/wiki/AMBER">AMBER</a> 和 <a class="reference external" href="https://en.wikipedia.org/wiki/Force_field_(chemistry)">力场</a> 的维基百科文章<a class="headerlink" href="#参考文献--MD-模拟在药物发现中影响的综述-(J-Med-Chem-(2016),-59(9),-4035‐4061)--MD-模拟背后物理学和最佳实践综述-(Living-J-Comp-Mol-Sci-(2019),-1(1),-5957)--力场综述-(J-Chem-Inf-Model-(2018),-58(3),-565-578)--EGFR-在癌症中作用的综述-(Cancers-(Basel)-(2017),-9(5),-52)--来自-Pierre-Simon-Laplace-的统计知识总结-(Théorie-Analytique-des-Probabilités-Gauthier-Villars-(1820),-3)--灵感来自-Jaime-Rodríguez-Guerra-的笔记本-(github)--OpenMM-和-OpenMM-Forcefields、RDKit、PyPDB、MDTraj、PDBFixer-的仓库--关于-MD-模拟、AMBER-和-力场-的维基百科文章" title="Link to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">google.colab</span>
-
-    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>condacolab
-    <span class="kn">import</span><span class="w"> </span><span class="nn">condacolab</span>
-
-    <span class="n">condacolab</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
-<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-    <span class="k">pass</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">condacolab</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">clear_output</span>
-
-    <span class="n">condacolab</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>
-    <span class="o">!</span>conda<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>-y<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mdtraj<span class="w"> </span>openmm<span class="w"> </span>openmmforcefields<span class="w"> </span>openff-toolkit<span class="w"> </span>pdbfixer<span class="w"> </span>pypdb<span class="w"> </span>rdkit
-<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-    <span class="n">on_colab</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="c1"># check if installation was succesful</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="kn">import</span><span class="w"> </span><span class="nn">rdkit</span>
-
-        <span class="n">on_colab</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">clear_output</span><span class="p">()</span>  <span class="c1"># clear the excessive installation outputs</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Dependencies successfully installed!"</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Error while installing dependencies!"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="Adjust-environment-for-local-installations-running-on-Linux-or-MacOS">
-<h3 id="Adjust-environment-for-local-installations-running-on-Linux-or-MacOS">Adjust environment for local installations running on Linux or MacOS<a class="headerlink" href="#Adjust-environment-for-local-installations-running-on-Linux-or-MacOS" title="Link to this heading">¶</a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">on_colab</span> <span class="ow">and</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"linux"</span><span class="p">,</span> <span class="s2">"darwin"</span><span class="p">)):</span>
-    <span class="o">!</span>mamba<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>-y<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>openmmforcefields
-    <span class="c1"># Notes:</span>
-    <span class="c1"># - If you do not have mamba installed, install it or use conda instead</span>
-    <span class="c1"># - Under MacOS with an M1 chip you may need to use</span>
-    <span class="c1">#   CONDA_SUBDIR=osx-64 in front of the above command</span>
+<span class="n">on_colab</span> <span class="o">=</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+<span class="k">if</span> <span class="n">on_colab</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">19</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+    <span class="o">%</span><span class="k">conda</span> install mdtraj openmm openmmforcefields openff-toolkit pdbfixer pypdb rdkit -y -c conda-forge
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-  Package                       Version  Build                   Channel                    Size
-──────────────────────────────────────────────────────────────────────────────────────────────────
-  Install:
-──────────────────────────────────────────────────────────────────────────────────────────────────
-
-<span class="ansi-green-fg">  + ambertools             </span>        22.0  py39h464e725_3          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + arpack                 </span>       3.7.0  hdefa2d7_2              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + cached-property        </span>       1.5.2  hd8ed1ab_1              conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + cached_property        </span>       1.5.2  pyha770c72_1            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + cython                 </span>     0.29.34  py39h227be39_0          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + flatbuffers            </span>    22.12.06  hcb278e6_2              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + giflib                 </span>       5.2.1  h0b41bf4_3              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + keras                  </span>      2.11.0  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + libaec                 </span>       1.0.6  hcb278e6_1              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + libgomp                </span>      12.2.0  h65d4601_19             conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + netcdf-fortran         </span>       4.6.0  nompi_he1eeb6f_102      conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + openff-amber-ff-ports  </span>       0.0.3  pyh6c4a22f_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + openff-forcefields     </span>   2023.05.1  pyh1a96a4e_1            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + openff-interchange     </span>       0.3.4  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + openff-interchange-base</span>       0.3.4  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + openff-models          </span>       0.0.5  pyh1a96a4e_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + openff-toolkit         </span>      0.13.0  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + openff-toolkit-base    </span>      0.13.0  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + openff-units           </span>       0.2.0  pyh1a96a4e_1            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + openff-utilities       </span>       0.1.8  pyh1a96a4e_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + openmmforcefields      </span>      0.11.2  pyhd8ed1ab_1            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + packmol                </span>      20.010  h86c2bf4_0              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + panedr                 </span>       0.7.1  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + parmed                 </span>       3.4.4  py39h227be39_0          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + pbr                    </span>      5.11.1  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + perl                   </span>      5.32.1  2_h7f98852_perl5        conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + pint                   </span>        0.21  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + pydantic               </span>      1.10.7  py39h72bdee0_0          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + pyedr                  </span>       0.7.1  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + python-constraint      </span>       1.4.0  py_0                    conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + smirnoff99frosst       </span>       1.1.0  pyh44b312d_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + tensorboard-plugin-wit </span>       1.8.1  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + tinydb                 </span>       4.7.1  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + validators             </span>      0.20.0  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + xmltodict              </span>      0.13.0  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-green-fg">  + xorg-libxt             </span>       1.2.1  h7f98852_2              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-
-  Change:
-──────────────────────────────────────────────────────────────────────────────────────────────────
-
-<span class="ansi-red-fg">  - libnetcdf              </span>       4.8.1  h8322cc2_2              installed
-<span class="ansi-green-fg">  + libnetcdf              </span>       4.8.1  nompi_h261ec11_106      conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-
-  Upgrade:
-──────────────────────────────────────────────────────────────────────────────────────────────────
-
-<span class="ansi-red-fg">  - h5py                   </span>      2.10.0  nompi_py39h98ba4bc_106  installed
-<span class="ansi-green-fg">  + h5py                   </span>       3.7.0  nompi_py39h817c9c5_102  conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - hdf4                   </span>      4.2.13  h10796ff_1005           installed
-<span class="ansi-green-fg">  + hdf4                   </span>      4.2.15  h9772cbc_5              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - hdf5                   </span>      1.10.6  h3ffc7dd_1              installed
-<span class="ansi-green-fg">  + hdf5                   </span>      1.12.2  nompi_h4df4325_101      conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - netcdf4                </span>       1.5.7  nompi_py39hd2e3950_101  installed
-<span class="ansi-green-fg">  + netcdf4                </span>       1.6.2  nompi_py39hfaa66c4_100  conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - pytables               </span>       3.6.1  py39hf6dc253_3          installed
-<span class="ansi-green-fg">  + pytables               </span>       3.7.0  py39h6a7961f_3          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - tensorflow             </span>       2.4.1  mkl_py39h4683426_0      installed
-<span class="ansi-green-fg">  + tensorflow             </span>      2.11.0  cpu_py39h4655687_0      conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - tensorflow-base        </span>       2.4.1  mkl_py39h43e0292_0      installed
-<span class="ansi-green-fg">  + tensorflow-base        </span>      2.11.0  cpu_py39h9b4020c_0      conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - tensorflow-estimator   </span>       2.6.0  py39he80948d_0          installed
-<span class="ansi-green-fg">  + tensorflow-estimator   </span>      2.11.0  cpu_py39hf050123_0      conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-
-  Downgrade:
-──────────────────────────────────────────────────────────────────────────────────────────────────
-
-<span class="ansi-red-fg">  - google-auth-oauthlib   </span>       1.0.0  pyhd8ed1ab_0            installed
-<span class="ansi-green-fg">  + google-auth-oauthlib   </span>       0.4.6  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - grpcio                 </span>      1.54.2  py39h227be39_2          installed
-<span class="ansi-green-fg">  + grpcio                 </span>      1.51.1  py39he859823_1          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - libabseil              </span>  20230125.2  cxx17_h59595ed_2        installed
-<span class="ansi-green-fg">  + libabseil              </span>  20220623.0  cxx17_h05df665_6        conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - libgrpc                </span>      1.54.2  hb20ce57_2              installed
-<span class="ansi-green-fg">  + libgrpc                </span>      1.51.1  h4fad500_1              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - re2                    </span>  2023.03.02  h8c504da_0              installed
-<span class="ansi-green-fg">  + re2                    </span>  2023.02.01  hcb278e6_0              conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - tensorboard            </span>      2.13.0  pyhd8ed1ab_0            installed
-<span class="ansi-green-fg">  + tensorboard            </span>      2.11.2  pyhd8ed1ab_0            conda-forge/noarch  <span class="ansi-green-fg">     Cached</span>
-<span class="ansi-red-fg">  - tensorboard-data-server</span>       0.7.0  py39h079d5ae_0          installed
-<span class="ansi-green-fg">  + tensorboard-data-server</span>       0.6.1  py39h3ccb8fc_4          conda-forge/linux-64<span class="ansi-green-fg">     Cached</span>
-
-  Summary:
-
-  Install: 36 packages
-  Change: 1 packages
-  Upgrade: 8 packages
-  Downgrade: 7 packages
-
-  Total download: 0  B
-
-──────────────────────────────────────────────────────────────────────────────────────────────────
-
-Preparing transaction: ...working... done
-Verifying transaction: ...working... done
-Executing transaction: ...working... done
-</pre></div></div>
-</div>
 </section>
-<section id="Import-dependencies">
-<h3 id="Import-dependencies">Import dependencies<a class="headerlink" href="#Import-dependencies" title="Link to this heading">¶</a></h3>
+</section>
+<section id="理论">
+<h2 id="理论">理论<a class="headerlink" href="#理论" title="Link to this heading">¶</a></h2>
+<section id="分子动力学">
+<h3 id="分子动力学">分子动力学<a class="headerlink" href="#分子动力学" title="Link to this heading">¶</a></h3>
+<p>分子动力学是一种分析定义系统中原子和分子运动及相互作用的计算方法。该方法源于理论物理学，于 1950 年代发展起来（Alder 和 Wainwright，<a class="reference external" href="https://doi.org/10.1063/1.1730376">J Chem Phys (1959), 31(2), 459</a>），但其背后的思想可以追溯到更早：&gt;
+一个智慧体，如果能够在任何时刻理解赋予自然活力的所有力以及组成自然的所有存在物各自的位置，并且如果这个智慧体足够深远，能够对这些数据进行分析，那么它将在一个公式中同时包含宇宙中最大物体的运动和最轻原子的运动：对它而言，没有什么是确定的，未来和过去都将呈现在它眼前。人类智慧在天文学中所达到的完美，为我们提供了这种智慧的一个微弱草图。（Pierre-Simon Laplace，1820）</p>
+<p>让我们将 Laplace 的这段话视为分子动力学模拟的思想基础。换句话说，我们可以通过了解系统各组成部分的特征并应用牛顿运动定律来近似系统的行为。通过求解运动方程，我们可以获得系统的分子轨迹，这是一系列包含所有粒子位置、速度以及势能的快照。为此，我们定义称为力场的函数，它们提供了对系统中每个粒子所受所有力的近似描述。然后我们使用数值积分器求解系统的初值问题并获得轨迹。正如听起来那样，这个过程需要相当多的计算能力，直到几年前 MD 才开始得到更广泛的应用，特别是在计算化学和生物学领域，以及药物发现中（<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med
+Chem (2016), 59(9), 4035‐4061</a>）。</p>
+<p><img alt="MD_rotor_250K_1ns.gif" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MD_rotor_250K_1ns.gif"/><strong>图 1</strong>：受限纳米孔中三个分子组成的超分子旋转的分子动力学模拟（Palma 等人，via <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=34866205">Wikimedia</a>）。</p>
+</section>
+<section id="力场">
+<h3 id="力场">力场<a class="headerlink" href="#力场" title="Link to this heading">¶</a></h3>
+<p>力场描述了原子内部以及分子之间相互作用的力。它们是参数化方程，包含不同力的组成部分（键伸缩、范德华力等）。参数值通常通过实验推导，并根据所涉及的分子和模拟设置，针对每个 MD 场景而变化。结果是系统能量景观的数学描述，其中作用于每个粒子的力来自于势能相对于原子坐标的梯度。有几种可用的力场，各有其特点（<a class="reference external" href="https://doi.org/10.1021/acs.jcim.8b00042">J Chem Inf Model (2018), 58(3), 565-578</a>）。在本教程中，我们将使用 AMBER 力场家族的成员，该家族被广泛用于蛋白质的 MD 模拟。其函数形式为：</p>
+<div class="math notranslate nohighlight">
+\[V(r^N) = \sum_{i \in  bonds}k_{bi} (l_i-l^0_i)^2 + \sum_{i \in  angles}k_{ai}(\theta_i - \theta^0_i)^2 + \sum_{i\in torsions} \sum_n \frac{1}{2} V_i^n[1+cos(nw_i-\gamma_i)]\]</div>
+<p></p>
+<div class="math notranslate nohighlight">
+\[+ \sum_{j=1}^{N-1}\sum_{I=j+1}^{N} f_{ij}\in ij [(\frac{r^0_{ij}}{r_{ij}})^{12}-2(\frac{r^0_{ij}}{r_{ij}})^{6}]+\frac{q_iq_j}{4\pi \in_0 r_{ij}}\]</div>
+<p>该公式由不同组成部分的总和组成。前三个组成部分包含键长、键角和扭转角的信息（分子内力）。最后一个组成部分描述了分子间的非键合力，如范德华力和静电相互作用。各个参数（用上标 0 表示）取决于所使用的力场，并在 AMBER 力场家族的所有成员之间变化。请注意，这些力场假设粒子具有固定电荷，不允许极化，也不考虑局部电荷如何影响其周围环境。下面的力场组成部分的可视化表示以更直观的方式展示了相同的概念。</p>
+<p><img alt="MM_PEF.png" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MM_PEF.png"/><strong>图 2</strong>：分子力学力场的组成部分（Edboas via <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=4194424">Wikimedia</a>）。</p>
+</section>
+<section id="边界条件通常，分子系统在填充有溶剂（如水）的盒子中进行模拟。这些盒子尺寸有限，这会导致盒子边界处或附近的分子出现问题。它们应该与哪些分子相互作用？周期性边界条件可以通过模拟理论上无限的系统来避免此类边界伪影。盒子一个边界处的分子与盒子另一侧边界处的分子相互作用。这模拟了一种情况，即模拟盒被自身的副本包围。在可视化此类-MD-模拟时，我们经常观察到粒子从一侧离开盒子（图-3）。然而，它们同时以相同的速度重新出现在盒子的另一侧。对于周期性边界条件下的模拟，建议使用足够大的模拟盒，使得被模拟的大分子不会与其相邻镜像接触。">
+<h3 id="边界条件通常，分子系统在填充有溶剂（如水）的盒子中进行模拟。这些盒子尺寸有限，这会导致盒子边界处或附近的分子出现问题。它们应该与哪些分子相互作用？周期性边界条件可以通过模拟理论上无限的系统来避免此类边界伪影。盒子一个边界处的分子与盒子另一侧边界处的分子相互作用。这模拟了一种情况，即模拟盒被自身的副本包围。在可视化此类-MD-模拟时，我们经常观察到粒子从一侧离开盒子（图-3）。然而，它们同时以相同的速度重新出现在盒子的另一侧。对于周期性边界条件下的模拟，建议使用足够大的模拟盒，使得被模拟的大分子不会与其相邻镜像接触。">边界条件通常，分子系统在填充有溶剂（如水）的盒子中进行模拟。这些盒子尺寸有限，这会导致盒子边界处或附近的分子出现问题。它们应该与哪些分子相互作用？周期性边界条件可以通过模拟理论上无限的系统来避免此类边界伪影。盒子一个边界处的分子与盒子另一侧边界处的分子相互作用。这模拟了一种情况，即模拟盒被自身的副本包围。在可视化此类 MD 模拟时，我们经常观察到粒子从一侧离开盒子（图 3）。然而，它们同时以相同的速度重新出现在盒子的另一侧。对于周期性边界条件下的模拟，建议使用足够大的模拟盒，使得被模拟的大分子不会与其相邻镜像接触。<a class="headerlink" href="#边界条件通常，分子系统在填充有溶剂（如水）的盒子中进行模拟。这些盒子尺寸有限，这会导致盒子边界处或附近的分子出现问题。它们应该与哪些分子相互作用？周期性边界条件可以通过模拟理论上无限的系统来避免此类边界伪影。盒子一个边界处的分子与盒子另一侧边界处的分子相互作用。这模拟了一种情况，即模拟盒被自身的副本包围。在可视化此类-MD-模拟时，我们经常观察到粒子从一侧离开盒子（图-3）。然而，它们同时以相同的速度重新出现在盒子的另一侧。对于周期性边界条件下的模拟，建议使用足够大的模拟盒，使得被模拟的大分子不会与其相邻镜像接触。" title="Link to this heading">¶</a></h3>
+<p><img alt="MD_water.gif" src="https://github.com/volkamerlab/teachopencadd/raw/d1ded86bb2c82ef088cc5145d0bcb997f6eab7dd/teachopencadd/talktorials/018_md_simulation/images/MD_water.gif"/><strong>图 3</strong>：周期性边界条件下水分子的分子动力学模拟（Kmckiern via <a class="reference external" href="https://commons.wikimedia.org/wiki/File:MD_water.gif">Wikimedia</a>）。</p>
+</section>
+<section id="MD-模拟与药物设计MD-模拟为配体与其靶标结合的高度动态过程提供了宝贵的见解。当配体（或药物）在溶液中接近大分子（蛋白质）时，它遇到的是一个处于不断运动状态的结构。此外，配体可能诱导大分子发生构象变化，以最佳方式容纳小分子。这种构象可能无法通过静态方法发现。因此，在静态无配体结构中未观察到，但可以通过-MD-模拟发现的结合位点有时被称为隐性结合位点（J-Med-Chem-(2016),-59(9),-4035‐4061）。使用-MD-模拟识别这些结合位点可以启动新的药物发现活动。在药物发现过程的后期，MD-模拟也可用于在执行更昂贵和耗时的体外测试之前评估计算识别的小分子的质量。总的来说，MD-模拟是计算药物设计中的宝贵资产。">
+<h3 id="MD-模拟与药物设计MD-模拟为配体与其靶标结合的高度动态过程提供了宝贵的见解。当配体（或药物）在溶液中接近大分子（蛋白质）时，它遇到的是一个处于不断运动状态的结构。此外，配体可能诱导大分子发生构象变化，以最佳方式容纳小分子。这种构象可能无法通过静态方法发现。因此，在静态无配体结构中未观察到，但可以通过-MD-模拟发现的结合位点有时被称为隐性结合位点（J-Med-Chem-(2016),-59(9),-4035‐4061）。使用-MD-模拟识别这些结合位点可以启动新的药物发现活动。在药物发现过程的后期，MD-模拟也可用于在执行更昂贵和耗时的体外测试之前评估计算识别的小分子的质量。总的来说，MD-模拟是计算药物设计中的宝贵资产。">MD 模拟与药物设计MD 模拟为配体与其靶标结合的高度动态过程提供了宝贵的见解。当配体（或药物）在溶液中接近大分子（蛋白质）时，它遇到的是一个处于不断运动状态的结构。此外，配体可能诱导大分子发生构象变化，以最佳方式容纳小分子。这种构象可能无法通过静态方法发现。因此，在静态无配体结构中未观察到，但可以通过 MD 模拟发现的结合位点有时被称为<em>隐性结合位点</em>（<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem (2016), 59(9), 4035‐4061</a>）。使用 MD 模拟识别这些结合位点可以启动新的药物发现活动。在药物发现过程的后期，MD 模拟也可用于在执行更昂贵和耗时的<em>体外</em>测试之前评估计算识别的小分子的质量。总的来说，MD 模拟是计算药物设计中的宝贵资产。<a class="headerlink" href="#MD-模拟与药物设计MD-模拟为配体与其靶标结合的高度动态过程提供了宝贵的见解。当配体（或药物）在溶液中接近大分子（蛋白质）时，它遇到的是一个处于不断运动状态的结构。此外，配体可能诱导大分子发生构象变化，以最佳方式容纳小分子。这种构象可能无法通过静态方法发现。因此，在静态无配体结构中未观察到，但可以通过-MD-模拟发现的结合位点有时被称为隐性结合位点（J-Med-Chem-(2016),-59(9),-4035‐4061）。使用-MD-模拟识别这些结合位点可以启动新的药物发现活动。在药物发现过程的后期，MD-模拟也可用于在执行更昂贵和耗时的体外测试之前评估计算识别的小分子的质量。总的来说，MD-模拟是计算药物设计中的宝贵资产。" title="Link to this heading">¶</a></h3>
+</section>
+<section id="EGFR-激酶表皮生长因子受体（EGFR）是一个重要的药物靶点，与癌症和炎症有关（Wikipedia）。它是一种跨膜蛋白，具有细胞外受体结构域和细胞内激酶结构域。内源性配体表皮生长因子的结合通过二聚化和自磷酸化激活激酶结构域。激活的激酶结构域随后可以磷酸化下游信号蛋白，触发-DNA-合成和细胞增殖（Cancers-(Basel)-(2017),-9(5),-52）。抑制这种激酶是几种已获批癌症药物的作用机制基础（DrugBank）。在本教程中，我们使用该激酶的-PDB-结构-3POZ，其与小分子抑制剂-03P-形成复合物，以执行-MD-模拟（PDB:-3POZ）。">
+<h3 id="EGFR-激酶表皮生长因子受体（EGFR）是一个重要的药物靶点，与癌症和炎症有关（Wikipedia）。它是一种跨膜蛋白，具有细胞外受体结构域和细胞内激酶结构域。内源性配体表皮生长因子的结合通过二聚化和自磷酸化激活激酶结构域。激活的激酶结构域随后可以磷酸化下游信号蛋白，触发-DNA-合成和细胞增殖（Cancers-(Basel)-(2017),-9(5),-52）。抑制这种激酶是几种已获批癌症药物的作用机制基础（DrugBank）。在本教程中，我们使用该激酶的-PDB-结构-3POZ，其与小分子抑制剂-03P-形成复合物，以执行-MD-模拟（PDB:-3POZ）。">EGFR 激酶<strong>表</strong>皮<strong>生</strong>长<strong>因</strong>子<strong>受</strong>体（EGFR）是一个重要的药物靶点，与癌症和炎症有关（<a class="reference external" href="https://en.wikipedia.org/wiki/Epidermal_growth_factor_receptor">Wikipedia</a>）。它是一种跨膜蛋白，具有细胞外受体结构域和细胞内激酶结构域。内源性配体表皮生长因子的结合通过二聚化和自磷酸化激活激酶结构域。激活的激酶结构域随后可以磷酸化下游信号蛋白，触发 DNA 合成和细胞增殖（<a class="reference external" href="https://dx.doi.org/10.3390%2Fcancers9050052">Cancers (Basel) (2017), 9(5), 52</a>）。抑制这种激酶是几种已获批癌症药物的作用机制基础（<a class="reference external" href="https://go.drugbank.com/bio_entities/BE0000767">DrugBank</a>）。在本教程中，我们使用该激酶的 PDB 结构 <strong>3POZ</strong>，其与小分子抑制剂 <strong>03P</strong> 形成复合物，以执行 MD 模拟（<a class="reference external" href="https://www.rcsb.org/structure/3poz">PDB: 3POZ</a>）。<a class="headerlink" href="#EGFR-激酶表皮生长因子受体（EGFR）是一个重要的药物靶点，与癌症和炎症有关（Wikipedia）。它是一种跨膜蛋白，具有细胞外受体结构域和细胞内激酶结构域。内源性配体表皮生长因子的结合通过二聚化和自磷酸化激活激酶结构域。激活的激酶结构域随后可以磷酸化下游信号蛋白，触发-DNA-合成和细胞增殖（Cancers-(Basel)-(2017),-9(5),-52）。抑制这种激酶是几种已获批癌症药物的作用机制基础（DrugBank）。在本教程中，我们使用该激酶的-PDB-结构-3POZ，其与小分子抑制剂-03P-形成复合物，以执行-MD-模拟（PDB:-3POZ）。" title="Link to this heading">¶</a></h3>
+<p><img alt="3poz_assembly-1.jpeg" src="https://github.com/volkamerlab/teachopencadd/raw/ed3b2b6b655589d71355295af4c89363a63558b9/teachopencadd/talktorials/018_md_simulation/images/3poz_assembly-1.jpeg"/><strong>图 4</strong>：EGFR 激酶结构域与抑制剂 03P 结合的 3POZ 结构（<a class="reference external" href="https://www.rcsb.org/structure/3poz">PDB: 3POZ</a>）。</p>
+</section>
+</section>
+<section id="实践现在我们将使用分子动力学引擎-OpenMM-来执行-MD-模拟，这是一个用于分子模拟的高性能工具包。它是开源的，可以用作应用程序或库。我们将把它用作-Python-库。">
+<h2 id="实践现在我们将使用分子动力学引擎-OpenMM-来执行-MD-模拟，这是一个用于分子模拟的高性能工具包。它是开源的，可以用作应用程序或库。我们将把它用作-Python-库。">实践现在我们将使用分子动力学引擎 <a class="reference external" href="https://github.com/openmm/openmm">OpenMM</a> 来执行 MD 模拟，这是一个用于分子模拟的高性能工具包。它是开源的，可以用作应用程序或库。我们将把它用作 Python 库。<a class="headerlink" href="#实践现在我们将使用分子动力学引擎-OpenMM-来执行-MD-模拟，这是一个用于分子模拟的高性能工具包。它是开源的，可以用作应用程序或库。我们将把它用作-Python-库。" title="Link to this heading">¶</a></h2>
+<section id="导入依赖">
+<h3 id="导入依赖">导入依赖<a class="headerlink" href="#导入依赖" title="Link to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
@@ -827,10 +599,10 @@ Executing transaction: ...working... done
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create data directory if not exists</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 如果数据目录不存在则创建</span>
 <span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
 <span class="n">DATA</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -838,11 +610,10 @@ Executing transaction: ...working... done
 </div>
 </div>
 </section>
-<section id="Download-PDB-file">
-<h3 id="Download-PDB-file">Download PDB file<a class="headerlink" href="#Download-PDB-file" title="Link to this heading">¶</a></h3>
-<p>The Protein Data Bank (<a class="reference external" href="https://www.rcsb.org/">PDB</a>) allows for easy downloading of files via url.</p>
+<section id="下载-PDB-文件蛋白质数据库（PDB）允许通过-URL-轻松下载文件。">
+<h3 id="下载-PDB-文件蛋白质数据库（PDB）允许通过-URL-轻松下载文件。">下载 PDB 文件蛋白质数据库（<a class="reference external" href="https://www.rcsb.org/">PDB</a>）允许通过 URL 轻松下载文件。<a class="headerlink" href="#下载-PDB-文件蛋白质数据库（PDB）允许通过-URL-轻松下载文件。" title="Link to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdbid</span> <span class="o">=</span> <span class="s2">"3POZ"</span>
@@ -853,7 +624,7 @@ Executing transaction: ...working... done
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pdb_url</span><span class="p">)</span>
@@ -864,44 +635,42 @@ Executing transaction: ...working... done
 </div>
 </div>
 </section>
-<section id="Prepare-the-protein-ligand-complex">
-<h3 id="Prepare-the-protein-ligand-complex">Prepare the protein ligand complex<a class="headerlink" href="#Prepare-the-protein-ligand-complex" title="Link to this heading">¶</a></h3>
-<section id="Protein-preparation">
-<h4 id="Protein-preparation">Protein preparation<a class="headerlink" href="#Protein-preparation" title="Link to this heading">¶</a></h4>
-<p>A crucial part for successful simulation is a correct and complete system. Crystallographic structures retrieved from the Protein Data Bank often miss atoms, mainly hydrogens, and may contain non-standard residues. In this talktorial, we will use the Python package <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> to prepare the protein structure. However, co-crystallized ligands are not handled well by <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> and will thus be prepared separately.</p>
+<section id="准备蛋白质-配体复合物">
+<h3 id="准备蛋白质-配体复合物">准备蛋白质-配体复合物<a class="headerlink" href="#准备蛋白质-配体复合物" title="Link to this heading">¶</a></h3>
+<section id="蛋白质准备成功模拟的关键部分是正确且完整的系统。从蛋白质数据库检索的晶体结构通常缺少原子（主要是氢），并且可能包含非标准残基。在本教程中，我们将使用-Python-包-PDBFixer-来准备蛋白质结构。然而，共结晶的配体不能由-PDBFixer-很好地处理，因此将单独准备。">
+<h4 id="蛋白质准备成功模拟的关键部分是正确且完整的系统。从蛋白质数据库检索的晶体结构通常缺少原子（主要是氢），并且可能包含非标准残基。在本教程中，我们将使用-Python-包-PDBFixer-来准备蛋白质结构。然而，共结晶的配体不能由-PDBFixer-很好地处理，因此将单独准备。">蛋白质准备成功模拟的关键部分是正确且完整的系统。从蛋白质数据库检索的晶体结构通常缺少原子（主要是氢），并且可能包含非标准残基。在本教程中，我们将使用 Python 包 <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> 来准备蛋白质结构。然而，共结晶的配体不能由 <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> 很好地处理，因此将单独准备。<a class="headerlink" href="#蛋白质准备成功模拟的关键部分是正确且完整的系统。从蛋白质数据库检索的晶体结构通常缺少原子（主要是氢），并且可能包含非标准残基。在本教程中，我们将使用-Python-包-PDBFixer-来准备蛋白质结构。然而，共结晶的配体不能由-PDBFixer-很好地处理，因此将单独准备。" title="Link to this heading">¶</a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prepare_protein</span><span class="p">(</span>
     <span class="n">pdb_file</span><span class="p">,</span> <span class="n">ignore_missing_residues</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_terminal_missing_residues</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ph</span><span class="o">=</span><span class="mf">7.0</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Use pdbfixer to prepare the protein from a PDB file. Hetero atoms such as ligands are</span>
-<span class="sd">    removed and non-standard residues replaced. Missing atoms to existing residues are added.</span>
-<span class="sd">    Missing residues are ignored by default, but can be included.</span>
+<span class="sd">    使用 pdbfixer 从 PDB 文件准备蛋白质。移除杂原子（如配体）并替换非标准残基。</span>
+<span class="sd">    为现有残基添加缺失的原子。默认忽略缺失残基，但可以选择包含。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
-<span class="sd">    pdb_file: pathlib.Path or str</span>
-<span class="sd">        PDB file containing the system to simulate.</span>
-<span class="sd">    ignore_missing_residues: bool, optional</span>
-<span class="sd">        If missing residues should be ignored or built.</span>
-<span class="sd">    ignore_terminal_missing_residues: bool, optional</span>
-<span class="sd">        If missing residues at the beginning and the end of a chain should be ignored or built.</span>
-<span class="sd">    ph: float, optional</span>
-<span class="sd">        pH value used to determine protonation state of residues</span>
+<span class="sd">    pdb_file: pathlib.Path 或 str</span>
+<span class="sd">        包含待模拟系统的 PDB 文件。</span>
+<span class="sd">    ignore_missing_residues: bool, 可选</span>
+<span class="sd">        是否忽略或构建缺失残基。</span>
+<span class="sd">    ignore_terminal_missing_residues: bool, 可选</span>
+<span class="sd">        是否忽略或构建链首尾的缺失残基。</span>
+<span class="sd">    ph: float, 可选</span>
+<span class="sd">        用于确定残基质子化状态的 pH 值。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    fixer: pdbfixer.pdbfixer.PDBFixer</span>
-<span class="sd">        Prepared protein system.</span>
+<span class="sd">        准备好的蛋白质系统。</span>
 <span class="sd">    """</span>
     <span class="n">fixer</span> <span class="o">=</span> <span class="n">pdbfixer</span><span class="o">.</span><span class="n">PDBFixer</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">pdb_file</span><span class="p">))</span>
-    <span class="n">fixer</span><span class="o">.</span><span class="n">removeHeterogens</span><span class="p">()</span>  <span class="c1"># co-crystallized ligands are unknown to PDBFixer</span>
-    <span class="n">fixer</span><span class="o">.</span><span class="n">findMissingResidues</span><span class="p">()</span>  <span class="c1"># identify missing residues, needed for identification of missing atoms</span>
+    <span class="n">fixer</span><span class="o">.</span><span class="n">removeHeterogens</span><span class="p">()</span>  <span class="c1"># 共结晶配体对 PDBFixer 来说是未知的</span>
+    <span class="n">fixer</span><span class="o">.</span><span class="n">findMissingResidues</span><span class="p">()</span>  <span class="c1"># 识别缺失残基，用于后续识别缺失原子</span>
 
-    <span class="c1"># if missing terminal residues shall be ignored, remove them from the dictionary</span>
+    <span class="c1"># 如果忽略末端缺失残基，则从字典中移除</span>
     <span class="k">if</span> <span class="n">ignore_terminal_missing_residues</span><span class="p">:</span>
         <span class="n">chains</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fixer</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">chains</span><span class="p">())</span>
         <span class="n">keys</span> <span class="o">=</span> <span class="n">fixer</span><span class="o">.</span><span class="n">missingResidues</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -910,85 +679,77 @@ Executing transaction: ...working... done
             <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">residues</span><span class="p">())):</span>
                 <span class="k">del</span> <span class="n">fixer</span><span class="o">.</span><span class="n">missingResidues</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
-    <span class="c1"># if all missing residues shall be ignored ignored, clear the dictionary</span>
+    <span class="c1"># 如果忽略所有缺失残基，则清空字典</span>
     <span class="k">if</span> <span class="n">ignore_missing_residues</span><span class="p">:</span>
         <span class="n">fixer</span><span class="o">.</span><span class="n">missingResidues</span> <span class="o">=</span> <span class="p">{}</span>
 
-    <span class="n">fixer</span><span class="o">.</span><span class="n">findNonstandardResidues</span><span class="p">()</span>  <span class="c1"># find non-standard residue</span>
-    <span class="n">fixer</span><span class="o">.</span><span class="n">replaceNonstandardResidues</span><span class="p">()</span>  <span class="c1"># replace non-standard residues with standard one</span>
-    <span class="n">fixer</span><span class="o">.</span><span class="n">findMissingAtoms</span><span class="p">()</span>  <span class="c1"># find missing heavy atoms</span>
-    <span class="n">fixer</span><span class="o">.</span><span class="n">addMissingAtoms</span><span class="p">()</span>  <span class="c1"># add missing atoms and residues</span>
-    <span class="n">fixer</span><span class="o">.</span><span class="n">addMissingHydrogens</span><span class="p">(</span><span class="n">ph</span><span class="p">)</span>  <span class="c1"># add missing hydrogens</span>
+    <span class="n">fixer</span><span class="o">.</span><span class="n">findNonstandardResidues</span><span class="p">()</span>  <span class="c1"># 查找非标准残基</span>
+    <span class="n">fixer</span><span class="o">.</span><span class="n">replaceNonstandardResidues</span><span class="p">()</span>  <span class="c1"># 用标准残基替换非标准残基</span>
+    <span class="n">fixer</span><span class="o">.</span><span class="n">findMissingAtoms</span><span class="p">()</span>  <span class="c1"># 查找缺失的重原子</span>
+    <span class="n">fixer</span><span class="o">.</span><span class="n">addMissingAtoms</span><span class="p">()</span>  <span class="c1"># 添加缺失的原子和残基</span>
+    <span class="n">fixer</span><span class="o">.</span><span class="n">addMissingHydrogens</span><span class="p">(</span><span class="n">ph</span><span class="p">)</span>  <span class="c1"># 添加缺失的氢原子</span>
     <span class="k">return</span> <span class="n">fixer</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># prepare protein and build only missing non-terminal residues</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 准备蛋白质，仅构建缺失的非末端残基</span>
 <span class="n">prepared_protein</span> <span class="o">=</span> <span class="n">prepare_protein</span><span class="p">(</span><span class="n">pdb_path</span><span class="p">,</span> <span class="n">ignore_missing_residues</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-Warning: importing 'simtk.openmm' is deprecated.  Import 'openmm' instead.
-</pre></div></div>
-</div>
 </section>
-<section id="Prepare-ligand">
-<h4 id="Prepare-ligand">Prepare ligand<a class="headerlink" href="#Prepare-ligand" title="Link to this heading">¶</a></h4>
-<p>After preparing the protein, we turn our attention to the ligand. Again, we need to add hydrogens, but also need to make sure the bond orders are correctly assigned, since some PDB entries may contain errors. We use the Python package <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a>, an open source cheminformatics library. We will provide the correct protonation state and bond orders to <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a> via a SMILES string. Uncharged isomeric SMILES strings for each
-co-crystallized ligand can be found in their respective <a class="reference external" href="https://www.rcsb.org">PDB</a> entry. The ligand of PDB entry <a class="reference external" href="https://www.rcsb.org/structure/3poz">3POZ</a> has the name <a class="reference external" href="https://www.rcsb.org/ligand/03P">03P</a>. If a ligand is likely to bind in its charged form or as a specific tautomer, such characteristics need to be incorporated into the SMILES string.</p>
+<section id="配体准备">
+<h4 id="配体准备">配体准备<a class="headerlink" href="#配体准备" title="Link to this heading">¶</a></h4>
+<p>准备完蛋白质后，我们将注意力转向配体。同样，我们需要添加氢原子，但还需要确保键级正确分配，因为某些 PDB 条目可能包含错误。我们使用 Python 包 <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a>，一个开源化学信息学库。我们将通过 SMILES 字符串向 <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a> 提供正确的质子化状态和键级。每个共结晶配体的未带电异构 SMILES 字符串可以在其各自的 <a class="reference external" href="https://www.rcsb.org">PDB</a> 条目中找到。PDB 条目 <a class="reference external" href="https://www.rcsb.org/structure/3poz">3POZ</a> 的配体名称是
+<a class="reference external" href="https://www.rcsb.org/ligand/03P">03P</a>。如果配体可能以其带电形式或特定互变异构体结合，则这些特征需要合并到 SMILES 字符串中。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prepare_ligand</span><span class="p">(</span><span class="n">pdb_file</span><span class="p">,</span> <span class="n">resname</span><span class="p">,</span> <span class="n">smiles</span><span class="p">,</span> <span class="n">depict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Prepare a ligand from a PDB file via adding hydrogens and assigning bond orders. A depiction</span>
-<span class="sd">    of the ligand before and after preparation is rendered in 2D to allow an inspection of the</span>
-<span class="sd">    results. Huge thanks to @j-wags for the suggestion.</span>
+<span class="sd">    通过添加氢原子和分配键级，从 PDB 文件准备配体。</span>
+<span class="sd">    准备前后的配体以 2D 形式呈现，以便检查结果。</span>
+<span class="sd">    非常感谢 @j-wags 的建议。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    pdb_file: pathlib.PosixPath</span>
-<span class="sd">       PDB file containing the ligand of interest.</span>
+<span class="sd">       包含目标配体的 PDB 文件。</span>
 <span class="sd">    resname: str</span>
-<span class="sd">        Three character residue name of the ligand.</span>
+<span class="sd">        配体的三字符残基名称。</span>
 <span class="sd">    smiles : str</span>
-<span class="sd">        SMILES string of the ligand informing about correct protonation and bond orders.</span>
-<span class="sd">    depict: bool, optional</span>
-<span class="sd">        show a 2D representation of the ligand</span>
+<span class="sd">        配体的 SMILES 字符串，提供正确的质子化和键级信息。</span>
+<span class="sd">    depict: bool, 可选</span>
+<span class="sd">        是否显示配体的 2D 表示。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    prepared_ligand: rdkit.Chem.rdchem.Mol</span>
-<span class="sd">        Prepared ligand.</span>
+<span class="sd">        准备好的配体。</span>
 <span class="sd">    """</span>
-    <span class="c1"># split molecule</span>
+    <span class="c1"># 分离分子</span>
     <span class="n">rdkit_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromPDBFile</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">pdb_file</span><span class="p">))</span>
     <span class="n">rdkit_mol_split</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">rdmolops</span><span class="o">.</span><span class="n">SplitMolByPDBResidues</span><span class="p">(</span><span class="n">rdkit_mol</span><span class="p">)</span>
 
-    <span class="c1"># extract the ligand and remove any already present hydrogens</span>
+    <span class="c1"># 提取配体并移除已存在的氢原子</span>
     <span class="n">ligand</span> <span class="o">=</span> <span class="n">rdkit_mol_split</span><span class="p">[</span><span class="n">resname</span><span class="p">]</span>
     <span class="n">ligand</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">RemoveHs</span><span class="p">(</span><span class="n">ligand</span><span class="p">)</span>
 
-    <span class="c1"># assign bond orders from template</span>
+    <span class="c1"># 从模板分配键级</span>
     <span class="n">reference_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
     <span class="n">prepared_ligand</span> <span class="o">=</span> <span class="n">AllChem</span><span class="o">.</span><span class="n">AssignBondOrdersFromTemplate</span><span class="p">(</span><span class="n">reference_mol</span><span class="p">,</span> <span class="n">ligand</span><span class="p">)</span>
     <span class="n">prepared_ligand</span><span class="o">.</span><span class="n">AddConformer</span><span class="p">(</span><span class="n">ligand</span><span class="o">.</span><span class="n">GetConformer</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 
-    <span class="c1"># protonate ligand</span>
+    <span class="c1"># 对配体质子化</span>
     <span class="n">prepared_ligand</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">rdmolops</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">prepared_ligand</span><span class="p">,</span> <span class="n">addCoords</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">prepared_ligand</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromMolBlock</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolToMolBlock</span><span class="p">(</span><span class="n">prepared_ligand</span><span class="p">))</span>
 
-    <span class="c1"># 2D depiction</span>
+    <span class="c1"># 2D 展示</span>
     <span class="k">if</span> <span class="n">depict</span><span class="p">:</span>
         <span class="n">ligand_2d</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">ligand</span><span class="p">)</span>
         <span class="n">prepared_ligand_2d</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">prepared_ligand</span><span class="p">)</span>
@@ -1000,14 +761,14 @@ co-crystallized ligand can be found in their respective <a class="reference exte
             <span class="p">)</span>
         <span class="p">)</span>
 
-    <span class="c1"># return ligand</span>
+    <span class="c1"># 返回配体</span>
     <span class="k">return</span> <span class="n">prepared_ligand</span>
 </pre></div>
 </div>
 </div>
-<p>Calling this function with the isomeric SMILES string taken from the PDB entry for <a class="reference external" href="https://www.rcsb.org/ligand/03P">03P</a> returns a correctly prepared ligand. Printed is a 2D-representation of the original and the prepared ligand for inspection.</p>
+<p>调用此函数并使用从 PDB 条目 <a class="reference external" href="https://www.rcsb.org/ligand/03P">03P</a> 获取的异构 SMILES 字符串，将返回正确准备的配体。打印出原始配体和准备后配体的 2D 表示以供检查。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smiles</span> <span class="o">=</span> <span class="s2">"CC(C)(O)CC(=O)NCCn1ccc2ncnc(Nc3ccc(Oc4cccc(c4)C(F)(F)F)c(Cl)c3)c12"</span>
@@ -1020,7 +781,7 @@ co-crystallized ligand can be found in their respective <a class="reference exte
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-[12:25:08] WARNING: More than one matching pattern found - picking one
+[10:10:57] WARNING: More than one matching pattern found - picking one
 
 </pre></div></div>
 </div>
@@ -1028,42 +789,40 @@ co-crystallized ligand can be found in their respective <a class="reference exte
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T019_md_simulation_41_1.png" src="../_images/talktorials_T019_md_simulation_41_1.png"/>
+<img alt="../_images/talktorials_T019_md_simulation_37_1.png" src="../_images/talktorials_T019_md_simulation_37_1.png"/>
 </div>
 </div>
 </section>
-<section id="Merge-protein-and-ligand">
-<h4 id="Merge-protein-and-ligand">Merge protein and ligand<a class="headerlink" href="#Merge-protein-and-ligand" title="Link to this heading">¶</a></h4>
-<p>In the next step, we want to merge the prepared protein and ligand structures using the Python package <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a>. <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a> can handle the prepared protein, which is currently a <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> molecule, a format that has a topology and atom positions similar to and usually interchangeable with <a class="reference external" href="http://docs.openmm.org/latest/userguide/application.html#model-building-and-editing">OpenMM
-Modeller</a> topologies and positions. For the ligand however, we need to do several conversions, since it is currently an <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a> molecule.</p>
+<section id="合并蛋白质与配体下一步，我们想要使用-Python-包-MDTraj-合并准备好的蛋白质和配体结构。MDTraj-可以处理准备好的蛋白质，它当前是一个-PDBFixer-分子，这种格式具有与-OpenMM-Modeller-拓扑和位置类似且通常可互换的拓扑和原子位置。然而，对于配体，我们需要进行多次转换，因为它当前是一个-RDKit-分子。">
+<h4 id="合并蛋白质与配体下一步，我们想要使用-Python-包-MDTraj-合并准备好的蛋白质和配体结构。MDTraj-可以处理准备好的蛋白质，它当前是一个-PDBFixer-分子，这种格式具有与-OpenMM-Modeller-拓扑和位置类似且通常可互换的拓扑和原子位置。然而，对于配体，我们需要进行多次转换，因为它当前是一个-RDKit-分子。">合并蛋白质与配体下一步，我们想要使用 Python 包 <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a> 合并准备好的蛋白质和配体结构。<a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a> 可以处理准备好的蛋白质，它当前是一个 <a class="reference external" href="https://github.com/openmm/pdbfixer">PDBFixer</a> 分子，这种格式具有与 <a class="reference external" href="http://docs.openmm.org/latest/userguide/application.html#model-building-and-editing">OpenMM Modeller</a> 拓扑和位置类似且通常可互换的拓扑和原子位置。然而，对于配体，我们需要进行多次转换，因为它当前是一个 <a class="reference external" href="https://github.com/rdkit/rdkit">RDKit</a> 分子。<a class="headerlink" href="#合并蛋白质与配体下一步，我们想要使用-Python-包-MDTraj-合并准备好的蛋白质和配体结构。MDTraj-可以处理准备好的蛋白质，它当前是一个-PDBFixer-分子，这种格式具有与-OpenMM-Modeller-拓扑和位置类似且通常可互换的拓扑和原子位置。然而，对于配体，我们需要进行多次转换，因为它当前是一个-RDKit-分子。" title="Link to this heading">¶</a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rdkit_to_openmm</span><span class="p">(</span><span class="n">rdkit_mol</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"LIG"</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Convert an RDKit molecule to an OpenMM molecule.</span>
-<span class="sd">    Inspired by @hannahbrucemcdonald and @glass-w.</span>
+<span class="sd">    将 RDKit 分子转换为 OpenMM 分子。</span>
+<span class="sd">    灵感来自 @hannahbrucemcdonald 和 @glass-w。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    rdkit_mol: rdkit.Chem.rdchem.Mol</span>
-<span class="sd">        RDKit molecule to convert.</span>
+<span class="sd">        要转换的 RDKit 分子。</span>
 <span class="sd">    name: str</span>
-<span class="sd">        Molecule name.</span>
+<span class="sd">        分子名称。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    omm_molecule: openmm.app.Modeller</span>
-<span class="sd">        OpenMM modeller object holding the molecule of interest.</span>
+<span class="sd">        包含目标分子的 OpenMM modeller 对象。</span>
 <span class="sd">    """</span>
-    <span class="c1"># convert RDKit to OpenFF</span>
+    <span class="c1"># 将 RDKit 转换为 OpenFF</span>
     <span class="n">off_mol</span> <span class="o">=</span> <span class="n">Molecule</span><span class="o">.</span><span class="n">from_rdkit</span><span class="p">(</span><span class="n">rdkit_mol</span><span class="p">)</span>
 
-    <span class="c1"># add name for molecule</span>
+    <span class="c1"># 为分子添加名称</span>
     <span class="n">off_mol</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
 
-    <span class="c1"># add names for atoms</span>
+    <span class="c1"># 为原子添加名称</span>
     <span class="n">element_counter_dict</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">off_atom</span><span class="p">,</span> <span class="n">rdkit_atom</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">off_mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">,</span> <span class="n">rdkit_mol</span><span class="o">.</span><span class="n">GetAtoms</span><span class="p">()):</span>
         <span class="n">element</span> <span class="o">=</span> <span class="n">rdkit_atom</span><span class="o">.</span><span class="n">GetSymbol</span><span class="p">()</span>
@@ -1073,16 +832,16 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
             <span class="n">element_counter_dict</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="n">off_atom</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">element</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">element_counter_dict</span><span class="p">[</span><span class="n">element</span><span class="p">])</span>
 
-    <span class="c1"># convert from OpenFF to OpenMM</span>
+    <span class="c1"># 从 OpenFF 转换为 OpenMM</span>
     <span class="n">off_mol_topology</span> <span class="o">=</span> <span class="n">off_mol</span><span class="o">.</span><span class="n">to_topology</span><span class="p">()</span>
     <span class="n">mol_topology</span> <span class="o">=</span> <span class="n">off_mol_topology</span><span class="o">.</span><span class="n">to_openmm</span><span class="p">()</span>
     <span class="n">mol_positions</span> <span class="o">=</span> <span class="n">off_mol</span><span class="o">.</span><span class="n">conformers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="c1"># convert units from Ångström to nanometers</span>
-    <span class="c1"># since OpenMM works in nm</span>
+    <span class="c1"># 将单位从 Ångström 转换为 nm</span>
+    <span class="c1"># 因为 OpenMM 使用 nm 作为单位</span>
     <span class="n">mol_positions</span> <span class="o">=</span> <span class="n">mol_positions</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"nanometers"</span><span class="p">)</span>
 
-    <span class="c1"># combine topology and positions in modeller object</span>
+    <span class="c1"># 将拓扑和位置合并到 modeller 对象中</span>
     <span class="n">omm_mol</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">Modeller</span><span class="p">(</span><span class="n">mol_topology</span><span class="p">,</span> <span class="n">mol_positions</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">omm_mol</span>
@@ -1090,57 +849,57 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">omm_ligand</span> <span class="o">=</span> <span class="n">rdkit_to_openmm</span><span class="p">(</span><span class="n">rdkit_ligand</span><span class="p">,</span> <span class="n">ligand_name</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>Now protein and ligand are both in <a class="reference external" href="https://github.com/openmm/openmm">OpenMM</a> like formats and can be merged with <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a>.</p>
+<p>现在蛋白质和配体都处于 <a class="reference external" href="https://github.com/openmm/openmm">OpenMM</a> 类似格式，可以通过 <a class="reference external" href="https://github.com/mdtraj/mdtraj">MDTraj</a> 合并。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">merge_protein_and_ligand</span><span class="p">(</span><span class="n">protein</span><span class="p">,</span> <span class="n">ligand</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Merge two OpenMM objects.</span>
+<span class="sd">    合并两个 OpenMM 对象。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    protein: pdbfixer.pdbfixer.PDBFixer</span>
-<span class="sd">        Protein to merge.</span>
+<span class="sd">        要合并的蛋白质。</span>
 <span class="sd">    ligand: openmm.app.Modeller</span>
-<span class="sd">        Ligand to merge.</span>
+<span class="sd">        要合并的配体。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    complex_topology: openmm.app.topology.Topology</span>
-<span class="sd">        The merged topology.</span>
+<span class="sd">        合并后的拓扑。</span>
 <span class="sd">    complex_positions: openmm.unit.quantity.Quantity</span>
-<span class="sd">        The merged positions.</span>
+<span class="sd">        合并后的位置。</span>
 <span class="sd">    """</span>
-    <span class="c1"># combine topologies</span>
-    <span class="n">md_protein_topology</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">Topology</span><span class="o">.</span><span class="n">from_openmm</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">topology</span><span class="p">)</span>  <span class="c1"># using mdtraj for protein top</span>
-    <span class="n">md_ligand_topology</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">Topology</span><span class="o">.</span><span class="n">from_openmm</span><span class="p">(</span><span class="n">ligand</span><span class="o">.</span><span class="n">topology</span><span class="p">)</span>  <span class="c1"># using mdtraj for ligand top</span>
-    <span class="n">md_complex_topology</span> <span class="o">=</span> <span class="n">md_protein_topology</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">md_ligand_topology</span><span class="p">)</span>  <span class="c1"># add them together</span>
+    <span class="c1"># 合并拓扑</span>
+    <span class="n">md_protein_topology</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">Topology</span><span class="o">.</span><span class="n">from_openmm</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">topology</span><span class="p">)</span>  <span class="c1"># 使用 mdtraj 处理蛋白质拓扑</span>
+    <span class="n">md_ligand_topology</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">Topology</span><span class="o">.</span><span class="n">from_openmm</span><span class="p">(</span><span class="n">ligand</span><span class="o">.</span><span class="n">topology</span><span class="p">)</span>  <span class="c1"># 使用 mdtraj 处理配体拓扑</span>
+    <span class="n">md_complex_topology</span> <span class="o">=</span> <span class="n">md_protein_topology</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">md_ligand_topology</span><span class="p">)</span>  <span class="c1"># 合并到一起</span>
     <span class="n">complex_topology</span> <span class="o">=</span> <span class="n">md_complex_topology</span><span class="o">.</span><span class="n">to_openmm</span><span class="p">()</span>
 
-    <span class="c1"># combine positions</span>
+    <span class="c1"># 合并位置</span>
     <span class="n">total_atoms</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">ligand</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span>
 
-    <span class="c1"># create an array for storing all atom positions as tupels containing a value and a unit</span>
-    <span class="c1"># called OpenMM Quantities</span>
+    <span class="c1"># 创建数组存储所有原子位置（包含值和单位的元组）</span>
+    <span class="c1"># 这些称为 OpenMM Quantities</span>
     <span class="n">complex_positions</span> <span class="o">=</span> <span class="n">unit</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">total_atoms</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="n">unit</span><span class="o">=</span><span class="n">unit</span><span class="o">.</span><span class="n">nanometers</span><span class="p">)</span>
-    <span class="n">complex_positions</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">positions</span><span class="p">)]</span> <span class="o">=</span> <span class="n">protein</span><span class="o">.</span><span class="n">positions</span>  <span class="c1"># add protein positions</span>
-    <span class="n">complex_positions</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">ligand</span><span class="o">.</span><span class="n">positions</span>  <span class="c1"># add ligand positions</span>
+    <span class="n">complex_positions</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">positions</span><span class="p">)]</span> <span class="o">=</span> <span class="n">protein</span><span class="o">.</span><span class="n">positions</span>  <span class="c1"># 添加蛋白质位置</span>
+    <span class="n">complex_positions</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">positions</span><span class="p">)</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">ligand</span><span class="o">.</span><span class="n">positions</span>  <span class="c1"># 添加配体位置</span>
 
     <span class="k">return</span> <span class="n">complex_topology</span><span class="p">,</span> <span class="n">complex_positions</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">complex_topology</span><span class="p">,</span> <span class="n">complex_positions</span> <span class="o">=</span> <span class="n">merge_protein_and_ligand</span><span class="p">(</span><span class="n">prepared_protein</span><span class="p">,</span> <span class="n">omm_ligand</span><span class="p">)</span>
@@ -1152,12 +911,12 @@ Modeller</a> topologies and positions. For the ligand however, we need to do sev
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/openmm/unit/quantity.py:750: UnitStrippedWarning: The unit of the quantity is stripped when downcasting to ndarray.
+/home/michael/.teachopencadd_envs/teachopencadd_T019_py312/lib/python3.12/site-packages/openmm/unit/quantity.py:750: UnitStrippedWarning: The unit of the quantity is stripped when downcasting to ndarray.
   self._value[key] = value / self.unit
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Complex topology has"</span><span class="p">,</span> <span class="n">complex_topology</span><span class="o">.</span><span class="n">getNumAtoms</span><span class="p">(),</span> <span class="s2">"atoms."</span><span class="p">)</span>
@@ -1175,42 +934,40 @@ Complex topology has 5561 atoms.
 </div>
 </section>
 </section>
-<section id="MD-simulation-set-up">
-<h3 id="MD-simulation-set-up">MD simulation set up<a class="headerlink" href="#MD-simulation-set-up" title="Link to this heading">¶</a></h3>
-<p>We can now use the prepared complex to set up the MD simulation.</p>
-<section id="Force-field">
-<h4 id="Force-field">Force field<a class="headerlink" href="#Force-field" title="Link to this heading">¶</a></h4>
-<p>Common force fields like AMBER have parameters for amino acids, nucleic acids, water and ions and usually offer several options to choose from depending on your aim. We use the <code class="docutils literal notranslate"><span class="pre">amber14-all.xml</span></code> force field file, which is shipped with OpenMM and includes parameters for proteins, DNA, RNA and lipids. For solvation we use the standard three-site <a class="reference external" href="https://en.wikipedia.org/wiki/Water_model">water model</a> <a class="reference external" href="https://aip.scitation.org/doi/10.1063/1.445869">TIP3P</a>.</p>
-<p>Parameters for ligands however are not included. To generate these parameters, we can use the <strong>G</strong>eneral <strong>A</strong>MBER <strong>F</strong>orce<strong>F</strong>ield (<a class="reference external" href="http://ambermd.org/antechamber/gaff.html">GAFF</a>), which is implemented in the Python package <a class="reference external" href="https://github.com/openmm/openmmforcefields">OpenMM Forcefields</a>. The following function generates a force field object holding standard AMBER parameters and additionally includes parameters for a small molecule if required.</p>
+<section id="MD-模拟设置现在我们可以使用准备好的复合物来设置-MD-模拟。">
+<h3 id="MD-模拟设置现在我们可以使用准备好的复合物来设置-MD-模拟。">MD 模拟设置现在我们可以使用准备好的复合物来设置 MD 模拟。<a class="headerlink" href="#MD-模拟设置现在我们可以使用准备好的复合物来设置-MD-模拟。" title="Link to this heading">¶</a></h3>
+<section id="力场常见的力场如-AMBER-具有氨基酸、核酸、水和离子的参数，通常提供多种选项供根据目标选择。我们使用随-OpenMM-提供的-amber14-all.xml-力场文件，其中包含蛋白质、DNA、RNA-和脂质的参数。对于溶剂化，我们使用标准的三位点水模型-TIP3P。然而，配体的参数不包括在内。为了生成这些参数，我们可以使用通用-AMBER-力场-（GAFF），它在-Python-包-OpenMM-Forcefields-中实现。以下函数生成一个包含标准-AMBER-参数的力场对象，并在需要时额外包含一个小分子的参数。">
+<h4 id="力场常见的力场如-AMBER-具有氨基酸、核酸、水和离子的参数，通常提供多种选项供根据目标选择。我们使用随-OpenMM-提供的-amber14-all.xml-力场文件，其中包含蛋白质、DNA、RNA-和脂质的参数。对于溶剂化，我们使用标准的三位点水模型-TIP3P。然而，配体的参数不包括在内。为了生成这些参数，我们可以使用通用-AMBER-力场-（GAFF），它在-Python-包-OpenMM-Forcefields-中实现。以下函数生成一个包含标准-AMBER-参数的力场对象，并在需要时额外包含一个小分子的参数。">力场常见的力场如 AMBER 具有氨基酸、核酸、水和离子的参数，通常提供多种选项供根据目标选择。我们使用随 OpenMM 提供的 <code class="docutils literal notranslate"><span class="pre">amber14-all.xml</span></code> 力场文件，其中包含蛋白质、DNA、RNA 和脂质的参数。对于溶剂化，我们使用标准的三位点<a class="reference external" href="https://en.wikipedia.org/wiki/Water_model">水模型</a> <a class="reference external" href="https://aip.scitation.org/doi/10.1063/1.445869">TIP3P</a>。然而，配体的参数不包括在内。为了生成这些参数，我们可以使用<strong>通</strong>用 <strong>AMBER</strong> <strong>力</strong>场 （<a class="reference external" href="http://ambermd.org/antechamber/gaff.html">GAFF</a>），它在 Python 包 <a class="reference external" href="https://github.com/openmm/openmmforcefields">OpenMM Forcefields</a> 中实现。以下函数生成一个包含标准 AMBER 参数的力场对象，并在需要时额外包含一个小分子的参数。<a class="headerlink" href="#力场常见的力场如-AMBER-具有氨基酸、核酸、水和离子的参数，通常提供多种选项供根据目标选择。我们使用随-OpenMM-提供的-amber14-all.xml-力场文件，其中包含蛋白质、DNA、RNA-和脂质的参数。对于溶剂化，我们使用标准的三位点水模型-TIP3P。然而，配体的参数不包括在内。为了生成这些参数，我们可以使用通用-AMBER-力场-（GAFF），它在-Python-包-OpenMM-Forcefields-中实现。以下函数生成一个包含标准-AMBER-参数的力场对象，并在需要时额外包含一个小分子的参数。" title="Link to this heading">¶</a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_forcefield</span><span class="p">(</span>
     <span class="n">rdkit_mol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">protein_ff</span><span class="o">=</span><span class="s2">"amber14-all.xml"</span><span class="p">,</span> <span class="n">solvent_ff</span><span class="o">=</span><span class="s2">"amber14/tip3pfb.xml"</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Generate an OpenMM Forcefield object and register a small molecule.</span>
+<span class="sd">    生成 OpenMM 力场对象并注册一个小分子。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    rdkit_mol: rdkit.Chem.rdchem.Mol</span>
-<span class="sd">        Small molecule to register in the force field.</span>
+<span class="sd">        要在力场中注册的小分子。</span>
 <span class="sd">    protein_ff: string</span>
-<span class="sd">        Name of the force field.</span>
+<span class="sd">        力场名称。</span>
 <span class="sd">    solvent_ff: string</span>
-<span class="sd">        Name of the solvent force field.</span>
+<span class="sd">        溶剂力场名称。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    forcefield: openmm.app.Forcefield</span>
-<span class="sd">        Forcefield with registered small molecule.</span>
+<span class="sd">        已注册小分子的力场。</span>
 <span class="sd">    """</span>
     <span class="n">forcefield</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">ForceField</span><span class="p">(</span><span class="n">protein_ff</span><span class="p">,</span> <span class="n">solvent_ff</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">rdkit_mol</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">gaff</span> <span class="o">=</span> <span class="n">GAFFTemplateGenerator</span><span class="p">(</span>
-            <span class="n">molecules</span><span class="o">=</span><span class="n">Molecule</span><span class="o">.</span><span class="n">from_rdkit</span><span class="p">(</span><span class="n">rdkit_mol</span><span class="p">,</span> <span class="n">allow_undefined_stereo</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">forcefield</span><span class="o">=</span><span class="s2">"gaff-2.2.20"</span><span class="p">,</span>
+            <span class="n">molecules</span><span class="o">=</span><span class="n">Molecule</span><span class="o">.</span><span class="n">from_rdkit</span><span class="p">(</span><span class="n">rdkit_mol</span><span class="p">,</span> <span class="n">allow_undefined_stereo</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
         <span class="p">)</span>
         <span class="n">forcefield</span><span class="o">.</span><span class="n">registerTemplateGenerator</span><span class="p">(</span><span class="n">gaff</span><span class="o">.</span><span class="n">generator</span><span class="p">)</span>
 
@@ -1219,7 +976,7 @@ Complex topology has 5561 atoms.
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forcefield</span> <span class="o">=</span> <span class="n">generate_forcefield</span><span class="p">(</span><span class="n">rdkit_ligand</span><span class="p">)</span>
@@ -1227,15 +984,11 @@ Complex topology has 5561 atoms.
 </div>
 </div>
 </section>
-<section id="System">
-<h4 id="System">System<a class="headerlink" href="#System" title="Link to this heading">¶</a></h4>
-<p>With our configured force field we can now use the <a class="reference external" href="http://docs.openmm.org/latest/userguide/application.html#model-building-and-editing">OpenMM Modeller</a> class to create the MD environment, a simulation box which contains the complex and is filled with a solvent. The standard solvent is water with a specified amount of ions. The size of the box can be determined in various ways. We define it with a padding, which results in a cubic box with dimensions dependent on the largest dimension of the
-complex.</p>
-<blockquote>
-<div><p>Note this step can take a long time, in the order of minutes, depending on your hardware.</p>
-</div></blockquote>
+<section id="系统">
+<h4 id="系统">系统<a class="headerlink" href="#系统" title="Link to this heading">¶</a></h4>
+<p>使用我们配置好的力场，我们现在可以使用 <a class="reference external" href="http://docs.openmm.org/latest/userguide/application.html#model-building-and-editing">OpenMM Modeller</a> 类创建 MD 环境，即一个包含复合物并填充溶剂的模拟盒。标准溶剂是含有指定量离子的水。盒子的尺寸可以通过多种方式确定。我们使用 padding 来定义它，这会产生一个立方体盒子，其尺寸取决于复合物的最大维度。&gt; 注意：此步骤可能需要很长时间（数分钟），具体取决于您的硬件。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">modeller</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">Modeller</span><span class="p">(</span><span class="n">complex_topology</span><span class="p">,</span> <span class="n">complex_positions</span><span class="p">)</span>
@@ -1243,10 +996,10 @@ complex.</p>
 </pre></div>
 </div>
 </div>
-<p>With our solvated system and force field, we can finally create an <a class="reference external" href="http://docs.openmm.org/development/api-python/generated/openmm.openmm.System.html#openmm.openmm.System">OpenMM System</a> and set up the simulation. Additionally to the system the simulation needs an integrator. An <a class="reference external" href="http://docs.openmm.org/development/api-python/library.html#integrators">OpenMM Integrator</a> defines a method for simulating a system by integrating the equations of motion. The chosen <strong>Langevin Integrator</strong> uses
-Langevin equations. A list of all different kinds of integrators can be found in the <a class="reference external" href="http://docs.openmm.org/development/api-python/library.html#integrators">OpenMM Docs</a>. For further insight into the <strong>Langevin Integrator</strong>, we recommend reading about Langevin equations, e.g. on <a class="reference external" href="https://en.wikipedia.org/wiki/Langevin_equation">Wikipedia</a>.</p>
+<p>有了我们的溶剂化系统和力场，我们最终可以创建一个 <a class="reference external" href="http://docs.openmm.org/development/api-python/generated/openmm.openmm.System.html#openmm.openmm.System">OpenMM System</a> 并设置模拟。除了系统之外，模拟还需要一个积分器。<a class="reference external" href="http://docs.openmm.org/development/api-python/library.html#integrators">OpenMM Integrator</a> 定义了通过积分运动方程来模拟系统的方法。所选的 <strong>Langevin 积分器</strong> 使用 Langevin 方程。所有不同类型积分器的列表可以在 <a class="reference external" href="http://docs.openmm.org/development/api-python/library.html#integrators">OpenMM
+文档</a> 中找到。要深入了解 <strong>Langevin 积分器</strong>，我们建议阅读关于 Langevin 方程的内容，例如在 <a class="reference external" href="https://en.wikipedia.org/wiki/Langevin_equation">Wikipedia</a> 上。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">system</span> <span class="o">=</span> <span class="n">forcefield</span><span class="o">.</span><span class="n">createSystem</span><span class="p">(</span><span class="n">modeller</span><span class="o">.</span><span class="n">topology</span><span class="p">,</span> <span class="n">nonbondedMethod</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">PME</span><span class="p">)</span>
@@ -1260,11 +1013,10 @@ Langevin equations. A list of all different kinds of integrators can be found in
 </div>
 </section>
 </section>
-<section id="Perform-the-MD-simulation">
-<h3 id="Perform-the-MD-simulation">Perform the MD simulation<a class="headerlink" href="#Perform-the-MD-simulation" title="Link to this heading">¶</a></h3>
-<p>Now that everything is set up, we can perform the simulation. We need to set starting positions and minimize the energy of the system to get a low energy starting configuration, which is important to decrease the chance of simulation failures due to severe atom clashes. The energy minimized system is saved.</p>
+<section id="执行-MD-模拟现在一切都已设置好，我们可以执行模拟了。我们需要设置起始位置并最小化系统的能量，以获得低能量的起始构象，这对于减少因严重原子碰撞而导致模拟失败的可能性很重要。能量最小化的系统将被保存。">
+<h3 id="执行-MD-模拟现在一切都已设置好，我们可以执行模拟了。我们需要设置起始位置并最小化系统的能量，以获得低能量的起始构象，这对于减少因严重原子碰撞而导致模拟失败的可能性很重要。能量最小化的系统将被保存。">执行 MD 模拟现在一切都已设置好，我们可以执行模拟了。我们需要设置起始位置并最小化系统的能量，以获得低能量的起始构象，这对于减少因严重原子碰撞而导致模拟失败的可能性很重要。能量最小化的系统将被保存。<a class="headerlink" href="#执行-MD-模拟现在一切都已设置好，我们可以执行模拟了。我们需要设置起始位置并最小化系统的能量，以获得低能量的起始构象，这对于减少因严重原子碰撞而导致模拟失败的可能性很重要。能量最小化的系统将被保存。" title="Link to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation</span><span class="o">.</span><span class="n">minimizeEnergy</span><span class="p">()</span>
@@ -1278,22 +1030,20 @@ Langevin equations. A list of all different kinds of integrators can be found in
 </pre></div>
 </div>
 </div>
-<p>Once the minimization has finished, we can perform the MD simulation. In this talktorial, we will do a short simulation for illustration. Simulations for research purposes span several nanoseconds, even up to microseconds. We will simulate only 100 ps of molecular dynamics corresponding to 50k steps of 2 fs each. We save molecular “snapshots” every 10 ps (5000 steps), for a total of 10 frames. The results are saved in an .xtc file, which contains the coordinates of all the atoms at a given time
-point. Together with the PDB file of the energy minimized system written before, it gives us all the information needed for later analysis.</p>
-<p><strong>Note</strong>: This talktorial will only generate a 20 fs trajectory, if not on Google Colab. However, if you have a good GPU available, you can also increase the simulation time.</p>
+<p>一旦最小化完成，我们就可以执行 MD 模拟。在本教程中，我们将进行一个简短的模拟以作说明。用于研究目的的模拟跨越数纳秒，甚至达到微秒。我们将仅模拟 100 ps 的分子动力学，对应每步 2 fs 的 50k 步。我们每 10 ps（5000 步）保存分子”快照”，总共 10 帧。结果保存在 .xtc 文件中，其中包含所有原子在给定时间点的坐标。结合之前写入的能量最小化系统的 PDB 文件，它为我们提供了后续分析所需的所有信息。<strong>注意</strong>：如果不在 Google Colab 上运行，本教程将仅生成 20 fs 的轨迹。但是，如果您有可用的 GPU，也可以增加模拟时间。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># output settings</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 输出设置</span>
 <span class="k">if</span> <span class="n">on_colab</span><span class="p">:</span>
-    <span class="n">steps</span> <span class="o">=</span> <span class="mi">50000</span>  <span class="c1"># corresponds to 100 ps</span>
-    <span class="n">write_interval</span> <span class="o">=</span> <span class="mi">5000</span>  <span class="c1"># write every 10 ps</span>
-    <span class="n">log_interval</span> <span class="o">=</span> <span class="mi">2500</span>  <span class="c1"># log progress to stdout every 5 ps</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="mi">50000</span>  <span class="c1"># 对应 100 ps</span>
+    <span class="n">write_interval</span> <span class="o">=</span> <span class="mi">5000</span>  <span class="c1"># 每 10 ps 写入一次</span>
+    <span class="n">log_interval</span> <span class="o">=</span> <span class="mi">2500</span>  <span class="c1"># 每 5 ps 记录进度到标准输出</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">steps</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># corresponds to 20 fs</span>
-    <span class="n">write_interval</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># write every 2 fs</span>
-    <span class="n">log_interval</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># log progress to stdout every 2 fs</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># 对应 20 fs</span>
+    <span class="n">write_interval</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 每 2 fs 写入一次</span>
+    <span class="n">log_interval</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 每 2 fs 记录进度到标准输出</span>
 <span class="n">simulation</span><span class="o">.</span><span class="n">reporters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
     <span class="n">md</span><span class="o">.</span><span class="n">reporters</span><span class="o">.</span><span class="n">XTCReporter</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"trajectory.xtc"</span><span class="p">),</span> <span class="n">reportInterval</span><span class="o">=</span><span class="n">write_interval</span><span class="p">)</span>
 <span class="p">)</span>
@@ -1314,14 +1064,13 @@ point. Together with the PDB file of the energy minimized system written before,
 </pre></div>
 </div>
 </div>
-<p>The velocities for all particles in the system are randomly chosen from a distribution at the given temperature. We chose 300 Kelvin, which is some degrees above room temperature. A random seed is generated, but could be explicitly given to reproduce results.</p>
-<p>Then the simulation is performed by taking the steps defined before.</p>
+<p>系统中所有粒子的速度从给定温度下的分布中随机选择。我们选择 300 开尔文，这比室温高出几度。生成一个随机种子，但也可以明确指定以重现结果。然后通过执行之前定义的步数来进行模拟。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulation</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">setVelocitiesToTemperature</span><span class="p">(</span><span class="mi">300</span> <span class="o">*</span> <span class="n">unit</span><span class="o">.</span><span class="n">kelvin</span><span class="p">)</span>
-<span class="n">simulation</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>  <span class="c1"># perform the simulation</span>
+<span class="n">simulation</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>  <span class="c1"># 执行模拟</span>
 </pre></div>
 </div>
 </div>
@@ -1331,30 +1080,30 @@ point. Together with the PDB file of the energy minimized system written before,
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 #"Progress (%)" "Step"  "Potential Energy (kJ/mole)"    "Temperature (K)"       "Speed (ns/day)"        "Time Remaining"
-10.0%   1       -992629.2532507611      280.59188983053207      0       --
-20.0%   2       -978514.3140385933      250.1140053691449       1.88    0:00
-30.0%   3       -961427.9816461714      214.09328454071326      1.92    0:00
-40.0%   4       -944609.5657245225      180.29949178380076      1.9     0:00
-50.0%   5       -938426.3768274506      165.17778679274846      1.89    0:00
-60.0%   6       -930096.1319021038      149.4126629808844       1.89    0:00
-70.0%   7       -926924.8985479049      143.336941762251        1.9     0:00
-80.0%   8       -930284.4123182578      149.77757492192208      1.91    0:00
-90.0%   9       -932318.9156875424      155.78884925604478      1.9     0:00
-100.0%  10      -937770.7580560565      167.02287919129623      1.9     0:00
+10.0%   1       -911672.8833984158      300.58994432283663      0       --
+20.0%   2       -898806.4210639504      267.2506776332451       1.78    0:00
+30.0%   3       -883111.4814176012      238.60290950665717      1.73    0:00
+40.0%   4       -867596.4630740668      196.76725273444427      1.68    0:00
+50.0%   5       -862553.2471993582      175.87229216182052      1.6     0:00
+60.0%   6       -854763.8296435549      163.39398429953755      1.54    0:00
+70.0%   7       -852074.9736099411      147.9384677561452       1.5     0:00
+80.0%   8       -855085.7518770137      152.24611569256365      1.5     0:00
+90.0%   9       -856760.1494785415      157.91401106119835      1.49    0:00
+100.0%  10      -861616.5007841537      165.39716192526913      1.49    0:00
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the trajectory exists and is not empty</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 检查轨迹文件是否存在且不为空</span>
 <span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"trajectory.xtc"</span><span class="p">)</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="o">&gt;</span> <span class="mi">0</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1363,11 +1112,10 @@ True
 </pre></div></div>
 </div>
 </section>
-<section id="Download-results">
-<h3 id="Download-results">Download results<a class="headerlink" href="#Download-results" title="Link to this heading">¶</a></h3>
-<p>You can execute the following cell if you are working on Google Colab to download the MD simulation results.</p>
+<section id="下载结果如果您在-Google-Colab-上运行，可以执行以下单元格来下载-MD-模拟结果。">
+<h3 id="下载结果如果您在-Google-Colab-上运行，可以执行以下单元格来下载-MD-模拟结果。">下载结果如果您在 Google Colab 上运行，可以执行以下单元格来下载 MD 模拟结果。<a class="headerlink" href="#下载结果如果您在-Google-Colab-上运行，可以执行以下单元格来下载-MD-模拟结果。" title="Link to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">on_colab</span><span class="p">:</span>
@@ -1378,33 +1126,16 @@ True
 </div>
 </section>
 </section>
-<section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
-<div class="line-block">
-<div class="line">We have successfully performed an MD simulation of a protein ligand complex. However, we simulated only a considerably short time to keep the execution time of the talktorial short. To address critical questions in drug design, longer simulations are often required.</div>
-<div class="line">MD simulations are still too computationally costly to be useful for this purpose. Thus, so-called enhanced sampling methods were developed, that aim to accelerate the conformational sampling. Some of the most common methods are discussed in the <strong>Further reading</strong> section below.</div>
-<div class="line">Furthermore, we did not include an equilibration step, which is commonly used to slowly heat up the system from 0 to 300 K before starting the simulation and might be important when simulating more sensitive systems including lipid bilayers. The protonation of ligand and protein was done separately, which is suboptimal, since protonation states of protein residues and ligand affect each other. However, we did not find a free and open-source solution meeting all requirements. Suggestions are
-very welcome!</div>
-<div class="line">If you want to learn how to visualize and analyze the trajectory, you can refer to <strong>Talktorial T020</strong> in this repository.</div>
-</div>
+<section id="讨论我们已成功执行了蛋白质-配体复合物的-MD-模拟。然而，我们仅模拟了相当短的时间，以保持教程的执行时间较短。要解决药物设计中的关键问题，通常需要更长的模拟。MD-模拟的计算成本仍然过高，无法用于此目的。因此，人们开发了所谓的增强采样方法，旨在加速构象采样。一些最常用的方法在下面的延伸阅读部分讨论。此外，我们没有包括平衡步骤，该步骤通常用于在开始模拟前将系统从-0-K-缓慢加热到-300-K，并且在模拟包括脂质双层的更敏感系统时可能很重要。配体和蛋白质的质子化是分开进行的，这是次优的，因为蛋白质残基和配体的质子化状态相互影响。然而，我们没有找到满足所有要求的免费开源解决方案。非常欢迎建议！如果您想学习如何可视化和分析轨迹，可以参考本仓库中的教程-T020。">
+<h2 id="讨论我们已成功执行了蛋白质-配体复合物的-MD-模拟。然而，我们仅模拟了相当短的时间，以保持教程的执行时间较短。要解决药物设计中的关键问题，通常需要更长的模拟。MD-模拟的计算成本仍然过高，无法用于此目的。因此，人们开发了所谓的增强采样方法，旨在加速构象采样。一些最常用的方法在下面的延伸阅读部分讨论。此外，我们没有包括平衡步骤，该步骤通常用于在开始模拟前将系统从-0-K-缓慢加热到-300-K，并且在模拟包括脂质双层的更敏感系统时可能很重要。配体和蛋白质的质子化是分开进行的，这是次优的，因为蛋白质残基和配体的质子化状态相互影响。然而，我们没有找到满足所有要求的免费开源解决方案。非常欢迎建议！如果您想学习如何可视化和分析轨迹，可以参考本仓库中的教程-T020。">讨论我们已成功执行了蛋白质-配体复合物的 MD 模拟。然而，我们仅模拟了相当短的时间，以保持教程的执行时间较短。要解决药物设计中的关键问题，通常需要更长的模拟。MD 模拟的计算成本仍然过高，无法用于此目的。因此，人们开发了所谓的增强采样方法，旨在加速构象采样。一些最常用的方法在下面的<strong>延伸阅读</strong>部分讨论。此外，我们没有包括平衡步骤，该步骤通常用于在开始模拟前将系统从 0 K 缓慢加热到 300 K，并且在模拟包括脂质双层的更敏感系统时可能很重要。配体和蛋白质的质子化是分开进行的，这是次优的，因为蛋白质残基和配体的质子化状态相互影响。然而，我们没有找到满足所有要求的免费开源解决方案。非常欢迎建议！如果您想学习如何可视化和分析轨迹，可以参考本仓库中的<strong>教程 T020</strong>。<a class="headerlink" href="#讨论我们已成功执行了蛋白质-配体复合物的-MD-模拟。然而，我们仅模拟了相当短的时间，以保持教程的执行时间较短。要解决药物设计中的关键问题，通常需要更长的模拟。MD-模拟的计算成本仍然过高，无法用于此目的。因此，人们开发了所谓的增强采样方法，旨在加速构象采样。一些最常用的方法在下面的延伸阅读部分讨论。此外，我们没有包括平衡步骤，该步骤通常用于在开始模拟前将系统从-0-K-缓慢加热到-300-K，并且在模拟包括脂质双层的更敏感系统时可能很重要。配体和蛋白质的质子化是分开进行的，这是次优的，因为蛋白质残基和配体的质子化状态相互影响。然而，我们没有找到满足所有要求的免费开源解决方案。非常欢迎建议！如果您想学习如何可视化和分析轨迹，可以参考本仓库中的教程-T020。" title="Link to this heading">¶</a></h2>
 </section>
-<section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>Which inter- and intramolecular forces are being considered in the AMBER force field? Can you think of any forces not taken into account?</p></li>
-<li><p>Would you expect to see the exact same simulation results when running the notebook twice with the same parameters?</p></li>
-<li><p>Try doing a short (10ps, snapshot every 1ps) simulation of a protein without a ligand. You can find a broad variety of structures on <a class="reference external" href="https://www.rcsb.org/">PDB</a> or you can use the EGFR kinase and remove the ligand.</p></li>
-</ul>
+<section id="测验*-AMBER-力场考虑了哪些分子间和分子内力？您能想到哪些力没有被考虑吗？*-使用相同参数运行本教程两次，您会期望看到完全相同的模拟结果吗？*-尝试对一个没有配体的蛋白质进行短时间（10ps，每-1ps-快照）的模拟。您可以在-PDB-上找到各种结构，或者使用-EGFR-激酶并移除配体。">
+<h2 id="测验*-AMBER-力场考虑了哪些分子间和分子内力？您能想到哪些力没有被考虑吗？*-使用相同参数运行本教程两次，您会期望看到完全相同的模拟结果吗？*-尝试对一个没有配体的蛋白质进行短时间（10ps，每-1ps-快照）的模拟。您可以在-PDB-上找到各种结构，或者使用-EGFR-激酶并移除配体。">测验* AMBER 力场考虑了哪些分子间和分子内力？您能想到哪些力没有被考虑吗？* 使用相同参数运行本教程两次，您会期望看到完全相同的模拟结果吗？* 尝试对一个没有配体的蛋白质进行短时间（10ps，每 1ps 快照）的模拟。您可以在 <a class="reference external" href="https://www.rcsb.org/">PDB</a> 上找到各种结构，或者使用 EGFR 激酶并移除配体。<a class="headerlink" href="#测验*-AMBER-力场考虑了哪些分子间和分子内力？您能想到哪些力没有被考虑吗？*-使用相同参数运行本教程两次，您会期望看到完全相同的模拟结果吗？*-尝试对一个没有配体的蛋白质进行短时间（10ps，每-1ps-快照）的模拟。您可以在-PDB-上找到各种结构，或者使用-EGFR-激酶并移除配体。" title="Link to this heading">¶</a></h2>
 </section>
-<section id="Further-reading">
-<h2 id="Further-reading">Further reading<a class="headerlink" href="#Further-reading" title="Link to this heading">¶</a></h2>
-<section id="Enhanced-sampling-methods">
-<h3 id="Enhanced-sampling-methods">Enhanced sampling methods<a class="headerlink" href="#Enhanced-sampling-methods" title="Link to this heading">¶</a></h3>
-<p>In theory, unbiased MD simulations should be capable of simulating binding and unbinding events of a drug molecule and its macromolecular target. However, the timescale of binding and unbinding events lies in the millisecond to second range. Enhanced sampling methods aim to accelerate the conformational sampling (<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem. 2016, 59(9), 4035-61</a>).</p>
-<p>One of these is <strong>Free energy perturbation (FEP)</strong> (also called alchemical free energy calculation), which computes the free energy difference when going from a state A to another state B. It is often employed in lead optimization to evaluate small modification at the ligand, that may boost the binding affinity for the desired target. The ligand from state A is thereby gradually transformed into the ligand of state B by simulating several intermediate (“alchemical”) states
-(<a class="reference external" href="http://www.alchemistry.org/wiki/Main_Page">alchemistry</a>).</p>
-<p>Another technique for free-energy calculations is <strong>Umbrella sampling (US)</strong>. US enforces sampling along a collective variable (CV) by performing staged simulations with an energetic bias. The bias usually takes the form of a harmonic potential, hence the term “umbrella”. Its goal is to sample high-energy regions along the CV. However, the use in drug design is limited by the high computational cost.</p>
-<p>In contrast, <strong>Steered MD (SMD)</strong> follows a different approach: it applies external forces to the system. Those forces are time-dependent and facilitate the unbinding of the ligand from the target. The SMD calculates the final force exerted on the system. The unbinding force profile can then be used to filter hits from docking calculations and to discriminate active from inactive molecules.</p>
+<section id="延伸阅读">
+<h2 id="延伸阅读">延伸阅读<a class="headerlink" href="#延伸阅读" title="Link to this heading">¶</a></h2>
+<section id="增强采样方法理论上，无偏的-MD-模拟应该能够模拟药物分子及其大分子靶标的结合和解离事件。然而，结合和解离事件的时间尺度在毫秒到秒的范围内。增强采样方法旨在加速构象采样（J-Med-Chem.-2016,-59(9),-4035-61）。其中一种是自由能微扰（FEP）（也称为炼金术自由能计算），它计算从状态-A-到另一个状态-B-时的自由能差。它通常用于先导化合物优化中，以评估配体的微小修改，这些修改可能会增强对目标靶标的结合亲和力。通过模拟几个中间（%22炼金术%22）状态，状态-A-的配体逐渐转变为状态-B-的配体（alchemistry）。另一种自由能计算技术是伞形采样（US）。US-通过使用能量偏倚执行分阶段模拟，强制沿集体变量（CV）进行采样。偏倚通常采用谐振势的形式，因此称为%22伞形%22。其目标是对沿-CV-的高能区域进行采样。然而，在药物设计中的应用受到高计算成本的限制。相比之下，受控-MD（SMD）采用不同的方法：它对系统施加外力。这些力是时间依赖性的，并促进配体从靶标上解离。SMD-计算施加在系统上的最终力。然后可以使用解离力谱来筛选对接计算得到的命中化合物，并区分活性分子和非活性分子。">
+<h3 id="增强采样方法理论上，无偏的-MD-模拟应该能够模拟药物分子及其大分子靶标的结合和解离事件。然而，结合和解离事件的时间尺度在毫秒到秒的范围内。增强采样方法旨在加速构象采样（J-Med-Chem.-2016,-59(9),-4035-61）。其中一种是自由能微扰（FEP）（也称为炼金术自由能计算），它计算从状态-A-到另一个状态-B-时的自由能差。它通常用于先导化合物优化中，以评估配体的微小修改，这些修改可能会增强对目标靶标的结合亲和力。通过模拟几个中间（%22炼金术%22）状态，状态-A-的配体逐渐转变为状态-B-的配体（alchemistry）。另一种自由能计算技术是伞形采样（US）。US-通过使用能量偏倚执行分阶段模拟，强制沿集体变量（CV）进行采样。偏倚通常采用谐振势的形式，因此称为%22伞形%22。其目标是对沿-CV-的高能区域进行采样。然而，在药物设计中的应用受到高计算成本的限制。相比之下，受控-MD（SMD）采用不同的方法：它对系统施加外力。这些力是时间依赖性的，并促进配体从靶标上解离。SMD-计算施加在系统上的最终力。然后可以使用解离力谱来筛选对接计算得到的命中化合物，并区分活性分子和非活性分子。">增强采样方法理论上，无偏的 MD 模拟应该能够模拟药物分子及其大分子靶标的结合和解离事件。然而，结合和解离事件的时间尺度在毫秒到秒的范围内。增强采样方法旨在加速构象采样（<a class="reference external" href="https://doi.org/10.1021/acs.jmedchem.5b01684">J Med Chem. 2016, 59(9), 4035-61</a>）。其中一种是<strong>自由能微扰（FEP）</strong>（也称为炼金术自由能计算），它计算从状态 A 到另一个状态 B 时的自由能差。它通常用于先导化合物优化中，以评估配体的微小修改，这些修改可能会增强对目标靶标的结合亲和力。通过模拟几个中间（”炼金术”）状态，状态 A 的配体逐渐转变为状态 B 的配体（<a class="reference external" href="http://www.alchemistry.org/wiki/Main_Page">alchemistry</a>）。另一种自由能计算技术是<strong>伞形采样（US）</strong>。US 通过使用能量偏倚执行分阶段模拟，强制沿集体变量（CV）进行采样。偏倚通常采用谐振势的形式，因此称为”伞形”。其目标是对沿 CV 的高能区域进行采样。然而，在药物设计中的应用受到高计算成本的限制。相比之下，<strong>受控 MD（SMD）</strong>采用不同的方法：它对系统施加外力。这些力是时间依赖性的，并促进配体从靶标上解离。SMD 计算施加在系统上的最终力。然后可以使用解离力谱来筛选对接计算得到的命中化合物，并区分活性分子和非活性分子。<a class="headerlink" href="#增强采样方法理论上，无偏的-MD-模拟应该能够模拟药物分子及其大分子靶标的结合和解离事件。然而，结合和解离事件的时间尺度在毫秒到秒的范围内。增强采样方法旨在加速构象采样（J-Med-Chem.-2016,-59(9),-4035-61）。其中一种是自由能微扰（FEP）（也称为炼金术自由能计算），它计算从状态-A-到另一个状态-B-时的自由能差。它通常用于先导化合物优化中，以评估配体的微小修改，这些修改可能会增强对目标靶标的结合亲和力。通过模拟几个中间（%22炼金术%22）状态，状态-A-的配体逐渐转变为状态-B-的配体（alchemistry）。另一种自由能计算技术是伞形采样（US）。US-通过使用能量偏倚执行分阶段模拟，强制沿集体变量（CV）进行采样。偏倚通常采用谐振势的形式，因此称为%22伞形%22。其目标是对沿-CV-的高能区域进行采样。然而，在药物设计中的应用受到高计算成本的限制。相比之下，受控-MD（SMD）采用不同的方法：它对系统施加外力。这些力是时间依赖性的，并促进配体从靶标上解离。SMD-计算施加在系统上的最终力。然后可以使用解离力谱来筛选对接计算得到的命中化合物，并区分活性分子和非活性分子。" title="Link to this heading">¶</a></h3>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></section>
@@ -1421,7 +1152,7 @@ very welcome!</div>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="T018_automated_cadd_pipeline.html" title="T018 · Automated pipeline for lead optimization"
+            <a href="T018_automated_cadd_pipeline.html" title="T018 · 用于先导优化的自动化流程"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -1430,17 +1161,17 @@ very welcome!</div>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> T018 · Automated pipeline for lead optimization </span>
+                      class="md-footer-nav__direction"> "Previous" </span> T018 · 用于先导优化的自动化流程 </span>
               </div>
             </a>
           
           
-            <a href="T020_md_analysis.html" title="T020 · Analyzing molecular dynamics simulations"
+            <a href="T020_md_analysis.html" title="T020 · 分子动力学模拟分析"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> T020 · Analyzing molecular dynamics simulations </span>
+                class="md-footer-nav__direction"> "Next" </span> T020 · 分子动力学模拟分析 </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

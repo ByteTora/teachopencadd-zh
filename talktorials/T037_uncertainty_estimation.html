@@ -4,14 +4,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="T037 · Uncertainty estimation" />
+<meta property="og:title" content="T037 · 不确定性估计" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T037_uncertainty_estimation.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Michael Backenköhler, 2022, Volkamer lab, NextAID project, Saarland University. The predictive setting (and t..." />
+<meta property="og:description" content="注： 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。 作者： Michael Backenköhler, 2022, Volkamer 实验室, NextAID 项目, 萨尔大学. 本教程中使用的预测设置（和模型类）改编自 教程 T022 。 本教程的目标: 研究人员通常只关注预测质量。然而，在应用预测模型时，研究人员也对他们在特定预测中的确定程度感兴趣。估计和提供此类信息是不确定性估计的目标。在本教程中，我们讨论一些常用的方法论，并在实践中展示集成方法。 理论 部分内容: 为什么模型不能..." />
 <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
 <meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Michael Backenköhler, 2022, Volkamer lab, NextAID project, Saarland University. The predictive setting (and t..." />
+<meta name="description" content="注： 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。 作者： Michael Backenköhler, 2022, Volkamer 实验室, NextAID 项目, 萨尔大学. 本教程中使用的预测设置（和模型类）改编自 教程 T022 。 本教程的目标: 研究人员通常只关注预测质量。然而，在应用预测模型时，研究人员也对他们在特定预测中的确定程度感兴趣。估计和提供此类信息是不确定性估计的目标。在本教程中，我们讨论一些常用的方法论，并在实践中展示集成方法。 理论 部分内容: 为什么模型不能..." />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -82,7 +82,7 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T037 · Uncertainty estimation &#8212; TeachOpenCADD 0.0.post1 documentation</title>
+    <title>T037 · 不确定性估计 &#8212; TeachOpenCADD 0.0.post1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -100,8 +100,8 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T038 · Protein Ligand Interaction Prediction" href="T038_protein_ligand_interaction_prediction.html" />
-    <link rel="prev" title="T036 · An introduction to E(3)-invariant graph neural networks" href="T036_e3_equivariant_gnn.html" />
+    <link rel="next" title="T038 · 蛋白质-配体相互作用预测" href="T038_protein_ligand_interaction_prediction.html" />
+    <link rel="prev" title="T036 · E(3)-等变图神经网络入门" href="T036_e3_equivariant_gnn.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -140,7 +140,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">TeachOpenCADD</span>
-          <span class="md-header-nav__topic"> T037 · Uncertainty estimation </span>
+          <span class="md-header-nav__topic"> T037 · 不确定性估计 </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -424,71 +424,75 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t037-uncertainty-estimation--page-root" class="md-nav__link">T037 · Uncertainty estimation</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t037-uncertainty-estimation--page-root" class="md-nav__link">T037 · 不确定性估计</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#本教程的目标" class="md-nav__link">本教程的目标</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        <li class="md-nav__item"><a href="#理论-部分内容" class="md-nav__link"><em>理论</em> 部分内容</a>
         </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        <li class="md-nav__item"><a href="#实践-部分内容" class="md-nav__link"><em>实践</em> 部分内容</a>
         </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        <li class="md-nav__item"><a href="#参考文献" class="md-nav__link">参考文献</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#理论" class="md-nav__link">理论</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Why-a-model-can&#39;t-and-shouldn&#39;t-be-certain" class="md-nav__link">Why a model can’t and shouldn’t be certain</a>
+        <li class="md-nav__item"><a href="#为什么模型不能也不应该确定" class="md-nav__link">为什么模型不能也不应该确定</a>
         </li>
-        <li class="md-nav__item"><a href="#Calibration" class="md-nav__link">Calibration</a>
+        <li class="md-nav__item"><a href="#校准" class="md-nav__link">校准</a>
         </li>
-        <li class="md-nav__item"><a href="#Methods-overview" class="md-nav__link">Methods overview</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#方法论概览" class="md-nav__link">方法论概览</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Single-deterministic-methods" class="md-nav__link">Single deterministic methods</a>
+        <li class="md-nav__item"><a href="#单一确定性方法" class="md-nav__link">单一确定性方法</a>
         </li>
-        <li class="md-nav__item"><a href="#Ensemble-methods" class="md-nav__link">Ensemble methods</a>
+        <li class="md-nav__item"><a href="#集成方法" class="md-nav__link">集成方法</a>
         </li>
-        <li class="md-nav__item"><a href="#Test-time-data-augmentation" class="md-nav__link">Test-time data augmentation</a>
+        <li class="md-nav__item"><a href="#测试时数据增强" class="md-nav__link">测试时数据增强</a>
         </li></ul>
             </nav>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#实践" class="md-nav__link">实践</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Data" class="md-nav__link">Data</a>
+        <li class="md-nav__item"><a href="#数据" class="md-nav__link">数据</a>
         </li>
-        <li class="md-nav__item"><a href="#Model" class="md-nav__link">Model</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#模型" class="md-nav__link">模型</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Training" class="md-nav__link">Training</a>
+        <li class="md-nav__item"><a href="#训练" class="md-nav__link">训练</a>
         </li>
-        <li class="md-nav__item"><a href="#Evaluation" class="md-nav__link">Evaluation</a>
+        <li class="md-nav__item"><a href="#评估" class="md-nav__link">评估</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Ensembles---Training-a-model-multiple-times" class="md-nav__link">Ensembles - Training a model multiple times</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#集成——多次训练模型" class="md-nav__link">集成——多次训练模型</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Coverage-of-confidence-intervals" class="md-nav__link">Coverage of confidence intervals</a>
+        <li class="md-nav__item"><a href="#置信区间的覆盖" class="md-nav__link">置信区间的覆盖</a>
         </li>
-        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Calibration</a>
+        <li class="md-nav__item"><a href="#id19" class="md-nav__link">校准</a>
         </li>
-        <li class="md-nav__item"><a href="#Ranking-based-evaluation" class="md-nav__link">Ranking-based evaluation</a>
+        <li class="md-nav__item"><a href="#基于排序的评估" class="md-nav__link">基于排序的评估</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Bagging-ensemble---Training-a-model-with-varying-data" class="md-nav__link">Bagging ensemble - Training a model with varying data</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#为集成引入更多方差" class="md-nav__link">为集成引入更多方差</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#id2" class="md-nav__link">Ranking-based evaluation</a>
+        <li class="md-nav__item"><a href="#改变训练数据" class="md-nav__link">改变训练数据</a>
+        </li>
+        <li class="md-nav__item"><a href="#改变模型参数" class="md-nav__link">改变模型参数</a>
+        </li>
+        <li class="md-nav__item"><a href="#id24" class="md-nav__link">基于排序的评估</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#id3" class="md-nav__link">Test-time data augmentation</a>
+        <li class="md-nav__item"><a href="#id25" class="md-nav__link">测试时数据增强</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        <li class="md-nav__item"><a href="#讨论" class="md-nav__link">讨论</a>
         </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        <li class="md-nav__item"><a href="#测验" class="md-nav__link">测验</a>
         </li></ul>
             </nav>
         </li>
@@ -506,132 +510,139 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="T037-·-Uncertainty-estimation">
-<h1 id="talktorials-t037-uncertainty-estimation--page-root">T037 · Uncertainty estimation<a class="headerlink" href="#talktorials-t037-uncertainty-estimation--page-root" title="Link to this heading">¶</a></h1>
-<p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
-<p>Authors:</p>
+  <section id="T037-·-不确定性估计">
+<h1 id="talktorials-t037-uncertainty-estimation--page-root">T037 · 不确定性估计<a class="headerlink" href="#talktorials-t037-uncertainty-estimation--page-root" title="Link to this heading">¶</a></h1>
+<p><strong>注：</strong> 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。</p>
+<p>作者：</p>
 <ul class="simple">
-<li><p>Michael Backenköhler, 2022, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, <a class="reference external" href="https://nextaid.cs.uni-saarland.de/">NextAID</a> project, Saarland University</p></li>
+<li><p>Michael Backenköhler, 2022, <a class="reference external" href="https://volkamerlab.org">Volkamer 实验室</a>, <a class="reference external" href="https://nextaid.cs.uni-saarland.de/">NextAID</a> 项目, 萨尔大学</p></li>
 </ul>
-<p><em>The predictive setting (and the model class) used in this talktorial is adapted from</em> <strong>Talktorial T022</strong><em>.</em></p>
-<section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
-<p>Researchers often focus on prediction quality alone. However, when applying a predictive model, researchers are also interested in how certain they can be in a specific prediction. Estimating and providing such information is the goal of uncertainty estimation. In this talktorial, we discuss some common methodologies and showcase ensemble methods in practice.</p>
-<section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
+<p><em>本教程中使用的预测设置（和模型类）改编自</em> <strong>教程 T022</strong><em>。</em></p>
+<section id="本教程的目标">
+<h2 id="本教程的目标">本教程的目标<a class="headerlink" href="#本教程的目标" title="Link to this heading">¶</a></h2>
+<p>研究人员通常只关注预测质量。然而，在应用预测模型时，研究人员也对他们在特定预测中的确定程度感兴趣。估计和提供此类信息是不确定性估计的目标。在本教程中，我们讨论一些常用的方法论，并在实践中展示集成方法。</p>
+<section id="理论-部分内容">
+<h3 id="理论-部分内容"><em>理论</em> 部分内容<a class="headerlink" href="#理论-部分内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Why a model can’t and shouldn’t be certain</p></li>
-<li><p>Calibration</p></li>
-<li><p>Methods overview</p>
+<li><p>为什么模型不能也不应该确定</p></li>
+<li><p>校准</p></li>
+<li><p>方法论概览</p>
 <ul>
-<li><p>Single deterministic methods</p></li>
-<li><p>Ensemble methods</p></li>
-<li><p>Test-time data augmentation</p></li>
+<li><p>单一确定性方法</p></li>
+<li><p>集成方法</p></li>
+<li><p>测试时数据增强</p></li>
 </ul>
 </li>
 </ul>
 </section>
-<section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
+<section id="实践-部分内容">
+<h3 id="实践-部分内容"><em>实践</em> 部分内容<a class="headerlink" href="#实践-部分内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Data</p></li>
-<li><p>Model</p>
+<li><p>数据</p></li>
+<li><p>模型</p>
 <ul>
-<li><p>Training</p></li>
-<li><p>Evaluation</p></li>
+<li><p>训练</p></li>
+<li><p>评估</p></li>
 </ul>
 </li>
-<li><p>Ensembles - Training a model multiple times</p>
+<li><p>集成——多次训练模型</p>
 <ul>
-<li><p>Coverage of confidence intervals</p></li>
-<li><p>Calibration</p></li>
-<li><p>Ranking-based evaluation</p></li>
+<li><p>置信区间的覆盖</p></li>
+<li><p>校准</p></li>
+<li><p>基于排序的评估</p></li>
 </ul>
 </li>
-<li><p>Bagging ensemble - Training a model with varying data</p>
+<li><p>Bagging 集成——使用不同数据训练模型</p>
 <ul>
-<li><p>Ranking-based evaluation</p></li>
+<li><p>基于排序的评估</p></li>
 </ul>
 </li>
-<li><p>Test-time data augmentation</p></li>
+<li><p>测试时数据增强</p></li>
 </ul>
 </section>
-<section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h3>
+<section id="参考文献">
+<h3 id="参考文献">参考文献<a class="headerlink" href="#参考文献" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://arxiv.org/abs/2107.03342">Gawlikowski, Jakob, et al. “A survey of uncertainty in deep neural networks.” arXiv preprint (2021), arXiv:2107.03342</a></p></li>
-<li><p><a class="reference external" href="https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.1249?casa_token=1RRjvfS1_k4AAAAA%3AdR5WbRw9n8cp8wuVWx4j1ygfElNKbIJ9wXSmIeBd3C61pD1TEqX0bqswzRhNl8vY1rLDEhl29dseag">Sagi, O. and Rokach, L. “Ensemble learning: A survey”. Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery, 8(4), (2018) p.e1249.</a></p></li>
+<li><p><a class="reference external" href="https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.1249">Sagi, O. and Rokach, L. “Ensemble learning: A survey”. Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery, 8(4), (2018) p.e1249.</a></p></li>
 <li><p><a class="reference external" href="https://pubs.acs.org/doi/pdf/10.1021/acs.jcim.9b00975">Scalia, Gabriele, et al. “Evaluating scalable uncertainty estimation methods for deep learning-based molecular property prediction.” Journal of chemical information and Modeling 60.6 (2020): 2697-2717</a></p></li>
-<li><p><strong>Talktorial T022</strong></p></li>
+<li><p><strong>教程 T022</strong></p></li>
 </ul>
-</section>
-</section>
-<section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
-<p>Often researchers pay a lot of attention to the quality of the estimation overall. But to apply any predictive method in practice, it is arguably as important to know how much to <em>trust</em> an estimation. It would be therefore nice to have not only a point estimate of something but also some indication of how <em>certain</em> we can be about the given estimate. The certainty is often modeled by replacing the point estimate with a distributional estimate. For example, a model <span class="math notranslate nohighlight">\(f\)</span> on an input does not
-only predict <span class="math notranslate nohighlight">\(f(x)=\hat\theta\)</span> but a <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a> <span class="math notranslate nohighlight">\(f(x)=N(\hat\theta, \hat\sigma)\)</span>.</p>
-<section id="Why-a-model-can't-and-shouldn't-be-certain">
-<h3 id="Why-a-model-can't-and-shouldn't-be-certain">Why a model can’t and shouldn’t be certain<a class="headerlink" href="#Why-a-model-can't-and-shouldn't-be-certain" title="Link to this heading">¶</a></h3>
-<p>Before discussing how to estimate uncertainty, we take a look at the causes of uncertainty. Concerning the data, there are two classes of uncertainty we can distinguish.</p>
-<ol class="arabic simple">
-<li><p><em>Aleatoric</em> or <em>data uncertainty</em> is inherent in the data and its source</p></li>
-<li><p><em>Epistemic</em> is caused by the limitations of the model</p></li>
-</ol>
-<p>Aleatoric uncertainty is unavoidable because it is inherent in the real system and the way we collect data. It is uncertainty that remains even if one can select infinitely large sets of data. Imagine you are performing a chemical experiment to determine the binding affinity between some compound and a protein. Even if you are an outstandingly careful chemist you will probably not be able to exactly reproduce the same <span class="math notranslate nohighlight">\(K_d\)</span> each time around. This uncertainty will always be present in the
-data. Even if you repeat the experiment until you reach old age.</p>
-<p>Epistemic uncertainty is reducible uncertainty. This is the uncertainty we can get rid of by collecting more data or improvement of the model. Oftentimes this is also referred to as model uncertainty. No machine learning model is perfect. We always introduce some degree of simplification and abstraction. And this introduces uncertainty into our predictions that we will keep even given perfect data. Let’s consider again the binding affinity prediction from above. If we only consider molecules
-built using the same scaffold, the model cannot learn outside this domain. Therefore it is likely very uncertain for molecules based on other scaffolds. However, given data on other scaffolds the model can learn and consequently, the uncertainty reduces.</p>
-<p>Another aspect of uncertainty is the domain of training and test data. There is <em>in-domain</em> uncertainty, as the uncertainty of test samples which should be “approximately” covered by training samples. <em>Out-of-domain</em> and <em>domain-shift</em> uncertainty stem from test data that is not well represented by the training data. Determining in- and out-of-domain for a given sample is a difficult problem in most domains since a good understanding of the problem is necessary to determine whether a sample is
-in the training domain. This problem is especially difficult in cheminformatics, where similarity metrics may fail due to <em>activity cliffs</em>. At activity cliffs, molecules may be very similar by metrics such as their fingerprint, but the target property differs drastically.</p>
-</section>
-<section id="Calibration">
-<h3 id="Calibration">Calibration<a class="headerlink" href="#Calibration" title="Link to this heading">¶</a></h3>
-<p>Assume we have a machine learning model that incorporates uncertainty. How do we evaluate and improve the predicted uncertainty? This is where calibration enters the picture. Calibration deals with the accuracy of confidence given by an uncertainty estimation. For example, a well-calibrated estimation should yield a 30%-confidence interval which should, in the limit, actually cover the true value with probability <span class="math notranslate nohighlight">\(0.3\)</span>. Oftentimes, neural network models tend to be over-confident.</p>
-<p>There are many methods to deal with the <em>calibration</em> of an estimator. Among the most straightforward is to adjust predicted uncertainties after the training. To this end, we can use a held-out <em>calibration set</em>. This set is meant to <em>adjust</em> the predicted uncertainties. In an over-confident model, for example, it should lead to an increase in the predicted uncertainty. In the practical section, we demonstrate simple scaling using a calibration set.</p>
-</section>
-<section id="Methods-overview">
-<h3 id="Methods-overview">Methods overview<a class="headerlink" href="#Methods-overview" title="Link to this heading">¶</a></h3>
-<p>There is a wide variety of methods providing uncertainty estimates. An excellent survey is given by <a class="reference external" href="https://arxiv.org/abs/2107.03342">Gawlikowski et al.</a> Here, we stick with the most common and widely applicable methods. These - on the model side - can roughly be divided into</p>
-<ol class="arabic simple">
-<li><p>single deterministic methods and</p></li>
-<li><p>ensemble methods.</p></li>
-</ol>
-<p>A model-independent method is test-time data augmentation.</p>
-<section id="Single-deterministic-methods">
-<h4 id="Single-deterministic-methods">Single deterministic methods<a class="headerlink" href="#Single-deterministic-methods" title="Link to this heading">¶</a></h4>
-<p>Arguably the most straightforward method to predict uncertainty along with the point predictor. Often this amounts to the prediction of a distribution instead of a point estimate. Consider as an example the prediction of a mean and variance parameter of a normal distribution in a regression setting. In a classification setting, we often predict class probabilities, which already is an uncertainty prediction, albeit with some constraints (see <a class="reference external" href="https://arxiv.org/abs/2107.03342">Gawlikowski et
-al.</a>).</p>
-<p>Another approach is the direct prediction of uncertainty. In this case, a secondary model is trained to predict uncertainty for an already trained model. This has the obvious advantage of not needing any modification to the predictive model itself.</p>
-</section>
-<section id="Ensemble-methods">
-<h4 id="Ensemble-methods">Ensemble methods<a class="headerlink" href="#Ensemble-methods" title="Link to this heading">¶</a></h4>
-<p>Ensemble methods build on the idea of creating a selection, i.e. an ensemble, of similar but different models. As a simple example of such an ensemble, consider a neural network model that is trained multiple times with varying random seeds. Due to the inherent randomness in the stochastic gradient descent, each trained version of the model will differ from the others.</p>
-<p><img alt="Model ensemble" src="../_images/nn.png"/></p>
-<p><em>Figure 1:</em> An ensemble of similar models with different weights obtained by multiple varying training runs.</p>
-<p>This difference in the model parameters leads to a variety in the predicted values between all ensemble members. This variance can be used as an uncertainty estimate. As we will see in the practical section below, the variety in such an ensemble may often be insufficient. Often, the variety in such ensembles is too small and consequently, the uncertainty is underestimated.</p>
-<p>Additional variety can be introduced into the ensemble by varying the training data for each training run. A simple way showcased below is <em>bagging</em> which is a shorthand for <em>bootstrap and aggregation</em>. There, for each training run, the training data is resampled with replacement leading to add variety in the resulting ensemble.</p>
-<p>We can also modify the test data for uncertainty estimation. On this side, the test data can be augmented by including slightly modified versions of the input data. Note, however, that one has to be careful with the exact methods of such modifications. Especially in chemistry, even seemingly small changes such as adding or removing a bond may have large consequences. This means, that there may be some unintentional divide between the notion of closeness in the input and the output domain of the
-model.</p>
-<p>Yet another way to more ensemble variety is to vary the model itself. This is done by either varying the model’s architecture explicitly or via a Bayesian network with probabilistic dropout. In the latter case, we essentially have a model ensemble at test time due to the stochastic dropout.</p>
-</section>
-<section id="Test-time-data-augmentation">
-<h4 id="Test-time-data-augmentation">Test-time data augmentation<a class="headerlink" href="#Test-time-data-augmentation" title="Link to this heading">¶</a></h4>
-<p>Another way to uncertainty estimates is the use of test-time data augmentation. For each query point, we create an augmented set of points using some stochastic noise. In the practical examples of this notebook, we are dealing with fingerprint data. A natural way to introduce noise in such binary data is to flip bits with a small probability. This way, we obtain a set of data points for each actual query point. This, in turn, yields us a set of predictions that hopefully represents the
-predictive uncertainty for the query point.</p>
-</section>
-</section>
-</section>
-<section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
-<p>Add short summary of what will be done in this practical section.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">37</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="理论">
+<h2 id="理论">理论<a class="headerlink" href="#理论" title="Link to this heading">¶</a></h2>
+<p>研究人员经常非常关注整体估计的质量。 但要在实践中应用任何预测方法，知道对估计结果的_信任_程度同样重要。 因此，最好不仅有某物的点估计，而且还有关于给定估计结果我们有多_确定_的一些指示。 确定性通常通过用分布估计代替点估计来建模。 例如，输入上的模型 <span class="math notranslate nohighlight">\(f\)</span> 不仅预测 <span class="math notranslate nohighlight">\(f(x)=\hat\theta\)</span>，而是预测一个<a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">正态分布</a> <span class="math notranslate nohighlight">\(f(x)=N(\hat\theta, \hat\sigma)\)</span>。</p>
+<section id="为什么模型不能也不应该确定">
+<h3 id="为什么模型不能也不应该确定">为什么模型不能也不应该确定<a class="headerlink" href="#为什么模型不能也不应该确定" title="Link to this heading">¶</a></h3>
+<p>在讨论如何估计不确定性之前，我们先看看不确定性的成因。 关于数据，我们可以区分两类不确定性。</p>
+<ol class="arabic simple">
+<li><p>_偶然不确定性_或_数据不确定性_是数据及其来源固有的</p></li>
+<li><p>_认知不确定性_由模型的局限性引起</p></li>
+</ol>
+<p>偶然不确定性是不可避免的，因为它内在于真实系统和我们收集数据的方式。 这是一种即使可以选择无限大的数据集也仍然存在的不确定性。 想象一下，你正在执行一个化学实验来确定某个化合物和蛋白质之间的结合亲和力。 即使你是一个非常细心的化学家，你很可能也无法每次都精确地重现相同的 <span class="math notranslate nohighlight">\(K_d\)</span>。 这种不确定性将始终存在于数据中。即使你将实验重复到老。</p>
+<p>认知不确定性是可减少的不确定性。这是我们可以通过收集更多数据或改进模型来消除的不确定性。这通常也被称为模型不确定性。没有机器学习模型是完美的。 我们总是引入某种程度的简化和抽象。这给我们的预测带来了不确定性，即使在给定完美数据的情况下，这种不确定性仍然存在。让我们再次考虑上面提到的结合亲和力预测。如果我们只考虑使用相同骨架构建的分子，模型无法在这个领域之外学习。因此，对于基于其他骨架的分子，它很可能非常不确定。然而，给定其他骨架的数据，模型可以学习，因此不确定性会减少。</p>
+<p>不确定性的另一个方面是训练和测试数据的领域。存在_域内_不确定性，即测试样本的不确定性应该”大致”被训练样本覆盖。_域外_和_域漂移_不确定性源于训练数据不能很好代表的测试数据。对于大多数领域来说，确定给定样本是域内还是域外是一个难题，因为需要很好地理解问题才能确定样本是否在训练域内。这个问题在化学信息学中尤其困难，因为相似性度量可能由于_活性悬崖_而失效。在活性悬崖处，分子在指纹等度量上可能非常相似，但目标性质却截然不同。</p>
+</section>
+<section id="校准">
+<h3 id="校准">校准<a class="headerlink" href="#校准" title="Link to this heading">¶</a></h3>
+<p>假设我们有一个包含不确定性的机器学习模型。我们如何评估和改进预测的不确定性？ 这就是校准的用武之地。 校准处理的是不确定性估计给出的置信度的准确性。例如，一个良好校准的估计应该得到 30% 的置信区间，该区间在极限情况下应以 0.3 的概率覆盖真实值。通常，神经网络模型倾向于过度自信。</p>
+<p>有许多方法可以处理估计器的_校准_。其中最直接的方法之一是在训练后调整预测的不确定性。为此，我们可以使用一个留出的_校准集_。这个集目的是_调整_预测的不确定性。例如，在过度自信的模型中，它应该导致预测不确定性的增加。 在实践部分，我们演示了使用校准集进行简单的缩放。</p>
+</section>
+<section id="方法论概览">
+<h3 id="方法论概览">方法论概览<a class="headerlink" href="#方法论概览" title="Link to this heading">¶</a></h3>
+<p>有各种各样的方法可以提供不确定性估计。<a class="reference external" href="https://arxiv.org/abs/2107.03342">Gawlikowski et al.</a> 给出了一个出色的综述。 在这里，我们坚持最常用和最广泛适用的方法。 这些方法——在模型方面——大致可以分为：</p>
+<ol class="arabic simple">
+<li><p>单一确定性方法和</p></li>
+<li><p>集成方法。</p></li>
+</ol>
+<p>一种与模型无关的方法是测试时数据增强。</p>
+<section id="单一确定性方法">
+<h4 id="单一确定性方法">单一确定性方法<a class="headerlink" href="#单一确定性方法" title="Link to this heading">¶</a></h4>
+<p>可以说是最直接的与点预测器一起预测不确定性的方法。通常这相当于预测一个分布而不是点估计。考虑在回归设置中预测正态分布的均值和方差参数作为示例。在分类设置中，我们通常预测类概率，这已经是一种不确定性预测，尽管有一些限制（参见 <a class="reference external" href="https://arxiv.org/abs/2107.03342">Gawlikowski et al.</a>）。</p>
+<p>另一种方法是直接预测不确定性。在这种情况下，训练一个次级模型来预测已经训练好的模型的不确定性。这有明显的优势，即不需要对预测模型本身进行任何修改。</p>
+</section>
+<section id="集成方法">
+<h4 id="集成方法">集成方法<a class="headerlink" href="#集成方法" title="Link to this heading">¶</a></h4>
+<p>集成方法建立在创建一个选择（即集成）的基础上，该选择由相似但不同的模型组成。作为这种集成的一个简单示例，考虑一个使用不同随机种子多次训练的神经网络模型。由于随机梯度下降中的固有随机性，每个训练版本的模型都会与其他版本不同。</p>
+<p><img alt="模型集成" src="../_images/nn.png"/></p>
+<p><em>图 1：</em> 由多次不同训练运行获得的具有不同权重的相似模型的集成。</p>
+<p>模型参数中的这种差异导致所有集成成员之间预测值的多样性。这种方差可以用作不确定性估计。正如我们将在下面的实践部分看到的，这种集成中的多样性通常可能不足。通常，此类集成中的多样性太小，因此不确定性被低估。</p>
+<p>可以通过改变每次训练运行的训练数据来向集成引入额外的多样性。下面展示的一种简单方法是_bagging_，它是_bootstrap and aggregation_的缩写。在那里，对于每次训练运行，使用替换对训练数据进行重新采样，从而在得到的集成中增加多样性。</p>
+<p>我们也可以修改测试数据以进行不确定性估计。在这方面，可以通过包含输入数据的略微修改版本来增强测试数据。但请注意，必须注意此类修改的确切方法。尤其是在化学领域，即使是看似微小的变化，如添加或移除一个键，也可能产生重大后果。这意味着，在模型的输入域和输出域之间的接近概念可能存在一些无意的分歧。</p>
+<p>另一种增加集成多样性的方法是改变模型本身。这是通过显式改变模型的架构或通过具有概率性 dropout 的贝叶斯网络来完成的。在后一种情况下，由于随机的 dropout，我们在测试时实质上有了一个模型集成。</p>
+</section>
+<section id="测试时数据增强">
+<h4 id="测试时数据增强">测试时数据增强<a class="headerlink" href="#测试时数据增强" title="Link to this heading">¶</a></h4>
+<p>另一种不确定性估计的方法是使用测试时数据增强。对于每个查询点，我们使用一些随机噪声创建一个增强的点集。在本 notebook 的实践示例中，我们处理的是指纹数据。 在这种二值数据中引入噪声的一种自然方式是以很小的概率翻转位。这样，我们为每个实际的查询点获得一组数据点。这反过来又为我们提供了对应于每个查询点的一组预测，希望这能代表该查询点的预测不确定性。</p>
+</section>
+</section>
+</section>
+<section id="实践">
+<h2 id="实践">实践<a class="headerlink" href="#实践" title="Link to this heading">¶</a></h2>
+<p>简要总结实践部分将进行的操作。</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="kn">import</span> <span class="n">filterwarnings</span>
 
-<span class="c1"># Silence some expected warnings</span>
+<span class="c1"># 静默一些预期警告</span>
 <span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -657,7 +668,7 @@ predictive uncertainty for the query point.</p>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
@@ -665,50 +676,51 @@ predictive uncertainty for the query point.</p>
 </pre></div>
 </div>
 </div>
-<p>We re-use the predictive setting of <strong>Talktorial T022</strong>. It deals with predicting compound activity in terms of their pIC50 value to EGFR. For the prediction, we use Morgan 3 fingerprints with 2024 bits as input.</p>
-<section id="Data">
-<h3 id="Data">Data<a class="headerlink" href="#Data" title="Link to this heading">¶</a></h3>
-<p>We use the same data as in <strong>Talktorial T022</strong>. These are activities on the kinase EGFR of varying compounds found in the Chembl 25 database. The ligands are encoded using a 2048-bit Morgan 3 fingerprint.</p>
+<p>我们复用 <strong>教程 T022</strong> 的预测设置。它涉及根据 pIC50 值预测化合物对 EGFR 的活性。对于预测，我们使用 2024 位的 Morgan 3 指纹作为输入。</p>
+<section id="数据">
+<h3 id="数据">数据<a class="headerlink" href="#数据" title="Link to this heading">¶</a></h3>
+<p>我们使用与 <strong>教程 T022</strong> 中相同的数据。这些数据是 ChEMBL 25 数据库中不同化合物对激酶 EGFR 的活性。配体使用 2048 位 Morgan 3 指纹进行编码。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the training and test data from pickled torch tensors.</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 从 pickle 格式的 torch 张量中读取训练和测试数据。</span>
 <span class="n">x_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"x_train"</span><span class="p">)</span>
 <span class="n">y_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"y_train"</span><span class="p">)</span>
 <span class="n">x_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"x_test"</span><span class="p">)</span>
 <span class="n">y_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"y_test"</span><span class="p">)</span>
 
-<span class="c1"># Create the data sets for training and testing.</span>
+<span class="c1"># 创建训练和测试的数据集。</span>
 <span class="n">training_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="n">test_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 
 <span class="c1"># Create data loaders to iterate over training and test sets.</span>
-<span class="n">training_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
-<span class="n">test_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+<span class="n">training_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </section>
-<section id="Model">
-<h3 id="Model">Model<a class="headerlink" href="#Model" title="Link to this heading">¶</a></h3>
-<p>As a model, we use a standard feed-forward network. This is similar to the one described in <strong>Talktorial T022</strong>. Here, however, we use <em>pytorch</em> instead of <em>tensorflow</em>. More details specific to Pytorch can be found in the <a class="reference external" href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html">pytorch tutorial</a>.</p>
+<section id="模型">
+<h3 id="模型">模型<a class="headerlink" href="#模型" title="Link to this heading">¶</a></h3>
+<p>作为模型，我们使用标准的前馈网络。这与 <strong>教程 T022</strong> 中描述的类似。但这里我们使用 <em>pytorch</em> 代替 <em>tensorflow</em>。更多 Pytorch 特定的细节可以在 <a class="reference external" href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html">pytorch 教程</a> 中找到。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">NeuralNetwork</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""A simple linear forward neural network."""</span>
+<span class="w">    </span><span class="sd">"""一个简单的前馈神经网络。"""</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p_dropout</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">n_hidden</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">NeuralNetwork</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">flatten</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">linear_relu_stack</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p_dropout</span><span class="p">),</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
         <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
@@ -718,38 +730,44 @@ predictive uncertainty for the query point.</p>
 </pre></div>
 </div>
 </div>
-<section id="Training">
-<h4 id="Training">Training<a class="headerlink" href="#Training" title="Link to this heading">¶</a></h4>
-<p>We now set up the pipeline of creating and training a model. With the model in place, we are ready to set up the training by defining a loss function and an optimization procedure. As a loss function, we take the mean squared error since we dealing with a regression task. For the stochastic gradient descent optimization method, we choose the <em>Adam</em> optimizer which is a standard choice.</p>
+<section id="训练">
+<h4 id="训练">训练<a class="headerlink" href="#训练" title="Link to this heading">¶</a></h4>
+<p>我们现在建立创建和训练模型的流程。 模型就位后，我们通过定义损失函数和优化程序来准备训练。作为损失函数，我们使用均方误差，因为我们处理的是回归任务。对于随机梯度下降优化方法，我们选择了 <em>Adam</em> 优化器，这是一个标准选择。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train_loop</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train_loop</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Run one training epoch.</span>
+<span class="sd">    运行一个训练 epoch。</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    dataloader : torch.utils.data.DataLoader</span>
-<span class="sd">        Data loader for the training data.</span>
+<span class="sd">        训练数据的数据加载器。</span>
 <span class="sd">    model : torch.nn.Module</span>
-<span class="sd">        The model to train.</span>
+<span class="sd">        要训练的模型。</span>
 <span class="sd">    loss_fn : function</span>
-<span class="sd">        A differentiable loss function.</span>
+<span class="sd">        一个可微的损失函数。</span>
 <span class="sd">    optimizer : torch.optimizer.Optimizer</span>
 <span class="sd">        The optimization procedure.</span>
 <span class="sd">    """</span>
     <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+    <span class="n">num_batches</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="p">)</span>
+    <span class="n">total_loss</span> <span class="o">=</span> <span class="mi">0</span>
+
     <span class="k">for</span> <span class="n">batch</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">):</span>
         <span class="c1"># Compute prediction and loss</span>
         <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
         <span class="c1"># Backpropagation</span>
         <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
         <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
         <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">total_loss</span> <span class="o">/</span> <span class="n">num_batches</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_loop</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">):</span>
@@ -784,19 +802,19 @@ predictive uncertainty for the query point.</p>
 </pre></div>
 </div>
 </div>
-<p>To make our life simpler, when creating models, we encapsulate the model creation and training in a single function.</p>
+<p>为简化操作，在创建模型时，我们将模型创建和训练封装在单个函数中。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_and_fit_model</span><span class="p">(</span><span class="n">training_loader</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_and_fit_model</span><span class="p">(</span><span class="n">training_loader</span><span class="p">,</span> <span class="n">model_args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Create and fit a model.</span>
+<span class="sd">    创建并拟合模型。</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    training_loader : torch.utils.data.DataLoader</span>
-<span class="sd">        Data loader for the training data.</span>
+<span class="sd">        训练数据的数据加载器。</span>
 <span class="sd">    test_loader : torch.utils.data.DataLoader</span>
 <span class="sd">        Data loader for the test data.</span>
 <span class="sd">    epochs : int, optional</span>
@@ -809,26 +827,25 @@ predictive uncertainty for the query point.</p>
 <span class="sd">    model: NeuralNetwork</span>
 <span class="sd">        A trained instance of `NeuralNetwork`.</span>
 <span class="sd">    """</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">(</span><span class="o">**</span><span class="n">model_args</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span>
     <span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
-    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">"Epoch"</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-        <span class="n">train_loop</span><span class="p">(</span><span class="n">training_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
-        <span class="n">test_loss</span> <span class="o">=</span> <span class="n">test_loop</span><span class="p">(</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">)</span>
+        <span class="n">train_loss</span> <span class="o">=</span> <span class="n">train_loop</span><span class="p">(</span><span class="n">training_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test loss: </span><span class="si">{</span><span class="n">test_loss</span><span class="si">:</span><span class="s2">&gt;8f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Training loss: </span><span class="si">{</span><span class="n">train_loss</span><span class="si">:</span><span class="s2">&gt;8f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">model</span>
 </pre></div>
 </div>
 </div>
-<p>Using this function, we can now create and train a predictive model.</p>
+<p>使用此函数，我们现在可以创建并训练一个预测模型。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">single_model</span> <span class="o">=</span> <span class="n">create_and_fit_model</span><span class="p">(</span><span class="n">training_loader</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">single_model</span> <span class="o">=</span> <span class="n">create_and_fit_model</span><span class="p">(</span><span class="n">training_loader</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -838,37 +855,73 @@ predictive uncertainty for the query point.</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Epoch 0
-Test loss: 1.937686
+Training loss: 19.594438
 
 Epoch 1
-Test loss: 2.163897
+Training loss: 1.833061
 
 Epoch 2
-Test loss: 2.872126
+Training loss: 1.200345
 
 Epoch 3
-Test loss: 1.110985
+Training loss: 0.898802
 
 Epoch 4
-Test loss: 1.946332
+Training loss: 0.730146
 
 Epoch 5
-Test loss: 2.608306
+Training loss: 0.610016
 
 Epoch 6
-Test loss: 1.718333
+Training loss: 0.515054
 
 Epoch 7
-Test loss: 2.148413
+Training loss: 0.442029
+
+Epoch 8
+Training loss: 0.374235
+
+Epoch 9
+Training loss: 0.318533
+
+Epoch 10
+Training loss: 0.282265
+
+Epoch 11
+Training loss: 0.241378
+
+Epoch 12
+Training loss: 0.210448
+
+Epoch 13
+Training loss: 0.183123
+
+Epoch 14
+Training loss: 0.160263
+
+Epoch 15
+Training loss: 0.140182
+
+Epoch 16
+Training loss: 0.125900
+
+Epoch 17
+Training loss: 0.112110
+
+Epoch 18
+Training loss: 0.102701
+
+Epoch 19
+Training loss: 0.095786
 
 </pre></div></div>
 </div>
 </section>
-<section id="Evaluation">
-<h4 id="Evaluation">Evaluation<a class="headerlink" href="#Evaluation" title="Link to this heading">¶</a></h4>
-<p>For uncertainty estimation, we are not too concerned with prediction quality. Therefore, we just visually check the correlation between predictions and true values.</p>
+<section id="评估">
+<h4 id="评估">评估<a class="headerlink" href="#评估" title="Link to this heading">¶</a></h4>
+<p>对于不确定性估计，我们不太关心预测质量。因此，我们仅通过视觉检查预测值与真实值之间的相关性。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred</span> <span class="o">=</span> <span class="n">single_model</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
@@ -884,10 +937,10 @@ Test loss: 2.148413
     <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">"s"</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
 <span class="p">)</span>
 
-<span class="c1"># mean absolute error</span>
+<span class="c1"># 平均绝对误差</span>
 <span class="n">mae_single_model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
-<span class="c1"># mean squared error</span>
+<span class="c1"># 均方误差</span>
 <span class="n">mse_single_model</span> <span class="o">=</span> <span class="p">((</span><span class="n">pred</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
 <span class="n">display</span><span class="p">(</span>
@@ -902,33 +955,32 @@ Test loss: 2.148413
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<p>The mean absolute error is 1435.82 and the mean squared error is 2492.29.</p>
+<p>The mean absolute error is 758.59 and the mean squared error is 891.53.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T037_uncertainty_estimation_23_1.png" src="../_images/talktorials_T037_uncertainty_estimation_23_1.png"/>
+<img alt="../_images/talktorials_T037_uncertainty_estimation_24_1.png" src="../_images/talktorials_T037_uncertainty_estimation_24_1.png"/>
 </div>
 </div>
-<p>We observe a reasonable correlation between the predicted pIC50 and the measured value. It seems that our model has learned how to extract some binding affinity information from the fingerprint features.</p>
+<p>我们观察到预测的 pIC50 与测量值之间存在合理的相关性。 看起来我们的模型已经学会从指纹特征中提取一些结合亲和力信息。</p>
 </section>
 </section>
-<section id="Ensembles---Training-a-model-multiple-times">
-<h3 id="Ensembles---Training-a-model-multiple-times">Ensembles - Training a model multiple times<a class="headerlink" href="#Ensembles---Training-a-model-multiple-times" title="Link to this heading">¶</a></h3>
+<section id="集成——多次训练模型">
+<h3 id="集成——多次训练模型">集成——多次训练模型<a class="headerlink" href="#集成——多次训练模型" title="Link to this heading">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensemble_size</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">ensemble</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ensemble_size</span><span class="p">)):</span>
     <span class="n">training_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-    <span class="n">training_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">training_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">create_and_fit_model</span><span class="p">(</span>
         <span class="n">training_loader</span><span class="p">,</span>
-        <span class="n">test_loader</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">ensemble</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
@@ -939,20 +991,20 @@ Test loss: 2.148413
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-100%|██████████| 20/20 [01:04&lt;00:00,  3.24s/it]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [03:50&lt;00:00, 11.53s/it]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">model</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">ensemble</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ensemble_size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<p>We now have the predictions over all ensembles and test samples in the matrix <code class="docutils literal notranslate"><span class="pre">pred</span></code>. We can compute basic statistics for each point of test data, such as mean and variance. The variance or standard deviation is used as an uncertainty estimate of the prediction.</p>
+<p>我们现在在矩阵 <code class="docutils literal notranslate"><span class="pre">pred</span></code> 中拥有了所有集成和测试样本上的预测。我们可以计算每个测试数据点的基本统计量，如均值和方差。方差或标准差被用作预测的不确定性估计。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stds</span> <span class="o">=</span> <span class="n">preds</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -964,9 +1016,9 @@ Test loss: 2.148413
 </pre></div>
 </div>
 </div>
-<p>Now, it is interesting to compare the ensemble mean as a predictor to the single model predictor above.</p>
+<p>现在，将集成均值作为预测器与上面的单一模型预测器进行比较是很有趣的。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
@@ -993,22 +1045,22 @@ Test loss: 2.148413
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<p>The mean absolute error decreased from 1435.82 to 728.21. The mean squared error decreased from 2492.29 to 849.18.</p>
+<p>The mean absolute error decreased from 758.59 to 727.53. The mean squared error decreased from 891.53 to 833.26.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T037_uncertainty_estimation_31_1.png" src="../_images/talktorials_T037_uncertainty_estimation_31_1.png"/>
+<img alt="../_images/talktorials_T037_uncertainty_estimation_32_1.png" src="../_images/talktorials_T037_uncertainty_estimation_32_1.png"/>
 </div>
 </div>
-<p>As we can see, the predictive quality on the test set increased. Originally model ensembles were introduced as a means of improving prediction quality (see <a class="reference external" href="https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.1249?casa_token=1RRjvfS1_k4AAAAA%3AdR5WbRw9n8cp8wuVWx4j1ygfElNKbIJ9wXSmIeBd3C61pD1TEqX0bqswzRhNl8vY1rLDEhl29dseag">Sagi and Rokach 2018</a>). Intuitively, this is achieved by mitigating the outliers of single models.</p>
-<section id="Coverage-of-confidence-intervals">
-<h4 id="Coverage-of-confidence-intervals">Coverage of confidence intervals<a class="headerlink" href="#Coverage-of-confidence-intervals" title="Link to this heading">¶</a></h4>
-<p>For each confidence level, we can compute confidence intervals based on the standard deviations, we get out of our model ensemble. According to the definition of the confidence interval for level <span class="math notranslate nohighlight">\(p\)</span>, the interval should cover the actual value with probability <span class="math notranslate nohighlight">\(p\)</span>. Therefore, if we plot all hit ratios over the test for all levels in <span class="math notranslate nohighlight">\([0,1]\)</span>, we ideally would end up with a perfect diagonal (the identity function).</p>
+<p>如我们所见，测试集上的预测质量提高了。 最初引入模型集成是为了提高预测质量的一种手段（参见 <a class="reference external" href="https://wires.onlinelibrary.wiley.com/doi/abs/10.1002/widm.1249">Sagi and Rokach 2018</a>）。 直观上，这是通过减轻单一模型的异常值来实现的。</p>
+<section id="置信区间的覆盖">
+<h4 id="置信区间的覆盖">置信区间的覆盖<a class="headerlink" href="#置信区间的覆盖" title="Link to this heading">¶</a></h4>
+<p>对于每个置信水平，我们可以基于从模型集成中获得的标准差计算置信区间。 根据置信区间在水平 <span class="math notranslate nohighlight">\(p\)</span> 的定义，该区间应以概率 <span class="math notranslate nohighlight">\(p\)</span> 覆盖实际值。 因此，如果我们绘制 <span class="math notranslate nohighlight">\([0,1]\)</span> 中所有水平的命中率与测试集的关系，理想情况下我们会得到一条完美的对角线（恒等函数）。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">confidences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -1022,7 +1074,7 @@ Test loss: 2.148413
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">confidences</span><span class="p">,</span> <span class="n">hits</span><span class="p">)</span>
@@ -1036,15 +1088,15 @@ Test loss: 2.148413
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T037_uncertainty_estimation_35_0.png" src="../_images/talktorials_T037_uncertainty_estimation_35_0.png"/>
+<img alt="../_images/talktorials_T037_uncertainty_estimation_36_0.png" src="../_images/talktorials_T037_uncertainty_estimation_36_0.png"/>
 </div>
 </div>
 </section>
-<section id="id1">
-<h4 id="id1">Calibration<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h4>
-<p>First, we compute the confidence curve on a small, dedicated part of the test set. Based on the confidence curve, we compute an adjustment factor for the estimated standard deviation. This process can be refined by computing a more complex transformation. For example, one could compute such a factor for any number of <em>bins</em>, i.e. intervals confidences.</p>
+<section id="id19">
+<h4 id="id19">校准<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h4>
+<p>首先，我们在测试集的一个小的、专用的部分上计算置信曲线。基于置信曲线，我们计算估计标准差的调整因子。这个过程可以通过计算更复杂的变换来优化。例如，我们可以为任意数量的_区间_（即间隔置信度）计算这样的因子。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_calib</span> <span class="o">=</span> <span class="mi">100</span>
@@ -1068,9 +1120,9 @@ Test loss: 2.148413
 </pre></div>
 </div>
 </div>
-<p>The constant calibration adjustment factor <code class="docutils literal notranslate"><span class="pre">calibration_adjustment</span></code> is used to compute confidence intervals. The resulting confidence curve is now much better calibrated. That means it is close to the identity function.</p>
+<p>恒定的校准调整因子 <code class="docutils literal notranslate"><span class="pre">calibration_adjustment</span></code> 用于计算置信区间。 得到的置信曲线现在校准得好多了。 这意味着它接近恒等函数。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hits</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1095,17 +1147,16 @@ Test loss: 2.148413
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T037_uncertainty_estimation_40_0.png" src="../_images/talktorials_T037_uncertainty_estimation_40_0.png"/>
+<img alt="../_images/talktorials_T037_uncertainty_estimation_41_0.png" src="../_images/talktorials_T037_uncertainty_estimation_41_0.png"/>
 </div>
 </div>
-<p>Much better! To get an even better calibration we could use more sophisticated calibration methods. For example, we could use an interval-based scheme. Especially if the curve is not consistent in over- or under-estimation of confidence, such a flexible scheme is more appropriate.</p>
+<p>好多了！要获得更好的校准，我们可以使用更复杂的校准方法。例如，我们可以使用基于区间的方案。特别是当曲线在过度估计或低估置信度方面不一致时，这种灵活的方案更合适。</p>
 </section>
-<section id="Ranking-based-evaluation">
-<h4 id="Ranking-based-evaluation">Ranking-based evaluation<a class="headerlink" href="#Ranking-based-evaluation" title="Link to this heading">¶</a></h4>
-<p>For now, we have not really looked at how useful our ensemble is to estimate uncertainty. Ideally, poor estimations would indicate that our prediction has – at least potentially – a higher error. To assess our uncertainty prediction in this sense, we can look at <em>confidence curves</em>. In this ranking-based scheme, we order our estimates by decreasing uncertainty and looking at the decrease in the total absolute error for a certain number of samples. We can then compare the resulting curve with a
-random baseline and the ideal curve.</p>
+<section id="基于排序的评估">
+<h4 id="基于排序的评估">基于排序的评估<a class="headerlink" href="#基于排序的评估" title="Link to this heading">¶</a></h4>
+<p>到目前为止，我们还没有真正审视我们的集成在估计不确定性方面的有用性。理想情况下，较差的估计会表明我们的预测——至少潜在上——具有更高的误差。为了在这个意义上评估我们的不确定性预测，我们可以查看_置信曲线_。在这种基于排序的方案中，我们按照不确定性递减的顺序对估计值进行排序，并查看一定数量样本下总绝对误差的减少量。然后，我们可以将生成的曲线与随机基线和理想曲线进行比较。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idcs_mae</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mae</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
@@ -1134,31 +1185,41 @@ random baseline and the ideal curve.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T037_uncertainty_estimation_43_0.png" src="../_images/talktorials_T037_uncertainty_estimation_43_0.png"/>
+<img alt="../_images/talktorials_T037_uncertainty_estimation_44_0.png" src="../_images/talktorials_T037_uncertainty_estimation_44_0.png"/>
 </div>
 </div>
-<p>Ideally, the blue curve, i.e. our uncertainty estimates would be somewhere in between the random baseline and the ideal one. We see some improvement over the baseline, but there is room for improvement. Often, more variety is necessary for the model ensemble. Below we create more variety by bootstrapping and aggregating the training data. Another way would be, to vary the model itself in some way within the ensemble.</p>
+<p>理想情况下，蓝色曲线（即我们的不确定性估计）应该介于随机基线和理想曲线之间。我们看到与基线相比有一些改进，但仍有改进空间。通常，模型集成需要更多的多样性。 下面我们通过自助法和聚合训练数据来创建更多多样性。 另一种方法是在集成内以某种方式改变模型本身。</p>
 </section>
 </section>
-<section id="Bagging-ensemble---Training-a-model-with-varying-data">
-<h3 id="Bagging-ensemble---Training-a-model-with-varying-data">Bagging ensemble - Training a model with varying data<a class="headerlink" href="#Bagging-ensemble---Training-a-model-with-varying-data" title="Link to this heading">¶</a></h3>
-<p>To capture the uncertainty better, we need to introduce more variety in the ensemble. Instead of just varying training runs, we additionally vary the training data. This is done by <em>bootstrapping and aggregating</em> (<em>bagging</em>) the data: For each run, we resample the training data with replacement to get a (likely) slightly different training set of each model.</p>
+<section id="为集成引入更多方差">
+<h3 id="为集成引入更多方差">为集成引入更多方差<a class="headerlink" href="#为集成引入更多方差" title="Link to this heading">¶</a></h3>
+<p>通常，仅通过改变模型暴露于训练样本的顺序，集成中的方差太小。 为了更好地捕获不确定性，我们需要在集成中引入更多多样性。有两个领域可以引入更多的集成方差：数据和模型。</p>
+<section id="改变训练数据">
+<h4 id="改变训练数据">改变训练数据<a class="headerlink" href="#改变训练数据" title="Link to this heading">¶</a></h4>
+<p>除了改变训练运行之外，我们还额外改变训练数据。 这是通过对数据进行_bootstrapping and aggregating_（<em>bagging</em>）来完成的： 对于每次运行，我们使用替换对训练数据进行重新采样，以获得每个模型（可能）略微不同的训练集。此外，我们只使用该重新采样数据的一个子集，可能对某些集成成员隐藏一些数据点。</p>
+</section>
+<section id="改变模型参数">
+<h4 id="改变模型参数">改变模型参数<a class="headerlink" href="#改变模型参数" title="Link to this heading">¶</a></h4>
+<p>我们可以进一步改变整个集成中的模型参数。这种变化应该驱动模型以不同的方式学习底层数据。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ensemble_size</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">ensemble_bagg</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ensemble_size</span><span class="p">)):</span>
-    <span class="n">idcs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">),))</span>
+    <span class="n">idcs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">0.75</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">)),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">),))</span>
     <span class="n">x_train_resample</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="n">idcs</span><span class="p">]</span>
     <span class="n">y_train_resample</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="n">idcs</span><span class="p">]</span>
     <span class="n">training_data</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_train_resample</span><span class="p">,</span> <span class="n">y_train_resample</span><span class="p">)</span>
-    <span class="n">training_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+    <span class="n">training_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
 
     <span class="n">model</span> <span class="o">=</span> <span class="n">create_and_fit_model</span><span class="p">(</span>
         <span class="n">training_loader</span><span class="p">,</span>
-        <span class="n">test_loader</span><span class="p">,</span>
+        <span class="n">model_args</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">"n_hidden"</span><span class="p">:</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+            <span class="s2">"p_dropout"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">,</span>
+        <span class="p">},</span>
     <span class="p">)</span>
     <span class="n">ensemble_bagg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
@@ -1169,12 +1230,12 @@ random baseline and the ideal curve.</p>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-100%|██████████| 20/20 [01:04&lt;00:00,  3.25s/it]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [01:47&lt;00:00,  5.38s/it]
 </pre></div></div>
 </div>
-<p>Now, that all ensembles are trained, we compute the test set predictions of all ensemble members.</p>
+<p>现在，所有集成都已训练完成，我们计算所有集成成员的测试集预测。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preds_bagg</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">model</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">ensemble_bagg</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
@@ -1183,9 +1244,9 @@ random baseline and the ideal curve.</p>
 </pre></div>
 </div>
 </div>
-<p>Again, we compute basic statistics on our ensemble predictions.</p>
+<p>同样，我们对集成预测计算基本统计量。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stds_bagg</span> <span class="o">=</span> <span class="n">preds_bagg</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1196,23 +1257,25 @@ random baseline and the ideal curve.</p>
 </pre></div>
 </div>
 </div>
-<section id="id2">
-<h4 id="id2">Ranking-based evaluation<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
-<p>We now repeat the ranking-based evaluation from above. That is, we plot the confidence curve against the constantly decreasing baseline and the optimal solution (Oracle).</p>
+</section>
+<section id="id24">
+<h4 id="id24">基于排序的评估<a class="headerlink" href="#id24" title="Link to this heading">¶</a></h4>
+<p>现在我们重复上面的基于排序的评估。即，我们将置信曲线与恒定的递减基线和最优解（Oracle）进行比较。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idcs_mae</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mae_bagg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-<span class="n">idcs_conf</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">stds_bagg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idcs_mae_bagg</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mae_bagg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">idcs_conf_bagg</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">stds_bagg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="n">total_error</span> <span class="o">=</span> <span class="n">mae_bagg</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">total_error</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae_bagg</span><span class="p">[</span><span class="n">idcs_conf</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_error</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">"ordered by est. uncertainty bagg"</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">total_error</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae_bagg</span><span class="p">[</span><span class="n">idcs_conf_bagg</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="o">/</span> <span class="n">total_error</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">"ensemble with more variance"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="p">(</span><span class="n">total_mae</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae</span><span class="p">[</span><span class="n">idcs_conf</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_mae</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">"ordered by est. uncertainty"</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">"standard ensemble"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">)],</span>
@@ -1220,7 +1283,7 @@ random baseline and the ideal curve.</p>
     <span class="n">label</span><span class="o">=</span><span class="s2">"linear decrease"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">total_error</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae_bagg</span><span class="p">[</span><span class="n">idcs_mae</span><span class="p">],</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_error</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">total_error</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">mae_bagg</span><span class="p">[</span><span class="n">idcs_mae_bagg</span><span class="p">],</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_error</span><span class="p">,</span>
     <span class="s2">"--"</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s2">"oracle"</span><span class="p">,</span>
 <span class="p">)</span>
@@ -1234,21 +1297,21 @@ random baseline and the ideal curve.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T037_uncertainty_estimation_53_0.png" src="../_images/talktorials_T037_uncertainty_estimation_53_0.png"/>
+<img alt="../_images/talktorials_T037_uncertainty_estimation_54_0.png" src="../_images/talktorials_T037_uncertainty_estimation_54_0.png"/>
 </div>
 </div>
-<p>We observe a consistent improvement over the baseline. This means the uncertainty estimates help us in getting an impression of estimate quality. Poorer estimates are more likely to have a higher estimated uncertainty than the better ones.</p>
+<p>我们观察到与基线一致的改进。这意味着不确定性估计帮助我们获得了估计质量的印象。 较差的估计更可能具有比好的估计更高的估计不确定性。</p>
 </section>
 </section>
-<section id="id3">
-<h3 id="id3">Test-time data augmentation<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
-<p>Finally, we showcase test-time data augmentation. The benefit here is that it can be applied to pretty much any model. The basic idea is to sample <em>around</em> each test sample. This set of <em>similar</em> samples should provide information on the local variability. Large variability is assumed to imply higher uncertainty.</p>
-<p>In the context of fingerprints, we are dealing with bitstrings of fixed length. To sample around each test sample, we augment each test sample with <code class="docutils literal notranslate"><span class="pre">N_AUG</span></code> additional samples. In each sample and position, we introduce a mutation, i.e. a bit flip with a fixed probability (here <span class="math notranslate nohighlight">\(p=0.01\)</span>).</p>
+<section id="id25">
+<h3 id="id25">测试时数据增强<a class="headerlink" href="#id25" title="Link to this heading">¶</a></h3>
+<p>最后，我们展示测试时数据增强。其优点是它可以应用于几乎任何模型。 基本思想是对每个测试样本_附近_进行采样。 这组_相似_样本应该提供关于局部变异性的信息。 大的变异性被认为意味着更高的不确定性。</p>
+<p>在指纹的背景下，我们处理的是固定长度的位串。 为了对每个测试样本附近进行采样，我们用 <code class="docutils literal notranslate"><span class="pre">N_AUG</span></code> 个额外样本来增强每个测试样本。 在每个样本和位置上，我们引入一个突变，即以固定概率（此处 <span class="math notranslate nohighlight">\(p=0.01\)</span>）翻转一个位。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_AUG</span> <span class="o">=</span> <span class="mi">100</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_AUG</span> <span class="o">=</span> <span class="mi">200</span>
 
 <span class="n">x_test_aug</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">repeat_interleave</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">N_AUG</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
@@ -1293,21 +1356,21 @@ random baseline and the ideal curve.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T037_uncertainty_estimation_57_0.png" src="../_images/talktorials_T037_uncertainty_estimation_57_0.png"/>
+<img alt="../_images/talktorials_T037_uncertainty_estimation_58_0.png" src="../_images/talktorials_T037_uncertainty_estimation_58_0.png"/>
 </div>
 </div>
 </section>
 </section>
-<section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
-<p>The field of uncertainty estimation is highly relevant to almost all machine learning applications and computer-aided drug discovery is no exception. Thus, currently, there is significant effort put into improving methodologies. Many issues such as explainability or objective evaluation protocols for uncertainty quantification remain to be addressed. However, if predictions are to be used in the real world, uncertainty cannot be ignored.</p>
+<section id="讨论">
+<h2 id="讨论">讨论<a class="headerlink" href="#讨论" title="Link to this heading">¶</a></h2>
+<p>不确定性估计领域几乎与所有机器学习应用高度相关，计算机辅助药物发现也不例外。 因此，目前有大量精力投入到改进方法论上。 许多问题，如可解释性或不确定性量化的客观评估协议，仍有待解决。 然而，如果预测要应用于现实世界，就不能忽视不确定性。</p>
 </section>
-<section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
+<section id="测验">
+<h2 id="测验">测验<a class="headerlink" href="#测验" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
-<li><p>What are the main sources of uncertainty?</p></li>
-<li><p>How could we get a model ensemble without training many models?</p></li>
-<li><p>In which scenarios can uncertainty estimation fail?</p></li>
+<li><p>不确定性的主要来源是什么？</p></li>
+<li><p>我们如何在不训练许多模型的情况下获得模型集成？</p></li>
+<li><p>在哪些场景中不确定性估计可能失败？</p></li>
 </ol>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
@@ -1324,7 +1387,7 @@ random baseline and the ideal curve.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="T036_e3_equivariant_gnn.html" title="T036 · An introduction to E(3)-invariant graph neural networks"
+            <a href="T036_e3_equivariant_gnn.html" title="T036 · E(3)-等变图神经网络入门"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -1333,17 +1396,17 @@ random baseline and the ideal curve.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> T036 · An introduction to E(3)-invariant graph neural networks </span>
+                      class="md-footer-nav__direction"> "Previous" </span> T036 · E(3)-等变图神经网络入门 </span>
               </div>
             </a>
           
           
-            <a href="T038_protein_ligand_interaction_prediction.html" title="T038 · Protein Ligand Interaction Prediction"
+            <a href="T038_protein_ligand_interaction_prediction.html" title="T038 · 蛋白质-配体相互作用预测"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> T038 · Protein Ligand Interaction Prediction </span>
+                class="md-footer-nav__direction"> "Next" </span> T038 · 蛋白质-配体相互作用预测 </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

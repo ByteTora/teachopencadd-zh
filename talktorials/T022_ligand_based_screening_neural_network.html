@@ -4,14 +4,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="T022 · Ligand-based screening: neural networks" />
+<meta property="og:title" content="T022 · 基于配体的筛选：神经网络" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T022_ligand_based_screening_neural_network.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Ahmed Atta, CADD Seminar 2020, Charité/FU..." />
+<meta property="og:description" content="Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin 注意： 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并为研究项目提供流程模板作为起点。 作者： Ahmed Atta, CADD Seminar 2020, Charité/FU Berlin, Sakshi Misra, 实习 (2020/21), Volkamer lab, Charité, Talia B. Kimber, 2020/21, Volkamer lab, Charité, Andrea Volkame..." />
 <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
 <meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Ahmed Atta, CADD Seminar 2020, Charité/FU..." />
+<meta name="description" content="Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin 注意： 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并为研究项目提供流程模板作为起点。 作者： Ahmed Atta, CADD Seminar 2020, Charité/FU Berlin, Sakshi Misra, 实习 (2020/21), Volkamer lab, Charité, Talia B. Kimber, 2020/21, Volkamer lab, Charité, Andrea Volkame..." />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -82,7 +82,7 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T022 · Ligand-based screening: neural networks &#8212; TeachOpenCADD 0.0.post1 documentation</title>
+    <title>T022 · 基于配体的筛选：神经网络 &#8212; TeachOpenCADD 0.0.post1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -100,8 +100,8 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T023 · What is a kinase?" href="T023_what_is_a_kinase.html" />
-    <link rel="prev" title="T021 · One-Hot Encoding" href="T021_one_hot_encoding.html" />
+    <link rel="next" title="T023 · 什么是激酶？" href="T023_what_is_a_kinase.html" />
+    <link rel="prev" title="T021 · 独热编码（One-Hot Encoding）" href="T021_one_hot_encoding.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -140,7 +140,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">TeachOpenCADD</span>
-          <span class="md-header-nav__topic"> T022 · Ligand-based screening: neural networks </span>
+          <span class="md-header-nav__topic"> T022 · 基于配体的筛选：神经网络 </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -424,75 +424,73 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t022-ligand-based-screening-neural-network--page-root" class="md-nav__link">T022 · Ligand-based screening: neural networks</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t022-ligand-based-screening-neural-network--page-root" class="md-nav__link">T022 · 基于配体的筛选：神经网络</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#本教程的目标" class="md-nav__link">本教程的目标</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        <li class="md-nav__item"><a href="#理论-部分的内容" class="md-nav__link"><em>理论</em> 部分的内容</a>
         </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        <li class="md-nav__item"><a href="#实践-部分的内容" class="md-nav__link"><em>实践</em> 部分的内容</a>
         </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        <li class="md-nav__item"><a href="#参考文献" class="md-nav__link">参考文献</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#理论" class="md-nav__link">理论</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Biological-background" class="md-nav__link">Biological background</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#生物学背景" class="md-nav__link">生物学背景</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#EGFR-kinase" class="md-nav__link">EGFR kinase</a>
+        <li class="md-nav__item"><a href="#EGFR-激酶" class="md-nav__link">EGFR 激酶</a>
         </li>
-        <li class="md-nav__item"><a href="#Compound-activity-measures" class="md-nav__link">Compound activity measures</a>
+        <li class="md-nav__item"><a href="#化合物活性度量" class="md-nav__link">化合物活性度量</a>
         </li>
-        <li class="md-nav__item"><a href="#Molecule-encoding" class="md-nav__link">Molecule encoding</a>
+        <li class="md-nav__item"><a href="#分子编码" class="md-nav__link">分子编码</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Neural-networks" class="md-nav__link">Neural networks</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#神经网络" class="md-nav__link">神经网络</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#What-is-a-neural-network?" class="md-nav__link">What is a neural network?</a>
+        <li class="md-nav__item"><a href="#什么是神经网络？" class="md-nav__link">什么是神经网络？</a>
         </li>
-        <li class="md-nav__item"><a href="#Activation-function" class="md-nav__link">Activation function</a>
+        <li class="md-nav__item"><a href="#激活函数" class="md-nav__link">激活函数</a>
         </li>
-        <li class="md-nav__item"><a href="#Loss-function" class="md-nav__link">Loss function</a>
+        <li class="md-nav__item"><a href="#损失函数" class="md-nav__link">损失函数</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Training-a-neural-network" class="md-nav__link">Training a neural network</a>
+        <li class="md-nav__item"><a href="#训练神经网络" class="md-nav__link">训练神经网络</a>
         </li>
-        <li class="md-nav__item"><a href="#Keras-workflow" class="md-nav__link">Keras workflow</a>
+        <li class="md-nav__item"><a href="#Keras-工作流程" class="md-nav__link">Keras 工作流程</a>
         </li>
-        <li class="md-nav__item"><a href="#Advantages-and-applications-of-neural-networks" class="md-nav__link">Advantages and applications of neural networks</a>
+        <li class="md-nav__item"><a href="#神经网络的优势与应用" class="md-nav__link">神经网络的优势与应用</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#实践" class="md-nav__link">实践</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Data-preparation" class="md-nav__link">Data preparation</a>
+        <li class="md-nav__item"><a href="#数据准备" class="md-nav__link">数据准备</a>
         </li>
-        <li class="md-nav__item"><a href="#Define-neural-network" class="md-nav__link">Define neural network</a>
+        <li class="md-nav__item"><a href="#定义神经网络" class="md-nav__link">定义神经网络</a>
         </li>
-        <li class="md-nav__item"><a href="#Train-the-model" class="md-nav__link">Train the model</a>
+        <li class="md-nav__item"><a href="#训练模型" class="md-nav__link">训练模型</a>
         </li>
-        <li class="md-nav__item"><a href="#Evaluation-&amp;-prediction-on-test-set" class="md-nav__link">Evaluation & prediction on test set</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#评估与在测试集上的预测" class="md-nav__link">评估与在测试集上的预测</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Scatter-plot" class="md-nav__link">Scatter plot</a>
+        <li class="md-nav__item"><a href="#散点图" class="md-nav__link">散点图</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Prediction-on-external/unlabeled-data" class="md-nav__link">Prediction on external/unlabeled data</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#在外部/未标注数据上的预测" class="md-nav__link">在外部/未标注数据上的预测</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Select-the-top-3-compounds" class="md-nav__link">Select the top 3 compounds</a>
+        <li class="md-nav__item"><a href="#选出前-3-个化合物" class="md-nav__link">选出前 3 个化合物</a>
         </li></ul>
             </nav>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        <li class="md-nav__item"><a href="#讨论" class="md-nav__link">讨论</a>
         </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
-        </li>
-        <li class="md-nav__item"><a href="#Supplementary-section" class="md-nav__link">Supplementary section</a>
+        <li class="md-nav__item"><a href="#测验" class="md-nav__link">测验</a>
         </li></ul>
             </nav>
         </li>
@@ -510,67 +508,66 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="T022-·-Ligand-based-screening:-neural-networks">
-<h1 id="talktorials-t022-ligand-based-screening-neural-network--page-root">T022 · Ligand-based screening: neural networks<a class="headerlink" href="#talktorials-t022-ligand-based-screening-neural-network--page-root" title="Link to this heading">¶</a></h1>
+  <section id="T022-·-基于配体的筛选：神经网络">
+<h1 id="talktorials-t022-ligand-based-screening-neural-network--page-root">T022 · 基于配体的筛选：神经网络<a class="headerlink" href="#talktorials-t022-ligand-based-screening-neural-network--page-root" title="Link to this heading">¶</a></h1>
 <p>Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin</p>
-<p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
-<p>Authors:</p>
+<p><strong>注意：</strong> 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并为研究项目提供流程模板作为起点。</p>
+<p>作者：</p>
 <ul class="simple">
 <li><p>Ahmed Atta, CADD Seminar 2020, Charité/FU Berlin</p></li>
-<li><p>Sakshi Misra, internship (2020/21), <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
+<li><p>Sakshi Misra, 实习 (2020/21), <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
 <li><p>Talia B. Kimber, 2020/21, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
 <li><p>Andrea Volkamer, 2021, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
 </ul>
-<section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
-<p>In recent years, the use of machine learning, and deep learning, in pharmaceutical research has shown promising results in addressing diverse problems in drug discovery. In this talktorial, we get familiar with the basics of neural networks. We will learn how to build a simple two layer neural network and train it on a subset of ChEMBL data in order to predict the pIC50 values of compounds against EGFR, the target of interest. Furthermore, we select three compounds from an external, unlabeled
-data set that are predicted to be the most active against that kinase.</p>
-<section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
+<section id="本教程的目标">
+<h2 id="本教程的目标">本教程的目标<a class="headerlink" href="#本教程的目标" title="Link to this heading">¶</a></h2>
+<p>近年来，机器学习和深度学习在药物研究中的应用在解决药物发现中的各种问题方面展现了令人鼓舞的成果。在本教程中，我们将熟悉神经网络的基础知识。我们将学习如何构建一个简单的两层神经网络，并在 ChEMBL 数据的子集上训练它，以预测化合物针对 EGFR（目标激酶）的 pIC50 值。此外，我们将从一个外部未标注数据集中选出预测活性最高的三个化合物。</p>
+<section id="理论-部分的内容">
+<h3 id="理论-部分的内容"><em>理论</em> 部分的内容<a class="headerlink" href="#理论-部分的内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Biological background</p>
+<li><p>生物学背景</p>
 <ul>
-<li><p>EGFR kinase</p></li>
-<li><p>Compound activity measures</p></li>
-<li><p>Molecule encoding</p></li>
+<li><p>EGFR 激酶</p></li>
+<li><p>化合物活性度量</p></li>
+<li><p>分子编码</p></li>
 </ul>
 </li>
-<li><p>Neural networks</p>
+<li><p>神经网络</p>
 <ul>
-<li><p>What is a neural network?</p></li>
-<li><p>Activation function</p></li>
-<li><p>Loss function</p></li>
+<li><p>什么是神经网络？</p></li>
+<li><p>激活函数</p></li>
+<li><p>损失函数</p></li>
 </ul>
 </li>
-<li><p>Training a neural network</p></li>
-<li><p>Keras workflow</p></li>
-<li><p>Advantages and applications of neural networks</p></li>
+<li><p>训练神经网络</p></li>
+<li><p>Keras 工作流程</p></li>
+<li><p>神经网络的优势与应用</p></li>
 </ul>
 </section>
-<section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
+<section id="实践-部分的内容">
+<h3 id="实践-部分的内容"><em>实践</em> 部分的内容<a class="headerlink" href="#实践-部分的内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Data preparation</p></li>
-<li><p>Define neural network</p></li>
-<li><p>Train the model</p></li>
-<li><p>Evaluation &amp; prediction on test set</p>
+<li><p>数据准备</p></li>
+<li><p>定义神经网络</p></li>
+<li><p>训练模型</p></li>
+<li><p>评估与在测试集上的预测</p>
 <ul>
-<li><p>Scatter plot</p></li>
+<li><p>散点图</p></li>
 </ul>
 </li>
-<li><p>Prediction on external/unlabeled data</p>
+<li><p>在外部/未标注数据上的预测</p>
 <ul>
-<li><p>Select the top 3 compounds</p></li>
+<li><p>选出前 3 个化合物</p></li>
 </ul>
 </li>
 </ul>
 </section>
-<section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h3>
+<section id="参考文献">
+<h3 id="参考文献">参考文献<a class="headerlink" href="#参考文献" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Theoretical background:</p>
+<li><p>理论背景：</p>
 <ul>
-<li><p>Articles</p>
+<li><p>论文</p>
 <ul>
 <li><p>Siddharth Sharma, “Activation functions in neural networks”. <a class="reference external" href="https://www.ijeast.com/papers/310-316,Tesma412,IJEAST.pdf">International Journal of Engineering Applied Sciences and Technology, 2020 Vol. 4, Issue 12, 310-316 (2020).</a></p></li>
 <li><p>Shun-ichi Amari, “Backpropagation and stochastic gradient descent method”, <a class="reference external" href="https://doi.org/10.1016/0925-2312(93)90006-O">ScienceDirect Volume 5, Issue 4-5, 185-196</a></p></li>
@@ -578,9 +575,9 @@ data set that are predicted to be the most active against that kinase.</p>
 <li><p>Filippo Amato et al., “Artificial neural networks in medical diagnosis”, <a class="reference external" href="https://doi.org/10.2478/v10136-012-0031-x">ScienceDirect Volume 11, Issue 2, 47-58</a></p></li>
 </ul>
 </li>
-<li><p>Blogposts</p>
+<li><p>博客文章</p>
 <ul>
-<li><p>Imad Dabbura, <em>Coding Neural Network — Forward Propagation and Backpropagtion</em>, <a class="reference external" href="https://towardsdatascience.com/coding-neural-network-forward-propagation-and-backpropagtion-ccf8cf369f76">towardsdatascience, accessed April 1st, 2018</a>.</p></li>
+<li><p>Imad Dabbura, <em>Coding Neural Network — Forward Propagation and Backpropagtion</em>, <a class="reference external" href="https://medium.com/data-science/coding-neural-network-forward-propagation-and-backpropagtion-ccf8cf369f76">medium, accessed March 25th, 2026</a>.</p></li>
 <li><p>Lavanya Shukla, <em>Designing Your Neural Networks</em>, <a class="reference external" href="https://towardsdatascience.com/designing-your-neural-networks-a5e4617027ed">towardsdatascience, accessed Sep 23rd, 2019</a></p></li>
 <li><p>Arthur Arnx, <em>First neural network for beginners explained (with code)</em>, <a class="reference external" href="https://towardsdatascience.com/first-neural-network-for-beginners-explained-with-code-4cfd37e06eaf">towardsdatascience, accessed Jan 13th, 2019</a></p></li>
 <li><p>Varun Divakar, <em>Understanding Backpropagation</em>, <a class="reference external" href="https://blog.quantinsti.com/backpropagation/">QuantInst, accessed Nov 19th, 2018</a></p></li>
@@ -588,183 +585,193 @@ data set that are predicted to be the most active against that kinase.</p>
 </li>
 </ul>
 </li>
-<li><p>Packages:</p>
+<li><p>软件包：</p>
 <ul>
 <li><p><a class="reference external" href="http://rdkit.org/">rdkit</a>: Greg Landrum, <em>RDKit Documentation</em>, <a class="reference external" href="https://www.rdkit.org/UGM/2012/Landrum_RDKit_UGM.Fingerprints.Final.pptx.pdf">PDF</a>, Release on 2019.09.1.</p></li>
-<li><p><a class="reference external" href="https://keras.io/">Keras</a>: Book chapter: “An Introduction to Deep Learning and Keras” in <a class="reference external" href="https://doi.org/10.1007/978-1-4842-4240-7">Learn Keras for Deep Neural Networks (2019), page(s):1-16</a>.</p></li>
-<li><p><a class="reference external" href="https://keras.io/api/models/sequential/">Sequential model</a> in keras</p></li>
+<li><p><a class="reference external" href="https://keras.io/">Keras</a>: 书籍章节：”An Introduction to Deep Learning and Keras” in <a class="reference external" href="https://doi.org/10.1007/978-1-4842-4240-7">Learn Keras for Deep Neural Networks (2019), page(s):1-16</a>.</p></li>
+<li><p>keras 中的 <a class="reference external" href="https://keras.io/api/models/sequential/">Sequential model</a></p></li>
 <li><p><a class="reference external" href="https://keras.io/api/models/model_training_apis/#model-training-apis">Model training APIs</a></p></li>
 </ul>
 </li>
 </ul>
-</section>
-</section>
-<section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
-<section id="Biological-background">
-<h3 id="Biological-background">Biological background<a class="headerlink" href="#Biological-background" title="Link to this heading">¶</a></h3>
-<section id="EGFR-kinase">
-<h4 id="EGFR-kinase">EGFR kinase<a class="headerlink" href="#EGFR-kinase" title="Link to this heading">¶</a></h4>
-<ul class="simple">
-<li><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Epidermal_growth_factor_receptor">Epidermal Growth Factor Receptor (EGFR)</a> is a transmembrane protein/receptor present on the cell membrane. It is a member of the ErbB family of receptors.</p></li>
-<li><p>EGFR plays an important role in controlling normal cell growth, apoptosis and other cellular functions.</p></li>
-<li><p>It is activated by ligand binding to its extracellular domain, upon activation EGFR undergoes a transition from an inactive monomeric form to an active homodimers.</p></li>
-<li><p>The EGFR receptor is upregulated in various types of tumors or cancers, so an EGFR inhibition is a type of biological therapy that might stop cancer cells from growing.</p></li>
-</ul>
-</section>
-<section id="Compound-activity-measures">
-<h4 id="Compound-activity-measures">Compound activity measures<a class="headerlink" href="#Compound-activity-measures" title="Link to this heading">¶</a></h4>
-<ul class="simple">
-<li><p><strong>IC50</strong> is the half maximal inhibitory concentration of a drug which indicates how much of a drug is needed to inhibit a biological process by half.</p></li>
-<li><p><strong>pIC50</strong> is the negative logarithm of the IC50 value. It is more easily interpretable than IC50 values and a common measure for potency of compounds (see <strong>Talktorial T001</strong> for further details).</p></li>
-</ul>
-</section>
-<section id="Molecule-encoding">
-<h4 id="Molecule-encoding">Molecule encoding<a class="headerlink" href="#Molecule-encoding" title="Link to this heading">¶</a></h4>
-<p>For machine learning algorithms, molecules need to be converted into a machine readable format, e.g. a list of features. In this notebook, molecular fingerprints are used.</p>
-<p>Molecular fingerprints encode chemical structures and molecular features in a bit string, where at each position “1” represents the presence and “0” represents the absence of a feature. One of the common fingerprints used are <strong>M</strong>olecular <strong>ACC</strong>ess <strong>S</strong>ystem fingerprints <a class="reference external" href="https://docs.eyesopen.com/toolkits/python/graphsimtk/fingerprint.html#maccs">(MACCS Keys)</a> which are 166 bits structural key descriptors in which each bit is associated with a
-<a class="reference external" href="https://docs.eyesopen.com/toolkits/python/oechemtk/glossary.html#term-smarts">SMARTS</a> pattern encoding a specific substructure (see <strong>Talktorial T004</strong> for further details).</p>
-</section>
-</section>
-<section id="Neural-networks">
-<h3 id="Neural-networks">Neural networks<a class="headerlink" href="#Neural-networks" title="Link to this heading">¶</a></h3>
-<section id="What-is-a-neural-network?">
-<h4 id="What-is-a-neural-network?">What is a neural network?<a class="headerlink" href="#What-is-a-neural-network?" title="Link to this heading">¶</a></h4>
-<p>Neural networks, also known as artificial neural networks (ANNs), are a subset of machine learning algorithms. The structure and the name of the neural network is inspired by the human brain, mimicking the way that biological neurons transfer signals to one another.</p>
-<p><img alt="Basic structure" src="../_images/basic_structure.png"/></p>
-<p><em>Figure 1:</em> The figure shows the basic structure of an artificial neural network. It is taken from the blogpost: “<em>Designing Your Neural Networks</em>”, Lavanya Shukla, <a class="reference external" href="https://towardsdatascience.com/designing-your-neural-networks-a5e4617027ed">towardsdatascience</a>.</p>
-<p>ANNs consist of three main layers as shown in the figure above: the <em>input layer</em>, some <em>hidden layers</em> and the <em>output layer</em>. Let’s take a deeper look at each of them.</p>
-<ol class="arabic simple">
-<li><p><strong>Input neurons or input layer</strong></p>
-<ul class="simple">
-<li><p>This layer represents the number of features which are used to make the predictions.</p></li>
-<li><p>The input vector needs one input neuron per feature.</p></li>
-</ul>
-</li>
-<li><p><strong>Hidden layers and neurons per hidden layer</strong></p>
-<ul class="simple">
-<li><p>The dimension of the hidden layers may vary greatly, but a good rule of thumb is to have dimensions in the range of the input layer and the output layer.</p></li>
-<li><p>In general, using the same number of neurons for all hidden layers will suffice but for some datasets, having a large first layer and following it up with smaller layers may lead to a better performance as first layers can learn many low-level features.</p></li>
-</ul>
-</li>
-<li><p><strong>Output neurons or output layer</strong></p>
-<ul class="simple">
-<li><p>The output layer represents the value of interest, which will be predicted by the neural network.</p>
-<ul>
-<li><p>Regression task: the value is a real number (or vector) such as the pIC50 value.</p></li>
-<li><p>Binary classification task: the output neuron represents the probability of belonging to the positive class.</p></li>
-<li><p>Multi-class classification task: there is one output neuron per class and the predictions represent the probability of belonging to each class. A certain activation function is applied on the output layer to ensure the final probabilities sum up to 1.</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<p><strong>Neurons</strong> are the core units of a neural network. Let’s look into the operations done by each neuron to understand the overall mechanism of a neural network.</p>
-<p><img alt="Neuron" src="../_images/neuron.png"/></p>
-<p><em>Figure 2:</em> Operations done by a neuron. The figure is taken from the blogpost: “<em>First neural network for beginners explained (with code)</em>”, Arthur Arnx, <a class="reference external" href="https://towardsdatascience.com/first-neural-network-for-beginners-explained-with-code-4cfd37e06eaf">towardsdatascience</a>.</p>
-<p>Each input neuron <span class="math notranslate nohighlight">\(x_i\)</span> is multiplied by a weight <span class="math notranslate nohighlight">\(w_i\)</span>. In Figure 2, we have <span class="math notranslate nohighlight">\((x1, x2, x3)\)</span> and <span class="math notranslate nohighlight">\((w1, w2, w3)\)</span>. The value of a weight determines the influence that the input neuron will have on the neuron of the next layer. The multiplied values are then summed. An additional value, called bias, is also added and allows to shift the activation function. This new value becomes the value of the hidden neuron. Mathematically, we have:</p>
-<div class="math notranslate nohighlight">
-\[h = (w1*x1 + w2*x2 + w3*x3) + b = \sum_i ^ 3w_i*x_i+ b\]</div>
-<p>An activation function, discussed in greater details in the next section, is then applied to the hidden neuron to determine if the neuronal value should be activated or not. An activated neuron transmits data to the neuron of the next layer. In this manner, the data is propagated through the network which is known as <a class="reference external" href="https://en.wikipedia.org/wiki/Feedforward_neural_network">forward propagation</a>.</p>
-<p>The weights and biases in a neural network are referred to as <em>learnable parameters</em>. They are tuned when training the model to obtain a good performance.</p>
-</section>
-<section id="Activation-function">
-<h4 id="Activation-function">Activation function<a class="headerlink" href="#Activation-function" title="Link to this heading">¶</a></h4>
-<p><strong>What is an activation function?</strong></p>
-<p>An <a class="reference external" href="https://en.wikipedia.org/wiki/Activation_function">activation function</a> regulates the amount of information passed through a neural network. This function is applied to each neuron and determines whether the neuron should be activated or not. It works as a “gate” between the input feeding the current neuron and its output going to the next layer as shown in the figure below.</p>
-<p><img alt="Activation" src="../_images/activation.png"/></p>
-<p><em>Figure 3:</em> The figure shows an activation function applied on a neuron. It is taken from the blogpost: <a class="reference external" href="https://medium.com/analytics-vidhya/why-activation-functions-8328f3f21120">Why Activation Functions?</a></p>
-<p><strong>Types of activation function</strong></p>
-<p>There are many types of activation functions, but we only discuss the two which we use in the practical section below. For more information, see the supplementary section and references. Most neural networks use non-linear activation functions in the hidden layers to learn complex features and adapt to a variety of data.</p>
-<ol class="arabic simple">
-<li><p>Rectified Linear Unit (ReLU)</p></li>
-</ol>
-<ul class="simple">
-<li><p>It takes the form: <span class="math notranslate nohighlight">\(\boxed{f(x) = max\{ 0, x\}}\)</span>.</p></li>
-<li><p>As shown in the figure below, <a class="reference external" href="https://machinelearningmastery.com/rectified-linear-activation-function-for-deep-learning-neural-networks/">ReLU</a> outputs <span class="math notranslate nohighlight">\(x\)</span>, if <span class="math notranslate nohighlight">\(x\)</span> is positive and <span class="math notranslate nohighlight">\(0\)</span> otherwise. The range of ReLU is <span class="math notranslate nohighlight">\([0, +\infty)\)</span>.</p></li>
-<li><p>One of the reasons it is commonly used is its sparsity: only few neurons will be activated and thereby making the activations sparse and efficient.</p></li>
-<li><p>It has become the default activation function for many types of neural networks because it makes the training of a model less expensive and the model often achieves better performance.</p></li>
-<li><p>A possible drawback of ReLU is the so-called <em>dying ReLU problem</em> where neurons get stuck as inactive for all inputs, it is a form of <a class="reference external" href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">vanishing gradient problem</a>.</p></li>
-</ul>
-<p><img alt="ReLU" src="../_images/relu.png"/></p>
-<p><em>Figure 4:</em> Representation of the <em>ReLU</em> function. Figure by Sakshi Misra.</p>
-<ol class="arabic simple" start="2">
-<li><p>Linear activation function</p></li>
-</ol>
-<ul class="simple">
-<li><p>A <a class="reference external" href="https://keras.io/api/layers/core_layers/dense/">linear activation function</a> takes the form: <span class="math notranslate nohighlight">\(\boxed{a(x) = x}\)</span>.</p></li>
-<li><p>It is the most appropriate activation function in a regression setting, since there is no constraint on the output.</p></li>
-</ul>
-</section>
-<section id="Loss-function">
-<h4 id="Loss-function">Loss function<a class="headerlink" href="#Loss-function" title="Link to this heading">¶</a></h4>
-<p>When training a neural network, the aim is to optimize the prediction error, i.e. the difference between the true value and the value predicted by the model. The prediction error can be written as a function, known as the objective function, cost function, or <strong>loss function</strong>. The goal is therefore to minimize the loss function, in other words, to find local minima. The loss function is one of the important components in training a neural network. For more details on loss functions, please
-refer to the blogpost: <a class="reference external" href="https://machinelearningmastery.com/loss-and-loss-functions-for-training-deep-learning-neural-networks/">Loss and Loss Functions for Training Deep Learning Neural Networks</a>. Two commonly used loss functions in regression tasks are</p>
-<ol class="arabic simple">
-<li><p>the <strong>Mean Squared Error (MSE)</strong>: As the name suggests, this loss is calculated by taking the mean of the squared differences between the true and predicted values.</p></li>
-<li><p>the <strong>Mean Absolute Error (MAE)</strong>: The loss is calculated by taking the mean of the absolute difference between the true and predicted values.</p></li>
-</ol>
-</section>
-</section>
-<section id="Training-a-neural-network">
-<h3 id="Training-a-neural-network">Training a neural network<a class="headerlink" href="#Training-a-neural-network" title="Link to this heading">¶</a></h3>
-<p>When starting with a neural network, the parameters, i.e. the weights and biases, are randomly initialized. The inputs are then fed into the network and produce an output. However, the corresponding output will most likely be very different from the true value. In other words, the prediction error will be very poor: the loss function is far from being minimal. Therefore, the initial parameters have to be optimized to obtain better predictions.</p>
-<p>To this end, we need to minimize the loss function. An efficient way to find such a minimum is to use the <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent#:~:text=Gradient%20descent%20is%20a%20first,the%20direction%20of%20steepest%20descent.">gradient descent</a> algorithm. This optimization scheme is iterative and uses both the derivative of the loss function (or gradient in the multivariate case) and a learning rate. The main idea behind the algorithm is to follow the steepest direction of the
-function, obtained with the gradient and managing the length of each step with the learning rate. The latter is often referred to as a hyperparameter, which can be tuned using cross-validation (more details in future talktorials).</p>
-<p>In training neural networks, it is very common to use <em>back-propagation</em>, which is a way of efficiently obtaining the gradients using the chain-rule for differentiation.</p>
-<p>In summary, after each forward pass through a network, back-propagation performs a backward pass while adjusting the model’s parameters in order to minimize the loss function.</p>
-<p><strong>Computation cost</strong></p>
-<p>If the data set used is very large, computing the gradient of the loss function can be very expensive. A way to solve this issue is to use instead a sample, or mini-batch, of the training data at a time, known as <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">Stochastic Gradient Descent (SGD)</a> or <em>Mini-Batch Stochastic Gradient Descent</em>.</p>
-</section>
-<section id="Keras-workflow">
-<h3 id="Keras-workflow">Keras workflow<a class="headerlink" href="#Keras-workflow" title="Link to this heading">¶</a></h3>
-<p><a class="reference external" href="https://keras.io/getting_started/">Keras</a> is an open-source library for machine learning and more specifically neural networks. Its API runs on top of the very well-known <a class="reference external" href="https://www.tensorflow.org/">tensorflow</a> deep learning platform.</p>
-<p>Below, we present a common workflow for training a neural network with <a class="reference external" href="https://keras.io/getting_started/">keras</a>.</p>
-<ul class="simple">
-<li><p><strong>Prepare the data</strong> − Foremost for any machine learning algorithm, we process, filter and select only the required information from the data. Then, the data is split into training and test data sets. The test data is used to evaluate the prediction of the algorithm and to cross check the efficiency of the learning process.</p></li>
-<li><p><strong>Define the model</strong> - In keras, every ANN is represented by keras <a class="reference external" href="https://keras.io/api/models/model/#model-class">models</a>. Keras provides a way to create a model which is called <a class="reference external" href="https://keras.io/api/models/sequential/">sequential</a>. The layers are arranged sequentially where the data flows from one layer to another layer in a given order until the data finally reaches the output layer. Each layer in the ANN can be represented by a <em>keras layer</em>.</p></li>
-<li><p><strong>Compile the model</strong> − The compilation is the final step in creating a model. Once the compilation is done, we can move on to the training phase. A <em>loss function</em> and an <em>optimizer</em> are required in the learning phase to define the prediction error and to minimize it, respectively. In the practical part of this talktorial, we use the mean squared error as a loss and the <a class="reference external" href="https://machinelearningmastery.com/adam-optimization-algorithm-for-deep-learning/">adam</a> optimizer, which is a popular
-version of gradient descent and has shown to give good results in a wide range of problems.</p></li>
-<li><p><strong>Fit the model</strong> - The actual learning process will be done in this phase using the training data set. We can call the <a class="reference external" href="https://keras.io/api/models/model_training_apis/#fit-method">fit()</a> method which needs several parameters such as <span class="math notranslate nohighlight">\(x\)</span> the input data, <span class="math notranslate nohighlight">\(y\)</span> the target data, the batch size, the number of epochs, etc. An <em>epoch</em> is when the entire dataset is passed forward and backward through the neural network once.</p></li>
-<li><p><strong>Evaluate model</strong> − We can evaluate the model by looking at the loss function between the predicted and true values of the test data using the <a class="reference external" href="https://keras.io/api/models/model_training_apis/#evaluate-method">evaluate()</a> method.</p>
-<ul>
-<li><p>Scatter plots are a common and simple approach to visualize the evaluation of a model. They plot the predicted vs. true values. If the fit was perfect, we should see the <span class="math notranslate nohighlight">\(y=x\)</span> line, meaning that the predicted value is exactly the true value.</p></li>
-</ul>
-</li>
-<li><p><strong>Predictions on external/unlabeled data</strong> − We make predictions based on the trained model for the external data set using the <a class="reference external" href="https://keras.io/api/models/model_training_apis/#predict-method">predict()</a> method.</p></li>
-</ul>
-</section>
-<section id="Advantages-and-applications-of-neural-networks">
-<h3 id="Advantages-and-applications-of-neural-networks">Advantages and applications of neural networks<a class="headerlink" href="#Advantages-and-applications-of-neural-networks" title="Link to this heading">¶</a></h3>
-<p><strong>Advantages of a neural network</strong></p>
-<ul class="simple">
-<li><p><strong>Organic learning</strong>: Neural networks have the ability to learn by extracting the important features present in the input data.</p></li>
-<li><p><strong>Non linear data processing</strong>: They have the ability to learn and model non-linear and complex relationships.</p></li>
-<li><p><strong>Time operation</strong>: The computation cost during training time can be reduced using parallelization.</p></li>
-</ul>
-<p>To learn more about advantages and disadvantages of a neural network, please refer to the article: J V Tu, “<em>Advantages and disadvantages of using artificial neural networks versus logistic regression for predicting medical outcomes</em>”, <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/8892489/">Journal of Clinical Epidemiology, vol 49 issue 11, pages: 1225-1231</a>.</p>
-<p><strong>Applications of neural networks</strong></p>
-<p>There are various applications of neural networks in computer-aided drug design such as:</p>
-<ul class="simple">
-<li><p>Drug design and discovery</p></li>
-<li><p>Biomarker identification and/or classification</p></li>
-<li><p>Various types of cancer detection</p></li>
-<li><p>Pattern recognition</p></li>
-</ul>
-<p>Please refer to the article: Cheirdaris D.G. (2020), “<em>Artificial Neural Networks in Computer-Aided Drug Design: An Overview of Recent Advances</em>”, <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-030-32622-7_10">GeNeDis 2018. Advances in Experimental Medicine and Biology, vol 1194. Springer</a> for more details.</p>
-</section>
-</section>
-<section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
-<p>The first step is to import all the necessary libraries.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">22</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="理论">
+<h2 id="理论">理论<a class="headerlink" href="#理论" title="Link to this heading">¶</a></h2>
+<section id="生物学背景">
+<h3 id="生物学背景">生物学背景<a class="headerlink" href="#生物学背景" title="Link to this heading">¶</a></h3>
+<section id="EGFR-激酶">
+<h4 id="EGFR-激酶">EGFR 激酶<a class="headerlink" href="#EGFR-激酶" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Epidermal_growth_factor_receptor">表皮生长因子受体 (EGFR)</a> 是存在于细胞膜上的一种跨膜蛋白/受体。它是 ErbB 受体家族的一员。</p></li>
+<li><p>EGFR 在控制正常细胞生长、凋亡和其他细胞功能方面发挥重要作用。</p></li>
+<li><p>它通过配体与其胞外域结合而被激活，激活后 EGFR 从无活性的单体形式转变为有活性的同源二聚体。</p></li>
+<li><p>EGFR 受体在多种类型的肿瘤或癌症中上调，因此 EGFR 抑制是一种可能阻止癌细胞生长的生物疗法。</p></li>
+</ul>
+</section>
+<section id="化合物活性度量">
+<h4 id="化合物活性度量">化合物活性度量<a class="headerlink" href="#化合物活性度量" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><strong>IC50</strong> 是药物的半数最大抑制浓度，表示需要多少药物才能将生物过程抑制一半。</p></li>
+<li><p><strong>pIC50</strong> 是 IC50 值的负对数。它比 IC50 值更容易解读，是衡量化合物效力的常用指标（更多细节请参见 <strong>教程 T001</strong>）。</p></li>
+</ul>
+</section>
+<section id="分子编码">
+<h4 id="分子编码">分子编码<a class="headerlink" href="#分子编码" title="Link to this heading">¶</a></h4>
+<p>对于机器学习算法，分子需要转换成机器可读的格式，例如特征列表。在本 notebook 中，使用分子指纹。</p>
+<p>分子指纹将化学结构和分子特征编码为一个位串，其中每个位置 “1” 表示存在某个特征，”0” 表示不存在某个特征。常用的指纹之一是 <strong>M</strong>olecular <strong>ACC</strong>ess <strong>S</strong>ystem 指纹 <a class="reference external" href="https://docs.eyesopen.com/toolkits/python/graphsimtk/fingerprint.html#maccs">(MACCS Keys)</a>，它是 166 位的结构键描述符，其中每个位与一个 <a class="reference external" href="https://docs.eyesopen.com/toolkits/python/oechemtk/glossary.html#term-smarts">SMARTS</a> 模式相关联，编码特定的子结构（更多细节请参见 <strong>教程 T004</strong>）。</p>
+</section>
+</section>
+<section id="神经网络">
+<h3 id="神经网络">神经网络<a class="headerlink" href="#神经网络" title="Link to this heading">¶</a></h3>
+<section id="什么是神经网络？">
+<h4 id="什么是神经网络？">什么是神经网络？<a class="headerlink" href="#什么是神经网络？" title="Link to this heading">¶</a></h4>
+<p>神经网络，也称为人工神经网络 (ANN)，是机器学习算法的一个子集。神经网络的结构和名称灵感来源于人脑，模拟了生物神经元相互传递信号的方式。</p>
+<p><img alt="基本结构" src="../_images/basic_structure.png"/></p>
+<p><em>图 1：</em> 该图展示了人工神经网络的基本结构。取自博客文章：”<em>Designing Your Neural Networks</em>”, Lavanya Shukla, <a class="reference external" href="https://towardsdatascience.com/designing-your-neural-networks-a5e4617027ed">towardsdatascience</a>.</p>
+<p>如上图所示，ANN 由三个主要层组成：<em>输入层</em>、若干 <em>隐藏层</em> 和 <em>输出层</em>。让我们更深入地了解每一层。</p>
+<ol class="arabic simple">
+<li><p><strong>输入神经元或输入层</strong></p>
+<ul class="simple">
+<li><p>该层表示用于进行预测的特征数量。</p></li>
+<li><p>输入向量需要每个特征一个输入神经元。</p></li>
+</ul>
+</li>
+<li><p><strong>隐藏层及每层的神经元数量</strong></p>
+<ul class="simple">
+<li><p>隐藏层的维度可能变化很大，但一个好的经验法则是将维度设置在输入层和输出层的范围内。</p></li>
+<li><p>一般来说，对所有隐藏层使用相同数量的神经元就足够了，但对于某些数据集，使用较大的第一层并在后面使用较小的层可能会带来更好的性能，因为第一层可以学习许多低级特征。</p></li>
+</ul>
+</li>
+<li><p><strong>输出神经元或输出层</strong></p>
+<ul class="simple">
+<li><p>输出层表示神经网络将预测的目标值。</p>
+<ul>
+<li><p>回归任务：值是实数（或向量），如 pIC50 值。</p></li>
+<li><p>二分类任务：输出神经元表示属于正类的概率。</p></li>
+<li><p>多分类任务：每个类别有一个输出神经元，预测值表示属于每个类别的概率。在输出层上应用特定的激活函数以确保最终概率之和为 1。</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>神经元</strong> 是神经网络的核心单元。让我们看看每个神经元执行的操作，以理解神经网络的整体机制。</p>
+<p><img alt="神经元" src="../_images/neuron.png"/></p>
+<p><em>图 2：</em> 神经元执行的操作。该图取自博客文章：”<em>First neural network for beginners explained (with code)</em>”, Arthur Arnx, <a class="reference external" href="https://towardsdatascience.com/first-neural-network-for-beginners-explained-with-code-4cfd37e06eaf">towardsdatascience</a>.</p>
+<p>每个输入神经元 <span class="math notranslate nohighlight">\(x_i\)</span> 乘以一个权重 <span class="math notranslate nohighlight">\(w_i\)</span>。在图 2 中，我们有 <span class="math notranslate nohighlight">\((x1, x2, x3)\)</span> 和 <span class="math notranslate nohighlight">\((w1, w2, w3)\)</span>。权重的值决定了该输入神经元对下一层神经元的影响程度。然后将相乘后的值求和。还会加上一个额外的值，称为偏置，用于偏移激活函数。这个新值成为隐藏神经元的值。数学上，我们有：</p>
+<div class="math notranslate nohighlight">
+\[h = (w1*x1 + w2*x2 + w3*x3) + b = \sum_i ^ 3w_i*x_i+ b\]</div>
+<p>然后对隐藏神经元应用激活函数（下一节将详细讨论），以确定是否应该激活该神经元的值。被激活的神经元将数据传输到下一层的神经元。通过这种方式，数据通过网络传播，这被称为<a class="reference external" href="https://en.wikipedia.org/wiki/Feedforward_neural_network">前向传播</a>。</p>
+<p>神经网络中的权重和偏置被称为 <em>可学习参数</em>。它们在训练模型时进行调整，以获得良好的性能。</p>
+</section>
+<section id="激活函数">
+<h4 id="激活函数">激活函数<a class="headerlink" href="#激活函数" title="Link to this heading">¶</a></h4>
+<p><strong>什么是激活函数？</strong></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Activation_function">激活函数</a> 调节通过神经网络传递的信息量。该函数应用于每个神经元，决定神经元是否应该被激活。它作为输入到当前神经元和其输出到下一层之间的”门”，如下图所示。</p>
+<p><img alt="激活函数" src="../_images/activation.png"/></p>
+<p><em>图 3：</em> 该图展示了应用于神经元的激活函数。取自博客文章：<a class="reference external" href="https://medium.com/analytics-vidhya/why-activation-functions-8328f3f21120">Why Activation Functions?</a></p>
+<p><strong>激活函数的类型</strong></p>
+<p>激活函数有很多种类型，但我们只讨论下面实践部分中使用的两种。更多信息请参见补充部分和参考文献。大多数神经网络在隐藏层中使用非线性激活函数来学习复杂特征并适应各种数据。</p>
+<ol class="arabic simple">
+<li><p>整流线性单元 (ReLU)</p></li>
+</ol>
+<ul class="simple">
+<li><p>其形式为：<span class="math notranslate nohighlight">\(\boxed{f(x) = max\{ 0, x\}}\)</span>。</p></li>
+<li><p>如下图所示，<a class="reference external" href="https://machinelearningmastery.com/rectified-linear-activation-function-for-deep-learning-neural-networks/">ReLU</a> 如果 <span class="math notranslate nohighlight">\(x\)</span> 为正则输出 <span class="math notranslate nohighlight">\(x\)</span>，否则输出 <span class="math notranslate nohighlight">\(0\)</span>。ReLU 的范围是 <span class="math notranslate nohighlight">\([0, +\infty)\)</span>。</p></li>
+<li><p>它被广泛使用的原因之一是其稀疏性：只有少数神经元会被激活，从而使激活稀疏且高效。</p></li>
+<li><p>它已成为许多类型神经网络的默认激活函数，因为它使模型训练成本更低，并且模型通常能获得更好的性能。</p></li>
+<li><p>ReLU 的一个潜在缺点是所谓的 <em>ReLU 死亡问题</em>，即神经元对所有输入都处于不激活状态，这是<a class="reference external" href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">梯度消失问题</a>的一种形式。</p></li>
+</ul>
+<p><img alt="ReLU" src="../_images/relu.png"/></p>
+<p><em>图 4：</em> <em>ReLU</em> 函数的图示。图由 Sakshi Misra 绘制。</p>
+<ol class="arabic simple" start="2">
+<li><p>线性激活函数</p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference external" href="https://keras.io/api/layers/core_layers/dense/">线性激活函数</a> 的形式为：<span class="math notranslate nohighlight">\(\boxed{a(x) = x}\)</span>。</p></li>
+<li><p>它是回归设置中最合适的激活函数，因为输出没有约束。</p></li>
+</ul>
+</section>
+<section id="损失函数">
+<h4 id="损失函数">损失函数<a class="headerlink" href="#损失函数" title="Link to this heading">¶</a></h4>
+<p>训练神经网络时，目标是优化预测误差，即真实值与模型预测值之间的差异。预测误差可以写成一个函数，称为目标函数、代价函数或 <strong>损失函数</strong>。因此目标是最小化损失函数，换句话说，找到局部最小值。损失函数是训练神经网络中的重要组成部分之一。有关损失函数的更多细节，请参考博客文章：<a class="reference external" href="https://machinelearningmastery.com/loss-and-loss-functions-for-training-deep-learning-neural-networks/">Loss and Loss Functions for Training Deep Learning Neural Networks</a>. 回归任务中常用的两种损失函数是</p>
+<ol class="arabic simple">
+<li><p><strong>均方误差 (MSE)</strong>：顾名思义，该损失通过取真实值与预测值之差的平方的均值来计算。</p></li>
+<li><p><strong>平均绝对误差 (MAE)</strong>：该损失通过取真实值与预测值之间绝对差的均值来计算。</p></li>
+</ol>
+</section>
+</section>
+<section id="训练神经网络">
+<h3 id="训练神经网络">训练神经网络<a class="headerlink" href="#训练神经网络" title="Link to this heading">¶</a></h3>
+<p>开始使用神经网络时，参数，即权重和偏置，是随机初始化的。然后将输入馈入网络并产生输出。然而，相应的输出很可能与真实值相差很大。换句话说，预测误差会很差：损失函数远未达到最小。因此，必须优化初始参数以获得更好的预测。</p>
+<p>为此，我们需要最小化损失函数。找到这种最小值的一种有效方法是使用<a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent#:~:text=Gradient%20descent%20is%20a%20first,the%20direction%20of%20steepest%20descent.">梯度下降</a>算法。这种优化方案是迭代的，使用损失函数的导数（或多变量情况下的梯度）和学习率。该算法的主要思想是沿着函数的最陡方向走，通过梯度获得该方向，并用学习率管理每一步的长度。后者通常被称为超参数，可以使用交叉验证进行调整（更多细节在后续教程中介绍）。</p>
+<p>在训练神经网络时，非常常用的是 <em>反向传播</em>，这是一种利用微分链式法则高效获得梯度的方法。</p>
+<p>总之，在每次通过神经网络进行前向传播之后，反向传播执行一次反向传播，同时调整模型的参数以最小化损失函数。</p>
+<p><strong>计算成本</strong></p>
+<p>如果使用的数据集非常大，计算损失函数的梯度可能非常昂贵。解决此问题的一种方法是每次使用训练数据的一个样本或 mini-batch，称为 <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">随机梯度下降 (SGD)</a> 或 <em>Mini-Batch 随机梯度下降</em>。</p>
+</section>
+<section id="Keras-工作流程">
+<h3 id="Keras-工作流程">Keras 工作流程<a class="headerlink" href="#Keras-工作流程" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://keras.io/getting_started/">Keras</a> 是一个开源的机器学习库，更具体地说是神经网络的库。其 API 运行在非常知名的 <a class="reference external" href="https://www.tensorflow.org/">tensorflow</a> 深度学习平台之上。</p>
+<p>下面，我们介绍使用 <a class="reference external" href="https://keras.io/getting_started/">keras</a> 训练神经网络的常见工作流程。</p>
+<ul class="simple">
+<li><p><strong>准备数据</strong> − 对于任何机器学习算法来说首先需要做的是，我们从数据中处理、过滤并仅选择所需的信息。然后，将数据分为训练数据集和测试数据集。测试数据用于评估算法的预测并交叉验证学习过程的效率。</p></li>
+<li><p><strong>定义模型</strong> - 在 keras 中，每个 ANN 由 keras <a class="reference external" href="https://keras.io/api/models/model/#model-class">models</a> 表示。Keras 提供了一种创建模型的方式，称为 <a class="reference external" href="https://keras.io/api/models/sequential/">sequential</a>。层按顺序排列，数据按给定顺序从一层流向另一层，直到数据最终到达输出层。ANN 中的每一层可以用一个 <em>keras 层</em> 来表示。</p></li>
+<li><p><strong>编译模型</strong> − 编译是创建模型的最后一步。编译完成后，我们就可以进入训练阶段。在学习阶段需要 <em>损失函数</em> 和 <em>优化器</em> 来分别定义预测误差并最小化它。在本教程的实践部分，我们使用均方误差作为损失函数，使用 <a class="reference external" href="https://machinelearningmastery.com/adam-optimization-algorithm-for-deep-learning/">adam</a> 优化器，它是梯度下降的流行版本，在各种问题中都能给出良好的结果。</p></li>
+<li><p><strong>拟合模型</strong> - 实际的学习过程将在此阶段使用训练数据集完成。我们可以调用 <a class="reference external" href="https://keras.io/api/models/model_training_apis/#fit-method">fit()</a> 方法，该方法需要多个参数，例如 <span class="math notranslate nohighlight">\(x\)</span> 输入数据、<span class="math notranslate nohighlight">\(y\)</span> 目标数据、batch size、epoch 数量等。一个 <em>epoch</em> 是指整个数据集通过神经网络进行前向传播和后向传播一次。</p></li>
+<li><p><strong>评估模型</strong> − 我们可以通过使用 <a class="reference external" href="https://keras.io/api/models/model_training_apis/#evaluate-method">evaluate()</a> 方法查看测试数据的预测值与真实值之间的损失函数来评估模型。</p>
+<ul>
+<li><p>散点图是可视化模型评估的常见且简单的方法。它们绘制预测值与真实值。如果拟合完美，我们应该看到 <span class="math notranslate nohighlight">\(y=x\)</span> 线，这意味着预测值恰好等于真实值。</p></li>
+</ul>
+</li>
+<li><p><strong>在外部/未标注数据上的预测</strong> − 我们使用训练好的模型通过 <a class="reference external" href="https://keras.io/api/models/model_training_apis/#predict-method">predict()</a> 方法对外部数据集进行预测。</p></li>
+</ul>
+</section>
+<section id="神经网络的优势与应用">
+<h3 id="神经网络的优势与应用">神经网络的优势与应用<a class="headerlink" href="#神经网络的优势与应用" title="Link to this heading">¶</a></h3>
+<p><strong>神经网络的优势</strong></p>
+<ul class="simple">
+<li><p><strong>有机学习</strong>：神经网络具有通过提取输入数据中的重要特征来学习的能力。</p></li>
+<li><p><strong>非线性数据处理</strong>：它们具有学习和建模非线性和复杂关系的能力。</p></li>
+<li><p><strong>时间操作</strong>：训练期间的计算成本可以通过并行化来降低。</p></li>
+</ul>
+<p>要了解更多关于神经网络优势和劣势的信息，请参考论文：J V Tu, “<em>Advantages and disadvantages of using artificial neural networks versus logistic regression for predicting medical outcomes</em>”, <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/8892489/">Journal of Clinical Epidemiology, vol 49 issue 11, pages: 1225-1231</a>.</p>
+<p><strong>神经网络的应用</strong></p>
+<p>神经网络在计算机辅助药物设计中有多种应用，例如：</p>
+<ul class="simple">
+<li><p>药物设计与发现</p></li>
+<li><p>生物标志物识别和/或分类</p></li>
+<li><p>各种类型的癌症检测</p></li>
+<li><p>模式识别</p></li>
+</ul>
+<p>更多细节请参考论文：Cheirdaris D.G. (2020), “<em>Artificial Neural Networks in Computer-Aided Drug Design: An Overview of Recent Advances</em>”, <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-030-32622-7_10">GeNeDis 2018. Advances in Experimental Medicine and Biology, vol 1194. Springer</a>.</p>
+</section>
+</section>
+<section id="实践">
+<h2 id="实践">实践<a class="headerlink" href="#实践" title="Link to this heading">¶</a></h2>
+<p>第一步是导入所有必要的库。</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="kn">import</span> <span class="n">filterwarnings</span>
 
-<span class="c1"># Silence some expected warnings</span>
+<span class="c1"># 忽略一些预期的警告</span>
 <span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -776,7 +783,7 @@ version of gradient descent and has shown to give good results in a wide range o
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">metrics</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
-<span class="c1"># Neural network specific libraries</span>
+<span class="c1"># 神经网络专用库</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequential</span><span class="p">,</span> <span class="n">load_model</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.layers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dense</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.callbacks</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelCheckpoint</span>
@@ -785,39 +792,48 @@ version of gradient descent and has shown to give good results in a wide range o
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2025-11-19 09:03:30.888717: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+</pre></div></div>
+</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set path to this notebook</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 设置本 notebook 的路径</span>
 <span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
 </pre></div>
 </div>
 </div>
-<section id="Data-preparation">
-<h3 id="Data-preparation">Data preparation<a class="headerlink" href="#Data-preparation" title="Link to this heading">¶</a></h3>
-<p>Let’s load the data which is a subset of ChEMBL for EGFR. The important columns in the dataframe are:</p>
+<section id="数据准备">
+<h3 id="数据准备">数据准备<a class="headerlink" href="#数据准备" title="Link to this heading">¶</a></h3>
+<p>让我们加载数据，这是 ChEMBL 中 EGFR 的一个子集。数据框中重要的列包括：</p>
 <ul class="simple">
 <li><p>CHEMBL-ID</p></li>
-<li><p>SMILES string of the corresponding compound</p></li>
-<li><p>Measured affinity: pIC50</p></li>
+<li><p>对应化合物的 SMILES 字符串</p></li>
+<li><p>实测亲和力：pIC50</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 加载数据</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"CHEMBL25_activities_EGFR.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the dimension and missing value of the data</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 检查数据的维度和缺失值</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of dataframe : "</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
@@ -844,17 +860,17 @@ memory usage: 152.7+ KB
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at head</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 查看前几行</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -929,10 +945,10 @@ memory usage: 152.7+ KB
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keep necessary columns</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 保留必要的列</span>
 <span class="n">chembl_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">"canonical_smiles"</span><span class="p">,</span> <span class="s2">"pIC50"</span><span class="p">]]</span>
 <span class="n">chembl_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
@@ -940,7 +956,7 @@ memory usage: 152.7+ KB
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -996,34 +1012,34 @@ memory usage: 152.7+ KB
 </table>
 </div></div>
 </div>
-<p><strong>Molecular encoding</strong></p>
-<p>We convert the SMILES string to numerical data to apply a neural network. We use the already defined function <code class="docutils literal notranslate"><span class="pre">smiles_to_fp</span></code> from <strong>Talktorial T007</strong> which generates fingerprints from SMILES. The default encoding are MACCS keys with 166 bits (see <strong>Talktorial T007</strong> for more information on molecular encoding).</p>
+<p><strong>分子编码</strong></p>
+<p>我们将 SMILES 字符串转换为数值数据以应用神经网络。我们使用 <strong>教程 T007</strong> 中已定义的 <code class="docutils literal notranslate"><span class="pre">smiles_to_fp</span></code> 函数，该函数从 SMILES 生成指纹。 默认编码是 MACCS keys，具有 166 位（有关分子编码的更多信息，请参见 <strong>教程 T007</strong>）。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smiles_to_fp</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"maccs"</span><span class="p">,</span> <span class="n">n_bits</span><span class="o">=</span><span class="mi">2048</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Encode a molecule from a SMILES string into a fingerprint.</span>
+<span class="sd">    将 SMILES 字符串中的分子编码为指纹。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    smiles : str</span>
-<span class="sd">        The SMILES string defining the molecule.</span>
+<span class="sd">        定义分子的 SMILES 字符串。</span>
 
 <span class="sd">    method : str</span>
-<span class="sd">        The type of fingerprint to use. Default is MACCS keys.</span>
+<span class="sd">        要使用的指纹类型。默认是 MACCS keys。</span>
 
 <span class="sd">    n_bits : int</span>
-<span class="sd">        The length of the fingerprint.</span>
+<span class="sd">        指纹的长度。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    array</span>
-<span class="sd">        The fingerprint array.</span>
+<span class="sd">        指纹数组。</span>
 <span class="sd">    """</span>
 
-    <span class="c1"># Convert smiles to RDKit mol object</span>
+        <span class="c1"># 将 SMILES 转换为 RDKit mol 对象</span>
     <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"maccs"</span><span class="p">:</span>
@@ -1035,20 +1051,20 @@ memory usage: 152.7+ KB
         <span class="n">fpg</span> <span class="o">=</span> <span class="n">rdFingerprintGenerator</span><span class="o">.</span><span class="n">GetMorganGenerator</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fpSize</span><span class="o">=</span><span class="n">n_bits</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fpg</span><span class="o">.</span><span class="n">GetCountFingerprint</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Warning: Wrong method specified: </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">."</span> <span class="s2">" Default will be used instead."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"警告：指定了错误的方法：</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">。将使用默认方法代替。"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">MACCSkeys</span><span class="o">.</span><span class="n">GenMACCSKeys</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<p>Convert all SMILES strings to MACCS fingerprints.</p>
+<p>将所有 SMILES 字符串转换为 MACCS 指纹。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chembl_df</span><span class="p">[</span><span class="s2">"fingerprints_df"</span><span class="p">]</span> <span class="o">=</span> <span class="n">chembl_df</span><span class="p">[</span><span class="s2">"canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">smiles_to_fp</span><span class="p">)</span>
 
-<span class="c1"># Look at head</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of dataframe:"</span><span class="p">,</span> <span class="n">chembl_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1"># 查看前几行</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"数据框的形状："</span><span class="p">,</span> <span class="n">chembl_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">chembl_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
@@ -1063,7 +1079,7 @@ Shape of dataframe: (3906, 3)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1113,20 +1129,20 @@ Shape of dataframe: (3906, 3)
 </table>
 </div></div>
 </div>
-<p>Next, we define <span class="math notranslate nohighlight">\(x\)</span>, the <strong>features</strong>, and <span class="math notranslate nohighlight">\(y\)</span>, the <strong>target data</strong> which will be used to train the model. In our case, features are the bit vectors and the target values are the pIC50 values of the molecules.</p>
-<p>We use <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> from the <em>scikit-learn</em> library to split the data into 70% training and 30% test data.</p>
+<p>接下来，我们定义 <span class="math notranslate nohighlight">\(x\)</span>，即 <strong>特征</strong>，以及 <span class="math notranslate nohighlight">\(y\)</span>，即 <strong>目标数据</strong>，这些将用于训练模型。在我们的例子中，特征是位向量，目标值是分子的 pIC50 值。</p>
+<p>我们使用 <em>scikit-learn</em> 库中的 <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> 将数据分为 70% 训练数据和 30% 测试数据。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split the data into training and test set</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 将数据分为训练集和测试集</span>
 <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">chembl_df</span><span class="p">[</span><span class="s2">"fingerprints_df"</span><span class="p">],</span> <span class="n">chembl_df</span><span class="p">[[</span><span class="s2">"pIC50"</span><span class="p">]],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
 <span class="p">)</span>
 
-<span class="c1"># Print the shape of training and testing data</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of training data:"</span><span class="p">,</span> <span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of test data:"</span><span class="p">,</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1"># 打印训练和测试数据的形状</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"训练数据的形状："</span><span class="p">,</span> <span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"测试数据的形状："</span><span class="p">,</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
 </div>
@@ -1141,56 +1157,56 @@ Shape of test data: (1172,)
 </pre></div></div>
 </div>
 </section>
-<section id="Define-neural-network">
-<h3 id="Define-neural-network">Define neural network<a class="headerlink" href="#Define-neural-network" title="Link to this heading">¶</a></h3>
-<p>A keras model is defined by specifying the number of neurons in the hidden layers and the activation function as arguments. For our purpose, we define a model with <em>two hidden layers</em>. We use ReLU in the hidden layers and a linear function on the output layer, since the aim is to predict pIC50 values. Finally, we compile the model using the <em>mean squared error</em> as a loss argument and <em>adam</em> as an optimizer.</p>
+<section id="定义神经网络">
+<h3 id="定义神经网络">定义神经网络<a class="headerlink" href="#定义神经网络" title="Link to this heading">¶</a></h3>
+<p>通过指定隐藏层中的神经元数量和激活函数作为参数来定义 keras 模型。为了我们的目的，我们定义一个带有 <em>两个隐藏层</em> 的模型。我们在隐藏层中使用 ReLU，在输出层使用线性函数，因为目标是预测 pIC50 值。 最后，我们使用 <em>均方误差</em> 作为损失参数，使用 <em>adam</em> 作为优化器来编译模型。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">neural_network_model</span><span class="p">(</span><span class="n">hidden1</span><span class="p">,</span> <span class="n">hidden2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Creating a neural network from two hidden layers</span>
-<span class="sd">    using ReLU as activation function in the two hidden layers</span>
-<span class="sd">    and a linear activation in the output layer.</span>
+<span class="sd">    使用两个隐藏层创建神经网络，</span>
+<span class="sd">    在两个隐藏层中使用 ReLU 作为激活函数，</span>
+<span class="sd">    在输出层中使用线性激活函数。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    hidden1 : int</span>
-<span class="sd">        Number of neurons in first hidden layer.</span>
+<span class="sd">        第一个隐藏层中的神经元数量。</span>
 
 <span class="sd">    hidden2: int</span>
-<span class="sd">        Number of neurons in second hidden layer.</span>
+<span class="sd">        第二个隐藏层中的神经元数量。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    model</span>
-<span class="sd">        Fully connected neural network model with two hidden layers.</span>
+<span class="sd">        具有两个隐藏层的全连接神经网络模型。</span>
 <span class="sd">    """</span>
 
     <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-    <span class="c1"># First hidden layer</span>
+    <span class="c1"># 第一个隐藏层</span>
     <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">hidden1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"layer1"</span><span class="p">))</span>
-    <span class="c1"># Second hidden layer</span>
+    <span class="c1"># 第二个隐藏层</span>
     <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">hidden2</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"relu"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"layer2"</span><span class="p">))</span>
-    <span class="c1"># Output layer</span>
+    <span class="c1"># 输出层</span>
     <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">"linear"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"layer3"</span><span class="p">))</span>
 
-    <span class="c1"># Compile model</span>
+    <span class="c1"># 编译模型</span>
     <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">"mean_squared_error"</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s2">"adam"</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">"mse"</span><span class="p">,</span> <span class="s2">"mae"</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">model</span>
 </pre></div>
 </div>
 </div>
 </section>
-<section id="Train-the-model">
-<h3 id="Train-the-model">Train the model<a class="headerlink" href="#Train-the-model" title="Link to this heading">¶</a></h3>
-<p>We try different mini-batch sizes and plot the respective losses.</p>
+<section id="训练模型">
+<h3 id="训练模型">训练模型<a class="headerlink" href="#训练模型" title="Link to this heading">¶</a></h3>
+<p>我们尝试不同的 mini-batch 大小并绘制相应的损失。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Neural network parameters</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 神经网络参数</span>
 <span class="n">batch_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">]</span>
 <span class="n">nb_epoch</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">layer1_size</span> <span class="o">=</span> <span class="mi">64</span>
@@ -1199,17 +1215,17 @@ Shape of test data: (1172,)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 绘图</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">color_codes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">batch_sizes</span><span class="p">):</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch_sizes</span><span class="p">),</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">neural_network_model</span><span class="p">(</span><span class="n">layer1_size</span><span class="p">,</span> <span class="n">layer2_size</span><span class="p">)</span>
 
-    <span class="c1"># Fit model on x_train, y_train data</span>
+        <span class="c1"># 在 x_train, y_train 数据上拟合模型</span>
     <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
         <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">x_train</span><span class="p">)))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
         <span class="n">y_train</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
@@ -1231,35 +1247,22 @@ Shape of test data: (1172,)
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-2023-05-31 14:40:08.533934: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
-2023-05-31 14:40:08.534226: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2023-05-31 14:40:08.535601: I tensorflow/core/common_runtime/process_util.cc:146] Creating new thread pool with default inter op setting: 2. Tune using inter_op_parallelism_threads for best performance.
-2023-05-31 14:40:08.607012: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
-2023-05-31 14:40:08.607328: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2299965000 Hz
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_44_1.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_44_1.png"/>
+<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_45_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_45_0.png"/>
 </div>
 </div>
-<p>From the loss plots above, a batch of size 16 seems to give the best performance.</p>
-<p>A <a class="reference external" href="https://keras.io/api/callbacks/">ModelCheckpoint callback</a> is used to save the best model/weights (in a checkpoint file) at some interval, so the model/weights can either be saved as it or be loaded later to continue the training from the state saved.</p>
-<p>Now, we train the model with a batch size of 16 (because as seen from the figure above, it has the lowest test loss) and we save the weights that give the best perfomance in the file <code class="docutils literal notranslate"><span class="pre">best_weights.hdf5</span></code>.</p>
+<p>从上面的损失图中可以看出，batch size 为 16 似乎能给出最佳性能。</p>
+<p><a class="reference external" href="https://keras.io/api/callbacks/">ModelCheckpoint callback</a> 用于以一定间隔将最佳模型/权重保存（在 checkpoint 文件中），以便模型/权重可以原样保存，或稍后加载以从保存的状态继续训练。</p>
+<p>现在，我们使用 batch size 为 16 训练模型（因为从上图可以看出，它具有最低的测试损失），并将提供最佳性能的权重保存到文件 <code class="docutils literal notranslate"><span class="pre">best_weights.hdf5</span></code> 中。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the trained model</span>
-<span class="n">filepath</span> <span class="o">=</span> <span class="n">DATA</span> <span class="o">/</span> <span class="s2">"best_weights.hdf5"</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 保存训练好的模型</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">DATA</span> <span class="o">/</span> <span class="s2">"best_weights.weights.h5"</span>
 <span class="n">checkpoint</span> <span class="o">=</span> <span class="n">ModelCheckpoint</span><span class="p">(</span>
     <span class="nb">str</span><span class="p">(</span><span class="n">filepath</span><span class="p">),</span>
     <span class="n">monitor</span><span class="o">=</span><span class="s2">"loss"</span><span class="p">,</span>
@@ -1270,7 +1273,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <span class="p">)</span>
 <span class="n">callbacks_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">checkpoint</span><span class="p">]</span>
 
-<span class="c1"># Fit the model</span>
+<span class="c1"># 拟合模型</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
     <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">x_train</span><span class="p">)))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
     <span class="n">y_train</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
@@ -1283,27 +1286,27 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;tensorflow.python.keras.callbacks.History at 0x7f2ed06a2340&gt;
+&lt;keras.src.callbacks.history.History at 0x1331921e0&gt;
 </pre></div></div>
 </div>
 </section>
-<section id="Evaluation-&amp;-prediction-on-test-set">
-<h3 id="Evaluation-&amp;-prediction-on-test-set">Evaluation &amp; prediction on test set<a class="headerlink" href="#Evaluation-&amp;-prediction-on-test-set" title="Link to this heading">¶</a></h3>
-<p>The <a class="reference external" href="https://keras.io/api/models/model_training_apis/#evaluate-method">evaluate()</a> method is used to check the performance of our model. It reports the <strong>loss</strong> (which is the mse in our case) as well as evaluation metrics (which are the <strong>mse</strong> and <strong>mae</strong>).</p>
+<section id="评估与在测试集上的预测">
+<h3 id="评估与在测试集上的预测">评估与在测试集上的预测<a class="headerlink" href="#评估与在测试集上的预测" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://keras.io/api/models/model_training_apis/#evaluate-method">evaluate()</a> 方法用于检查模型的性能。它报告 <strong>损失</strong>（在我们的例子中是 MSE）以及评估指标（<strong>mse</strong> 和 <strong>mae</strong>）。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Evalute the model</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Evaluate the model on the test data"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 评估模型</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"在测试数据上评估模型"</span><span class="p">)</span>
 <span class="n">scores</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">x_test</span><span class="p">))),</span> <span class="n">y_test</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">" loss: </span><span class="si">{</span><span class="n">scores</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">" mse (same as loss): </span><span class="si">{</span><span class="n">scores</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">" mse（与 loss 相同）: </span><span class="si">{</span><span class="n">scores</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">" mae: </span><span class="si">{</span><span class="n">scores</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1314,21 +1317,21 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Evaluate the model on the test data
- loss: 1.36
- mse (same as loss): 1.36
- mae: 0.87
+ loss: 1.23
+ mse (same as loss): 1.23
+ mae: 0.84
 </pre></div></div>
 </div>
-<p>The mean absolute error on the test set is as below <span class="math notranslate nohighlight">\(1.0\)</span> which given the range of pIC50 values is pretty low.</p>
-<p>We now predict the pIC50 values on the test data.</p>
+<p>测试集上的平均绝对误差低于 <span class="math notranslate nohighlight">\(1.0\)</span>，考虑到 pIC50 值的范围，这相当低。</p>
+<p>我们现在预测测试数据上的 pIC50 值。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict pIC50 values on x_test data</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 预测 x_test 数据上的 pIC50 值</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">x_test</span><span class="p">))))</span>
 
-<span class="c1"># Print 5 first pIC50 predicted values</span>
+<span class="c1"># 打印前 5 个 pIC50 预测值</span>
 <span class="n">first_5_prediction</span> <span class="o">=</span> <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">y_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]]</span>
 </pre></div>
 </div>
@@ -1338,21 +1341,22 @@ Evaluate the model on the test data
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-5.79
-8.73
-7.85
-7.54
-9.14
+<span class="ansi-bold">37/37</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step
+4.90
+7.97
+6.96
+8.04
+8.75
 </pre></div></div>
 </div>
-<section id="Scatter-plot">
-<h4 id="Scatter-plot">Scatter plot<a class="headerlink" href="#Scatter-plot" title="Link to this heading">¶</a></h4>
-<p>To visualize the predictions, we plot the predicted vs. the true pIC50 values on the test set.</p>
+<section id="散点图">
+<h4 id="散点图">散点图<a class="headerlink" href="#散点图" title="Link to this heading">¶</a></h4>
+<p>为了可视化预测结果，我们绘制测试集上预测值与真实 pIC50 值的散点图。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scatter plot</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 散点图</span>
 <span class="n">limits</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"."</span><span class="p">)</span>
@@ -1372,20 +1376,20 @@ Evaluate the model on the test data
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_54_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_54_0.png"/>
+<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_55_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_55_0.png"/>
 </div>
 </div>
-<p>As we can see, there is a positive linear relation between the predicted and true values, but the fit is far from perfect.</p>
+<p>正如我们所见，预测值与真实值之间存在正线性关系，但拟合远非完美。</p>
 </section>
 </section>
-<section id="Prediction-on-external/unlabeled-data">
-<h3 id="Prediction-on-external/unlabeled-data">Prediction on external/unlabeled data<a class="headerlink" href="#Prediction-on-external/unlabeled-data" title="Link to this heading">¶</a></h3>
-<p>We use the trained neural network to predict the pIC50 values on the unlabeled compounds from the <code class="docutils literal notranslate"><span class="pre">test.csv</span></code>file.</p>
+<section id="在外部/未标注数据上的预测">
+<h3 id="在外部/未标注数据上的预测">在外部/未标注数据上的预测<a class="headerlink" href="#在外部/未标注数据上的预测" title="Link to this heading">¶</a></h3>
+<p>我们使用训练好的神经网络来预测 <code class="docutils literal notranslate"><span class="pre">test.csv</span></code> 文件中未标注化合物的 pIC50 值。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load external/unlabeled data set</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 加载外部/未标注数据集</span>
 <span class="n">external_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"test.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">external_data</span> <span class="o">=</span> <span class="n">external_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">external_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1394,7 +1398,7 @@ Evaluate the model on the test data
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1444,16 +1448,16 @@ Evaluate the model on the test data
 </table>
 </div></div>
 </div>
-<p>We use the same <code class="docutils literal notranslate"><span class="pre">smiles_to_fp</span></code> function and convert the SMILES strings into MACCS fingerprints.</p>
+<p>我们使用相同的 <code class="docutils literal notranslate"><span class="pre">smiles_to_fp</span></code> 函数，将 SMILES 字符串转换为 MACCS 指纹。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert SMILES strings to MACCS fingerprints</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 将 SMILES 字符串转换为 MACCS 指纹</span>
 <span class="n">external_data</span><span class="p">[</span><span class="s2">"fingerprints_df"</span><span class="p">]</span> <span class="o">=</span> <span class="n">external_data</span><span class="p">[</span><span class="s2">"canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">smiles_to_fp</span><span class="p">)</span>
 
-<span class="c1"># Look at head</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of dataframe : "</span><span class="p">,</span> <span class="n">external_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1"># 查看前几行</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"数据框的形状 : "</span><span class="p">,</span> <span class="n">external_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">external_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
@@ -1468,7 +1472,7 @@ Shape of dataframe :  (60, 2)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1514,21 +1518,21 @@ Shape of dataframe :  (60, 2)
 </table>
 </div></div>
 </div>
-<p><strong>Note</strong>: For reproducibility of the results, we saved one model under <code class="docutils literal notranslate"><span class="pre">ANN_model.hdf5</span></code>, with the same architecture as above. Even though the model is the same, the weights that are saved from one simulation to another might differ due to the randomness in the <em>stochastic</em> gradient algorithm. We load the ANN model weights with the <a class="reference external" href="https://keras.io/api/models/model_saving_apis/#loadmodel-function">load_model()</a> function.</p>
+<p><strong>注意</strong>：为了结果的可重复性，我们在 <code class="docutils literal notranslate"><span class="pre">ANN_model.hdf5</span></code> 下保存了一个模型，其架构与上面相同。尽管模型相同，但由于 <em>随机</em> 梯度算法中的随机性，每次运行保存的权重可能会有所差异。我们使用 <a class="reference external" href="https://keras.io/api/models/model_saving_apis/#loadmodel-function">load_model()</a> 函数加载 ANN 模型权重。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load model</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 加载模型</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"ANN_model.hdf5"</span><span class="p">,</span> <span class="nb">compile</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prediction on external/unlabeled data</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 在外部/未标注数据上的预测</span>
 <span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
     <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">external_data</span><span class="p">[</span><span class="s2">"fingerprints_df"</span><span class="p">])))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks_list</span>
 <span class="p">)</span>
@@ -1540,8 +1544,16 @@ Shape of dataframe :  (60, 2)
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">2/2</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 67ms/step
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1592,22 +1604,22 @@ Shape of dataframe :  (60, 2)
 </div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the predicted values in a csv file in the data folder</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 将预测值保存为 data 文件夹中的 csv 文件</span>
 <span class="n">predicted_pIC50_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"predicted_pIC50_df.csv"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<section id="Select-the-top-3-compounds">
-<h4 id="Select-the-top-3-compounds">Select the top 3 compounds<a class="headerlink" href="#Select-the-top-3-compounds" title="Link to this heading">¶</a></h4>
-<p>We select the 3 compounds with the highest predicted pIC50 values, which could be further investigated as potential EGRF inhibitors.</p>
+<section id="选出前-3-个化合物">
+<h4 id="选出前-3-个化合物">选出前 3 个化合物<a class="headerlink" href="#选出前-3-个化合物" title="Link to this heading">¶</a></h4>
+<p>我们选出预测 pIC50 值最高的 3 个化合物，它们可以作为潜在的 EGFR 抑制剂进一步研究。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select top 3 drugs</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 选出前 3 个化合物</span>
 <span class="n">predicted_pIC50_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"predicted_pIC50_df.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">top3_drug</span> <span class="o">=</span> <span class="n">predicted_pIC50_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"predicted_pIC50"</span><span class="p">)</span>
 <span class="n">top3_drug</span>
@@ -1615,7 +1627,7 @@ Shape of dataframe :  (60, 2)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1647,7 +1659,7 @@ Shape of dataframe :  (60, 2)
 <th>9</th>
 <td>Brc1cc(Nc2ncnc3nc(NC)ccc23)ccc1</td>
 <td>[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...</td>
-<td>8.481802</td>
+<td>8.481803</td>
 </tr>
 <tr>
 <th>53</th>
@@ -1659,17 +1671,17 @@ Shape of dataframe :  (60, 2)
 <th>18</th>
 <td>Clc1c(F)ccc(NC=2N=CNC=3C=2C=C(OCCCCC=C=C)C(=O)...</td>
 <td>[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0...</td>
-<td>8.120271</td>
+<td>8.120270</td>
 </tr>
 </tbody>
 </table>
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw the drug molecules</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 绘制化合物分子</span>
 <span class="n">highest_pIC50</span> <span class="o">=</span> <span class="n">predicted_pIC50_df</span><span class="p">[</span><span class="s2">"canonical_smiles"</span><span class="p">][</span><span class="n">top3_drug</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
 
 <span class="n">mols_EGFR</span> <span class="o">=</span> <span class="p">[</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">smile</span><span class="p">)</span> <span class="k">for</span> <span class="n">smile</span> <span class="ow">in</span> <span class="n">highest_pIC50</span><span class="p">]</span>
@@ -1681,98 +1693,110 @@ Shape of dataframe :  (60, 2)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_68_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_68_0.png"/>
+<img alt="../_images/talktorials_T022_ligand_based_screening_neural_network_69_0.png" src="../_images/talktorials_T022_ligand_based_screening_neural_network_69_0.png"/>
 </div>
 </div>
 </section>
 </section>
 </section>
-<section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
-<p>From above we can see that there are some similarities between the three molecules. For example, they contain an aniline and pyrimidine group, as well as several aromatic carbon rings.</p>
-<p><img alt="Drug similarity" src="../_images/drugs_similarity.png"/></p>
-<p><em>Figure 5:</em> Representing similarities between selected top three drug molecules.</p>
-<p>Since the external/unlabeled data is also taken from ChEMBL, we can double check if our predictions make sense. For example, the first compound with SMILES <code class="docutils literal notranslate"><span class="pre">Brc1cc(Nc2ncnc3nc(NC)ccc23)ccc1</span></code> and predicted pIC50 value of 8.48, has a high tested affinity against EGFR: a pIC50 value of 7.28, see entry <a class="reference external" href="https://www.ebi.ac.uk/chembl/compound_report_card/CHEMBL298637/">CHEMBL298637</a>.</p>
-<p>Using the neural network for predictive modeling has some advantages: it is not as time consuming as laboratory experiments and it is much cheaper. It also hints at the kind of molecules that could be further investigated as potential EGFR inhibitors.</p>
-<p>However, this model has some disadvantages: it highly depends on the chemical space of the training data, the parameter tuning as well as variable initialization which might affect the final results. Such a model neither provides information about the side effects of compounds nor their potential toxicity.</p>
+<section id="讨论">
+<h2 id="讨论">讨论<a class="headerlink" href="#讨论" title="Link to this heading">¶</a></h2>
+<p>从上面我们可以看到这三个分子之间存在一些相似性。例如，它们都含有苯胺和嘧啶基团，以及多个芳香碳环。</p>
+<p><img alt="化合物相似性" src="../_images/drugs_similarity.png"/></p>
+<p><em>图 5：</em> 表示选出的前三个化合物分子之间的相似性。</p>
+<p>从上面我们可以看到这三个分子之间存在一些相似性。例如，它们都含有苯胺和嘧啶基团，以及多个芳香碳环。</p>
+<p><img alt="化合物相似性" src="../_images/drugs_similarity.png"/></p>
+<p><em>图 5：</em> 表示选出的前三个化合物分子之间的相似性。</p>
+<p>由于外部/未标注数据同样来自 ChEMBL，我们可以再次确认我们的预测是否有意义。例如，第一个化合物，SMILES 为 <code class="docutils literal notranslate"><span class="pre">Brc1cc(Nc2ncnc3nc(NC)ccc23)ccc1</span></code>，预测 pIC50 值为 8.48，其对 EGFR 的实测亲和力较高：pIC50 值为 7.28，参见条目 <a class="reference external" href="https://www.ebi.ac.uk/chembl/compound_report_card/CHEMBL298637/">CHEMBL298637</a>。</p>
+<p>使用神经网络进行预测建模有一些优点：它不像实验室实验那样耗时，而且成本低得多。它还提示了可以作为潜在 EGFR 抑制剂进一步研究的分子的种类。</p>
+<p>然而，这个模型也有一些缺点：它高度依赖于训练数据的化学空间、参数调整以及变量初始化，这些都可能会影响最终结果。 这样的模型既不提供关于化合物副作用的信息，也不提供其潜在毒性的信息。</p>
 </section>
-<section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
+<section id="测验">
+<h2 id="测验">测验<a class="headerlink" href="#测验" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>What other hyperparameters can be tuned to get better performance results?</p></li>
-<li><p>What other activation functions and metrics can be used while defining the model?</p></li>
-<li><p>Can you think of any other visualization method to plot the predictions and observed values?</p></li>
+<li><p>还有哪些其他超参数可以调整以获得更好的性能结果？</p></li>
+<li><p>在定义模型时可以使用哪些其他激活函数和指标？</p></li>
+<li><p>你能想到其他可视化方法来绘制预测值和观测值吗？</p></li>
 </ul>
-</section>
-<hr class="docutils"/>
-<section id="Supplementary-section">
-<h2 id="Supplementary-section">Supplementary section<a class="headerlink" href="#Supplementary-section" title="Link to this heading">¶</a></h2>
-<details><summary><p>If you are interested in more details, please keep reading this section. We define other activation and forward propagation functions to get a better understanding of the underlying concepts.</p>
-</summary><p><strong>Activation functions</strong></p>
-<p>Let’s discuss some other activation functions and define them using python.</p>
-<ol class="arabic">
-<li><p><strong>Sigmoid function :math:`sigma`</strong>: It takes the form:</p>
-<div class="math notranslate nohighlight">
-\[\boxed{\sigma(x)=\frac{1}{1+e^{−x}}}.\]</div>
-<ul class="simple">
-<li><p>The sigmoid curve looks like a <em>S</em>-shaped curve as shown in the figure below.</p></li>
-<li><p>It has a “smooth gradient” which prevents jumps in the output values and it bounds the output values between 0 and 1.</p></li>
-<li><p>It is recommended to be used only on the output layer so that the output can be interpreted as probabilities.</p></li>
-<li><p>If you notice in the figure below, for <span class="math notranslate nohighlight">\(x\)</span> values between -2.5 to 2.5, <span class="math notranslate nohighlight">\(y\)</span> values are very steep, so any small change in values of <span class="math notranslate nohighlight">\(x\)</span> in that region will cause value of <span class="math notranslate nohighlight">\(y\)</span> to change significantly. It tends to bring the activations to either side of the curve.</p></li>
-<li><p>However, for very high or very low values of <span class="math notranslate nohighlight">\(x\)</span>, there is almost no change in the <span class="math notranslate nohighlight">\(y\)</span> values, causing a <a class="reference external" href="https://towardsdatascience.com/the-vanishing-exploding-gradient-problem-in-deep-neural-networks-191358470c11">vanishing gradient</a> problem. This can cause the network to learn slowly or even refuse to learn further.</p></li>
-</ul>
-</li>
-</ol>
-<p><img alt="sigmoid" src="../_images/sigmoid.png"/></p>
-<p><em>Figure 6:</em> Representation of the sigmoid function. Figure by Sakshi Misra.</p>
-<ol class="arabic" start="2">
-<li><p><strong>Hyperbolic Tangent function or tanh</strong>: It takes the form:</p>
-<div class="math notranslate nohighlight">
-\[\boxed{f(x)= tanh(x) = \frac{e^x -  e^{-x}}{e^x + e^{-x}}}.\]</div>
-<ul class="simple">
-<li><p>It is non-linear as the sigmoid function and the output is bound between -1 and 1. Deciding between a sigmoid and a tanh depends upon on the problem at hand.</p></li>
-<li><p>Similarly to the sigmoid, it can also suffer from the vanishing gradient problem.</p></li>
-</ul>
-</li>
-</ol>
-<p><img alt="tanh" src="../_images/tanh.png"/></p>
-<p><em>Figure 7:</em> Representation of the hyperbolic tangent <em>tanh</em> function. Figure by Sakshi Misra.</p>
-<ol class="arabic" start="3">
-<li><p><strong>Leaky Rectified Linear Unit</strong>: it takes the form:</p>
-<div class="math notranslate nohighlight">
-\[\boxed{f(x)= \max\{ α ∗ x,x\}}.\]</div>
-<ul class="simple">
-<li><p>This is a variation of ReLU which has a small positive slope in the negative area.</p></li>
-<li><p>The range of Leaky ReLU is <span class="math notranslate nohighlight">\((-\infty, \infty)\)</span>.</p></li>
-<li><p>It overcomes the zero gradient issue from ReLU and assigns <span class="math notranslate nohighlight">\(\alpha\)</span> which is a small value for <span class="math notranslate nohighlight">\(x≤0\)</span>.</p></li>
-</ul>
-</li>
-</ol>
-<p><img alt="leaky" src="../_images/leaky.png"/></p>
-<p><em>Figure 8:</em> Representation of the “Leaky ReLU” function. Figure by Sakshi Misra.</p>
-<p>Which activation function do we choose?</p>
-<p>It mainly depends on the type of problem you are trying to solve and the computation cost. There are many activation functions, but the general idea remains the same. Please refer to the article by H. N. Mhaskar, <a class="reference external" href="https://papers.nips.cc/paper/1993/file/51ef186e18dc00c2d31982567235c559-Paper.pdf">How to Choose an Activation Function</a> for more details.</p>
-<p>Now we define in python the activation functions discussed above and plot them.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define activation functions that can be used in forward propagation</span>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">-------</span>
+<span class="c1">## 补充部分</span>
+
+<span class="o">&lt;</span><span class="n">details</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">summary</span><span class="o">&gt;</span> <span class="n">如果你对更多细节感兴趣</span><span class="err">，</span><span class="n">请继续阅读此部分</span><span class="err">。</span><span class="n">我们定义其他激活函数和前向传播函数</span><span class="err">，</span><span class="n">以更好地理解底层概念</span><span class="err">。</span> <span class="o">&lt;/</span><span class="n">summary</span><span class="o">&gt;</span>
+
+<span class="o">**</span><span class="n">激活函数</span><span class="o">**</span>
+
+<span class="n">让我们讨论一些其他激活函数</span><span class="err">，</span><span class="n">并使用</span> <span class="n">Python</span> <span class="n">来定义它们</span><span class="err">。</span>
+
+<span class="mi">1</span><span class="p">)</span> <span class="o">**</span><span class="n">Sigmoid</span> <span class="n">函数</span> <span class="err">$</span>\<span class="n">sigma</span><span class="err">$</span><span class="o">**</span><span class="err">：</span><span class="n">其形式为</span><span class="err">：$$</span>\<span class="n">boxed</span><span class="p">{</span>\<span class="n">sigma</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span>\<span class="n">frac</span><span class="p">{</span><span class="mi">1</span><span class="p">}{</span><span class="mi">1</span><span class="o">+</span><span class="n">e</span><span class="o">^</span><span class="p">{</span><span class="err">−</span><span class="n">x</span><span class="p">}}}</span><span class="o">.</span><span class="err">$$</span>
+
+   <span class="o">-</span>  <span class="n">Sigmoid</span> <span class="n">曲线看起来像下图所示的</span> <span class="o">*</span><span class="n">S</span><span class="o">*</span> <span class="n">形曲线</span><span class="err">。</span>
+   <span class="o">-</span> <span class="n">它具有</span><span class="s2">"平滑梯度"</span><span class="err">，</span><span class="n">可以防止输出值跳跃</span><span class="err">，</span><span class="n">并将输出值限制在</span> <span class="mi">0</span> <span class="n">和</span> <span class="mi">1</span> <span class="n">之间</span><span class="err">。</span>
+   <span class="o">-</span> <span class="n">建议仅在输出层上使用</span><span class="err">，</span><span class="n">以便输出可以解释为概率</span><span class="err">。</span>
+   <span class="o">-</span> <span class="n">如果你注意下图</span><span class="err">，</span><span class="n">对于</span> <span class="o">-</span><span class="mf">2.5</span> <span class="n">到</span> <span class="mf">2.5</span> <span class="n">之间的</span> <span class="err">$</span><span class="n">x</span><span class="err">$</span> <span class="n">值</span><span class="err">，$</span><span class="n">y</span><span class="err">$</span> <span class="n">值非常陡峭</span><span class="err">，</span><span class="n">因此该区域中</span> <span class="err">$</span><span class="n">x</span><span class="err">$</span> <span class="n">值的任何小变化都会导致</span> <span class="err">$</span><span class="n">y</span><span class="err">$</span> <span class="n">值显著变化</span><span class="err">。</span><span class="n">它倾向于将激活值带到曲线的两侧</span><span class="err">。</span>
+   <span class="o">-</span> <span class="n">然而</span><span class="err">，</span><span class="n">对于</span> <span class="err">$</span><span class="n">x</span><span class="err">$</span> <span class="n">非常大或非常小的值</span><span class="err">，$</span><span class="n">y</span><span class="err">$</span> <span class="n">值几乎没有变化</span><span class="err">，</span><span class="n">导致</span><span class="p">[</span><span class="o">**</span><span class="n">梯度消失</span><span class="o">**</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">towardsdatascience</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">the</span><span class="o">-</span><span class="n">vanishing</span><span class="o">-</span><span class="n">exploding</span><span class="o">-</span><span class="n">gradient</span><span class="o">-</span><span class="n">problem</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">deep</span><span class="o">-</span><span class="n">neural</span><span class="o">-</span><span class="n">networks</span><span class="o">-</span><span class="mi">191358470</span><span class="n">c11</span><span class="p">)</span><span class="n">问题</span><span class="err">。</span><span class="n">这可能导致网络学习缓慢甚至拒绝进一步学习</span><span class="err">。</span>
+
+<span class="o">![</span>sigmoid<span class="o">](</span>images/sigmoid.png<span class="o">)</span>
+
+<span class="o">*</span><span class="n">图</span> <span class="mi">6</span><span class="err">：</span><span class="o">*</span> <span class="n">Sigmoid</span> <span class="n">函数的图示</span><span class="err">。</span><span class="n">图由</span> <span class="n">Sakshi</span> <span class="n">Misra</span> <span class="n">绘制</span><span class="err">。</span>
+
+
+
+
+<span class="mi">2</span><span class="p">)</span> <span class="o">**</span><span class="n">双曲正切函数或</span> <span class="n">tanh</span><span class="o">**</span><span class="err">：</span><span class="n">其形式为</span><span class="err">：$$</span>\<span class="n">boxed</span><span class="p">{</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span> <span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> \<span class="n">frac</span><span class="p">{</span><span class="n">e</span><span class="o">^</span><span class="n">x</span> <span class="o">-</span>  <span class="n">e</span><span class="o">^</span><span class="p">{</span><span class="o">-</span><span class="n">x</span><span class="p">}}{</span><span class="n">e</span><span class="o">^</span><span class="n">x</span> <span class="o">+</span> <span class="n">e</span><span class="o">^</span><span class="p">{</span><span class="o">-</span><span class="n">x</span><span class="p">}}}</span><span class="o">.</span><span class="err">$$</span>
+
+   <span class="o">-</span> <span class="n">它与</span> <span class="n">sigmoid</span> <span class="n">函数一样是非线性的</span><span class="err">，</span><span class="n">输出限制在</span> <span class="o">-</span><span class="mi">1</span> <span class="n">和</span> <span class="mi">1</span> <span class="n">之间</span><span class="err">。</span><span class="n">在</span> <span class="n">sigmoid</span> <span class="n">和</span> <span class="n">tanh</span> <span class="n">之间做出决定取决于当前的问题</span><span class="err">。</span>
+   <span class="o">-</span> <span class="n">与</span> <span class="n">sigmoid</span> <span class="n">类似</span><span class="err">，</span><span class="n">它也可能面临梯度消失问题</span><span class="err">。</span>
+
+<span class="o">![</span>tanh<span class="o">](</span>images/tanh.png<span class="o">)</span>
+
+<span class="o">*</span><span class="n">图</span> <span class="mi">7</span><span class="err">：</span><span class="o">*</span> <span class="n">双曲正切</span> <span class="n">_tanh_</span> <span class="n">函数的图示</span><span class="err">。</span><span class="n">图由</span> <span class="n">Sakshi</span> <span class="n">Misra</span> <span class="n">绘制</span><span class="err">。</span>
+
+
+<span class="mi">3</span><span class="p">)</span> <span class="o">**</span><span class="n">Leaky</span> <span class="n">Rectified</span> <span class="n">Linear</span> <span class="n">Unit</span><span class="o">**</span><span class="err">：</span><span class="n">其形式为</span><span class="err">：$$</span>\<span class="n">boxed</span><span class="p">{</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span> \<span class="nb">max</span>\<span class="p">{</span> <span class="n">α</span> <span class="err">∗</span> <span class="n">x</span><span class="p">,</span><span class="n">x</span>\<span class="p">}}</span><span class="o">.</span><span class="err">$$</span>
+
+   <span class="o">-</span> <span class="n">这是</span> <span class="n">ReLU</span> <span class="n">的一个变体</span><span class="err">，</span><span class="n">在负区域有一个小的正斜率</span><span class="err">。</span>
+   <span class="o">-</span> <span class="n">Leaky</span> <span class="n">ReLU</span> <span class="n">的范围是</span> <span class="err">$</span><span class="p">(</span><span class="o">-</span>\<span class="n">infty</span><span class="p">,</span> \<span class="n">infty</span><span class="p">)</span><span class="err">$。</span>
+   <span class="o">-</span> <span class="n">它克服了</span> <span class="n">ReLU</span> <span class="n">的零梯度问题</span><span class="err">，</span><span class="n">并为</span> <span class="err">$</span><span class="n">x</span><span class="err">≤</span><span class="mi">0</span><span class="err">$</span> <span class="n">分配一个很小的</span> <span class="err">$</span>\<span class="n">alpha</span><span class="err">$</span> <span class="n">值</span><span class="err">。</span>
+
+<span class="o">![</span>leaky<span class="o">](</span>images/leaky.png<span class="o">)</span>
+
+<span class="o">*</span><span class="n">图</span> <span class="mi">8</span><span class="err">：</span><span class="o">*</span> <span class="s2">"Leaky ReLU"</span> <span class="n">函数的图示</span><span class="err">。</span><span class="n">图由</span> <span class="n">Sakshi</span> <span class="n">Misra</span> <span class="n">绘制</span><span class="err">。</span>
+
+<span class="n">我们应该选择哪种激活函数</span><span class="err">？</span>
+
+<span class="n">这主要取决于你试图解决的问题类型和计算成本</span><span class="err">。</span><span class="n">有很多激活函数</span><span class="err">，</span><span class="n">但总体思路保持不变</span><span class="err">。</span><span class="n">更多细节请参考</span> <span class="n">H</span><span class="o">.</span> <span class="n">N</span><span class="o">.</span> <span class="n">Mhaskar</span> <span class="n">的论文</span><span class="err">：</span><span class="p">[</span><span class="n">How</span> <span class="n">to</span> <span class="n">Choose</span> <span class="n">an</span> <span class="n">Activation</span> <span class="n">Function</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">papers</span><span class="o">.</span><span class="n">nips</span><span class="o">.</span><span class="n">cc</span><span class="o">/</span><span class="n">paper</span><span class="o">/</span><span class="mi">1993</span><span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="mi">51</span><span class="n">ef186e18dc00c2d31982567235c559</span><span class="o">-</span><span class="n">Paper</span><span class="o">.</span><span class="n">pdf</span><span class="p">)</span><span class="err">。</span>
+
+<span class="n">现在我们在</span> <span class="n">Python</span> <span class="n">中定义上面讨论的激活函数并绘制它们</span><span class="err">。</span>
+
+
+
+<span class="err">```</span><span class="n">python</span>
+<span class="c1"># 定义可用于前向传播的激活函数</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">sigmoid</span><span class="p">(</span><span class="n">input_array</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Computes the sigmoid of the input element-wise.</span>
+<span class="sd">    逐元素计算输入的 sigmoid 值。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    input_array : array</span>
-<span class="sd">             Input values.</span>
+<span class="sd">             输入值。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    activation_function : array</span>
-<span class="sd">             Post activation output.</span>
+<span class="sd">             激活后的输出。</span>
 <span class="sd">    input_array : array</span>
-<span class="sd">             Input values.</span>
+<span class="sd">             输入值。</span>
 <span class="sd">    """</span>
     <span class="n">activation_function</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">input_array</span><span class="p">))</span>
 
@@ -1781,19 +1805,19 @@ Shape of dataframe :  (60, 2)
 
 <span class="k">def</span><span class="w"> </span><span class="nf">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Computes the hyperbolic tagent of the input element-wise.</span>
+<span class="sd">    逐元素计算输入的双曲正切值。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    input_array : array</span>
-<span class="sd">             Input values.</span>
+<span class="sd">             输入值。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    activation_function : array</span>
-<span class="sd">             Post activation output.</span>
+<span class="sd">             激活后的输出。</span>
 <span class="sd">    input_array : array</span>
-<span class="sd">             Input values.</span>
+<span class="sd">             输入值。</span>
 <span class="sd">    """</span>
     <span class="n">activation_function</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span>
 
@@ -1802,18 +1826,18 @@ Shape of dataframe :  (60, 2)
 
 <span class="k">def</span><span class="w"> </span><span class="nf">relu</span><span class="p">(</span><span class="n">input_array</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Computes the Rectified Linear Unit (ReLU) element-wise.</span>
+<span class="sd">    逐元素计算整流线性单元 (ReLU) 值。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    input_array : array</span>
-<span class="sd">             Input values.</span>
-<span class="sd">    Returns</span>
+<span class="sd">             输入值。</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    activation_function : array</span>
-<span class="sd">             Post activation output.</span>
+<span class="sd">             激活后的输出。</span>
 <span class="sd">    input_array : array</span>
-<span class="sd">             Input values.</span>
+<span class="sd">             输入值。</span>
 <span class="sd">    """</span>
     <span class="n">activation_function</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">input_array</span><span class="p">)</span>
 
@@ -1822,36 +1846,43 @@ Shape of dataframe :  (60, 2)
 
 <span class="k">def</span><span class="w"> </span><span class="nf">leaky_relu</span><span class="p">(</span><span class="n">input_array</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Computes Leaky Rectified Linear Unit element-wise.</span>
+<span class="sd">    逐元素计算 Leaky Rectified Linear Unit 值。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    input_array : array</span>
-<span class="sd">             Input values.</span>
+<span class="sd">             输入值。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    activation_function : array</span>
-<span class="sd">             Post activation output.</span>
+<span class="sd">             激活后的输出。</span>
 <span class="sd">    input_array : array</span>
-<span class="sd">             Input values.</span>
+<span class="sd">             输入值。</span>
 <span class="sd">    """</span>
     <span class="n">activation_function</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">input_array</span><span class="p">,</span> <span class="n">input_array</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">activation_function</span><span class="p">,</span> <span class="n">input_array</span>
-</pre></div>
-</div>
-<p>We can also plot all the activation functions using the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library as shown below.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the four activation functions</span>
+
+<span class="err">```</span>
+
+
+
+<span class="n">我们也可以使用</span> <span class="err">`</span><span class="n">matplotlib</span><span class="err">`</span> <span class="n">库绘制所有激活函数</span><span class="err">，</span><span class="n">如下所示</span><span class="err">。</span>
+
+
+
+<span class="err">```</span><span class="n">python</span>
+<span class="c1"># 绘制四种激活函数</span>
 <span class="n">input_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
-<span class="c1"># Computes post-activation outputs</span>
+<span class="c1"># 计算激活后的输出</span>
 <span class="n">activation_sigmoid</span><span class="p">,</span> <span class="n">input_array</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span>
 <span class="n">activation_tanh</span><span class="p">,</span> <span class="n">input_array</span> <span class="o">=</span> <span class="n">tanh</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span>
 <span class="n">activation_relu</span><span class="p">,</span> <span class="n">input_array</span> <span class="o">=</span> <span class="n">relu</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span>
 <span class="n">activation_leaky_relu</span><span class="p">,</span> <span class="n">input_array</span> <span class="o">=</span> <span class="n">leaky_relu</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span>
 
-<span class="c1"># Plot sigmoid function</span>
+<span class="c1"># 绘制 sigmoid 函数</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">input_array</span><span class="p">,</span> <span class="n">activation_sigmoid</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
@@ -1859,71 +1890,84 @@ Shape of dataframe :  (60, 2)
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"input(x)"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$\frac</span><span class="si">{1}</span><span class="s2">{1 + e^{-x}}$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Sigmoid Function"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Sigmoid 函数"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
-<span class="c1"># Plot tanh function</span>
+<span class="c1"># 绘制 tanh 函数</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">input_array</span><span class="p">,</span> <span class="n">activation_tanh</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"input(x)"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$\frac{e^x - e^{-x}}{e^x + e^{-x}}$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Hyperbolic Tangent Function"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"双曲正切函数"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
-<span class="c1"># plot relu function</span>
+<span class="c1"># 绘制 ReLU 函数</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">input_array</span><span class="p">,</span> <span class="n">activation_relu</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"input(x)"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$max\{0, x\}$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"ReLU Function"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"ReLU 函数"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
-<span class="c1"># plot leaky relu function</span>
+<span class="c1"># 绘制 Leaky ReLU 函数</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">input_array</span><span class="p">,</span> <span class="n">activation_leaky_relu</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"input(x)"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$max\{0.1x, x\}$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Leaky ReLU Function"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Leaky ReLU 函数"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-<p><strong>Forward Propagation</strong></p>
-<p>Now, we will define forward propagation functions using classes, to better understand the forward propagation concept.</p>
-<p>First, we define a class named <code class="docutils literal notranslate"><span class="pre">Layer_Dense</span></code>. It has two properties, <code class="docutils literal notranslate"><span class="pre">weights</span></code> and <code class="docutils literal notranslate"><span class="pre">biases</span></code>. We randomly assign their values and define a function named <code class="docutils literal notranslate"><span class="pre">forward_pass</span></code> which calculates the <em>dot product</em> of the input values and weights and adds them to the bias values. Since we know that the activation function is applied on every neuron, we create another class named <code class="docutils literal notranslate"><span class="pre">Activation_Function</span></code> using <code class="docutils literal notranslate"><span class="pre">ReLU</span></code> as an example.</p>
-<p>After defining classes and their attributes, we create an object from both classes and call the functions on our dataset. We can then print the output values which are the predicted pIC50 values.</p>
-<p><strong>Note:</strong> The predicted values will differ in every run because the weights are randomly assigned.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create forward pass function with one hidden layer</span>
+<span class="err">```</span>
+
+<span class="o">&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+
+<span class="o">**</span><span class="n">前向传播</span><span class="o">**</span>
+
+
+
+<span class="n">现在</span><span class="err">，</span><span class="n">我们将使用类来定义前向传播函数</span><span class="err">，</span><span class="n">以更好地理解前向传播概念</span><span class="err">。</span>
+
+<span class="n">首先</span><span class="err">，</span><span class="n">我们定义一个名为</span> <span class="err">`</span><span class="n">Layer_Dense</span><span class="err">`</span> <span class="n">的类</span><span class="err">。</span><span class="n">它有两个属性</span><span class="err">：``</span><span class="n">weights</span><span class="err">``</span> <span class="n">和</span> <span class="err">``</span><span class="n">biases</span><span class="err">``。</span><span class="n">我们随机分配它们的值</span><span class="err">，</span><span class="n">并定义一个名为</span> <span class="err">`</span><span class="n">forward_pass</span><span class="err">`</span> <span class="n">的函数</span><span class="err">，</span><span class="n">该函数计算输入值和权重的</span> <span class="o">*</span><span class="n">点积</span><span class="o">*</span> <span class="n">并将其与偏置值相加</span><span class="err">。</span>
+<span class="n">由于我们知道激活函数应用于每个神经元</span><span class="err">，</span><span class="n">我们以</span> <span class="err">`</span><span class="n">ReLU</span><span class="err">`</span> <span class="n">为例创建另一个名为</span> <span class="err">`</span><span class="n">Activation_Function</span><span class="err">`</span> <span class="n">的类</span><span class="err">。</span>
+
+<span class="n">在定义类和它们的属性之后</span><span class="err">，</span><span class="n">我们从两个类创建对象并在我们的数据集上调用函数</span><span class="err">。</span><span class="n">然后我们可以打印输出值</span><span class="err">，</span><span class="n">即预测的</span> <span class="n">pIC50</span> <span class="n">值</span><span class="err">。</span>
+
+<span class="o">**</span><span class="n">注意</span><span class="err">：</span><span class="o">**</span> <span class="n">由于权重是随机分配的</span><span class="err">，</span><span class="n">每次运行预测值都会不同</span><span class="err">。</span>
+
+
+
+<span class="err">```</span><span class="n">python</span>
+<span class="c1"># 创建一个带有单个隐藏层的前向传播函数</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Layer_Dense</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    A class to represent a neural network</span>
+<span class="sd">    一个表示神经网络的类</span>
 
 <span class="sd">    '''</span>
-<span class="sd">    Attributes</span>
+<span class="sd">    属性</span>
 <span class="sd">    ----------</span>
 <span class="sd">    n_inputs : int</span>
-<span class="sd">        Number of neurons in input layer</span>
+<span class="sd">        输入层中的神经元数量</span>
 <span class="sd">    n_neurons : int</span>
-<span class="sd">        Number of neurons in hidden layer</span>
+<span class="sd">        隐藏层中的神经元数量</span>
 
-<span class="sd">    Method</span>
+<span class="sd">    方法</span>
 <span class="sd">    ------</span>
 <span class="sd">    forward_pass(inputs):</span>
-<span class="sd">        Computes the forward pass of a neural network.</span>
+<span class="sd">        计算神经网络的前向传播。</span>
 <span class="sd">    """</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_inputs</span><span class="p">,</span> <span class="n">n_neurons</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Constructs all the necessary attributes.</span>
+<span class="sd">        构造所有必要的属性。</span>
 
-<span class="sd">        Parameters</span>
+<span class="sd">        参数</span>
 <span class="sd">        ----------</span>
 <span class="sd">        n_inputs : int</span>
-<span class="sd">            Number of neurons in input layer</span>
+<span class="sd">            输入层中的神经元数量</span>
 <span class="sd">        n_neurons : int</span>
-<span class="sd">            Number of neurons in hidden layer</span>
+<span class="sd">            隐藏层中的神经元数量</span>
 
 <span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="mf">0.10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_inputs</span><span class="p">,</span> <span class="n">n_neurons</span><span class="p">)</span>
@@ -1931,14 +1975,14 @@ Shape of dataframe :  (60, 2)
 
     <span class="k">def</span><span class="w"> </span><span class="nf">forward_pass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Compute forward pass.</span>
+<span class="sd">        计算前向传播。</span>
 
-<span class="sd">        Parameters</span>
+<span class="sd">        参数</span>
 <span class="sd">        ----------</span>
 <span class="sd">        input : int</span>
-<span class="sd">            Input neurons.</span>
+<span class="sd">            输入神经元。</span>
 
-<span class="sd">        Returns</span>
+<span class="sd">        返回</span>
 <span class="sd">        -------</span>
 <span class="sd">        None</span>
 
@@ -1948,23 +1992,23 @@ Shape of dataframe :  (60, 2)
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Activation_Function</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    A class to represent an activation function</span>
+<span class="sd">    一个表示激活函数的类</span>
 
-<span class="sd">    Method</span>
+<span class="sd">    方法</span>
 <span class="sd">    ------</span>
 <span class="sd">    ReLU(inputs):</span>
-<span class="sd">        Apply the ReLU activation function.</span>
+<span class="sd">        应用 ReLU 激活函数。</span>
 <span class="sd">    """</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">ReLU</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Apply the activation function to the neurons.</span>
+<span class="sd">        将激活函数应用于神经元。</span>
 
-<span class="sd">        Parameters</span>
+<span class="sd">        参数</span>
 <span class="sd">        ----------</span>
 <span class="sd">        input : int</span>
-<span class="sd">            Input neurons.</span>
+<span class="sd">            输入神经元。</span>
 
-<span class="sd">        Returns</span>
+<span class="sd">        返回</span>
 <span class="sd">        -------</span>
 <span class="sd">        None</span>
 
@@ -1972,22 +2016,35 @@ Shape of dataframe :  (60, 2)
         <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
 
 
-<span class="c1"># object</span>
+<span class="c1"># 对象</span>
 <span class="n">layer1</span> <span class="o">=</span> <span class="n">Layer_Dense</span><span class="p">(</span><span class="mi">167</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">layer2</span> <span class="o">=</span> <span class="n">Layer_Dense</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">activation1</span> <span class="o">=</span> <span class="n">Activation_Function</span><span class="p">()</span>
 <span class="n">activation2</span> <span class="o">=</span> <span class="n">Activation_Function</span><span class="p">()</span>
 
-<span class="c1"># function calling</span>
+<span class="c1"># 函数调用</span>
 <span class="n">layer1</span><span class="o">.</span><span class="n">forward_pass</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><span class="n">chembl_df</span><span class="p">[</span><span class="s1">'fingerprints_df'</span><span class="p">]))))</span>
 <span class="n">layer2</span><span class="o">.</span><span class="n">forward_pass</span><span class="p">(</span><span class="n">layer1</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 <span class="n">activation1</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">layer1</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 <span class="n">activation2</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">layer2</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">activation2</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+<span class="err">```</span>
+
+
+<span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</details><script type="application/vnd.jupyter.widget-state+json">
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></section>
 </section>
@@ -2002,7 +2059,7 @@ Shape of dataframe :  (60, 2)
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="T021_one_hot_encoding.html" title="T021 · One-Hot Encoding"
+            <a href="T021_one_hot_encoding.html" title="T021 · 独热编码（One-Hot Encoding）"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -2011,17 +2068,17 @@ Shape of dataframe :  (60, 2)
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> T021 · One-Hot Encoding </span>
+                      class="md-footer-nav__direction"> "Previous" </span> T021 · 独热编码（One-Hot Encoding） </span>
               </div>
             </a>
           
           
-            <a href="T023_what_is_a_kinase.html" title="T023 · What is a kinase?"
+            <a href="T023_what_is_a_kinase.html" title="T023 · 什么是激酶？"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> T023 · What is a kinase? </span>
+                class="md-footer-nav__direction"> "Next" </span> T023 · 什么是激酶？ </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

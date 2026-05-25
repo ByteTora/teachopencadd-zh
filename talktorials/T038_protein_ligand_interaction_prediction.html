@@ -4,14 +4,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="T038 · Protein Ligand Interaction Prediction" />
+<meta property="og:title" content="T038 · 蛋白质-配体相互作用预测" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T038_protein_ligand_interaction_prediction.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Roman Joeres, 2022, Chair for Drug Bioinformatics, UdS and HIPS, NextAID project, Saarland University. Aim of..." />
+<meta property="og:description" content="注： 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。 作者： Roman Joeres, 2022, 药物生物信息学教席, UdS 和 HIPS, NextAID 项目, 萨尔大学. 本教程的目标: 本教程的目标是向读者介绍使用图神经网络（GNN）进行蛋白质-配体相互作用预测的领域。GNN 在向深度学习模型表示结构数据（如蛋白质和化学分子（配体））时特别有用。在本教程中，我们将展示如何训练一个深度学习模型来预测蛋白质和配体之间的相互作用。 理论 部分内容: 蛋白质-配体相互作用预测的相关性..." />
 <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
 <meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Roman Joeres, 2022, Chair for Drug Bioinformatics, UdS and HIPS, NextAID project, Saarland University. Aim of..." />
+<meta name="description" content="注： 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。 作者： Roman Joeres, 2022, 药物生物信息学教席, UdS 和 HIPS, NextAID 项目, 萨尔大学. 本教程的目标: 本教程的目标是向读者介绍使用图神经网络（GNN）进行蛋白质-配体相互作用预测的领域。GNN 在向深度学习模型表示结构数据（如蛋白质和化学分子（配体））时特别有用。在本教程中，我们将展示如何训练一个深度学习模型来预测蛋白质和配体之间的相互作用。 理论 部分内容: 蛋白质-配体相互作用预测的相关性..." />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -82,7 +82,7 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T038 · Protein Ligand Interaction Prediction &#8212; TeachOpenCADD 0.0.post1 documentation</title>
+    <title>T038 · 蛋白质-配体相互作用预测 &#8212; TeachOpenCADD 0.0.post1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -101,7 +101,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Talktorials by collection" href="../talktorials.html" />
-    <link rel="prev" title="T037 · Uncertainty estimation" href="T037_uncertainty_estimation.html" />
+    <link rel="prev" title="T037 · 不确定性估计" href="T037_uncertainty_estimation.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -140,7 +140,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">TeachOpenCADD</span>
-          <span class="md-header-nav__topic"> T038 · Protein Ligand Interaction Prediction </span>
+          <span class="md-header-nav__topic"> T038 · 蛋白质-配体相互作用预测 </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -424,71 +424,71 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t038-protein-ligand-interaction-prediction--page-root" class="md-nav__link">T038 · Protein Ligand Interaction Prediction</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t038-protein-ligand-interaction-prediction--page-root" class="md-nav__link">T038 · 蛋白质-配体相互作用预测</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#本教程的目标" class="md-nav__link">本教程的目标</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        <li class="md-nav__item"><a href="#理论-部分内容" class="md-nav__link"><em>理论</em> 部分内容</a>
         </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        <li class="md-nav__item"><a href="#实践-部分内容" class="md-nav__link"><em>实践</em> 部分内容</a>
         </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        <li class="md-nav__item"><a href="#参考文献" class="md-nav__link">参考文献</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#理论" class="md-nav__link">理论</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Relevance-of-protein-ligand-interaction-prediction" class="md-nav__link">Relevance of protein-ligand interaction prediction</a>
+        <li class="md-nav__item"><a href="#蛋白质-配体相互作用预测的相关性" class="md-nav__link">蛋白质-配体相互作用预测的相关性</a>
         </li>
-        <li class="md-nav__item"><a href="#Model-architecture" class="md-nav__link">Model architecture</a>
+        <li class="md-nav__item"><a href="#模型架构" class="md-nav__link">模型架构</a>
         </li>
-        <li class="md-nav__item"><a href="#Biological-background---Proteins-as-Graphs" class="md-nav__link">Biological background - Proteins as Graphs</a>
+        <li class="md-nav__item"><a href="#生物学背景——蛋白质作为图" class="md-nav__link">生物学背景——蛋白质作为图</a>
         </li>
-        <li class="md-nav__item"><a href="#Technical-background" class="md-nav__link">Technical background</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#技术背景" class="md-nav__link">技术背景</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Graph-Isomorphism-Networks" class="md-nav__link">Graph Isomorphism Networks</a>
+        <li class="md-nav__item"><a href="#图同构网络" class="md-nav__link">图同构网络</a>
         </li>
-        <li class="md-nav__item"><a href="#Binary-Cross-Entropy-Loss-(BCE-Loss)" class="md-nav__link">Binary Cross Entropy Loss (BCE Loss)</a>
+        <li class="md-nav__item"><a href="#二元交叉熵损失（BCE-Loss）" class="md-nav__link">二元交叉熵损失（BCE Loss）</a>
         </li></ul>
             </nav>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#实践" class="md-nav__link">实践</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Compute-graph-representations" class="md-nav__link">Compute graph representations</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#计算图表示" class="md-nav__link">计算图表示</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Ligands-to-graphs" class="md-nav__link">Ligands to graphs</a>
+        <li class="md-nav__item"><a href="#配体到图" class="md-nav__link">配体到图</a>
         </li>
-        <li class="md-nav__item"><a href="#Proteins-to-graphs" class="md-nav__link">Proteins to graphs</a>
+        <li class="md-nav__item"><a href="#蛋白质到图" class="md-nav__link">蛋白质到图</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Data-storages" class="md-nav__link">Data storages</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#数据存储" class="md-nav__link">数据存储</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Data-points" class="md-nav__link">Data points</a>
+        <li class="md-nav__item"><a href="#数据点" class="md-nav__link">数据点</a>
         </li>
-        <li class="md-nav__item"><a href="#Data-set" class="md-nav__link">Data set</a>
+        <li class="md-nav__item"><a href="#数据集" class="md-nav__link">数据集</a>
         </li>
-        <li class="md-nav__item"><a href="#Data-module" class="md-nav__link">Data module</a>
+        <li class="md-nav__item"><a href="#数据模块" class="md-nav__link">数据模块</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Network" class="md-nav__link">Network</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#网络" class="md-nav__link">网络</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#GNN-encoder" class="md-nav__link">GNN encoder</a>
+        <li class="md-nav__item"><a href="#GNN-编码器" class="md-nav__link">GNN 编码器</a>
         </li>
-        <li class="md-nav__item"><a href="#Full-model" class="md-nav__link">Full model</a>
+        <li class="md-nav__item"><a href="#完整模型" class="md-nav__link">完整模型</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Training-routine" class="md-nav__link">Training routine</a>
+        <li class="md-nav__item"><a href="#训练流程" class="md-nav__link">训练流程</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        <li class="md-nav__item"><a href="#讨论" class="md-nav__link">讨论</a>
         </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        <li class="md-nav__item"><a href="#测验" class="md-nav__link">测验</a>
         </li></ul>
             </nav>
         </li>
@@ -506,66 +506,66 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="T038-·-Protein-Ligand-Interaction-Prediction">
-<h1 id="talktorials-t038-protein-ligand-interaction-prediction--page-root">T038 · Protein Ligand Interaction Prediction<a class="headerlink" href="#talktorials-t038-protein-ligand-interaction-prediction--page-root" title="Link to this heading">¶</a></h1>
-<p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
-<p>Authors:</p>
+  <section id="T038-·-蛋白质-配体相互作用预测">
+<h1 id="talktorials-t038-protein-ligand-interaction-prediction--page-root">T038 · 蛋白质-配体相互作用预测<a class="headerlink" href="#talktorials-t038-protein-ligand-interaction-prediction--page-root" title="Link to this heading">¶</a></h1>
+<p><strong>注：</strong> 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。</p>
+<p>作者：</p>
 <ul class="simple">
-<li><p>Roman Joeres, 2022, <a class="reference external" href="https://www.helmholtz-hips.de/de/forschung/teams/team/wirkstoffbioinformatik/">Chair for Drug Bioinformatics, UdS and HIPS</a>, <a class="reference external" href="https://nextaid.cs.uni-saarland.de/">NextAID</a> project, Saarland University</p></li>
+<li><p>Roman Joeres, 2022, <a class="reference external" href="https://www.helmholtz-hips.de/de/forschung/teams/team/wirkstoffbioinformatik/">药物生物信息学教席, UdS 和 HIPS</a>, <a class="reference external" href="https://nextaid.cs.uni-saarland.de/">NextAID</a> 项目, 萨尔大学</p></li>
 </ul>
-<section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
-<p>The goal of this talktorial is to introduce the reader to the field of protein-ligand interaction prediction using graph neural networks (GNNs). GNNs are especially useful for representing structural data such as proteins and chemical molecules (ligands) to a deep learning model. In this talktorial, we will show how to train a deep learning model to predict interactions between proteins and ligands.</p>
-<section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
+<section id="本教程的目标">
+<h2 id="本教程的目标">本教程的目标<a class="headerlink" href="#本教程的目标" title="Link to this heading">¶</a></h2>
+<p>本教程的目标是向读者介绍使用图神经网络（GNN）进行蛋白质-配体相互作用预测的领域。GNN 在向深度学习模型表示结构数据（如蛋白质和化学分子（配体））时特别有用。在本教程中，我们将展示如何训练一个深度学习模型来预测蛋白质和配体之间的相互作用。</p>
+<section id="理论-部分内容">
+<h3 id="理论-部分内容"><em>理论</em> 部分内容<a class="headerlink" href="#理论-部分内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Relevance of protein-ligand interaction prediction</p></li>
-<li><p>Workflow</p></li>
-<li><p>Biological background - proteins as graphs</p></li>
-<li><p>Technical background</p>
+<li><p>蛋白质-配体相互作用预测的相关性</p></li>
+<li><p>工作流程</p></li>
+<li><p>生物学背景——蛋白质作为图</p></li>
+<li><p>技术背景</p>
 <ul>
-<li><p>Graph Isomorphism Networks</p></li>
-<li><p>Binary Cross Entropy Loss</p></li>
+<li><p>图同构网络</p></li>
+<li><p>二元交叉熵损失</p></li>
 </ul>
 </li>
 </ul>
 </section>
-<section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
+<section id="实践-部分内容">
+<h3 id="实践-部分内容"><em>实践</em> 部分内容<a class="headerlink" href="#实践-部分内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Compute graph representations</p>
+<li><p>计算图表示</p>
 <ul>
-<li><p>Ligands to graphs</p></li>
-<li><p>Proteins to graphs</p></li>
+<li><p>配体到图</p></li>
+<li><p>蛋白质到图</p></li>
 </ul>
 </li>
-<li><p>Data Storages</p>
+<li><p>数据存储</p>
 <ul>
-<li><p>Data points</p></li>
-<li><p>Data set</p></li>
-<li><p>Data module</p></li>
+<li><p>数据点</p></li>
+<li><p>数据集</p></li>
+<li><p>数据模块</p></li>
 </ul>
 </li>
-<li><p>Network</p>
+<li><p>网络</p>
 <ul>
-<li><p>GNN encoder</p></li>
-<li><p>Full model</p></li>
+<li><p>GNN 编码器</p></li>
+<li><p>完整模型</p></li>
 </ul>
 </li>
-<li><p>Training routine</p></li>
+<li><p>训练流程</p></li>
 </ul>
 </section>
-<section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h3>
+<section id="参考文献">
+<h3 id="参考文献">参考文献<a class="headerlink" href="#参考文献" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Theoretical background</p>
+<li><p>理论背景</p>
 <ul>
-<li><p>Graph Neural Networks: Kipf, Welling: “Semi-Supervised Classification with Graph Convolutional Networks”, <a class="reference external" href="https://arxiv.org/abs/1609.02907">arXiv (2017)</a> Bronstein, et al.: “Geometric deep learning: going beyond Euclidean data”, <a class="reference external" href="https://doi.org/10.1109/MSP.2017.2693418">IEEE Signal Processing Magazine (2017), 4, 18-42</a></p></li>
-<li><p>GNN-based Protein-Ligand Interaction Prediction: Öztürk, et al.: “DeepDTA: Deep drug-target binding affinity prediction”, <a class="reference external" href="https://doi.org/10.1093/bioinformatics/bty593">Bioinformatics (2018), 34, i821-i829</a> Nguyen, et. al.: “GraphDTA: Predicting drug-target binding affinity with graph neural networks”, <a class="reference external" href="https://doi.org/10.1093/bioinformatics/btaa921">Bioinformatics (2021), 37, 1140-1147</a></p></li>
-<li><p>Graph Isomorphism Network: Xu, et al.: “How powerful are graph neural networks?”, <a class="reference external" href="https://arxiv.org/abs/1810.00826">arXiv (2018)</a></p></li>
+<li><p>图神经网络： Kipf, Welling: “Semi-Supervised Classification with Graph Convolutional Networks”, <a class="reference external" href="https://arxiv.org/abs/1609.02907">arXiv (2017)</a> Bronstein, et al.: “Geometric deep learning: going beyond Euclidean data”, <a class="reference external" href="https://doi.org/10.1109/MSP.2017.2693418">IEEE Signal Processing Magazine (2017), 4, 18-42</a></p></li>
+<li><p>基于 GNN 的蛋白质-配体相互作用预测： Öztürk, et al.: “DeepDTA: Deep drug-target binding affinity prediction”, <a class="reference external" href="https://doi.org/10.1093/bioinformatics/bty593">Bioinformatics (2018), 34, i821-i829</a> Nguyen, et. al.: “GraphDTA: Predicting drug-target binding affinity with graph neural networks”, <a class="reference external" href="https://doi.org/10.1093/bioinformatics/btaa921">Bioinformatics (2021), 37, 1140-1147</a></p></li>
+<li><p>图同构网络： Xu, et al.: “How powerful are graph neural networks?”, <a class="reference external" href="https://arxiv.org/abs/1810.00826">arXiv (2018)</a></p></li>
 </ul>
 </li>
-<li><p>Practical background</p>
+<li><p>实践背景</p>
 <ul>
 <li><p><a class="reference external" href="https://pytorch.org/">PyTorch</a></p></li>
 <li><p><a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/">PyTorch Geometric</a></p></li>
@@ -573,66 +573,76 @@
 </ul>
 </li>
 </ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">38</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+</pre></div>
+</div>
+</div>
 </section>
 </section>
-<section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
-<p>This talktorial combines several topics, you have seen in other talktorials. Here, we will describe the general idea of how to predict interactions between proteins and ligands. If some technique used in the workflow is already presented somewhere else, I’ll link to this. Otherwise, I’ll explain new things below.</p>
-<section id="Relevance-of-protein-ligand-interaction-prediction">
-<h3 id="Relevance-of-protein-ligand-interaction-prediction">Relevance of protein-ligand interaction prediction<a class="headerlink" href="#Relevance-of-protein-ligand-interaction-prediction" title="Link to this heading">¶</a></h3>
-<p>Protein-ligand interactions are of interest in research for many reasons as can be seen in <strong>Talktorial T016</strong>. Drug discovery is one of the most important fields where interaction prediction between proteins and ligands has applications. In drug discovery, one wants to find a new drug for a given protein. Computer-aided interaction prediction helps in the process of virtual screening, where many possible ligands are tested <em>in silico</em> if they interact with a certain target protein. Classically,
-screening of potential drugs for a target protein is done in a laboratory where the candidates are manually tested and ranked by their binding affinity. The binding affinity is a measure of how strong the interaction between two molecules is. The higher the binding affinity, the stronger the interactions and the better the two molecules bind each other.</p>
-<p>But investigating candidates manually is time-consuming and costly. Predicting binding events in a computer is way faster and cheaper. In this talktorial we will focus on predicting binding events between proteins and ligands on a qualitative level, i.e., if a protein and a ligand bind each other or not, the affinity is not interesting for now.</p>
+<section id="理论">
+<h2 id="理论">理论<a class="headerlink" href="#理论" title="Link to this heading">¶</a></h2>
+<p>本教程结合了你在其他教程中看到的几个主题。在这里，我们将描述预测蛋白质和配体之间相互作用的一般思路。如果工作流程中使用的某些技术已在其他地方介绍过，我会链接到那里。否则，我将在下面解释新内容。</p>
+<section id="蛋白质-配体相互作用预测的相关性">
+<h3 id="蛋白质-配体相互作用预测的相关性">蛋白质-配体相互作用预测的相关性<a class="headerlink" href="#蛋白质-配体相互作用预测的相关性" title="Link to this heading">¶</a></h3>
+<p>蛋白质-配体相互作用在研究中受到关注的原因有很多，如 <strong>教程 T016</strong> 所示。药物发现是蛋白质-配体相互作用预测最重要的应用领域之一。在药物发现中，我们希望为给定的蛋白质找到一种新药。计算机辅助的相互作用预测有助于虚拟筛选的过程，在此过程中，许多可能的配体被_在计算机中_测试是否与某个靶标蛋白相互作用。传统上，针对靶标蛋白的潜在药物筛选是在实验室中完成的，候选药物被手动测试并按结合亲和力排序。结合亲和力是衡量两个分子之间相互作用强度的指标。结合亲和力越高，相互作用越强，两个分子结合得越好。</p>
+<p>但手动研究候选药物既耗时又昂贵。用计算机预测结合事件要快得多、便宜得多。在本教程中，我们将专注于定性水平上预测蛋白质和配体之间的结合事件，即蛋白质和配体是否结合，亲和力暂时不是我们关注的。</p>
 </section>
-<section id="Model-architecture">
-<h3 id="Model-architecture">Model architecture<a class="headerlink" href="#Model-architecture" title="Link to this heading">¶</a></h3>
-<p>The input for our training is a dataset comprising a set of proteins and a set of ligands and a table with binding information for every pair of proteins and ligands. We will perform supervised learning (as in <strong>Talktorial T022</strong>), therefore, we split the list of interactions into a training set, a validation set, and a test set. As discussed above, we will do a binary classification of interactions, i.e., does a pair of protein and molecule interact or not?</p>
-<p>The last component of our network architecture is a simple multilayer perceptron (MLP) as presented in <strong>Talktorial T022</strong>. The other two components are graph neural networks (GNNs) to extract features from the proteins and ligands in each pair of the dataset. As discussed in <strong>Talktorial T035</strong> GNNs are used to compute a representation of graph-structured data that holds information about the structure. These representations are concatenated into one vector which serves as input for the final
-MLP.</p>
-<p><img alt="Basic structure" src="../_images/basic_structure_nn.png"/></p>
-<p><em>Figure 1:</em> Visualization of the model in this notebook. The shown exemplary structures are taken from the PDB entry with ID <a class="reference external" href="https://www.rcsb.org/structure/4O75">4O75</a> (see <strong>Talktorial T008</strong> for an introduction to PDB).</p>
+<section id="模型架构">
+<h3 id="模型架构">模型架构<a class="headerlink" href="#模型架构" title="Link to this heading">¶</a></h3>
+<p>我们训练的输入是一个数据集，包含一组蛋白质和一组配体，以及一个包含每对蛋白质和配体结合信息的表格。我们将进行监督学习（如 <strong>教程 T022</strong> 所述），因此，我们将相互作用列表分为训练集、验证集和测试集。如上所述，我们将进行相互作用的二元分类，即一对蛋白质和分子是否相互作用？</p>
+<p>我们网络架构的最后一个组件是一个简单的多层感知器（MLP），如 <strong>教程 T022</strong> 所述。另外两个组件是图神经网络（GNN），用于从数据集中每对蛋白质和配体中提取特征。如 <strong>教程 T035</strong> 所述，GNN 用于计算保持结构信息的图结构数据的表示。这些表示被拼接成一个向量，作为最终 MLP 的输入。</p>
+<p><img alt="基本结构" src="../_images/basic_structure_nn.png"/></p>
+<p><em>图 1：</em> 本 notebook 中模型的可视化。所示示例结构取自 PDB 条目 ID <a class="reference external" href="https://www.rcsb.org/structure/4O75">4O75</a>（PDB 的介绍见 <strong>教程 T008</strong>）。</p>
 </section>
-<section id="Biological-background---Proteins-as-Graphs">
-<h3 id="Biological-background---Proteins-as-Graphs">Biological background - Proteins as Graphs<a class="headerlink" href="#Biological-background---Proteins-as-Graphs" title="Link to this heading">¶</a></h3>
-<p>Here, we will focus on the conversion of proteins into graphs as the conversion of SMILES to graphs is explained in <strong>Talktorial T033</strong>.</p>
-<p>There are usually two ways to represent proteins in science. Either by their sequence of amino acids or as a PDB structure as introduced in <strong>Talktorial T008</strong>. As amino acid sequences do not contain structural information, we use PDB files of proteins as input for our structure-based models. In the graph representation of a protein, every node of the graph represents an amino acid from the protein. Edges between nodes in the graph are drawn if the two represented amino acids are within a
-certain distance. This is the equivalent of an interaction between the two amino acids in the protein. To compute the distance of two amino acids, we look at the coordinates of the <span class="math notranslate nohighlight">\(C_\alpha\)</span> atoms of the amino acids in the PDB file. If the distance between two <span class="math notranslate nohighlight">\(C_\alpha\)</span> atoms is below a certain distance threshold, we consider the amino acids to interact and insert an edge in the graph representation of the protein. This can be seen in Figure 2. Atoms in amino acids are enumerated.
-So, <span class="math notranslate nohighlight">\(C_\alpha\)</span> atoms of amino acids are specific carbon atoms in each amino acid that are also present in the backbone of proteins. Examples of the <span class="math notranslate nohighlight">\(C_\alpha\)</span> atom in exemplary amino acids can be seen in Figures 2 and 3.</p>
-<p><img alt="Prot2Graph" src="../_images/prot_graph_creation.png"/></p>
-<p><em>Figure 2:</em> Visualization of the process and idea of protein structures as graphs. For this example, we consider only the <span class="math notranslate nohighlight">\(C_\alpha\)</span> atoms of the cysteines to be within a distance threshold of 7 Angstrom. As both cysteines are spatially close, their sulfates generate a disulfate bridge and stabilize the protein’s three-dimensions structure which is the type of interaction we want to have in the graph representations.</p>
-<p><img alt="CAlphas" src="../_images/calphas.jpg"/></p>
-<p><em>Figure 3:</em> Visualization of carbon atoms in three exemplary amino acids. Also, other numbers for atoms in amino acids are shown, but for us, only the <span class="math notranslate nohighlight">\(C_\alpha\)</span> atoms are interesting (<a class="reference external" href="https://chemistry.stackexchange.com/questions/134409/what-exactly-makes-a-carbon-atom-%CE%B1-in-a-protein-residue">Source</a>).</p>
+<section id="生物学背景——蛋白质作为图">
+<h3 id="生物学背景——蛋白质作为图">生物学背景——蛋白质作为图<a class="headerlink" href="#生物学背景——蛋白质作为图" title="Link to this heading">¶</a></h3>
+<p>这里，我们将专注于将蛋白质转换为图，因为 SMILES 到图的转换在 <strong>教程 T033</strong> 中已有解释。</p>
+<p>在科学中，通常有两种表示蛋白质的方式。要么是通过其氨基酸序列，要么是作为 PDB 结构（如 <strong>教程 T008</strong> 中介绍的）。由于氨基酸序列不包含结构信息，我们使用蛋白质的 PDB 文件作为基于结构的模型的输入。在蛋白质的图表示中，图中的每个节点代表蛋白质中的一个氨基酸。如果所表示的两个氨基酸在特定距离内，则在节点之间绘制边。这相当于蛋白质中两个氨基酸之间的相互作用。为了计算两个氨基酸的距离，我们查看 PDB 文件中氨基酸的 <span class="math notranslate nohighlight">\(C_\alpha\)</span> 原子的坐标。如果两个 <span class="math notranslate nohighlight">\(C_\alpha\)</span>
+原子之间的距离低于某个距离阈值，我们认为这些氨基酸相互作用，并在蛋白质的图表示中插入一条边。这可以在图 2 中看到。氨基酸中的原子是编号的。因此，氨基酸的 <span class="math notranslate nohighlight">\(C_\alpha\)</span> 原子是每个氨基酸中特定的碳原子，也存在于蛋白质的主链中。示例氨基酸中 <span class="math notranslate nohighlight">\(C_\alpha\)</span> 原子的例子可以在图 2 和图 3 中看到。</p>
+<p><img alt="蛋白质到图" src="../_images/prot_graph_creation.png"/></p>
+<p><em>图 2：</em> 将蛋白质结构作为图的过程和思想的可视化。在本例中，我们只考虑半胱氨酸的 <span class="math notranslate nohighlight">\(C_\alpha\)</span> 原子在 7 Å 的距离阈值内。由于两个半胱氨酸在空间上很接近，它们的硫产生了一个二硫桥，稳定了蛋白质的三维结构，这正是我们希望在图中表示的那种相互作用。</p>
+<p><img alt="Calpha" src="../_images/calphas.jpg"/></p>
+<p><em>图 3：</em> 三种示例氨基酸中碳原子的可视化。还显示了氨基酸中原子的其他编号，但对我们来说，只有 <span class="math notranslate nohighlight">\(C_\alpha\)</span> 原子是感兴趣的（<a class="reference external" href="https://chemistry.stackexchange.com/questions/134409/what-exactly-makes-a-carbon-atom-%CE%B1-in-a-protein-residue">来源</a>）。</p>
 </section>
-<section id="Technical-background">
-<h3 id="Technical-background">Technical background<a class="headerlink" href="#Technical-background" title="Link to this heading">¶</a></h3>
-<p>In this section, we will focus on the computer science aspects of the proposed solution. Mainly, we will discuss the concrete GNN architecture and which node features we use. For simplicity (and because it works well), we will use the same network architecture to compute embeddings of kinases and their ligands.</p>
-<section id="Graph-Isomorphism-Networks">
-<h4 id="Graph-Isomorphism-Networks">Graph Isomorphism Networks<a class="headerlink" href="#Graph-Isomorphism-Networks" title="Link to this heading">¶</a></h4>
-<p>There is a whole zoo of GNN architectures proposed to solve many problems. If you want to get an overview of the most popular architectures, you can have a look at the <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#convolutional-layers">list of convolutional layers implemented in PyTorch-Geometric</a>. In this talktorial, we will use the GINConv layers as the backbone of out GNNs as they have been proven to be powerful in embedding molecular data yet remaining easy to
-understand in their functionality. The formula to compute an embedding of a node based on the neighbors is</p>
+<section id="技术背景">
+<h3 id="技术背景">技术背景<a class="headerlink" href="#技术背景" title="Link to this heading">¶</a></h3>
+<p>在本节中，我们将重点讨论所提出解决方案的计算机科学方面。主要来说，我们将讨论具体的 GNN 架构以及我们使用哪些节点特征。为简单起见（并且因为它效果很好），我们将使用相同的网络架构来计算激酶及其配体的嵌入。</p>
+<section id="图同构网络">
+<h4 id="图同构网络">图同构网络<a class="headerlink" href="#图同构网络" title="Link to this heading">¶</a></h4>
+<p>为了解决许多问题，已经提出了大量的 GNN 架构。如果你想了解最流行的架构概览，可以查看 <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#convolutional-layers">PyTorch-Geometric 中实现的卷积层列表</a>。在本教程中，我们将使用 GINConv 层作为 GNN 的主干架构，因为它们已被证明在嵌入分子数据方面很强大，同时保持功能易于理解。基于邻居计算节点嵌入的公式为：</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{x}^{\prime}_i = h_{\mathbf{\Theta}} \left( (1 + \epsilon) \cdot \mathbf{x}_i + \sum_{j \in \mathcal{N}(i)} \mathbf{x}_j \right)\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathcal{N}(i)\)</span> is the set of neighbors of node <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(\epsilon\)</span> is a constant hyperparameter, and <span class="math notranslate nohighlight">\(h_{\mathbf{\Theta}}\)</span> is a neural network as presented in <strong>Talktorial T022</strong>. The idea is to aggregate all neighbor embeddings together with the own current embedding and put this into a neural network to extract information on the nodes and their neighborhoods.</p>
-<p>As can be seen, GINConv layers do not use edge information in their computation. So, the only thing we need to extract from our proteins and ligands when turning into graphs are features for the edges. In this talktorial, we will use a very simple featurization and every node just contains categorical information on the amino acid type or atom type it represents. Information on one-hot encodings of categorical data is covered in <strong>Talktorial T021</strong>.</p>
-<p>The final element of our GNN module is the pooling function, which uses to compute the graph embedding based on the node embeddings in the final layer. For simplicity (and because it’s surprisingly powerful) we use mean pooling! That means, we just take the mean vector over all node embeddings in the final GINConv layer.</p>
+<p>其中 <span class="math notranslate nohighlight">\(\mathcal{N}(i)\)</span> 是节点 <span class="math notranslate nohighlight">\(i\)</span> 的邻居集合，<span class="math notranslate nohighlight">\(\epsilon\)</span> 是一个常数超参数，<span class="math notranslate nohighlight">\(h_{\mathbf{\Theta}}\)</span> 是一个神经网络，如 <strong>教程 T022</strong> 所述。其思想是聚合所有邻居嵌入以及自身的当前嵌入，并将其输入神经网络以提取关于节点及其邻居的信息。</p>
+<p>如我们所见，GINConv 层在其计算中不使用边信息。因此，在将蛋白质和配体转换为图时，我们需要提取的唯一内容是节点的特征。在本教程中，我们将使用非常简单的特征化，每个节点只包含关于氨基酸类型或原子类型的类别信息。关于类别数据的独热编码的信息在 <strong>教程 T021</strong> 中介绍过。</p>
+<p>我们 GNN 模块的最后一个元素是池化函数，用于基于最后一层中的节点嵌入来计算图嵌入。为简单起见（并且因为它出人意料地强大），我们使用均值池化！也就是说，我们只取最终 GINConv 层中所有节点嵌入的均值向量。</p>
 </section>
-<section id="Binary-Cross-Entropy-Loss-(BCE-Loss)">
-<h4 id="Binary-Cross-Entropy-Loss-(BCE-Loss)">Binary Cross Entropy Loss (BCE Loss)<a class="headerlink" href="#Binary-Cross-Entropy-Loss-(BCE-Loss)" title="Link to this heading">¶</a></h4>
-<p><strong>Talktorial T022</strong> introduces two loss functions, namely MSE and MAE. Both are suitable to train regression models but not appropriate for classification. For classification, there is a wide range of loss functions of which we will use the <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.BCELoss.html">Binary Cross Entropy Loss</a>.</p>
-<p>The formula to compute the loss is</p>
+<section id="二元交叉熵损失（BCE-Loss）">
+<h4 id="二元交叉熵损失（BCE-Loss）">二元交叉熵损失（BCE Loss）<a class="headerlink" href="#二元交叉熵损失（BCE-Loss）" title="Link to this heading">¶</a></h4>
+<p><strong>教程 T022</strong> 介绍了两个损失函数，即 MSE 和 MAE。两者都适合训练回归模型，但不适用于分类。对于分类，有大量的损失函数可供选择，我们将使用<a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.BCELoss.html">二元交叉熵损失</a>。</p>
+<p>计算损失的公式为：</p>
 <div class="math notranslate nohighlight">
 \[-\left[ y\cdot\log(x)+(1-y)\cdot\log (1-x)\right],\]</div>
-<p>where <span class="math notranslate nohighlight">\(x\)</span> is the model output for one sample and <span class="math notranslate nohighlight">\(y\)</span> is the label of that sample.</p>
-<p>The idea is that exactly one term of <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(1-y\)</span> equals <span class="math notranslate nohighlight">\(1\)</span> to the formula reduces to <span class="math notranslate nohighlight">\(\log x\)</span> for a positive sample and <span class="math notranslate nohighlight">\(\log (1-x)\)</span> for a negative example. By this setting, the BCE formula ensures that you want to push the predicted values <span class="math notranslate nohighlight">\(x\)</span> towards 0 in negative samples (<span class="math notranslate nohighlight">\(y=0\)</span>) and towards <span class="math notranslate nohighlight">\(1\)</span> in positive cases (<span class="math notranslate nohighlight">\(y=1\)</span>).</p>
-<p>For our example, positive samples (<span class="math notranslate nohighlight">\(y=1\)</span>) are pairs of binding kinase and ligand, then <span class="math notranslate nohighlight">\(x\)</span> should be close to 1. According to this, negative samples (<span class="math notranslate nohighlight">\(y=0\)</span>) in our example are non-binding pairs of kinase and ligand. Note the leading “-” in the formula, this flips the rest of the formula from a maximization problem to a minimization.</p>
+<p>其中 <span class="math notranslate nohighlight">\(x\)</span> 是一个样本的模型输出，<span class="math notranslate nohighlight">\(y\)</span> 是该样本的标签。</p>
+<p>其思想是，<span class="math notranslate nohighlight">\(y\)</span> 和 <span class="math notranslate nohighlight">\(1-y\)</span> 中恰好有一个等于 1，因此公式对于正样本简化为 <span class="math notranslate nohighlight">\(\log x\)</span>，对于负样本简化为 <span class="math notranslate nohighlight">\(\log (1-x)\)</span>。通过这种设置，BCE 公式确保我们希望将预测值 <span class="math notranslate nohighlight">\(x\)</span> 推向负样本（<span class="math notranslate nohighlight">\(y=0\)</span>）的 0 和正样本（<span class="math notranslate nohighlight">\(y=1\)</span>）的 1。</p>
+<p>对于我们的例子，正样本（<span class="math notranslate nohighlight">\(y=1\)</span>）是结合的激酶和配体对，那么 <span class="math notranslate nohighlight">\(x\)</span> 应接近 1。相应地，我们例子中的负样本（<span class="math notranslate nohighlight">\(y=0\)</span>）是不结合的激酶和配体对。注意公式开头的”-”，这将其余部分从最大化问题转化为最小化问题。</p>
 </section>
 </section>
 </section>
-<section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
-<p>In this practical section, we will discuss every step in implementing the above-presented solution to protein-ligand interaction prediction. We will start with all the imports needed and some path definitions.</p>
+<section id="实践">
+<h2 id="实践">实践<a class="headerlink" href="#实践" title="Link to this heading">¶</a></h2>
+<p>在本实践部分，我们将讨论实现上述蛋白质-配体相互作用预测解决方案的每一步。我们将从所有需要的导入和一些路径定义开始。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
@@ -648,18 +658,8 @@ understand in their functionality. The formula to compute an embedding of a node
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"linux"</span><span class="p">,</span> <span class="s2">"darwin"</span><span class="p">)):</span>
-    <span class="o">!</span>mamba<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>-y<span class="w"> </span>-c<span class="w"> </span>pyg<span class="w"> </span>pyg
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">torch_geometric.nn</span><span class="w"> </span><span class="kn">import</span> <span class="n">global_mean_pool</span><span class="p">,</span> <span class="n">GINConv</span>
@@ -671,8 +671,17 @@ understand in their functionality. The formula to compute an embedding of a node
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/michael/.teachopencadd_envs/teachopencadd_T038_py312/lib/python3.12/site-packages/chembl_webresource_client/__init__.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.
+  __version__ = __import__('pkg_resources').get_distribution('chembl_webresource_client').version
+</pre></div></div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"./"</span><span class="p">)</span>
@@ -704,17 +713,17 @@ Finally, KiBA comprises 20475 interactions.
 Preprocessing interactions finished
 </pre></div></div>
 </div>
-<section id="Compute-graph-representations">
-<h3 id="Compute-graph-representations">Compute graph representations<a class="headerlink" href="#Compute-graph-representations" title="Link to this heading">¶</a></h3>
-<section id="Ligands-to-graphs">
-<h4 id="Ligands-to-graphs">Ligands to graphs<a class="headerlink" href="#Ligands-to-graphs" title="Link to this heading">¶</a></h4>
-<p>First, we’re going to implement the conversion of ligands into graphs. For the following explanation, the ligand has <span class="math notranslate nohighlight">\(N\)</span> atoms. To encode a graph, we have to compute a matrix of the node features (a <span class="math notranslate nohighlight">\(N\times F\)</span>-matrix where <span class="math notranslate nohighlight">\(F\)</span> is the number of features per node) and a matrix of the edges given by pairs of the participating node ids.</p>
-<p>Due to some PyTorch Geometric-related implementation details, the edge matrix has to have the format <span class="math notranslate nohighlight">\(2\times N\)</span>.</p>
+<section id="计算图表示">
+<h3 id="计算图表示">计算图表示<a class="headerlink" href="#计算图表示" title="Link to this heading">¶</a></h3>
+<section id="配体到图">
+<h4 id="配体到图">配体到图<a class="headerlink" href="#配体到图" title="Link to this heading">¶</a></h4>
+<p>首先，我们将实现配体到图的转换。为便于理解，假设配体有 <span class="math notranslate nohighlight">\(N\)</span> 个原子。为了编码一个图，我们必须计算一个节点特征矩阵（一个 <span class="math notranslate nohighlight">\(N \times F\)</span> 矩阵，其中 <span class="math notranslate nohighlight">\(F\)</span> 是每个节点的特征数量）和一个由参与节点的 ID 对给出的边矩阵。</p>
+<p>由于一些与 PyTorch Geometric 相关的实现细节，边矩阵必须具有 <span class="math notranslate nohighlight">\(2 \times N\)</span> 的格式。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For every atom type we consider, map the symbol to a numerical value for one-hot encoding.</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 对于我们考虑的每种原子类型，将符号映射为用于独热编码的数值。</span>
 <span class="n">atoms_to_num</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
     <span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">atom</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">"C"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">,</span> <span class="s2">"O"</span><span class="p">,</span> <span class="s2">"F"</span><span class="p">,</span> <span class="s2">"P"</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">,</span> <span class="s2">"Cl"</span><span class="p">,</span> <span class="s2">"Br"</span><span class="p">,</span> <span class="s2">"I"</span><span class="p">])</span>
 <span class="p">)</span>
@@ -783,14 +792,14 @@ Preprocessing interactions finished
 </div>
 </div>
 </section>
-<section id="Proteins-to-graphs">
-<h4 id="Proteins-to-graphs">Proteins to graphs<a class="headerlink" href="#Proteins-to-graphs" title="Link to this heading">¶</a></h4>
-<p>Similar to how we converted ligands to graphs, we convert proteins into graphs. The output will be the same, a pair of node features and edges. To get more information on the PDB format, read <a class="reference external" href="https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html">this</a>.</p>
+<section id="蛋白质到图">
+<h4 id="蛋白质到图">蛋白质到图<a class="headerlink" href="#蛋白质到图" title="Link to this heading">¶</a></h4>
+<p>类似于我们将配体转换为图的方式，我们将蛋白质转换为图。输出将是相同的：一对节点特征和边。要获得更多关于 PDB 格式的信息，请阅读<a class="reference external" href="https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html">这篇文章</a>。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a mapping from amino acids to numbers for one-hot encoding</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 生成氨基酸到数字的映射，用于独热编码</span>
 <span class="n">aa_to_num</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
     <span class="p">(</span><span class="n">aa</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">aa</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
@@ -891,14 +900,14 @@ Preprocessing interactions finished
 </div>
 </section>
 </section>
-<section id="Data-storages">
-<h3 id="Data-storages">Data storages<a class="headerlink" href="#Data-storages" title="Link to this heading">¶</a></h3>
-<p>Storing and representing input data for our neural network in protein-ligand interaction prediction is a bit different from other neural networks. Therefore, we have to define our own classes to represent the data. The main difference to training an MLP as in <strong>Talktorial T008</strong>, apart from graphs being the input, is that we have two data points as input. A graph of the protein and a graph of the ligand. Therefore, we need to implement out own data infrastructure.</p>
-<section id="Data-points">
-<h4 id="Data-points">Data points<a class="headerlink" href="#Data-points" title="Link to this heading">¶</a></h4>
-<p>Usually the built-in <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.data.Data.html#torch_geometric.data.Data">Data</a> class of <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/">PyTorch Geometric</a> is used to represent only one graph, for our task, the data contains two graphs, therefore, we need to adapt the functionality to compute the number of nodes and edges for one data point.</p>
+<section id="数据存储">
+<h3 id="数据存储">数据存储<a class="headerlink" href="#数据存储" title="Link to this heading">¶</a></h3>
+<p>在蛋白质-配体相互作用预测中，为我们的神经网络存储和表示输入数据与其他神经网络有些不同。因此，我们必须定义自己的类来表示数据。与 <strong>教程 T008</strong> 中训练 MLP 的主要区别在于，除了输入是图之外，我们还有两个数据点作为输入：蛋白质的图和配体的图。因此，我们需要实现自己的数据基础设施。</p>
+<section id="数据点">
+<h4 id="数据点">数据点<a class="headerlink" href="#数据点" title="Link to this heading">¶</a></h4>
+<p>通常，<a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/">PyTorch Geometric</a> 内置的 <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.data.Data.html">Data</a> 类只用于表示一个图。对于我们的任务，数据包含两个图，因此我们需要调整计算一个数据点中节点和边数量的功能。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DTIDataPair</span><span class="p">(</span><span class="n">Data</span><span class="p">):</span>
@@ -945,18 +954,18 @@ Preprocessing interactions finished
 </div>
 </div>
 </section>
-<section id="Data-set">
-<h4 id="Data-set">Data set<a class="headerlink" href="#Data-set" title="Link to this heading">¶</a></h4>
-<p>This is where the real data magic happens. In the dataset, we read the data points and process it into the graphical representation we want to have.</p>
+<section id="数据集">
+<h4 id="数据集">数据集<a class="headerlink" href="#数据集" title="Link to this heading">¶</a></h4>
+<p>这是真正数据魔力的所在。在数据集中，我们读取数据点并将其处理成我们想要的图表示。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DTIDataset</span><span class="p">(</span><span class="n">InMemoryDataset</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">folder_name</span><span class="p">,</span> <span class="n">file_index</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">folder_name</span> <span class="o">=</span> <span class="n">folder_name</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="n">folder_name</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">slices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processed_paths</span><span class="p">[</span><span class="n">file_index</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">slices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processed_paths</span><span class="p">[</span><span class="n">file_index</span><span class="p">],</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">processed_file_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1029,11 +1038,11 @@ Preprocessing interactions finished
 </div>
 </div>
 </section>
-<section id="Data-module">
-<h4 id="Data-module">Data module<a class="headerlink" href="#Data-module" title="Link to this heading">¶</a></h4>
-<p>This is just a handy class holding all three splits of a dataset and providing data loaders for training, validation, and test sets.</p>
+<section id="数据模块">
+<h4 id="数据模块">数据模块<a class="headerlink" href="#数据模块" title="Link to this heading">¶</a></h4>
+<p>这只是一个方便的类，包含数据集的所有三个拆分，并为训练、验证和测试集提供数据加载器。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DTIDataModule</span><span class="p">:</span>
@@ -1081,20 +1090,20 @@ Preprocessing interactions finished
 </div>
 </section>
 </section>
-<section id="Network">
-<h3 id="Network">Network<a class="headerlink" href="#Network" title="Link to this heading">¶</a></h3>
-<p>Here, we will implement the networks as defined in the theory section.</p>
-<section id="GNN-encoder">
-<h4 id="GNN-encoder">GNN encoder<a class="headerlink" href="#GNN-encoder" title="Link to this heading">¶</a></h4>
-<p>First, the GNN encoder which we will use for both, embedding proteins and embedding ligands.</p>
+<section id="网络">
+<h3 id="网络">网络<a class="headerlink" href="#网络" title="Link to this heading">¶</a></h3>
+<p>这里，我们将按照理论部分定义的内容实现网络。</p>
+<section id="GNN-编码器">
+<h4 id="GNN-编码器">GNN 编码器<a class="headerlink" href="#GNN-编码器" title="Link to this heading">¶</a></h4>
+<p>首先，GNN 编码器，我们将用于嵌入蛋白质和配体。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Encoding</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">output_dim</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Encoding to embed structural data using a stack of GINConv layers.</span>
+<span class="sd">        使用一层 GINConv 层进行编码以嵌入结构数据。</span>
 
 <span class="sd">        Arguments</span>
 <span class="sd">        ---------</span>
@@ -1166,22 +1175,22 @@ Preprocessing interactions finished
 </div>
 </div>
 </section>
-<section id="Full-model">
-<h4 id="Full-model">Full model<a class="headerlink" href="#Full-model" title="Link to this heading">¶</a></h4>
-<p>Define the full model according to the workflow proposed in the theory section.</p>
+<section id="完整模型">
+<h4 id="完整模型">完整模型<a class="headerlink" href="#完整模型" title="Link to this heading">¶</a></h4>
+<p>根据理论部分提出的工作流程定义完整模型。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DTINetwork</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="c1"># create encoders for both, proteins and ligands</span>
+        <span class="c1"># 为蛋白质和配体创建编码器</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prot_encoder</span> <span class="o">=</span> <span class="n">Encoding</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lig_encoder</span> <span class="o">=</span> <span class="n">Encoding</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-        <span class="c1"># define a simple FNN to compute the final prediction (to bind or not to bind)</span>
+        <span class="c1"># 定义一个简单的前馈神经网络来计算最终预测（结合或不结合）</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">combine</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
             <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
             <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
@@ -1228,24 +1237,23 @@ Preprocessing interactions finished
 </div>
 </section>
 </section>
-<section id="Training-routine">
-<h3 id="Training-routine">Training routine<a class="headerlink" href="#Training-routine" title="Link to this heading">¶</a></h3>
-<p>In the training, we will use the <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.optim.Adam.html#torch.optim.Adam">Adam optimizer</a> (which is a standard choice). As described above, we use the BCE loss function to compute how far off the model’s predictions are. A special thing about the setup is that we only train for one epoch. This is because only in the first epoch the model shows improvements. After that, the model learned the dataset and does not improve much. But feel free to test more
-epochs. On average, one epoch takes around 10 minutes to complete.</p>
+<section id="训练流程">
+<h3 id="训练流程">训练流程<a class="headerlink" href="#训练流程" title="Link to this heading">¶</a></h3>
+<p>在训练中，我们将使用 <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.optim.Adam.html">Adam 优化器</a>（这是一个标准选择）。如上所述，我们使用 BCE 损失函数来计算模型预测的偏差。该设置的一个特殊之处在于我们只训练一个 epoch。这是因为只有在第一个 epoch 中模型才显示出改进。之后，模型已经学习了数据集，不会有太大改进。但你可以自由地测试更多的 epoch。平均而言，一个 epoch 大约需要 10 分钟才能完成。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">num_epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Implementation of the actual training routine.</span>
+<span class="sd">    实际训练流程的实现。</span>
 
 <span class="sd">    Arguments</span>
 <span class="sd">    ---------</span>
 <span class="sd">    num_epochs: int</span>
-<span class="sd">        Number of epochs to train the model</span>
+<span class="sd">        训练模型的 epoch 数量</span>
 <span class="sd">    """</span>
-    <span class="c1"># load the data, model, and define the loss function</span>
+    <span class="c1"># 加载数据、模型，并定义损失函数</span>
     <span class="n">dataset</span> <span class="o">=</span> <span class="n">DTIDataModule</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"resources"</span><span class="p">)</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">DTINetwork</span><span class="p">()</span>
     <span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">()</span>
@@ -1339,32 +1347,46 @@ epochs. On average, one epoch takes around 10 minutes to complete.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">DATA</span> <span class="o">/</span> <span class="s2">"final_model.pth"</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls<span class="w"> </span>data/resources/processed
 </pre></div>
 </div>
 </div>
-<p><img alt="TrainGraph" src="../_images/train_perf.png"/></p>
-<p><em>Figure 3:</em> Visualization of the results of the first epoch of training.</p>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+pre_filter.pt  pre_transform.pt  test.pt  train.pt  val.pt
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/michael/.local/share/uv/python/cpython-3.12.8-linux-x86_64-gnu/lib/python3.12/pty.py:95: DeprecationWarning: This process (pid=33633) is multi-threaded, use of forkpty() may lead to deadlocks in the child.
+  pid, fd = os.forkpty()
+</pre></div></div>
+</div>
+<p><img alt="训练图" src="../_images/train_perf.png"/></p>
+<p><em>图 4：</em> 训练第一个 epoch 的结果可视化。</p>
 </section>
 </section>
-<section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
-<p>As we can see in Figure 3, the loss decreases slightly while the accuracy is stagnating. Protein-ligand interaction prediction is a highly relevant and very complex field. Due to the complexity of the binding between proteins and ligands, e.g., which atoms of the ligand bind to which site of the protein, it is difficult to train a simple model to predict these interactions. In this talktorial, we discussed a proof of concept that is further investigated in the linked literature at the beginning
-of this talktorial.</p>
+<section id="讨论">
+<h2 id="讨论">讨论<a class="headerlink" href="#讨论" title="Link to this heading">¶</a></h2>
+<p>如图 3 所示，损失略有下降，而准确率则停滞不前。蛋白质-配体相互作用预测是一个非常相关且极其复杂的领域。由于蛋白质和配体之间结合的复杂性，例如配体的哪些原子结合到蛋白质的哪个位点，很难训练一个简单的模型来预测这些相互作用。在本教程中，我们讨论了一个概念验证，本教程开头引用的文献对该概念进行了进一步研究。</p>
 </section>
-<section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
-<p>With this quiz, you can test if you understand the important lessons of this talktorial.</p>
+<section id="测验">
+<h2 id="测验">测验<a class="headerlink" href="#测验" title="Link to this heading">¶</a></h2>
+<p>通过本测验，你可以测试是否理解本教程的重要知识点。</p>
 <ol class="arabic simple">
-<li><p>Why do we use structural data instead of amino acid sequences and SMILES strings?</p></li>
-<li><p>How do we convert proteins into graphs? What are the essential parts of proteins we use for that?</p></li>
-<li><p>Difficult: Why do we need to implement our own class to represent data points?</p></li>
+<li><p>为什么我们使用结构数据而不是氨基酸序列和 SMILES 字符串？</p></li>
+<li><p>我们如何将蛋白质转换为图？我们为此使用的蛋白质的基本部分是什么？</p></li>
+<li><p>困难题：为什么我们需要实现自己的类来表示数据点？</p></li>
 </ol>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
@@ -1381,7 +1403,7 @@ of this talktorial.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="T037_uncertainty_estimation.html" title="T037 · Uncertainty estimation"
+            <a href="T037_uncertainty_estimation.html" title="T037 · 不确定性估计"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -1390,7 +1412,7 @@ of this talktorial.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> T037 · Uncertainty estimation </span>
+                      class="md-footer-nav__direction"> "Previous" </span> T037 · 不确定性估计 </span>
               </div>
             </a>
           

@@ -4,14 +4,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="T021 · One-Hot Encoding" />
+<meta property="og:title" content="T021 · 独热编码（One-Hot Encoding）" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T021_one_hot_encoding.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Sakshi Misra, CADD seminar 2020, Charité/..." />
+<meta property="og:description" content="2020 年 CADD 研讨会开发，Volkamer 实验室，Charité/FU Berlin 注意： 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并为研究项目提供流程模板作为起点。 作者： Sakshi Misra, CADD 研讨会 2020, Charité/FU Berlin, Talia B. Kimber, 2020, Volkamer lab, Charité, Yonghui Chen, 2020, Volkamer lab, Charité, Andrea Volkamer, 2020, Volkamer lab, Charité. ..." />
 <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
 <meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Sakshi Misra, CADD seminar 2020, Charité/..." />
+<meta name="description" content="2020 年 CADD 研讨会开发，Volkamer 实验室，Charité/FU Berlin 注意： 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并为研究项目提供流程模板作为起点。 作者： Sakshi Misra, CADD 研讨会 2020, Charité/FU Berlin, Talia B. Kimber, 2020, Volkamer lab, Charité, Yonghui Chen, 2020, Volkamer lab, Charité, Andrea Volkamer, 2020, Volkamer lab, Charité. ..." />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -82,7 +82,7 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T021 · One-Hot Encoding &#8212; TeachOpenCADD 0.0.post1 documentation</title>
+    <title>T021 · 独热编码（One-Hot Encoding） &#8212; TeachOpenCADD 0.0.post1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -100,8 +100,8 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T022 · Ligand-based screening: neural networks" href="T022_ligand_based_screening_neural_network.html" />
-    <link rel="prev" title="T020 · Analyzing molecular dynamics simulations" href="T020_md_analysis.html" />
+    <link rel="next" title="T022 · 基于配体的筛选：神经网络" href="T022_ligand_based_screening_neural_network.html" />
+    <link rel="prev" title="T020 · 分子动力学模拟分析" href="T020_md_analysis.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -140,7 +140,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">TeachOpenCADD</span>
-          <span class="md-header-nav__topic"> T021 · One-Hot Encoding </span>
+          <span class="md-header-nav__topic"> T021 · 独热编码（One-Hot Encoding） </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -424,103 +424,103 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t021-one-hot-encoding--page-root" class="md-nav__link">T021 · One-Hot Encoding</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t021-one-hot-encoding--page-root" class="md-nav__link">T021 · 独热编码（One-Hot Encoding）</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#本教程目标" class="md-nav__link">本教程目标</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        <li class="md-nav__item"><a href="#理论-部分内容" class="md-nav__link"><em>理论</em> 部分内容</a>
         </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        <li class="md-nav__item"><a href="#实践-部分内容" class="md-nav__link"><em>实践</em> 部分内容</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        <li class="md-nav__item"><a href="#参考文献" class="md-nav__link">参考文献</a>
         </li>
         <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Molecular-data-and-representation" class="md-nav__link">Molecular data and representation</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#分子数据与表示" class="md-nav__link">分子数据与表示</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#ChEMBL-database" class="md-nav__link">ChEMBL database</a>
+        <li class="md-nav__item"><a href="#ChEMBL-数据库" class="md-nav__link">ChEMBL 数据库</a>
         </li>
-        <li class="md-nav__item"><a href="#SMILES-structures-and-rules" class="md-nav__link">SMILES structures and rules</a>
+        <li class="md-nav__item"><a href="#SMILES-结构与规则" class="md-nav__link">SMILES 结构与规则</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#What-is-categorical-data?" class="md-nav__link">What is categorical data?</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#什么是分类数据？" class="md-nav__link">什么是分类数据？</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#What-is-the-problem-with-categorical-data?" class="md-nav__link">What is the problem with categorical data?</a>
+        <li class="md-nav__item"><a href="#分类数据有什么问题？" class="md-nav__link">分类数据有什么问题？</a>
         </li>
-        <li class="md-nav__item"><a href="#How-to-convert-categorical-data-to-numerical-data?" class="md-nav__link">How to convert categorical data to numerical data?</a>
+        <li class="md-nav__item"><a href="#如何将分类数据转换为数值数据？" class="md-nav__link">如何将分类数据转换为数值数据？</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#The-One-Hot-Encoding-(OHE)-concept" class="md-nav__link">The <em>One-Hot Encoding</em> (OHE) concept</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#独热编码（One-Hot-Encoding,-OHE）概念" class="md-nav__link"><em>独热编码</em>（One-Hot Encoding, OHE）概念</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Why-using-one-hot-encoding?" class="md-nav__link">Why using one-hot encoding?</a>
+        <li class="md-nav__item"><a href="#为什么使用独热编码？" class="md-nav__link">为什么使用独热编码？</a>
         </li>
-        <li class="md-nav__item"><a href="#Example-of-one-hot-encoding" class="md-nav__link">Example of one-hot encoding</a>
+        <li class="md-nav__item"><a href="#独热编码示例" class="md-nav__link">独热编码示例</a>
         </li>
-        <li class="md-nav__item"><a href="#Advantages-and-disadvantages-of-one-hot-encoding" class="md-nav__link">Advantages and disadvantages of one-hot encoding</a>
+        <li class="md-nav__item"><a href="#独热编码的优点和缺点" class="md-nav__link">独热编码的优点和缺点</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Similar:-Integer-or-label-encoding" class="md-nav__link">Similar: Integer or label encoding</a>
+        <li class="md-nav__item"><a href="#类似方法：整数编码或标签编码" class="md-nav__link">类似方法：整数编码或标签编码</a>
         </li>
-        <li class="md-nav__item"><a href="#What-is-padding?" class="md-nav__link">What is <em>padding</em>?</a>
+        <li class="md-nav__item"><a href="#什么是-填充（padding）？" class="md-nav__link">什么是 <em>填充（padding）</em>？</a>
         </li>
-        <li class="md-nav__item"><a href="#Further-readings" class="md-nav__link">Further readings</a>
+        <li class="md-nav__item"><a href="#扩展阅读" class="md-nav__link">扩展阅读</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#实践" class="md-nav__link">实践</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Import-necessary-packages" class="md-nav__link">Import necessary packages</a>
+        <li class="md-nav__item"><a href="#导入必要的包" class="md-nav__link">导入必要的包</a>
         </li>
-        <li class="md-nav__item"><a href="#Read-the-input-data" class="md-nav__link">Read the input data</a>
+        <li class="md-nav__item"><a href="#读取输入数据" class="md-nav__link">读取输入数据</a>
         </li>
-        <li class="md-nav__item"><a href="#Process-the-data" class="md-nav__link">Process the data</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#数据处理" class="md-nav__link">数据处理</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Double-digit-replacement" class="md-nav__link">Double digit replacement</a>
+        <li class="md-nav__item"><a href="#双字符替换" class="md-nav__link">双字符替换</a>
         </li>
-        <li class="md-nav__item"><a href="#Compute-longest-(&amp;-shortest)-SMILES" class="md-nav__link">Compute longest (& shortest) SMILES</a>
+        <li class="md-nav__item"><a href="#计算最长（和最短）SMILES" class="md-nav__link">计算最长（和最短）SMILES</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Python-one-hot-encoding-implementation" class="md-nav__link">Python one-hot encoding implementation</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#Python-独热编码实现" class="md-nav__link">Python 独热编码实现</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#One-hot-encode-(padding=True)" class="md-nav__link">One-hot encode (padding=True)</a>
+        <li class="md-nav__item"><a href="#独热编码（padding=True）" class="md-nav__link">独热编码（padding=True）</a>
         </li>
-        <li class="md-nav__item"><a href="#Visualization" class="md-nav__link">Visualization</a>
+        <li class="md-nav__item"><a href="#可视化" class="md-nav__link">可视化</a>
         </li></ul>
             </nav>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        <li class="md-nav__item"><a href="#讨论" class="md-nav__link">讨论</a>
         </li>
         <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
         </li>
-        <li class="md-nav__item"><a href="#Supplementary-material" class="md-nav__link">Supplementary material</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#补充材料" class="md-nav__link">补充材料</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Scikit-learn-implementation-of-one-hot-encoding" class="md-nav__link">Scikit-learn implementation of one-hot encoding</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#Scikit-learn-实现独热编码" class="md-nav__link">Scikit-learn 实现独热编码</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Without-padding-(unequal-dimension)" class="md-nav__link">Without padding (unequal dimension)</a>
+        <li class="md-nav__item"><a href="#无填充（维度不等）" class="md-nav__link">无填充（维度不等）</a>
         </li>
-        <li class="md-nav__item"><a href="#With-padding-(equal-dimension)" class="md-nav__link">With padding (equal dimension)</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#带填充（等维度）" class="md-nav__link">带填充（等维度）</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Padding-after-one-hot-encoding-is-performed" class="md-nav__link">Padding after one-hot encoding is performed</a>
+        <li class="md-nav__item"><a href="#在独热编码之后进行填充" class="md-nav__link">在独热编码之后进行填充</a>
         </li>
-        <li class="md-nav__item"><a href="#Padding-before-one-hot-encoding-is-performed" class="md-nav__link">Padding before one-hot encoding is performed</a>
+        <li class="md-nav__item"><a href="#在独热编码之前进行填充" class="md-nav__link">在独热编码之前进行填充</a>
         </li></ul>
             </nav>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Keras-implementation-of-one-hot-encoding" class="md-nav__link">Keras implementation of one-hot encoding</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#Keras-实现独热编码" class="md-nav__link">Keras 实现独热编码</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Without padding (unequal dimension)</a>
+        <li class="md-nav__item"><a href="#id27" class="md-nav__link">无填充（维度不等）</a>
         </li>
-        <li class="md-nav__item"><a href="#id2" class="md-nav__link">With padding (equal dimension)</a>
+        <li class="md-nav__item"><a href="#id28" class="md-nav__link">带填充（等维度）</a>
         </li></ul>
             </nav>
         </li></ul>
@@ -542,92 +542,92 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="T021-·-One-Hot-Encoding">
-<h1 id="talktorials-t021-one-hot-encoding--page-root">T021 · One-Hot Encoding<a class="headerlink" href="#talktorials-t021-one-hot-encoding--page-root" title="Link to this heading">¶</a></h1>
-<p>Developed in the CADD seminar 2020, Volkamer Lab, Charité/FU Berlin</p>
-<p><strong>Note:</strong> This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
-<p>Authors:</p>
+  <section id="T021-·-独热编码（One-Hot-Encoding）">
+<h1 id="talktorials-t021-one-hot-encoding--page-root">T021 · 独热编码（One-Hot Encoding）<a class="headerlink" href="#talktorials-t021-one-hot-encoding--page-root" title="Link to this heading">¶</a></h1>
+<p>2020 年 CADD 研讨会开发，Volkamer 实验室，Charité/FU Berlin</p>
+<p><strong>注意：</strong> 本教程是 TeachOpenCADD 的一部分，该平台旨在教授特定领域的技能，并为研究项目提供流程模板作为起点。</p>
+<p>作者：</p>
 <ul class="simple">
-<li><p>Sakshi Misra, CADD seminar 2020, Charité/FU Berlin</p></li>
+<li><p>Sakshi Misra, CADD 研讨会 2020, Charité/FU Berlin</p></li>
 <li><p>Talia B. Kimber, 2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
 <li><p>Yonghui Chen, 2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
 <li><p>Andrea Volkamer, 2020, <a class="reference external" href="https://volkamerlab.org">Volkamer lab</a>, Charité</p></li>
 </ul>
-<section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
-<p>The aim of the talktorial is to perform one-hot encoding of SMILES structures on a subset of the ChEMBL data set to gain a deeper understanding on the one-hot encoding concept and why it is useful as a pre-processing step in various machine learning algorithms.</p>
-<section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
+<section id="本教程目标">
+<h2 id="本教程目标">本教程目标<a class="headerlink" href="#本教程目标" title="Link to this heading">¶</a></h2>
+<p>本教程的目标是对 ChEMBL 数据集中一部分 SMILES 结构进行独热编码，以加深对独热编码概念的理解，以及为什么它在各种机器学习算法中作为预处理步骤非常有用。</p>
+<section id="理论-部分内容">
+<h3 id="理论-部分内容"><em>理论</em> 部分内容<a class="headerlink" href="#理论-部分内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Molecular data and representation</p>
+<li><p>分子数据与表示</p>
 <ul>
-<li><p>ChEMBL database</p></li>
-<li><p>SMILES structures and rules</p></li>
+<li><p>ChEMBL 数据库</p></li>
+<li><p>SMILES 结构与规则</p></li>
 </ul>
 </li>
-<li><p>What is categorical data?</p>
+<li><p>什么是分类数据？</p>
 <ul>
-<li><p>What is the problem with categorical data?</p></li>
-<li><p>How to convert categorical data to numerical data?</p></li>
+<li><p>分类数据有什么问题？</p></li>
+<li><p>如何将分类数据转换为数值数据？</p></li>
 </ul>
 </li>
-<li><p>The One-Hot Encoding (OHE) concept</p>
+<li><p>独热编码（One-Hot Encoding, OHE）概念</p>
 <ul>
-<li><p>Why using one-hot encoding?</p></li>
-<li><p>Example of one-hot encoding</p></li>
-<li><p>Advantages and disadvantages of one-hot encoding</p></li>
+<li><p>为什么使用独热编码？</p></li>
+<li><p>独热编码示例</p></li>
+<li><p>独热编码的优点和缺点</p></li>
 </ul>
 </li>
-<li><p>Similar: Integer or label encoding</p></li>
-<li><p>What is <em>padding</em>?</p></li>
-<li><p>Further readings</p></li>
+<li><p>类似方法：整数编码或标签编码</p></li>
+<li><p>什么是 <em>填充（padding）</em>？</p></li>
+<li><p>扩展阅读</p></li>
 </ul>
 </section>
-<section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
+<section id="实践-部分内容">
+<h3 id="实践-部分内容"><em>实践</em> 部分内容<a class="headerlink" href="#实践-部分内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Import necessary packages</p></li>
-<li><p>Read the input data</p></li>
-<li><p>Process the data</p>
+<li><p>导入必要的包</p></li>
+<li><p>读取输入数据</p></li>
+<li><p>数据处理</p>
 <ul>
-<li><p>Double digit replacement</p></li>
-<li><p>Compute longest (&amp; shortest) SMILES</p></li>
+<li><p>双字符替换</p></li>
+<li><p>计算最长（和最短）SMILES</p></li>
 </ul>
 </li>
-<li><p>Python one-hot encoding implementation</p>
+<li><p>Python 独热编码实现</p>
 <ul>
-<li><p>One-hot encode (padding=True)</p></li>
-<li><p>Visualization</p>
+<li><p>独热编码（padding=True）</p></li>
+<li><p>可视化</p>
 <ul>
-<li><p>Shortest SMILES</p></li>
-<li><p>Longest SMILES</p></li>
+<li><p>最短 SMILES</p></li>
+<li><p>最长 SMILES</p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>Supplementary material</p>
+<li><p>补充材料</p>
 <ul>
-<li><p>Scikit learn implementation</p></li>
-<li><p>Keras implementation</p></li>
+<li><p>Scikit-learn 实现</p></li>
+<li><p>Keras 实现</p></li>
 </ul>
 </li>
 </ul>
 </section>
 </section>
-<section id="References">
-<h2 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h2>
+<section id="参考文献">
+<h2 id="参考文献">参考文献<a class="headerlink" href="#参考文献" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Theoretical background:</p>
+<li><p>理论背景：</p>
 <ul>
-<li><p>ChEMBL database: “The ChEMBL bioactivity database: an update.” (<a class="reference external" href="https://doi.org/10.1093/nar/gkt1031">Nucleic acids research (2014), 42.D1, D1083-D1090</a>)</p></li>
+<li><p>ChEMBL 数据库: “The ChEMBL bioactivity database: an update.” (<a class="reference external" href="https://doi.org/10.1093/nar/gkt1031">Nucleic acids research (2014), 42.D1, D1083-D1090</a>)</p></li>
 <li><p>Allen Chieng Hoon Choong, Nung Kion Lee, “<em>Evaluation of Convolutionary Neural Networks Modeling of DNA Sequences using Ordinal versus one-hot Encoding Method</em>”, <a class="reference external" href="https://doi.org/10.1101/186965">bioRxiv, October 25, 2017</a>.</p></li>
 <li><p>Patricio Cerda, Gael Varoquaux, “<em>Encoding high-cardinality string categorical variables</em>”, <a class="reference external" href="https://arxiv.org/pdf/1907.01860v5.pdf">arXiv:1907, 18 May 2020</a>.</p></li>
-<li><p>Blogpost: Jason Brownlee, <em>How to One Hot Encode Sequence Data in Python</em>, <a class="reference external" href="https://machinelearningmastery.com/how-to-one-hot-encode-sequence-data-in-python/">Machine Learning Mastery, accessed November 9th, 2020</a>.</p></li>
-<li><p>Blogpost: Krishna Kumar Mahto, <em>One-Hot-Encoding, Multicollinearity and the Dummy Variable Trap</em>, towardsdatascience, Available from <a class="reference external" href="https://towardsdatascience.com/one-hot-encoding-multicollinearity-and-the-dummy-variable-trap-b5840be3c41a/">one-hot-encoding-multicollinearity</a>, accessed July 8th, 2019.</p></li>
-<li><p>Blogpost: Chris, <em>What is padding in a neural network?</em>, archieved from MachineCurve, <a class="reference external" href="https://github.com/christianversloot/machine-learning-articles/blob/main/what-is-padding-in-a-neural-network.md">Padding</a></p></li>
+<li><p>博客文章: Jason Brownlee, <em>How to One Hot Encode Sequence Data in Python</em>, <a class="reference external" href="https://machinelearningmastery.com/how-to-one-hot-encode-sequence-data-in-python/">Machine Learning Mastery, accessed November 9th, 2020</a>.</p></li>
+<li><p>博客文章: Krishna Kumar Mahto, <em>One-Hot-Encoding, Multicollinearity and the Dummy Variable Trap</em>, medium, Available at <a class="reference external" href="https://medium.com/data-science/one-hot-encoding-multicollinearity-and-the-dummy-variable-trap-b5840be3c41a">one-hot-encoding-multicollinearity</a>, accessed March 25th, 2026.</p></li>
+<li><p>博客文章: Chris, <em>What is padding in a neural network?</em>, archieved from MachineCurve, <a class="reference external" href="https://github.com/christianversloot/machine-learning-articles/blob/main/what-is-padding-in-a-neural-network.md">Padding</a></p></li>
 </ul>
 </li>
-<li><p>Packages and functions:</p>
+<li><p>包和函数：</p>
 <ul>
 <li><p><a class="reference external" href="https://www.rdkit.org/docs/GettingStartedInPython.html">RDKit</a>: Greg Landrum, <em>RDKit Documentation</em>, <a class="reference external" href="https://buildmedia.readthedocs.org/media/pdf/rdkit/latest/rdkit.pdf">PDF</a>, Release on 2019.09.1.</p></li>
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/">Scikit-learn</a>:</p>
@@ -638,120 +638,131 @@
 </li>
 <li><p><a class="reference external" href="https://keras.io/">Keras</a>: Book chapter: “An Introduction to Deep Learning and Keras” in <a class="reference external" href="https://doi.org/10.1007/978-1-4842-4240-7">Learn Keras for Deep Neural Networks (2019), page(s):1-16</a>.</p></li>
 <li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">smiles</span> <span class="pre">encoder</span></code> function: Blogpost by iwatobipen, <em>encode and decode SMILES strings</em> , <a class="reference external" href="https://iwatobipen.wordpress.com/2017/01/22/encode-and-decode-smiles-strings/">Wordpress, accessed November 9th, 2020</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">smiles</span> <span class="pre">encoder</span></code> 函数: Blogpost by iwatobipen, <em>encode and decode SMILES strings</em> , <a class="reference external" href="https://iwatobipen.wordpress.com/2017/01/22/encode-and-decode-smiles-strings/">Wordpress, accessed November 9th, 2020</a></p></li>
 </ul>
 </li>
 </ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">21</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+</pre></div>
+</div>
+</div>
 </section>
 <section id="Theory">
 <h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
-<section id="Molecular-data-and-representation">
-<h3 id="Molecular-data-and-representation">Molecular data and representation<a class="headerlink" href="#Molecular-data-and-representation" title="Link to this heading">¶</a></h3>
-<section id="ChEMBL-database">
-<h4 id="ChEMBL-database">ChEMBL database<a class="headerlink" href="#ChEMBL-database" title="Link to this heading">¶</a></h4>
+<section id="分子数据与表示">
+<h3 id="分子数据与表示">分子数据与表示<a class="headerlink" href="#分子数据与表示" title="Link to this heading">¶</a></h3>
+<section id="ChEMBL-数据库">
+<h4 id="ChEMBL-数据库">ChEMBL 数据库<a class="headerlink" href="#ChEMBL-数据库" title="Link to this heading">¶</a></h4>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL</a> is an open large-scale bioactivity database, containing molecules with drug-like properties.</p></li>
-<li><p>The recent release (version 25) contains information extracted from more than <span class="math notranslate nohighlight">\(72,000\)</span> documents. In total, there are now more than <span class="math notranslate nohighlight">\(1.8\)</span> million compounds and <span class="math notranslate nohighlight">\(15\)</span> million bioactivity data points available.</p></li>
-<li><p>It is maintained by <a class="reference external" href="https://en.wikipedia.org/wiki/European_Bioinformatics_Institute">European Bioinformatics Institute</a>. Please refer to <strong>Talktorial T001</strong> for more details.</p></li>
+<li><p><a class="reference external" href="https://www.ebi.ac.uk/chembl/">ChEMBL</a> 是一个开放的大规模生物活性数据库，包含具有类药物性质的分子。</p></li>
+<li><p>最新版本（版本 25）包含从超过 <span class="math notranslate nohighlight">\(72,000\)</span> 篇文档中提取的信息。目前总共有超过 <span class="math notranslate nohighlight">\(1.8\)</span> 百万个化合物和 <span class="math notranslate nohighlight">\(15\)</span> 百万个生物活性数据点可用。</p></li>
+<li><p>它由<a class="reference external" href="https://en.wikipedia.org/wiki/European_Bioinformatics_Institute">欧洲生物信息学研究所</a>维护。更多详情请参见 <strong>教程 T001</strong>。</p></li>
 </ul>
 </section>
-<section id="SMILES-structures-and-rules">
-<h4 id="SMILES-structures-and-rules">SMILES structures and rules<a class="headerlink" href="#SMILES-structures-and-rules" title="Link to this heading">¶</a></h4>
+<section id="SMILES-结构与规则">
+<h4 id="SMILES-结构与规则">SMILES 结构与规则<a class="headerlink" href="#SMILES-结构与规则" title="Link to this heading">¶</a></h4>
 <ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system">SMILES</a> (Simplified Molecular Input Line Entry System) notation is a chemical notation that allows a user to represent a chemical structure of a molecule in a linear way that can be read by the computer (see “Modern Aspects of the Smiles Rearrangement” (2017), <a class="reference external" href="https://doi.org/10.1002/chem.201700353">Chemistry A European Journal, Volume23, Issue38, 8992-9008</a> for further information).</p></li>
-<li><p>It contains a sequence of letters, numbers and characters that specify a molecule’s atoms, their connectivity, bond order and chirality.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system">SMILES</a>（简化分子线性输入规范）是一种化学表示法，允许用户以线性的方式表示分子的化学结构，使计算机可读（参见 “Modern Aspects of the Smiles Rearrangement” (2017), <a class="reference external" href="https://doi.org/10.1002/chem.201700353">Chemistry A European Journal, Volume23, Issue38, 8992-9008</a> 了解更多信息）。</p></li>
+<li><p>它包含一系列字母、数字和字符，用于指定分子的原子、连接方式、键级和手性。</p></li>
 </ul>
-<p><strong>Some SMILES specification rules</strong></p>
+<p><strong>SMILES 规范的一些规则</strong></p>
 <ul class="simple">
-<li><p><strong>Atoms</strong> - are represented by their atomic symbols. Also metal atoms are represented with symbols in square bracket, e.g. Gold <code class="docutils literal notranslate"><span class="pre">[Au]</span></code>.</p></li>
-<li><p><strong>Bonds</strong> - single, double and triple bonds are represented by symbols <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span></code> and <code class="docutils literal notranslate"><span class="pre">#</span></code>, respectively. Single bonds are the default and therefore do not need to be specified.</p></li>
-<li><p><strong>Aromaticity</strong> - While atomic symbols are generally used in upper case, such as <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">O</span></code>, <code class="docutils literal notranslate"><span class="pre">S</span></code> and <code class="docutils literal notranslate"><span class="pre">N</span></code>; to specify aromatic atoms lower case symbols are used instead, such as <code class="docutils literal notranslate"><span class="pre">c</span></code>, <code class="docutils literal notranslate"><span class="pre">o</span></code>, <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span></code>. Sometimes implicit bonds in rings (alternating <code class="docutils literal notranslate"><span class="pre">=</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code>) are also used to describe aromatic atoms such as <code class="docutils literal notranslate"><span class="pre">C1=CC=CC=C1</span></code>.</p></li>
-<li><p><strong>Rings</strong> - SMILES allows a user to identify ring structures by using numbers to identify the opening and closing ring atom. For example, in <code class="docutils literal notranslate"><span class="pre">C1CCCCC1</span></code>, the first carbon has a number “1” which connects by a single bond with the last carbon which also has a number “1”. The resulting structure is cyclohexane.</p></li>
-<li><p><strong>Branches</strong> - are specified by enclosing them in parentheses, and can be nested or arranged. For example, 2-Propanol is represented by <code class="docutils literal notranslate"><span class="pre">CC(O)C</span></code>.</p></li>
-</ul>
-</section>
-</section>
-<section id="What-is-categorical-data?">
-<h3 id="What-is-categorical-data?">What is categorical data?<a class="headerlink" href="#What-is-categorical-data?" title="Link to this heading">¶</a></h3>
-<p>Categorical data are variables that contain labels rather than numeric values. Some examples include:</p>
-<ul class="simple">
-<li><p>A “pet” variable with the values: “dog” and “cat”.</p></li>
-<li><p>A “color” variable with the values: “red”, “green” and “blue”.</p></li>
-<li><p>A “place” variable with the values: “first”, “second” and “third”.</p></li>
-</ul>
-<section id="What-is-the-problem-with-categorical-data?">
-<h4 id="What-is-the-problem-with-categorical-data?">What is the problem with categorical data?<a class="headerlink" href="#What-is-the-problem-with-categorical-data?" title="Link to this heading">¶</a></h4>
-<p>Machine learning consists of mathematical operations translated to a computer via low-level programming languages. Computers are brilliant when dealing with numbers. So we must somehow convert our input data to numbers. There are many machine learning algorithms which cannot operate on categorical data directly. Thus, categorical data must be converted to a numerical form, that all input and output variables are numeric (see
-<a class="reference external" href="https://www.analyticsvidhya.com/blog/2020/03/one-hot-encoding-vs-label-encoding-using-scikit-learn/">Blogpost</a>: Alakh Sethi, <em>One-Hot Encoding vs. Label Encoding using Scikit-Learn</em> , Analytics Vidya, accessed March 6th, 2020 for further information).</p>
-<p><img alt="Computer data" src="../_images/computer_data.jpeg"/></p>
-<p><em>Figure 1</em>: Displays the categorical encoding required for computers to understand the input. The figure comes from this <a class="reference external" href="https://www.analyticsvidhya.com/blog/2020/03/one-hot-encoding-vs-label-encoding-using-scikit-learn/">blogpost</a>.</p>
-</section>
-<section id="How-to-convert-categorical-data-to-numerical-data?">
-<h4 id="How-to-convert-categorical-data-to-numerical-data?">How to convert categorical data to numerical data?<a class="headerlink" href="#How-to-convert-categorical-data-to-numerical-data?" title="Link to this heading">¶</a></h4>
-<p>There are many ways to convert categorical values into numerical values. Each approach has its own positive and negative impact on the feature set. Hereby, two main methods will be the focus: <em>One-hot</em> encoding and <em>Label</em> encoding. Both of these encoders are part of the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html">scikit-learn</a> library (one of the most widely used Python libraries) and are used to convert text or categorical data into numerical
-data which the model expects and and can work with.</p>
-</section>
-</section>
-<section id="The-One-Hot-Encoding-(OHE)-concept">
-<h3 id="The-One-Hot-Encoding-(OHE)-concept">The <em>One-Hot Encoding</em> (OHE) concept<a class="headerlink" href="#The-One-Hot-Encoding-(OHE)-concept" title="Link to this heading">¶</a></h3>
-<p>The one-hot encoding is a vector representation where all the elements of the vector are set to <code class="docutils literal notranslate"><span class="pre">0</span></code> except one, which has <code class="docutils literal notranslate"><span class="pre">1</span></code> as its value. For example, <code class="docutils literal notranslate"><span class="pre">[0</span> <span class="pre">0</span> <span class="pre">0</span> <span class="pre">1</span> <span class="pre">0</span> <span class="pre">0]</span></code> is a one-hot vector. Simply put, one-hot encoding, also known as binary encoding, is a binary representation of categorical variables as binary vectors.</p>
-<p>The figure shown below helps us gain an overall idea of the one-hot encoding concept.</p>
-<p><img alt="One Hot encoding" src="../_images/OneHotEncoding.png"/></p>
-<p><em>Figure 2</em> : Displays the one-hot encoding of the toluene molecule. Figure taken from the article <a class="reference external" href="https://doi.org/10.1186/s12859-018-2523-5">BMC Bioinformatics. (2018), 19,526</a>, more information can be found there.</p>
-<p>Let us take a deeper look into the concept with the help of a simple example that will describe the basic concept of one-hot encoding, why it is useful and how one can approach it.</p>
-<section id="Why-using-one-hot-encoding?">
-<h4 id="Why-using-one-hot-encoding?">Why using one-hot encoding?<a class="headerlink" href="#Why-using-one-hot-encoding?" title="Link to this heading">¶</a></h4>
-<p>One-hot encoding allows the representation of categorical data to be more expressive. It is difficult for many machine learning algorithms to work with categorical data directly that’s why the label values which are categorical must be converted into numbers first as a preprocessing step. This is required for both input and output variables that are categorical.</p>
-<p>We could also use an <em>integer encoding</em> directly. This may work for problems where there is a natural ordinal relationship between the categories, and in turn the integer values, such as labels for temperature “cold”, “warm”, and “hot”. There may be problems when there is no ordinal relationship and allowing the representation to lean on any such relationship by using integer encoding might be not useful to solve the problem. An example might be the labels “dog” and “cat”.</p>
-</section>
-<section id="Example-of-one-hot-encoding">
-<h4 id="Example-of-one-hot-encoding">Example of one-hot encoding<a class="headerlink" href="#Example-of-one-hot-encoding" title="Link to this heading">¶</a></h4>
-<p>Let us take a look at a very simple example to understand this concept. Assume we have the “color” variable which has three labels <code class="docutils literal notranslate"><span class="pre">red</span></code> , <code class="docutils literal notranslate"><span class="pre">blue</span></code> and <code class="docutils literal notranslate"><span class="pre">green</span></code>. All these labels must be converted into numeric form in order to work with our machine learning algorithm. This can be done by creating three new columns having all three labels and use <code class="docutils literal notranslate"><span class="pre">1</span></code> for the color of the respective label and <code class="docutils literal notranslate"><span class="pre">0</span></code> for the other colors as shown in Figure 4.</p>
-<p><img alt="One Hot Encoding" src="../_images/OneHotEncoding_eg.png"/></p>
-<p><em>Figure 3</em> : The visual demonstration of one-hot encoding done on the variable “color”. Figure taken from the article: “<em>Building a One Hot Encoding Layer with TensorFlow</em>”, George Novack, <a class="reference external" href="https://towardsdatascience.com/building-a-one-hot-encoding-layer-with-tensorflow-f907d686bf39">towardsdatascience</a>, more details can be found there.</p>
-</section>
-<section id="Advantages-and-disadvantages-of-one-hot-encoding">
-<h4 id="Advantages-and-disadvantages-of-one-hot-encoding">Advantages and disadvantages of one-hot encoding<a class="headerlink" href="#Advantages-and-disadvantages-of-one-hot-encoding" title="Link to this heading">¶</a></h4>
-<p><strong>Advantages</strong></p>
-<ul class="simple">
-<li><p>If the cardinality (the number of categories) of the categorical features is low (relative to the amount of data), one-hot encoding will work best.</p></li>
-<li><p>One-hot encoding has the advantage that the result is binary rather than ordinal and that everything sits in an orthogonal vector space.</p></li>
-</ul>
-<p><strong>Disadvantages</strong></p>
-<ul class="simple">
-<li><p>Increase in dimensionality, after adding several columns based on categorical variables which may result in an increase in the computational cost.</p></li>
-<li><p>There is a high chance of multi-collinearity due to dummy variables (unique category added as a feature) which can affect the performance of the model.</p></li>
-<li><p>One-hot encoding can result in increasing the <a class="reference external" href="https://en.wikipedia.org/wiki/Sparse_matrix">sparsity</a> of a data set (a sparse matrix is a matrix in which most of the elements are zero).</p></li>
+<li><p><strong>原子</strong> - 用其原子符号表示。金属原子也用方括号中的符号表示，例如金 <code class="docutils literal notranslate"><span class="pre">[Au]</span></code>。</p></li>
+<li><p><strong>化学键</strong> - 单键、双键和三键分别用符号 <code class="docutils literal notranslate"><span class="pre">-</span></code>、<code class="docutils literal notranslate"><span class="pre">=</span></code> 和 <code class="docutils literal notranslate"><span class="pre">#</span></code> 表示。单键是默认值，因此无需指定。</p></li>
+<li><p><strong>芳香性</strong> - 原子符号通常使用大写，如 <code class="docutils literal notranslate"><span class="pre">C</span></code>、<code class="docutils literal notranslate"><span class="pre">O</span></code>、<code class="docutils literal notranslate"><span class="pre">S</span></code> 和 <code class="docutils literal notranslate"><span class="pre">N</span></code>；而指定芳香原子时则使用小写符号，如 <code class="docutils literal notranslate"><span class="pre">c</span></code>、<code class="docutils literal notranslate"><span class="pre">o</span></code>、<code class="docutils literal notranslate"><span class="pre">s</span></code> 和 <code class="docutils literal notranslate"><span class="pre">n</span></code>。有时也使用环中的隐式键（交替的 <code class="docutils literal notranslate"><span class="pre">=</span></code> 和 <code class="docutils literal notranslate"><span class="pre">-</span></code>）来描述芳香原子，例如 <code class="docutils literal notranslate"><span class="pre">C1=CC=CC=C1</span></code>。</p></li>
+<li><p><strong>环</strong> - SMILES 允许用户通过使用数字标识开环和闭环原子来识别环结构。例如，在 <code class="docutils literal notranslate"><span class="pre">C1CCCCC1</span></code> 中，第一个碳原子标有数字 “1”，它通过单键与同样标有数字 “1” 的最后一个碳原子连接。得到的结构是环己烷。</p></li>
+<li><p><strong>支链</strong> - 通过将支链括在括号中来指定，可以嵌套或排列。例如，2-丙醇用 <code class="docutils literal notranslate"><span class="pre">CC(O)C</span></code> 表示。</p></li>
 </ul>
 </section>
 </section>
-<section id="Similar:-Integer-or-label-encoding">
-<h3 id="Similar:-Integer-or-label-encoding">Similar: Integer or label encoding<a class="headerlink" href="#Similar:-Integer-or-label-encoding" title="Link to this heading">¶</a></h3>
-<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html">Label Encoding</a>, or integer encoding, is a popular encoding technique for handling categorical variables and is easily reversible. In this technique, each label is assigned a unique integer based on alphabetical ordering, so that machines can work with it properly. Machine learning algorithms can then decide in a better way on how labels must be operated on. It is an important preprocessing step for
-structured data sets in supervised learning.</p>
-<p><strong>Example of integer encoding</strong></p>
-<p>Let us use a similar example as above: We have a color variable and we can assign <code class="docutils literal notranslate"><span class="pre">red</span></code> as <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">green</span></code> as <code class="docutils literal notranslate"><span class="pre">1</span></code>, and <code class="docutils literal notranslate"><span class="pre">blue</span></code> as <code class="docutils literal notranslate"><span class="pre">2</span></code> as shown in Figure 5.</p>
-<p><img alt="OneHotEncoding Example" src="../_images/label_encoding_example.png"/></p>
-<p><em>Figure 5</em> : The visual demonstration of label encoding done on the variable “color”. Figure taken from the article: “<em>Know about Categorical Encoding, even New Ones!</em>”, Ahmed Othmen, <a class="reference external" href="https://towardsdatascience.com/know-about-categorical-encoding-even-new-ones-c266227b9cbd">towardsdatascience</a>, more details can be found there.</p>
-<p><strong>Difference between label and one-hot encoding</strong></p>
-<p>There is not much difference between these two encoding techniques, it mainly depends on the type of data and model used. For example, if we have categorical features which are not ordinal (dog or cat) then we can use one-hot encoding. Label encoding works best with ordinal data like <code class="docutils literal notranslate"><span class="pre">good=0,</span> <span class="pre">better=1,</span> <span class="pre">best=2</span></code>. Also when there are many categorical variables then it might be good to choose label encoding just to avoid high memory consumption and sparsity.</p>
-</section>
-<section id="What-is-padding?">
-<h3 id="What-is-padding?">What is <em>padding</em>?<a class="headerlink" href="#What-is-padding?" title="Link to this heading">¶</a></h3>
-<p>Padding is used to add zeros to the resulted one-hot encoded matrix. There are different types of padding, we chose to performed zero padding in here. For more details, please refer to this <a class="reference external" href="https://github.com/christianversloot/machine-learning-articles/blob/main/what-is-padding-in-a-neural-network.md">Article</a>.</p>
-<p><strong>Why is it performed?</strong></p>
-<p>Padding is performed to make the dimensions of the matrix equal - or to preserve the height and the width - and to not have to worry too much about tensor dimensions when used as an input for the deep learning models.</p>
-<p><strong>How is it performed?</strong></p>
-<p>Padding can be performed by using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.pad.html">numpy.pad</a> function which takes several parameters like the <code class="docutils literal notranslate"><span class="pre">array</span></code> which needs to be padded, <code class="docutils literal notranslate"><span class="pre">pad_width</span></code> which is number of values added to the edges of each axis and <code class="docutils literal notranslate"><span class="pre">mode</span></code> which by default is “constant”.</p>
-<p>In this talktorial, <em>padding</em> is performed</p>
+<section id="什么是分类数据？">
+<h3 id="什么是分类数据？">什么是分类数据？<a class="headerlink" href="#什么是分类数据？" title="Link to this heading">¶</a></h3>
+<p>分类数据是包含标签而非数值的变量。 以下是一些示例：</p>
 <ul class="simple">
-<li><p><em>implicitly</em>: when applying one-hot encoding using a python implementation on the preprocessed data, where we have given the maximum length of the string as the parameter so that all the resulting one-hot encoded matrices are of the same dimension</p></li>
-<li><p><em>explicitly</em>: More info on this can be found in the <strong>supplementary section</strong>, where we apply one-hot encoding using <em>keras</em> and <em>scikit-learn</em> implementations.</p></li>
+<li><p>一个 “宠物” 变量，取值为：”狗” 和 “猫”。</p></li>
+<li><p>一个 “颜色” 变量，取值为：”红色”、”绿色” 和 “蓝色”。</p></li>
+<li><p>一个 “名次” 变量，取值为：”第一”、”第二” 和 “第三”。</p></li>
+</ul>
+<section id="分类数据有什么问题？">
+<h4 id="分类数据有什么问题？">分类数据有什么问题？<a class="headerlink" href="#分类数据有什么问题？" title="Link to this heading">¶</a></h4>
+<p>机器学习由通过低级编程语言转换为计算机指令的数学运算组成。计算机在处理数字方面非常出色，因此我们必须以某种方式将输入数据转换为数字。 许多机器学习算法无法直接处理分类数据。因此，分类数据必须转换为数值形式，使所有输入和输出变量都是数值（参见<a class="reference external" href="https://www.analyticsvidhya.com/blog/2020/03/one-hot-encoding-vs-label-encoding-using-scikit-learn/">博客文章</a>: Alakh Sethi, <em>One-Hot Encoding vs. Label Encoding using Scikit-Learn</em> , Analytics Vidya, accessed March 6th, 2020 了解更多信息）。</p>
+<p><img alt="计算机数据" src="../_images/computer_data.jpeg"/></p>
+<p><em>图 1</em>: 显示计算机理解输入所需的分类编码。该图来自这篇<a class="reference external" href="https://www.analyticsvidhya.com/blog/2020/03/one-hot-encoding-vs-label-encoding-using-scikit-learn/">博客文章</a>。</p>
+</section>
+<section id="如何将分类数据转换为数值数据？">
+<h4 id="如何将分类数据转换为数值数据？">如何将分类数据转换为数值数据？<a class="headerlink" href="#如何将分类数据转换为数值数据？" title="Link to this heading">¶</a></h4>
+<p>有许多方法可以将分类值转换为数值。每种方法对特征集都有其自身的正面和负面影响。这里，我们将重点讨论两种主要方法：<em>独热</em>编码和<em>标签</em>编码。 这两种编码器都是 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html">scikit-learn</a> 库（最广泛使用的 Python 库之一）的一部分，用于将文本或分类数据转换为模型所需并能处理的数值数据。</p>
+</section>
+</section>
+<section id="独热编码（One-Hot-Encoding,-OHE）概念">
+<h3 id="独热编码（One-Hot-Encoding,-OHE）概念"><em>独热编码</em>（One-Hot Encoding, OHE）概念<a class="headerlink" href="#独热编码（One-Hot-Encoding,-OHE）概念" title="Link to this heading">¶</a></h3>
+<p>独热编码是一种向量表示，其中向量的所有元素都设置为 <code class="docutils literal notranslate"><span class="pre">0</span></code>，除了一个元素具有 <code class="docutils literal notranslate"><span class="pre">1</span></code> 作为其值。例如，<code class="docutils literal notranslate"><span class="pre">[0</span> <span class="pre">0</span> <span class="pre">0</span> <span class="pre">1</span> <span class="pre">0</span> <span class="pre">0]</span></code> 就是一个独热向量。 简而言之，独热编码（也称为二进制编码）是将分类变量表示为二进制向量的二进制表示法。</p>
+<p>下图帮助我们从整体上理解独热编码的概念。</p>
+<p><img alt="独热编码" src="../_images/OneHotEncoding_eg.png"/></p>
+<p><em>图 2</em> : 展示甲苯分子的独热编码。图片取自文章 <a class="reference external" href="https://doi.org/10.1186/s12859-018-2523-5">BMC Bioinformatics. (2018), 19,526</a>，可在该文章中找到更多信息。</p>
+<p>让我们通过一个简单的示例更深入地了解独热编码这一概念，该示例将描述独热编码的基本概念、它的用处以及如何实现。</p>
+<section id="为什么使用独热编码？">
+<h4 id="为什么使用独热编码？">为什么使用独热编码？<a class="headerlink" href="#为什么使用独热编码？" title="Link to this heading">¶</a></h4>
+<p>独热编码使分类数据的表示更具表达性。 许多机器学习算法难以直接处理分类数据，这就是为什么分类标签值必须首先转换为数字作为预处理步骤。无论是输入变量还是输出变量，只要它们是分类数据，都需要进行这一转换。</p>
+<p>我们也可以直接使用<em>整数编码</em>。这对于类别之间存在自然顺序关系（进而整数值之间存在关系）的问题可能有效，例如温度标签 “冷”、”暖” 和 “热”。 当没有顺序关系时，使用整数编码来依赖任何此类关系来解决问题可能没有帮助。一个例子是标签 “狗” 和 “猫”。</p>
+</section>
+<section id="独热编码示例">
+<h4 id="独热编码示例">独热编码示例<a class="headerlink" href="#独热编码示例" title="Link to this heading">¶</a></h4>
+<p>让我们看一个非常简单的例子来理解这个概念。假设我们有一个 “颜色” 变量，它有三个标签 <code class="docutils literal notranslate"><span class="pre">红色</span></code>、<code class="docutils literal notranslate"><span class="pre">蓝色</span></code> 和 <code class="docutils literal notranslate"><span class="pre">绿色</span></code>。 所有这些标签必须转换为数值形式，以便我们的机器学习算法能够处理。这可以通过创建三个新列来实现，每列对应一个标签，对于相应标签的颜色使用 <code class="docutils literal notranslate"><span class="pre">1</span></code>，对于其他颜色使用 <code class="docutils literal notranslate"><span class="pre">0</span></code>，如图 3 所示。</p>
+<p><img alt="独热编码" src="../_images/OneHotEncoding_eg.png"/></p>
+<p><em>图 3</em> : 对变量 “颜色” 进行独热编码的可视化演示。图片取自文章: “<em>Building a One Hot Encoding Layer with TensorFlow</em>”, George Novack, <a class="reference external" href="https://medium.com/data-science/building-a-one-hot-encoding-layer-with-tensorflow-f907d686bf39">medium</a>，可在该文章中找到更多详细信息。</p>
+</section>
+<section id="独热编码的优点和缺点">
+<h4 id="独热编码的优点和缺点">独热编码的优点和缺点<a class="headerlink" href="#独热编码的优点和缺点" title="Link to this heading">¶</a></h4>
+<p><strong>优点</strong></p>
+<ul class="simple">
+<li><p>如果分类特征的基数（类别数量）较低（相对于数据量），独热编码效果最好。</p></li>
+<li><p>独热编码的优点是结果是二元的而非有序的，并且所有内容都位于正交向量空间中。</p></li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul class="simple">
+<li><p>维度增加：在基于分类变量添加多个列之后，可能导致计算成本增加。</p></li>
+<li><p>由于哑变量（添加为特征的唯一类别）可能导致多重共线性，进而影响模型的性能。</p></li>
+<li><p>独热编码可能导致数据集的<a class="reference external" href="https://en.wikipedia.org/wiki/Sparse_matrix">稀疏性</a>增加（稀疏矩阵是一种大多数元素为零的矩阵）。</p></li>
 </ul>
 </section>
-<section id="Further-readings">
-<h3 id="Further-readings">Further readings<a class="headerlink" href="#Further-readings" title="Link to this heading">¶</a></h3>
-<p>This section lists some resources for further reading:</p>
+</section>
+<section id="类似方法：整数编码或标签编码">
+<h3 id="类似方法：整数编码或标签编码">类似方法：整数编码或标签编码<a class="headerlink" href="#类似方法：整数编码或标签编码" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html">标签编码</a>（即整数编码）是一种处理分类变量的流行编码技术，且易于反向转换。在这种技术中，每个标签根据字母顺序被分配一个唯一的整数，以便机器能够正确处理它。 然后，机器学习算法可以更好地决定标签应该如何被操作。 对于监督学习中的结构化数据集，这是一个重要的预处理步骤。</p>
+<p><strong>整数编码示例</strong></p>
+<p>让我们使用一个与上面类似的例子：我们有一个颜色变量，可以将 <code class="docutils literal notranslate"><span class="pre">红色</span></code> 赋值为 <code class="docutils literal notranslate"><span class="pre">0</span></code>，<code class="docutils literal notranslate"><span class="pre">绿色</span></code> 赋值为 <code class="docutils literal notranslate"><span class="pre">1</span></code>，<code class="docutils literal notranslate"><span class="pre">蓝色</span></code> 赋值为 <code class="docutils literal notranslate"><span class="pre">2</span></code>，如图 4 所示。</p>
+<p><img alt="标签编码示例" src="../_images/label_encoding_example.png"/></p>
+<p><em>图 4</em> : 对变量 “颜色” 进行标签编码的可视化演示。图片取自文章: “<em>Know about Categorical Encoding, even New Ones!</em>”, Ahmed Othmen, towardsdatascience（现已下线），可在该文章中找到更多详细信息。</p>
+<p><strong>标签编码与独热编码的区别</strong></p>
+<p>这两种编码技术之间没有太大区别，主要取决于所使用的数据类型和模型。例如，如果我们有不具有顺序关系的分类特征（狗或猫），则可以使用独热编码。标签编码最适合顺序数据，如 <code class="docutils literal notranslate"><span class="pre">差=0,</span> <span class="pre">较好=1,</span> <span class="pre">最好=2</span></code>。 此外，当分类变量很多时，选择标签编码可能是好的选择，以避免高内存消耗和稀疏性。</p>
+</section>
+<section id="什么是-填充（padding）？">
+<h3 id="什么是-填充（padding）？">什么是 <em>填充（padding）</em>？<a class="headerlink" href="#什么是-填充（padding）？" title="Link to this heading">¶</a></h3>
+<p>填充用于在生成的独热编码矩阵中添加零。有不同类型的填充，我们在此选择了零填充。更多详情请参见此<a class="reference external" href="https://github.com/christianversloot/machine-learning-articles/blob/main/what-is-padding-in-a-neural-network.md">文章</a>。</p>
+<p><strong>为什么要进行填充？</strong></p>
+<p>填充的目的是使矩阵的维度相等——或保持高度和宽度——并在用作深度学习模型输入时无需过多担心张量维度。</p>
+<p><strong>如何进行填充？</strong></p>
+<p>填充可以使用 <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.pad.html">numpy.pad</a> 函数来执行，该函数接受多个参数，如需要填充的 <code class="docutils literal notranslate"><span class="pre">array</span></code>、添加到每个轴边缘的值的数量 <code class="docutils literal notranslate"><span class="pre">pad_width</span></code>，以及默认为 “constant” 的 <code class="docutils literal notranslate"><span class="pre">mode</span></code>。</p>
+<p>在本教程中，<em>填充</em> 以以下方式进行：</p>
+<ul class="simple">
+<li><p><em>隐式</em>：在对预处理数据应用 Python 实现进行独热编码时，我们传入字符串的最大长度作为参数，使所有生成的独热编码矩阵具有相同的维度。</p></li>
+<li><p><em>显式</em>：更多信息可以在<strong>补充部分</strong>中找到，我们在那里使用 <em>keras</em> 和 <em>scikit-learn</em> 实现来应用独热编码。</p></li>
+</ul>
+</section>
+<section id="扩展阅读">
+<h3 id="扩展阅读">扩展阅读<a class="headerlink" href="#扩展阅读" title="Link to this heading">¶</a></h3>
+<p>本节列出了一些进一步阅读的资源：</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.quora.com/What-is-one-hot-encoding-and-when-is-it-used-in-data-science">What is one-hot encoding and when is it used in data science?</a></p></li>
 <li><p><a class="reference external" href="https://towardsdatascience.com/categorical-encoding-using-label-encoding-and-one-hot-encoder-911ef77fb5bd#:~:text=One%2DHot%20Encoding%20in%20Python&amp;text=OneHotEncoder%20from%20SciKit%20library%20only,apply%20OneHotEncoder%20on%20column%20Bridge_Types_Cat.">Categorical encoding using Label-Encoding and One-Hot-Encoder</a></p></li>
@@ -760,15 +771,19 @@ structured data sets in supervised learning.</p>
 </ul>
 </section>
 </section>
-<section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
-<section id="Import-necessary-packages">
-<h3 id="Import-necessary-packages">Import necessary packages<a class="headerlink" href="#Import-necessary-packages" title="Link to this heading">¶</a></h3>
+<section id="实践">
+<h2 id="实践">实践<a class="headerlink" href="#实践" title="Link to this heading">¶</a></h2>
+<section id="导入必要的包">
+<h3 id="导入必要的包">导入必要的包<a class="headerlink" href="#导入必要的包" title="Link to this heading">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"TF_CPP_MIN_LOG_LEVEL"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"2"</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="kn">import</span> <span class="n">filterwarnings</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -782,28 +797,28 @@ structured data sets in supervised learning.</p>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.preprocessing.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tokenizer</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="c1"># Silence some expected warnings</span>
+<span class="c1"># 静默一些预期的警告</span>
 <span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set path to this notebook</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 设置此 notebook 的路径</span>
 <span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
 </pre></div>
 </div>
 </div>
 </section>
-<section id="Read-the-input-data">
-<h3 id="Read-the-input-data">Read the input data<a class="headerlink" href="#Read-the-input-data" title="Link to this heading">¶</a></h3>
-<p>Using the Pandas library, we first load the subset of the ChEMBL data set and draw the molecules using the <code class="docutils literal notranslate"><span class="pre">rdkit.draw</span></code> function. We then preprocess the data and apply our <code class="docutils literal notranslate"><span class="pre">one-hot</span> <span class="pre">encoding</span></code> python implementation.</p>
-<p>Let’s load the data and quickly analyze its column values and check if there are any missing values:</p>
+<section id="读取输入数据">
+<h3 id="读取输入数据">读取输入数据<a class="headerlink" href="#读取输入数据" title="Link to this heading">¶</a></h3>
+<p>使用 Pandas 库，我们首先加载 ChEMBL 数据集的子集，并使用 <code class="docutils literal notranslate"><span class="pre">rdkit.draw</span></code> 函数绘制分子。然后我们对数据进行预处理并应用我们的 <code class="docutils literal notranslate"><span class="pre">独热编码</span></code> Python 实现。</p>
+<p>让我们加载数据并快速分析其列值，检查是否存在缺失值:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"CHEMBL25_activities_EGFR.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -821,9 +836,9 @@ Shape of dataframe: (3905, 5)
 
 </pre></div></div>
 </div>
-<p>Check the dimension and missing value of the data</p>
+<p>检查数据的维度和缺失值</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -849,9 +864,9 @@ dtypes: float64(2), object(3)
 memory usage: 152.7+ KB
 </pre></div></div>
 </div>
-<p>Look at the first 3 rows</p>
+<p>查看前 3 行</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -860,7 +875,7 @@ memory usage: 152.7+ KB
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -918,70 +933,70 @@ memory usage: 152.7+ KB
 </table>
 </div></div>
 </div>
-<p>Select the columns which are necessary for our study</p>
+<p>选择我们研究所需的列</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">"chembl_id"</span><span class="p">,</span> <span class="s2">"canonical_smiles"</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
-<p>We can visualize the molecules with their ChEMBL ID using pandas tools and the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method as shown below.</p>
+<p>我们可以使用 pandas 工具和 <code class="docutils literal notranslate"><span class="pre">draw</span></code> 方法可视化分子及其 ChEMBL ID，如下所示。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using PandasTools and the respective Draw method</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 使用 PandasTools 和相应的 Draw 方法</span>
 <span class="n">PandasTools</span><span class="o">.</span><span class="n">AddMoleculeColumnToFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">smilesCol</span><span class="o">=</span><span class="s2">"canonical_smiles"</span><span class="p">,</span> <span class="n">molCol</span><span class="o">=</span><span class="s2">"Mol2D"</span><span class="p">)</span>
 <span class="n">Draw</span><span class="o">.</span><span class="n">MolsToGridImage</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Mol2D</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]),</span> <span class="n">legends</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">chembl_id</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]),</span> <span class="n">molsPerRow</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T021_one_hot_encoding_35_0.png" src="../_images/talktorials_T021_one_hot_encoding_35_0.png"/>
+<img alt="../_images/talktorials_T021_one_hot_encoding_36_0.png" src="../_images/talktorials_T021_one_hot_encoding_36_0.png"/>
 </div>
 </div>
 </section>
-<section id="Process-the-data">
-<h3 id="Process-the-data">Process the data<a class="headerlink" href="#Process-the-data" title="Link to this heading">¶</a></h3>
-<p>SMILES preprocessing: Since in SMILES representation, atoms can be described by one or two characters (depending on the periodic element they represent) while the machine will read the input position-wise, we convert the SMILES in a chemical-aware representation.</p>
+<section id="数据处理">
+<h3 id="数据处理">数据处理<a class="headerlink" href="#数据处理" title="Link to this heading">¶</a></h3>
+<p>SMILES 预处理：由于在 SMILES 表示中，原子可以用一个或两个字符来描述（取决于它们代表的周期表元素），而机器会按位置读取输入，因此我们将 SMILES 转换为化学感知的表示形式。</p>
 <ul class="simple">
-<li><p>First, we search for all unique characters present in the current data set, which allows us to remove the characters which are not present in the current data.</p></li>
-<li><p>Second, we search for all double-character elements in our SMILES data set by comparing the atoms present in our strings with all the possible elements present in the periodic table and replacing all the two alphabetic elements by <em>artificially</em> selected characters, for example changing <code class="docutils literal notranslate"><span class="pre">Cl</span></code> to <code class="docutils literal notranslate"><span class="pre">L</span></code>.</p></li>
+<li><p>首先，我们搜索当前数据集中存在的所有唯一字符，这使我们能够删除当前数据中不存在的字符。</p></li>
+<li><p>其次，我们通过将字符串中存在的原子与周期表中所有可能的元素进行比较，搜索 SMILES 数据集中的所有双字符元素，并将所有双字母元素替换为<em>人工</em>选择的单字符，例如将 <code class="docutils literal notranslate"><span class="pre">Cl</span></code> 替换为 <code class="docutils literal notranslate"><span class="pre">L</span></code>。</p></li>
 </ul>
-<p>For padding:</p>
+<p>关于填充:</p>
 <ul class="simple">
-<li><p>SMILES strings have unequal dimension since their string length differ. For machine learning application, having equal dimension throughout the data set is required. In order to achieve this, we can first search for the SMILES string with the maximum length (e.g. <a class="reference external" href="https://www.geeksforgeeks.org/python-string-length-len/">len()</a> method) and pass it as an argument in our function for all the strings.</p></li>
+<li><p>SMILES 字符串由于长度不同而具有不同的维度。对于机器学习应用，数据集中的维度必须相等。为此，我们可以首先查找具有最大长度的 SMILES 字符串（例如 <a class="reference external" href="https://www.geeksforgeeks.org/python-string-length-len/">len()</a> 方法），并在函数中将其作为参数传递给所有字符串。</p></li>
 </ul>
-<section id="Double-digit-replacement">
-<h4 id="Double-digit-replacement">Double digit replacement<a class="headerlink" href="#Double-digit-replacement" title="Link to this heading">¶</a></h4>
+<section id="双字符替换">
+<h4 id="双字符替换">双字符替换<a class="headerlink" href="#双字符替换" title="Link to this heading">¶</a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">assess_two_letter_elements</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Find the two letter elements in dataframe.</span>
+<span class="sd">    在数据框中查找双字母元素。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    df : pandas.DataFrame</span>
-<span class="sd">        Dataframe which requires preprocessing.</span>
+<span class="sd">        需要预处理的数据框。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    two_letter_elements : list</span>
-<span class="sd">        List with found two letter elements</span>
+<span class="sd">        找到的双字母元素列表。</span>
 <span class="sd">    """</span>
 
-    <span class="c1"># Search for unique characters in SMILES strings</span>
+    <span class="c1"># 在 SMILES 字符串中搜索唯一字符</span>
     <span class="n">unique_chars</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">canonical_smiles</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-    <span class="c1"># Get upper and lower case letters only</span>
+    <span class="c1"># 仅获取大写和小写字母</span>
     <span class="n">upper_chars</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">lower_chars</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">unique_chars</span><span class="p">:</span>
@@ -993,7 +1008,7 @@ memory usage: 152.7+ KB
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Upper letter characters </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">upper_chars</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Lower letter characters </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">lower_chars</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-    <span class="c1"># List of all possible periodic elements</span>
+    <span class="c1"># 周期表中所有可能的元素列表</span>
     <span class="n">periodic_elements</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s2">"Ac"</span><span class="p">,</span>
         <span class="s2">"Al"</span><span class="p">,</span>
@@ -1115,9 +1130,9 @@ memory usage: 152.7+ KB
         <span class="s2">"Zr"</span><span class="p">,</span>
     <span class="p">]</span>
 
-    <span class="c1"># The two_char_elements list contains all two letter elements</span>
-    <span class="c1"># which can be generated by all possible combination of upper x lower characters</span>
-    <span class="c1"># and are valid periodic elements.</span>
+    <span class="c1"># two_char_elements 列表包含所有双字母元素</span>
+    <span class="c1"># 可以通过大写 x 小写字符的所有可能组合生成</span>
+    <span class="c1"># 并且是有效的周期表元素。</span>
     <span class="n">two_char_elements</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">upper</span> <span class="ow">in</span> <span class="n">upper_chars</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">lower</span> <span class="ow">in</span> <span class="n">lower_chars</span><span class="p">:</span>
@@ -1125,8 +1140,8 @@ memory usage: 152.7+ KB
             <span class="k">if</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">periodic_elements</span><span class="p">:</span>
                 <span class="n">two_char_elements</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
 
-    <span class="c1"># This list is then reduced to the subset of two-letter elements</span>
-    <span class="c1"># that actually appear in the SMILES strings, specific to our data set.</span>
+    <span class="c1"># 然后将此列表缩减为实际出现在 SMILES 字符串中的</span>
+    <span class="c1"># 双字母元素子集，特定于我们的数据集。</span>
     <span class="n">two_char_elements_smiles</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">two_char_elements</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">canonical_smiles</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">char</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
@@ -1137,7 +1152,7 @@ memory usage: 152.7+ KB
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elements_found</span> <span class="o">=</span> <span class="n">assess_two_letter_elements</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -1157,57 +1172,57 @@ Lower letter characters ['c', 'e', 'l', 'n', 'o', 'r', 's']
 Two letter elements found in the data set: ['Br', 'Cl', 'Cn', 'Sc', 'Se']
 </pre></div></div>
 </div>
-<p>Based on this finding, we defined our own dictionary for replacement. Note that their are several shortcomings with this <em>simple</em> implementation that we (partially) manually address here:</p>
+<p>基于这一发现，我们定义了自己的替换字典。请注意，这个 <em>简单</em> 实现存在一些不足之处，我们在此（部分）手动处理：</p>
 <ul class="simple">
-<li><p>We exclude <code class="docutils literal notranslate"><span class="pre">Sc</span></code> and <code class="docutils literal notranslate"><span class="pre">Cn</span></code> from the replacement, since it is more likely that sulfur <code class="docutils literal notranslate"><span class="pre">S</span></code> and an aromatic carbon <code class="docutils literal notranslate"><span class="pre">c</span></code> are contained in a molecule than scandium <code class="docutils literal notranslate"><span class="pre">Sc</span></code>, same for carbon <code class="docutils literal notranslate"><span class="pre">C</span></code> and an aromatic nitrogen <code class="docutils literal notranslate"><span class="pre">n</span></code> over Copernicium <code class="docutils literal notranslate"><span class="pre">Cn</span></code>. Thus, only the elements chlorine <code class="docutils literal notranslate"><span class="pre">Cl</span></code>, bromine <code class="docutils literal notranslate"><span class="pre">Br</span></code> and selenium <code class="docutils literal notranslate"><span class="pre">Se</span></code> are replaced.</p></li>
-<li><p>In isomeric SMILES <code class="docutils literal notranslate"><span class="pre">@</span></code> and <code class="docutils literal notranslate"><span class="pre">@@</span></code> are used to describe enantiomers, thus we also need to replace the latter by a one letter code.</p></li>
-<li><p>If you are working wit a different data set, you may want to adapt the below mapping dictionary.</p></li>
+<li><p>我们将 <code class="docutils literal notranslate"><span class="pre">Sc</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Cn</span></code> 排除在替换之外，因为分子中含有硫 <code class="docutils literal notranslate"><span class="pre">S</span></code> 和芳香碳 <code class="docutils literal notranslate"><span class="pre">c</span></code> 的可能性比钪 <code class="docutils literal notranslate"><span class="pre">Sc</span></code> 更大，同样碳 <code class="docutils literal notranslate"><span class="pre">C</span></code> 和芳香氮 <code class="docutils literal notranslate"><span class="pre">n</span></code> 比鎶 <code class="docutils literal notranslate"><span class="pre">Cn</span></code> 更常见。因此，仅替换氯 <code class="docutils literal notranslate"><span class="pre">Cl</span></code>、溴 <code class="docutils literal notranslate"><span class="pre">Br</span></code> 和硒 <code class="docutils literal notranslate"><span class="pre">Se</span></code>。</p></li>
+<li><p>在异构 SMILES 中，<code class="docutils literal notranslate"><span class="pre">@</span></code> 和 <code class="docutils literal notranslate"><span class="pre">@@</span></code> 用于描述对映异构体，因此我们也需要将后者替换为单字符代码。</p></li>
+<li><p>如果你使用不同的数据集，可能需要调整下面的映射字典。</p></li>
 </ul>
-<p>This resulted in the following dictionary to replace the two letter elements found in this data set</p>
+<p>这产生了以下字典，用于替换在此数据集中找到的双字符元素</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">replace_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Cl"</span><span class="p">:</span> <span class="s2">"L"</span><span class="p">,</span> <span class="s2">"Br"</span><span class="p">:</span> <span class="s2">"R"</span><span class="p">,</span> <span class="s2">"Se"</span><span class="p">:</span> <span class="s2">"X"</span><span class="p">,</span> <span class="s2">"@@"</span><span class="p">:</span> <span class="s2">"Z"</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
-<p>Based on this dictionary, we define a function to create the preprocessed data.</p>
+<p>基于此字典，我们定义一个函数来创建预处理后的数据。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocessing_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">replacement</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Preprocess the SMILES structures in a data set.</span>
+<span class="sd">    预处理数据集中的 SMILES 结构。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    df : pandas.DataFrame</span>
-<span class="sd">      Dataframe which requires preprocessing.</span>
+<span class="sd">      需要预处理的数据框。</span>
 <span class="sd">    replacement : dict</span>
-<span class="sd">      Dictionary with mapping for replacement.</span>
+<span class="sd">      用于替换的映射字典。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    df : pandas.DataFrame</span>
-<span class="sd">        Dataframe with new processed canonical SMILES column.</span>
+<span class="sd">        带有新处理后的规范 SMILES 列的数据框。</span>
 <span class="sd">    unique_char : list</span>
-<span class="sd">        List with unique characters present in SMILES.</span>
+<span class="sd">        SMILES 中存在的唯一字符列表。</span>
 <span class="sd">    """</span>
-    <span class="c1"># Print warning if the data set has a 'Sc' element</span>
+    <span class="c1"># 如果数据集中有 'Sc' 元素，打印警告</span>
     <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">canonical_smiles</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">"Sc"</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span>
-            <span class="s1">'Warning: "Sc" element is found in the data set, since the element is rarely found '</span>
-            <span class="s2">"in the drugs so we are not converting  "</span>
-            <span class="s1">'it to single letter element, instead considering "S" '</span>
-            <span class="s1">'and "c" as separate elements. '</span>
+            <span class="s1">'警告: 数据集中发现 "Sc" 元素，由于该元素在药物中很少出现， '</span>
+            <span class="s2">"因此我们不将其转换为单字母元素,"</span>
+            <span class="s1">'而是将 "S" '</span>
+            <span class="s1">'和 "c" 视为单独的元素。 '</span>
         <span class="p">)</span>
 
-    <span class="c1"># Create a new column having processed canonical SMILES</span>
+    <span class="c1"># 创建一个包含处理后的规范 SMILES 的新列</span>
     <span class="n">df</span><span class="p">[</span><span class="s2">"processed_canonical_smiles"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-    <span class="c1"># Replace the two letter elements found with one character</span>
+    <span class="c1"># 将找到的双字母元素替换为单字符</span>
     <span class="k">for</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">repl</span> <span class="ow">in</span> <span class="n">replacement</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">df</span><span class="p">[</span><span class="s2">"processed_canonical_smiles"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"processed_canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
             <span class="n">pattern</span><span class="p">,</span> <span class="n">repl</span>
@@ -1219,10 +1234,10 @@ Two letter elements found in the data set: ['Br', 'Cl', 'Cn', 'Sc', 'Se']
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calling function</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 调用函数</span>
 <span class="n">df</span><span class="p">,</span> <span class="n">unique_char</span> <span class="o">=</span> <span class="n">preprocessing_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">replace_dict</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
@@ -1237,7 +1252,7 @@ Warning: "Sc" element is found in the data set, since the element is rarely foun
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1270,21 +1285,21 @@ Warning: "Sc" element is found in the data set, since the element is rarely foun
 <th>0</th>
 <td>CHEMBL207869</td>
 <td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b200&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fe3b0&gt;</td>
 <td>Lc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
 </tr>
 <tr>
 <th>1</th>
 <td>CHEMBL3940060</td>
 <td>ClCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(Cl)c(F)cc3)n...</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b580&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fdd20&gt;</td>
 <td>LCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(L)c(F)cc3)ncn...</td>
 </tr>
 <tr>
 <th>2</th>
 <td>CHEMBL3678951</td>
 <td>FC(F)(F)c1cc(Nc2n(C(C)C)c3nc(Nc4ccc(N5CC[NH+](...</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b6d0&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fe490&gt;</td>
 <td>FC(F)(F)c1cc(Nc2n(C(C)C)c3nc(Nc4ccc(N5CC[NH+](...</td>
 </tr>
 </tbody>
@@ -1292,10 +1307,10 @@ Warning: "Sc" element is found in the data set, since the element is rarely foun
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print unique characters</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 打印唯一字符</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"All unique characters found in the preprocessed data set:</span><span class="se">\n</span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">unique_char</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
@@ -1311,14 +1326,14 @@ All unique characters found in the preprocessed data set:
 </pre></div></div>
 </div>
 </section>
-<section id="Compute-longest-(&amp;-shortest)-SMILES">
-<h4 id="Compute-longest-(&amp;-shortest)-SMILES">Compute longest (&amp; shortest) SMILES<a class="headerlink" href="#Compute-longest-(&amp;-shortest)-SMILES" title="Link to this heading">¶</a></h4>
-<p>Here, we compute the length and the indices in the data frame of the longest and shortest SMILES, which we will use later in the sections for visualization purpose.</p>
+<section id="计算最长（和最短）SMILES">
+<h4 id="计算最长（和最短）SMILES">计算最长（和最短）SMILES<a class="headerlink" href="#计算最长（和最短）SMILES" title="Link to this heading">¶</a></h4>
+<p>这里，我们计算数据框中最长和最短 SMILES 的长度和索引，稍后我们将在可视化部分中使用它们。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Index of the longest SMILES string</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 最长 SMILES 字符串的索引</span>
 <span class="n">longest_smiles</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"canonical_smiles"</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
 <span class="n">longest_smiles_index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">canonical_smiles</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">canonical_smiles</span> <span class="o">==</span> <span class="n">longest_smiles</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Longest SMILES: </span><span class="si">{</span><span class="n">longest_smiles</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -1338,10 +1353,10 @@ Contains 267 characters, index in dataframe: 2704.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Index of the shortest SMILES string</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 最短 SMILES 字符串的索引</span>
 <span class="n">shortest_smiles</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"canonical_smiles"</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
 <span class="n">shortest_smiles_index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">canonical_smiles</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">canonical_smiles</span> <span class="o">==</span> <span class="n">shortest_smiles</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shortest SMILES: </span><span class="si">{</span><span class="n">shortest_smiles</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -1363,41 +1378,41 @@ Contains 12 characters, index in dataframe: 3428.
 </div>
 </section>
 </section>
-<section id="Python-one-hot-encoding-implementation">
-<h3 id="Python-one-hot-encoding-implementation">Python one-hot encoding implementation<a class="headerlink" href="#Python-one-hot-encoding-implementation" title="Link to this heading">¶</a></h3>
-<section id="One-hot-encode-(padding=True)">
-<h4 id="One-hot-encode-(padding=True)">One-hot encode (padding=True)<a class="headerlink" href="#One-hot-encode-(padding=True)" title="Link to this heading">¶</a></h4>
-<p>We define a function <code class="docutils literal notranslate"><span class="pre">smiles_encoder</span></code> that takes SMILES, the maximum length of the SMILES string (<code class="docutils literal notranslate"><span class="pre">max_len</span></code>) for padding and the list of unique characters (<code class="docutils literal notranslate"><span class="pre">unique_char</span></code>) present in the <code class="docutils literal notranslate"><span class="pre">processed_canonical_smiles</span></code> column; and returns the one-hot encoded matrix of fixed shape.</p>
+<section id="Python-独热编码实现">
+<h3 id="Python-独热编码实现">Python 独热编码实现<a class="headerlink" href="#Python-独热编码实现" title="Link to this heading">¶</a></h3>
+<section id="独热编码（padding=True）">
+<h4 id="独热编码（padding=True）">独热编码（padding=True）<a class="headerlink" href="#独热编码（padding=True）" title="Link to this heading">¶</a></h4>
+<p>我们定义一个函数 <code class="docutils literal notranslate"><span class="pre">smiles_encoder</span></code>，它接收 SMILES、用于填充的 SMILES 字符串最大长度（<code class="docutils literal notranslate"><span class="pre">max_len</span></code>）以及 <code class="docutils literal notranslate"><span class="pre">processed_canonical_smiles</span></code> 列中存在的唯一字符列表（<code class="docutils literal notranslate"><span class="pre">unique_char</span></code>），并返回固定形状的独热编码矩阵。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function defined to create one-hot encoded matrix</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 定义用于创建独热编码矩阵的函数</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">smiles_encoder</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">unique_char</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Function defined using all unique characters in our</span>
-<span class="sd">    processed canonical SMILES structures created</span>
-<span class="sd">    with the preprocessing_data function.</span>
+<span class="sd">    使用预处理数据集中所有唯一字符定义的函数，</span>
+<span class="sd">    这些唯一字符来自通过 preprocessing_data 函数创建的</span>
+<span class="sd">    预处理后的规范 SMILES 结构。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    smiles : str</span>
-<span class="sd">         SMILES of a molecule in string format.</span>
+<span class="sd">         字符串格式的分子的 SMILES。</span>
 <span class="sd">    unique_char : list</span>
-<span class="sd">         List of unique characters in the string data set.</span>
+<span class="sd">         字符串数据集中唯一字符的列表。</span>
 <span class="sd">    max_len : int</span>
-<span class="sd">         Maximum length of the SMILES string.</span>
+<span class="sd">         SMILES 字符串的最大长度。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    smiles_matrix : numpy.ndarray</span>
-<span class="sd">         One-hot encoded matrix of fixed shape</span>
-<span class="sd">         (unique char in smiles, max SMILES length).</span>
+<span class="sd">         固定形状的独热编码矩阵</span>
+<span class="sd">         （SMILES 中唯一字符数, SMILES 最大长度）。</span>
 <span class="sd">    """</span>
-    <span class="c1"># create dictionary of the unique char data set</span>
+    <span class="c1"># 创建唯一字符数据集的字典</span>
     <span class="n">smi2index</span> <span class="o">=</span> <span class="p">{</span><span class="n">char</span><span class="p">:</span> <span class="n">index</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_char</span><span class="p">)}</span>
-    <span class="c1"># one-hot encoding</span>
-    <span class="c1"># zero padding to max_len</span>
+    <span class="c1"># 独热编码</span>
+    <span class="c1"># 零填充至 max_len</span>
     <span class="n">smiles_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_char</span><span class="p">),</span> <span class="n">max_len</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">smiles</span><span class="p">):</span>
         <span class="n">smiles_matrix</span><span class="p">[</span><span class="n">smi2index</span><span class="p">[</span><span class="n">char</span><span class="p">],</span> <span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1406,10 +1421,10 @@ Contains 12 characters, index in dataframe: 3428.
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the function to the processed canonical SMILES strings</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 将函数应用于处理后的规范 SMILES 字符串</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">"unique_char_ohe_matrix"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"processed_canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
     <span class="n">smiles_encoder</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="n">smiles_maxlen</span><span class="p">,</span> <span class="n">unique_char</span><span class="o">=</span><span class="n">unique_char</span>
 <span class="p">)</span>
@@ -1418,7 +1433,7 @@ Contains 12 characters, index in dataframe: 3428.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1452,7 +1467,7 @@ Contains 12 characters, index in dataframe: 3428.
 <th>0</th>
 <td>CHEMBL207869</td>
 <td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b200&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fe3b0&gt;</td>
 <td>Lc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 </tr>
@@ -1460,7 +1475,7 @@ Contains 12 characters, index in dataframe: 3428.
 <th>1</th>
 <td>CHEMBL3940060</td>
 <td>ClCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(Cl)c(F)cc3)n...</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b580&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fdd20&gt;</td>
 <td>LCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(L)c(F)cc3)ncn...</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 </tr>
@@ -1468,7 +1483,7 @@ Contains 12 characters, index in dataframe: 3428.
 <th>2</th>
 <td>CHEMBL3678951</td>
 <td>FC(F)(F)c1cc(Nc2n(C(C)C)c3nc(Nc4ccc(N5CC[NH+](...</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b6d0&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fe490&gt;</td>
 <td>FC(F)(F)c1cc(Nc2n(C(C)C)c3nc(Nc4ccc(N5CC[NH+](...</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 </tr>
@@ -1477,30 +1492,30 @@ Contains 12 characters, index in dataframe: 3428.
 </div></div>
 </div>
 </section>
-<section id="Visualization">
-<h4 id="Visualization">Visualization<a class="headerlink" href="#Visualization" title="Link to this heading">¶</a></h4>
-<p>Matplotlib is a plotting library for the python programming language and Pyplot is a state-based interface to a matplotlib module which provides a MATLAB-like interface. The <a class="reference external" href="https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.imshow.html">imshow</a> function in the pyplot module of the matplotlib library is used to display data as an image i.e. on a 2D space.</p>
-<p>We now visualize our one-hot encoded matrix using <code class="docutils literal notranslate"><span class="pre">imshow</span></code> by defining the <code class="docutils literal notranslate"><span class="pre">one_hot_matrix_plot</span></code> function as shown below.</p>
+<section id="可视化">
+<h4 id="可视化">可视化<a class="headerlink" href="#可视化" title="Link to this heading">¶</a></h4>
+<p>Matplotlib 是 Python 编程语言的绘图库，Pyplot 是 matplotlib 模块的基于状态的接口，提供类似 MATLAB 的接口。 matplotlib 库的 pyplot 模块中的 <a class="reference external" href="https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.imshow.html">imshow</a> 函数用于将数据显示为图像，即在二维空间上显示。</p>
+<p>我们通过定义 <code class="docutils literal notranslate"><span class="pre">one_hot_matrix_plot</span></code> 函数来使用 <code class="docutils literal notranslate"><span class="pre">imshow</span></code> 可视化我们的独热编码矩阵，如下所示。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">one_hot_matrix_plot</span><span class="p">(</span><span class="n">ohe_matrix</span><span class="p">,</span> <span class="n">smiles_char</span><span class="p">,</span> <span class="n">smiles</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Visualize one-hot encoded matrix</span>
-<span class="sd">    using matplotlib imshow() function.</span>
+<span class="sd">    使用 matplotlib imshow() 函数</span>
+<span class="sd">    可视化独热编码矩阵。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    ohe_matrix : numpy.ndarray</span>
-<span class="sd">       One-hot encoded (ohe) matrix of shape</span>
-<span class="sd">       (`smiles_char`, `len(smiles)`).</span>
+<span class="sd">       形状为 (`smiles_char`, `len(smiles)`) 的</span>
+<span class="sd">       独热编码（ohe）矩阵。</span>
 <span class="sd">    smiles_char : list</span>
-<span class="sd">        List of all possible SMILES characters.</span>
+<span class="sd">        所有可能的 SMILES 字符列表。</span>
 <span class="sd">    smiles : string</span>
-<span class="sd">        Original SMILES string of respective molecule.</span>
+<span class="sd">        相应分子的原始 SMILES 字符串。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    ------</span>
 <span class="sd">    None</span>
 
@@ -1517,10 +1532,10 @@ Contains 12 characters, index in dataframe: 3428.
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pass the index of the longest SMILES string to visualize the matrix</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 传递最长 SMILES 字符串的索引以可视化矩阵</span>
 <span class="n">one_hot_matrix_plot</span><span class="p">(</span>
     <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">longest_smiles_index</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="s2">"unique_char_ohe_matrix"</span><span class="p">],</span> <span class="n">unique_char</span><span class="p">,</span> <span class="n">longest_smiles</span>
 <span class="p">)</span>
@@ -1531,7 +1546,7 @@ Contains 12 characters, index in dataframe: 3428.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T021_one_hot_encoding_57_0.png" src="../_images/talktorials_T021_one_hot_encoding_57_0.png"/>
+<img alt="../_images/talktorials_T021_one_hot_encoding_58_0.png" src="../_images/talktorials_T021_one_hot_encoding_58_0.png"/>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1544,28 +1559,28 @@ Associated canonical SMILES:  O=C(N[C@@H]1C(=O)N[C@H](CCC[NH3+])C(=O)N[C@@H]([C@
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw the molecules with the longest SMILES</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 绘制最长 SMILES 的分子</span>
 <span class="n">longest_smiles_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">longest_smiles</span><span class="p">)</span>
 <span class="n">longest_smiles_mol</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T021_one_hot_encoding_58_0.png" src="../_images/talktorials_T021_one_hot_encoding_58_0.png"/>
+<img alt="../_images/talktorials_T021_one_hot_encoding_59_0.png" src="../_images/talktorials_T021_one_hot_encoding_59_0.png"/>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pass the index of the shortest SMILES string to visualize the matrix</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 传递最短 SMILES 字符串的索引以可视化矩阵</span>
 <span class="n">one_hot_matrix_plot</span><span class="p">(</span>
     <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">shortest_smiles_index</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="s2">"unique_char_ohe_matrix"</span><span class="p">],</span> <span class="n">unique_char</span><span class="p">,</span> <span class="n">shortest_smiles</span>
 <span class="p">)</span>
@@ -1576,7 +1591,7 @@ Associated canonical SMILES:  O=C(N[C@@H]1C(=O)N[C@H](CCC[NH3+])C(=O)N[C@@H]([C@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T021_one_hot_encoding_59_0.png" src="../_images/talktorials_T021_one_hot_encoding_59_0.png"/>
+<img alt="../_images/talktorials_T021_one_hot_encoding_60_0.png" src="../_images/talktorials_T021_one_hot_encoding_60_0.png"/>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1588,30 +1603,30 @@ Shape of one-hot matrix :  (36, 267)
 Associated canonical SMILES:  Oc1c(O)cccc1
 </pre></div></div>
 </div>
-<p>From above, the matrix visualization was performed using matplotlib <code class="docutils literal notranslate"><span class="pre">imshow</span></code> function, we can also visualize the entire matrix using the <code class="docutils literal notranslate"><span class="pre">numpy.matrix</span></code> function, e.g. the one-hot encoded matrix of the longest SMILES string as shown below.</p>
+<p>通过上面的 matplotlib <code class="docutils literal notranslate"><span class="pre">imshow</span></code> 函数完成了矩阵可视化，我们也可以使用 <code class="docutils literal notranslate"><span class="pre">numpy.matrix</span></code> 函数可视化整个矩阵，例如最长 SMILES 字符串的独热编码矩阵如下所示。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw the molecules with the shortest SMILES</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 绘制最短 SMILES 的分子</span>
 <span class="n">shortest_smiles_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">shortest_smiles</span><span class="p">)</span>
 <span class="n">shortest_smiles_mol</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T021_one_hot_encoding_61_0.png" src="../_images/talktorials_T021_one_hot_encoding_61_0.png"/>
+<img alt="../_images/talktorials_T021_one_hot_encoding_62_0.png" src="../_images/talktorials_T021_one_hot_encoding_62_0.png"/>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the some rows of the matrix for the molecule with the longest smiles</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 打印最长 SMILES 分子矩阵的部分行</span>
 <span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
 <span class="n">subset</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">unique_char</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">unique_char</span><span class="p">)</span>
@@ -1627,31 +1642,19 @@ Associated canonical SMILES:  Oc1c(O)cccc1
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-First 3 rows of the ohe matrix, representing the characters ['-', ')', 'L']
+First 3 rows of the ohe matrix, representing the characters ['@', 'S', ']']
 
-[[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+[[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0.
   0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
   0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
   0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0.]
- [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0. 0. 0. 1. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1.
-  0. 0. 0. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0.
-  1. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1.
-  0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 1. 0. 0. 0. 1. 0. 0. 0. 0. 1. 0. 1. 0. 0.
-  0. 0. 0. 0. 1. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
   0. 0. 0.]
  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
   0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
@@ -1662,80 +1665,92 @@ First 3 rows of the ohe matrix, representing the characters ['-', ')', 'L']
   0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
   0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
   0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
   0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
-  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0.
+  0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0.
+  1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 1. 0.
+  0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+  0. 0. 0. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0.
   0. 0. 0.]]
 </pre></div></div>
 </div>
 </section>
 </section>
 </section>
-<section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
-<p>In the fields of computer aided drug discovery and development, machine learning techniques have been used for the development of novel drug candidates. The methods for designing drug targets and novel drug discovery now oftenly combine machine learning and deep learning algorithms to enhance the efficiency, efficacy, and quality of developed outputs.</p>
-<p>But to work with any machine learning or deep learning algorithms, the input data should be in machine readable format. In computed-aided drug design, we mainly deal with the categorical or textual data where we work with drug molecules which are represented in SMILES string format, therefore we have to convert these categorical data to a numerical format.</p>
-<p><strong>One-hot encoding</strong> is one of the popular and efficient encoding technique which converts the data to a numerical format. It can be used an important preprocessing steps before applying any machine learning or deep learning algorithms.</p>
-<p>In this talktorial, we have applied one hot encoding after preprocessing the data to overcome some of the shortcomings such as:</p>
+<section id="讨论">
+<h2 id="讨论">讨论<a class="headerlink" href="#讨论" title="Link to this heading">¶</a></h2>
+<p>在计算机辅助药物发现和开发领域，机器学习技术已被用于开发新型候选药物。设计药物靶点和发现新药的方法现在通常结合机器学习和深度学习算法，以提高开发输出的效率、效果和质量。</p>
+<p>但要使用任何机器学习或深度学习算法，输入数据必须是机器可读的格式。在计算机辅助药物设计中，我们主要处理分类或文本数据，即使用 SMILES 字符串格式表示的药物分子，因此我们必须将这些分类数据转换为数值格式。</p>
+<p><strong>独热编码</strong>是一种流行且高效的编码技术，可将数据转换为数值格式。它可以作为应用任何机器学习或深度学习算法之前的重要预处理步骤。</p>
+<p>在本教程中，我们在预处理数据之后应用了独热编码，以克服一些不足之处，例如：</p>
 <ul class="simple">
-<li><p>Make equal dimension of the one-hot encoded matrices because SMILES strings could have unequal dimension since their string length might differ and for most machine learning application having equal dimension throughout the data set is required.</p></li>
-<li><p>Replacing two character element such as <code class="docutils literal notranslate"><span class="pre">Cl</span></code> to a single character because while one-hot encoding, it would split <code class="docutils literal notranslate"><span class="pre">Cl</span></code> into two characters, namely <code class="docutils literal notranslate"><span class="pre">C</span></code> and <code class="docutils literal notranslate"><span class="pre">l</span></code>, and that could lead to discrepancies.</p></li>
-<li><p>Looking for unique characters in the data set to produce less sparse one-hot encoded matrices.</p></li>
+<li><p>使独热编码矩阵具有相同的维度，因为 SMILES 字符串的长度可能不同，而大多数机器学习应用需要数据集中具有相等的维度。</p></li>
+<li><p>将双字符元素（如 <code class="docutils literal notranslate"><span class="pre">Cl</span></code>）替换为单字符，因为在进行独热编码时，它会把 <code class="docutils literal notranslate"><span class="pre">Cl</span></code> 拆分为两个字符，即 <code class="docutils literal notranslate"><span class="pre">C</span></code> 和 <code class="docutils literal notranslate"><span class="pre">l</span></code>，这可能导致不一致。</p></li>
+<li><p>查找数据集中唯一的字符，以生成更稀疏的独热编码矩阵。</p></li>
 </ul>
-<p>One-hot encoding has several applications in various fields such as:</p>
+<p>独热编码在各个领域有多种应用，例如：</p>
 <ul class="simple">
-<li><p><strong>Machine learning (neural networks)</strong>: In machine learning , one-hot encoding is a frequently used method to deal with categorical data because many machine learning models need their input variables to be numeric.</p></li>
-<li><p><strong>Natural language processing (NLP)</strong>: For NLP, most of the times data consists of corpus of words which is categorical in nature. Consider we have vocabulary of size <span class="math notranslate nohighlight">\(N\)</span>. In the one-hot encoding technique, we map the words to the vectors of length <span class="math notranslate nohighlight">\(n\)</span>, where the <span class="math notranslate nohighlight">\(n\)</span>th digit is an indicator of the presence of the particular word. The <span class="math notranslate nohighlight">\(n\)</span>th bit of each vector indicates the presence of the <span class="math notranslate nohighlight">\(n\)</span>th word in the vocabulary. For example if we are converting words to
-the one-hot encoding format, then we will see vectors such as <span class="math notranslate nohighlight">\([0000\dots 100], [0000\dots 010], [0000\dots 001]\)</span>, and so on. Using this technique normal sentences can be represented as vectors and numerical operations can be then performed on this vector form.</p></li>
+<li><p><strong>机器学习（神经网络）</strong>: 在机器学习中，独热编码是处理分类数据的一种常用方法，因为许多机器学习模型需要其输入变量为数值。</p></li>
+<li><p><strong>自然语言处理（NLP）</strong>: 在 NLP 中，大多数情况下数据由词汇语料库组成，本质上是分类数据。假设我们有一个大小为 <span class="math notranslate nohighlight">\(N\)</span> 的词汇表。在独热编码技术中，我们将单词映射到长度为 <span class="math notranslate nohighlight">\(n\)</span> 的向量，其中第 <span class="math notranslate nohighlight">\(n\)</span> 位指示特定单词的存在。每个向量的第 <span class="math notranslate nohighlight">\(n\)</span> 位指示词汇表中第 <span class="math notranslate nohighlight">\(n\)</span> 个单词的存在。例如，如果我们将单词转换为独热编码格式，那么我们看到的向量如
+<span class="math notranslate nohighlight">\([0000\dots 100], [0000\dots 010], [0000\dots 001]\)</span>，以此类推。使用这种技术，普通句子可以表示为向量，然后可以在这个向量形式上进行数值运算。</p></li>
 </ul>
 </section>
 <section id="Quiz">
 <h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Why is it required to have equal dimensions of the one-hot encoded matrix?</p></li>
-<li><p>Is there any other way to pre-process the data?</p></li>
-<li><p>How and which machine learning models can be applied on the above data set?</p></li>
+<li><p>为什么要求独热编码矩阵具有相同的维度？</p></li>
+<li><p>还有其他预处理数据的方法吗？</p></li>
+<li><p>如何以及哪些机器学习模型可以应用于上述数据集？</p></li>
 </ul>
 </section>
-<section id="Supplementary-material">
-<h2 id="Supplementary-material">Supplementary material<a class="headerlink" href="#Supplementary-material" title="Link to this heading">¶</a></h2>
-<p>If you are interested in other implementations of one-hot encoding, please keep reading this section. This includes:</p>
+<section id="补充材料">
+<h2 id="补充材料">补充材料<a class="headerlink" href="#补充材料" title="Link to this heading">¶</a></h2>
+<p>如果你对其他独热编码的实现方式感兴趣，请继续阅读本节。内容包括：</p>
 <ul class="simple">
-<li><p>Exploring <strong>scikit-learn</strong> and <strong>keras</strong> implementations of one-hot encoding.</p></li>
-<li><p>Performing <strong>padding</strong> before and after one-hot encoding.</p></li>
+<li><p>探索 <strong>scikit-learn</strong> 和 <strong>keras</strong> 的独热编码实现。</p></li>
+<li><p>在独热编码之前和之后进行 <strong>填充</strong>。</p></li>
 </ul>
-<section id="Scikit-learn-implementation-of-one-hot-encoding">
-<h3 id="Scikit-learn-implementation-of-one-hot-encoding">Scikit-learn implementation of one-hot encoding<a class="headerlink" href="#Scikit-learn-implementation-of-one-hot-encoding" title="Link to this heading">¶</a></h3>
-<p>Before implementing one-hot encoding using scikit-learn, we have defined the functions named</p>
+<section id="Scikit-learn-实现独热编码">
+<h3 id="Scikit-learn-实现独热编码">Scikit-learn 实现独热编码<a class="headerlink" href="#Scikit-learn-实现独热编码" title="Link to this heading">¶</a></h3>
+<p>在实现使用 scikit-learn 进行独热编码之前，我们定义了以下函数：</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">later_padding</span></code>, which adds horizontal and vertical padding to the given matrix,</p></li>
-<li><p>and <code class="docutils literal notranslate"><span class="pre">initial_padding</span></code> which adds zeros to the character list after they are label encoded.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">later_padding</span></code>，为给定矩阵添加水平和垂直填充，</p></li>
+<li><p>以及 <code class="docutils literal notranslate"><span class="pre">initial_padding</span></code>，在标签编码之后向字符列表添加零。</p></li>
 </ul>
-<p>Both using the <code class="docutils literal notranslate"><span class="pre">numpy.pad</span></code> function as discussed in the theory section.</p>
-<p>These functions are later used as a boolean parameter (<code class="docutils literal notranslate"><span class="pre">islaterpadding</span></code> and <code class="docutils literal notranslate"><span class="pre">isinitialpadding</span></code>) in the scikit-learn and keras implementations to choose if later padding or initial padding is required.</p>
+<p>两者都使用 <code class="docutils literal notranslate"><span class="pre">numpy.pad</span></code> 函数，如理论部分所讨论的。</p>
+<p>这些函数稍后在 scikit-learn 和 keras 实现中作为布尔参数使用（<code class="docutils literal notranslate"><span class="pre">islaterpadding</span></code> 和 <code class="docutils literal notranslate"><span class="pre">isinitialpadding</span></code>），以选择需要 later padding 还是 initial padding。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to add padding after one-hot encoding</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 在独热编码后添加填充的函数</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">later_padding</span><span class="p">(</span><span class="n">ohe_matrix</span><span class="p">,</span> <span class="n">smiles_maxlen</span><span class="p">,</span> <span class="n">unique_char</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Add horizontal and vertical padding</span>
-<span class="sd">    to the given matrix using numpy.pad() function.</span>
+<span class="sd">    使用 numpy.pad() 函数对给定矩阵</span>
+<span class="sd">    添加水平和垂直填充。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    ohe_matrix : ndarray</span>
-<span class="sd">        Character array.</span>
+<span class="sd">        字符数组。</span>
 <span class="sd">    smiles_max_len : int</span>
-<span class="sd">        Maximum length of the SMILES string.</span>
+<span class="sd">        SMILES 字符串的最大长度。</span>
 <span class="sd">    unique_char : list</span>
-<span class="sd">        List of unique characters in the string data set.</span>
+<span class="sd">        字符串数据集中唯一字符的列表。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    padded_matrix : numpy.ndarray</span>
-<span class="sd">           Padded one-hot encoded matrix of</span>
-<span class="sd">           shape (unique char in smiles, max smile_length).</span>
+<span class="sd">           填充后的独热编码矩阵，</span>
+<span class="sd">           形状为（SMILES 中唯一字符数, 最大 SMILES 长度）。</span>
 <span class="sd">    """</span>
 
     <span class="n">padded_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span>
@@ -1748,98 +1763,98 @@ the one-hot encoding format, then we will see vectors such as <span class="math 
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to add padding before one-hot encoding</span>
-<span class="c1"># after label (integer) encoding</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 在独热编码前添加填充的函数</span>
+<span class="c1"># 在标签（整数）编码之后</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">initial_padding</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">max_len</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Add zeroes to the list of characters</span>
-<span class="sd">    after integer encoding them</span>
+<span class="sd">    在整数编码之后，</span>
+<span class="sd">    向字符列表添加零。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    smiles : str</span>
-<span class="sd">       SMILES string.</span>
+<span class="sd">       SMILES 字符串。</span>
 <span class="sd">    max_len : int</span>
-<span class="sd">       Maximum length of the SMILES string</span>
+<span class="sd">       SMILES 字符串的最大长度。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    canonical_char_padded : numpy.ndarray</span>
-<span class="sd">      Canonical character array padded to max_len.</span>
+<span class="sd">      填充至 max_len 的规范字符数组。</span>
 <span class="sd">    """</span>
     <span class="n">canonical_char</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
-    <span class="c1"># Perform padding on the list of characters</span>
+    <span class="c1"># 对字符列表进行填充</span>
     <span class="n">canonical_char_padded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">canonical_char</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">canonical_char</span><span class="p">)),</span> <span class="s2">"constant"</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">canonical_char_padded</span>
 </pre></div>
 </div>
 </div>
-<p><strong>One-hot encoding using scikit-learn</strong></p>
-<p>Now, we proceed with our second implementation of one-hot encoding from scikit-learn. We can use the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">OneHotEncoder</a> from the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> library.</p>
+<p><strong>使用 scikit-learn 进行独热编码</strong></p>
+<p>现在，我们开始使用 scikit-learn 进行独热编码的第二种实现。我们可以使用 <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> 库中的 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">OneHotEncoder</a>。</p>
 <ul class="simple">
-<li><p>The function takes only numerical categorical values, hence any value of type string should be <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html">label_encoded</a> first before one-hot encoding.</p></li>
-<li><p>Thus, in the functions below first label (integer) encoded SMILES are produced, then the integer encoded SMILES are transformed to one-hot encoded matrices.</p></li>
-<li><p>By default, the OneHotEncoder class returns a more efficient sparse encoding, which we disabled by setting the <code class="docutils literal notranslate"><span class="pre">sparse=False</span></code> argument.</p></li>
+<li><p>该函数只接受数值分类值，因此在独热编码之前，任何字符串类型的值都应先进行 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html">label_encoded</a>。</p></li>
+<li><p>因此，在下面的函数中，首先产生标签（整数）编码的 SMILES，然后将整数编码的 SMILES 转换为独热编码矩阵。</p></li>
+<li><p>默认情况下，OneHotEncoder 类返回更高效的稀疏编码，我们通过设置 <code class="docutils literal notranslate"><span class="pre">sparse=False</span></code> 参数来禁用它。</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use Scikit-learn implementation of one-hot encoding</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 使用 Scikit-learn 实现独热编码</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">sklearn_one_hot_encoded_matrix</span><span class="p">(</span>
     <span class="n">smiles</span><span class="p">,</span> <span class="n">islaterpadding</span><span class="p">,</span> <span class="n">isinitialpadding</span><span class="p">,</span> <span class="n">smiles_maxlen</span><span class="p">,</span> <span class="n">unique_char</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Label and one-hot encodes the SMILES</span>
-<span class="sd">    using sklearn LabelEncoder and OneHotEncoder implementation.</span>
+<span class="sd">    使用 sklearn 的 LabelEncoder 和 OneHotEncoder 实现</span>
+<span class="sd">    对 SMILES 进行标签编码和独热编码。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    smiles : str</span>
-<span class="sd">        SMILES string of a compound.</span>
+<span class="sd">        化合物的 SMILES 字符串。</span>
 <span class="sd">    islaterpadding : bool</span>
-<span class="sd">        Paramater is `True` if `later_padding` is required,</span>
-<span class="sd">        `False` otherwise.</span>
+<span class="sd">        如果需要 `later_padding`，则参数为 `True`，</span>
+<span class="sd">        否则为 `False`。</span>
 <span class="sd">    isinitialpadding : bool</span>
-<span class="sd">        Paramater is `True` if `initial_padding` is required,</span>
-<span class="sd">        `False` otherwise.</span>
+<span class="sd">        如果需要 `initial_padding`，则参数为 `True`，</span>
+<span class="sd">        否则为 `False`。</span>
 <span class="sd">    smile_maxlen : int</span>
-<span class="sd">       Maximum length of the SMILES string</span>
+<span class="sd">        SMILES 字符串的最大长度。</span>
 <span class="sd">    unique_char : list</span>
-<span class="sd">        List of unique characters in the string data set.</span>
+<span class="sd">        字符串数据集中唯一字符的列表。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    onehot_encoded : numpy.ndarray</span>
-<span class="sd">        One-hot encoded matrix of shape</span>
-<span class="sd">        (chars in individual SMILES, length of individual SMILES).</span>
+<span class="sd">        形状为（单个 SMILES 中的字符数, 单个 SMILES 的长度）的</span>
+<span class="sd">        独热编码矩阵。</span>
 <span class="sd">    """</span>
-    <span class="c1"># Integer encoding</span>
+    <span class="c1"># 整数编码</span>
     <span class="n">canonical_char</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">smiles</span><span class="p">)</span>
     <span class="n">label_encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-    <span class="c1"># Fit_transform function is used to first fit the data and then transform it</span>
+    <span class="c1"># Fit_transform 函数用于先拟合数据然后对其进行转换</span>
     <span class="n">integer_encoded</span> <span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">canonical_char</span><span class="p">)</span>
 
-    <span class="c1"># If initial padding, add zeros to vector (columns in matrix)</span>
+    <span class="c1"># 如果使用 initial padding，向向量（矩阵中的列）添加零</span>
     <span class="k">if</span> <span class="n">isinitialpadding</span><span class="p">:</span>
         <span class="n">integer_encoded</span> <span class="o">=</span> <span class="n">initial_padding</span><span class="p">(</span><span class="n">integer_encoded</span><span class="p">,</span> <span class="n">smiles_maxlen</span><span class="p">)</span>
 
-    <span class="c1"># One-hot encoding</span>
-    <span class="n">onehot_encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="c1"># Reshape the integer encoded data</span>
+    <span class="c1"># 独热编码</span>
+    <span class="n">onehot_encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># 重塑整数编码后的数据</span>
     <span class="n">integer_encoded</span> <span class="o">=</span> <span class="n">integer_encoded</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">integer_encoded</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">onehot_encoded</span> <span class="o">=</span> <span class="n">onehot_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">integer_encoded</span><span class="p">)</span>
 
-    <span class="c1"># If later padding, add zeros to ohe matrix</span>
+    <span class="c1"># 如果使用 later padding，向独热编码矩阵添加零</span>
     <span class="k">if</span> <span class="n">islaterpadding</span><span class="p">:</span>
         <span class="n">onehot_encoded</span> <span class="o">=</span> <span class="n">later_padding</span><span class="p">(</span><span class="n">onehot_encoded</span><span class="p">,</span> <span class="n">smiles_maxlen</span><span class="p">,</span> <span class="n">unique_char</span><span class="p">)</span>
 
     <span class="n">onehot_encoded</span> <span class="o">=</span> <span class="n">onehot_encoded</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 
-    <span class="c1"># If initial padding, add zeros to rows</span>
+    <span class="c1"># 如果使用 initial padding，向行添加零</span>
     <span class="k">if</span> <span class="n">isinitialpadding</span><span class="p">:</span>
         <span class="n">row_padding</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_char</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">onehot_encoded</span><span class="p">),</span> <span class="n">smiles_maxlen</span><span class="p">))</span>
         <span class="n">onehot_encoded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">onehot_encoded</span><span class="p">,</span> <span class="n">row_padding</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1847,14 +1862,13 @@ the one-hot encoding format, then we will see vectors such as <span class="math 
 </pre></div>
 </div>
 </div>
-<section id="Without-padding-(unequal-dimension)">
-<h4 id="Without-padding-(unequal-dimension)">Without padding (unequal dimension)<a class="headerlink" href="#Without-padding-(unequal-dimension)" title="Link to this heading">¶</a></h4>
-<p>We can use the <code class="docutils literal notranslate"><span class="pre">sklearn_one_hot_encoded_matrix</span></code> function defined above to create the one-hot encoded matrix without padding. This will create matrices with unequal dimensions, because it will first label encode all the characters present in the SMILES strings (individually) and then one-hot encode them.</p>
+<section id="无填充（维度不等）">
+<h4 id="无填充（维度不等）">无填充（维度不等）<a class="headerlink" href="#无填充（维度不等）" title="Link to this heading">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the function over the processed canonical SMILES strings</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 将函数应用于处理后的规范 SMILES 字符串</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">"sklearn_ohe_matrix_no_padding"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"processed_canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
     <span class="n">sklearn_one_hot_encoded_matrix</span><span class="p">,</span>
     <span class="n">islaterpadding</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -1867,7 +1881,7 @@ the one-hot encoding format, then we will see vectors such as <span class="math 
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1902,7 +1916,7 @@ the one-hot encoding format, then we will see vectors such as <span class="math 
 <th>0</th>
 <td>CHEMBL207869</td>
 <td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b200&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fe3b0&gt;</td>
 <td>Lc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
@@ -1911,7 +1925,7 @@ the one-hot encoding format, then we will see vectors such as <span class="math 
 <th>1</th>
 <td>CHEMBL3940060</td>
 <td>ClCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(Cl)c(F)cc3)n...</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b580&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fdd20&gt;</td>
 <td>LCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(L)c(F)cc3)ncn...</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 <td>[[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
@@ -1920,12 +1934,12 @@ the one-hot encoding format, then we will see vectors such as <span class="math 
 </table>
 </div></div>
 </div>
-<p><strong>Visualization of one-hot encoded matrix (unequal dimension)</strong></p>
+<p><strong>独热编码矩阵的可视化（不等维度）</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose index of the compound for which the OHE matrix is visualised</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 选择要可视化 OHE 矩阵的化合物的索引</span>
 <span class="n">index</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">one_hot_matrix_plot</span><span class="p">(</span>
     <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s2">"sklearn_ohe_matrix_no_padding"</span><span class="p">],</span>
@@ -1939,7 +1953,7 @@ the one-hot encoding format, then we will see vectors such as <span class="math 
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T021_one_hot_encoding_76_0.png" src="../_images/talktorials_T021_one_hot_encoding_76_0.png"/>
+<img alt="../_images/talktorials_T021_one_hot_encoding_77_0.png" src="../_images/talktorials_T021_one_hot_encoding_77_0.png"/>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1952,17 +1966,16 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 </pre></div></div>
 </div>
 </section>
-<section id="With-padding-(equal-dimension)">
-<h4 id="With-padding-(equal-dimension)">With padding (equal dimension)<a class="headerlink" href="#With-padding-(equal-dimension)" title="Link to this heading">¶</a></h4>
-<p>Padding can either be done before or after one-hot encoding is performed on the SMILES strings, meaning after we label encode the SMILES characters. We discuss both scenarios in the next sections.</p>
-<section id="Padding-after-one-hot-encoding-is-performed">
-<h5 id="Padding-after-one-hot-encoding-is-performed">Padding after one-hot encoding is performed<a class="headerlink" href="#Padding-after-one-hot-encoding-is-performed" title="Link to this heading">¶</a></h5>
-<p>We simply pass <strong>True</strong> to the <code class="docutils literal notranslate"><span class="pre">islaterpadding</span></code> boolean parameter to the <code class="docutils literal notranslate"><span class="pre">sklearn_one_hot_encoded_matrix</span></code> function as shown below to pad the matrix after one-hot encoding is performed,</p>
+<section id="带填充（等维度）">
+<h4 id="带填充（等维度）">带填充（等维度）<a class="headerlink" href="#带填充（等维度）" title="Link to this heading">¶</a></h4>
+<section id="在独热编码之后进行填充">
+<h5 id="在独热编码之后进行填充">在独热编码之后进行填充<a class="headerlink" href="#在独热编码之后进行填充" title="Link to this heading">¶</a></h5>
+<p>我们只需将 <code class="docutils literal notranslate"><span class="pre">sklearn_one_hot_encoded_matrix</span></code> 函数的 <code class="docutils literal notranslate"><span class="pre">islaterpadding</span></code> 布尔参数设为 <strong>True</strong>，如下所示，即可在进行独热编码后填充矩阵。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the function over the processed canonical SMILES strings</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 将函数应用于处理后的规范 SMILES 字符串</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">"sklearn_ohe_matrix_later_padding"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"processed_canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
     <span class="n">sklearn_one_hot_encoded_matrix</span><span class="p">,</span>
     <span class="n">islaterpadding</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -1975,7 +1988,7 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2011,7 +2024,7 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 <th>0</th>
 <td>CHEMBL207869</td>
 <td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b200&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fe3b0&gt;</td>
 <td>Lc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
@@ -2021,7 +2034,7 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 <th>1</th>
 <td>CHEMBL3940060</td>
 <td>ClCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(Cl)c(F)cc3)n...</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b580&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fdd20&gt;</td>
 <td>LCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(L)c(F)cc3)ncn...</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 <td>[[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
@@ -2031,12 +2044,12 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 </table>
 </div></div>
 </div>
-<p><strong>Visualization of one-hot encoded matrix (equal dimension)</strong></p>
+<p><strong>独热编码矩阵的可视化（等维度）</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[98]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose index of the compound for which the OHE matrix is visualised</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 选择要可视化 OHE 矩阵的化合物的索引</span>
 <span class="n">index</span> <span class="o">=</span> <span class="mi">2705</span>
 <span class="n">one_hot_matrix_plot</span><span class="p">(</span>
     <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s2">"sklearn_ohe_matrix_later_padding"</span><span class="p">],</span>
@@ -2050,7 +2063,7 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T021_one_hot_encoding_81_0.png" src="../_images/talktorials_T021_one_hot_encoding_81_0.png"/>
+<img alt="../_images/talktorials_T021_one_hot_encoding_82_0.png" src="../_images/talktorials_T021_one_hot_encoding_82_0.png"/>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -2063,14 +2076,14 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 </pre></div></div>
 </div>
 </section>
-<section id="Padding-before-one-hot-encoding-is-performed">
-<h5 id="Padding-before-one-hot-encoding-is-performed">Padding before one-hot encoding is performed<a class="headerlink" href="#Padding-before-one-hot-encoding-is-performed" title="Link to this heading">¶</a></h5>
-<p>In this case, padding is performed before OHE - but after integer encoding - the list of SMILES characters by passing <strong>True</strong> to the <code class="docutils literal notranslate"><span class="pre">initial_padding</span></code> boolean parameter to the <code class="docutils literal notranslate"><span class="pre">sklearn_one_hot_encoded_matrix</span></code> function.</p>
+<section id="在独热编码之前进行填充">
+<h5 id="在独热编码之前进行填充">在独热编码之前进行填充<a class="headerlink" href="#在独热编码之前进行填充" title="Link to this heading">¶</a></h5>
+<p>在这种情况下，填充在 OHE 之前但整数编码之后进行——通过将 <code class="docutils literal notranslate"><span class="pre">sklearn_one_hot_encoded_matrix</span></code> 函数的 <code class="docutils literal notranslate"><span class="pre">initial_padding</span></code> 布尔参数设为 <strong>True</strong>，对 SMILES 字符列表进行填充。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[99]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the function over the processed canonical SMILES strings</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 将函数应用于处理后的规范 SMILES 字符串</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">"sklearn_ohe_matrix_initial_padding"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"processed_canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
     <span class="n">sklearn_one_hot_encoded_matrix</span><span class="p">,</span>
     <span class="n">islaterpadding</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -2084,7 +2097,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[99]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2121,7 +2134,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 <th>0</th>
 <td>CHEMBL207869</td>
 <td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b200&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fe3b0&gt;</td>
 <td>Lc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
@@ -2132,7 +2145,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 <th>1</th>
 <td>CHEMBL3940060</td>
 <td>ClCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(Cl)c(F)cc3)n...</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b580&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fdd20&gt;</td>
 <td>LCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(L)c(F)cc3)ncn...</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 <td>[[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
@@ -2143,12 +2156,12 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 </table>
 </div></div>
 </div>
-<p><strong>Visualization of one-hot encoded matrix (equal dimension)</strong></p>
+<p><strong>独热编码矩阵的可视化（等维度）</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose index of the compound for which the OHE matrix is visualised</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 选择要可视化 OHE 矩阵的化合物的索引</span>
 <span class="n">index</span> <span class="o">=</span> <span class="mi">2705</span>
 <span class="n">one_hot_matrix_plot</span><span class="p">(</span>
     <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s2">"sklearn_ohe_matrix_later_padding"</span><span class="p">],</span>
@@ -2162,7 +2175,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T021_one_hot_encoding_85_0.png" src="../_images/talktorials_T021_one_hot_encoding_85_0.png"/>
+<img alt="../_images/talktorials_T021_one_hot_encoding_86_0.png" src="../_images/talktorials_T021_one_hot_encoding_86_0.png"/>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -2177,46 +2190,45 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 </section>
 </section>
 </section>
-<section id="Keras-implementation-of-one-hot-encoding">
-<h3 id="Keras-implementation-of-one-hot-encoding">Keras implementation of one-hot encoding<a class="headerlink" href="#Keras-implementation-of-one-hot-encoding" title="Link to this heading">¶</a></h3>
-<p>Keras is also a very powerful and intensively used library, especially employed in deep learning tasks. There may be a case where we have sequences or strings that are already integer encoded, then we can use the function called <a class="reference external" href="https://keras.io/api/utils/">to_categorical()</a>, provided by the keras library, to one-hot encode integer data directly, otherwise we can use <a class="reference external" href="https://keras.io/api/preprocessing/text/">Tokenizer</a> to first integer encode the string data and then use the
-<code class="docutils literal notranslate"><span class="pre">to_categorical</span></code> function to one-hot encode the data.</p>
+<section id="Keras-实现独热编码">
+<h3 id="Keras-实现独热编码">Keras 实现独热编码<a class="headerlink" href="#Keras-实现独热编码" title="Link to this heading">¶</a></h3>
+<p>Keras 也是一个非常强大且广泛使用的库，尤其用于深度学习任务。 可能有些情况下，我们已经有了整数编码的序列或字符串，那么我们可以使用 keras 库提供的 <a class="reference external" href="https://keras.io/api/utils/">to_categorical()</a> 函数直接对整数数据进行独热编码，否则我们可以使用 <a class="reference external" href="https://keras.io/api/preprocessing/text/">Tokenizer</a> 首先对字符串数据进行整数编码，然后使用 <code class="docutils literal notranslate"><span class="pre">to_categorical</span></code> 函数进行独热编码。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[101]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use keras implementation of one-hot encoding</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 使用 keras 实现独热编码</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">keras_one_hot_encoded_matrix</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">islaterpadding</span><span class="p">,</span> <span class="n">smiles_maxlen</span><span class="p">,</span> <span class="n">unique_char</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    One-hot encodes the SMILES using keras</span>
-<span class="sd">    implementation.</span>
+<span class="sd">    使用 keras 实现</span>
+<span class="sd">    对 SMILES 进行独热编码。</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    参数</span>
 <span class="sd">    ----------</span>
 <span class="sd">    canonical_char : array</span>
-<span class="sd">        Canonical character array.</span>
+<span class="sd">        规范字符数组。</span>
 <span class="sd">    islaterpadding : bool</span>
-<span class="sd">        The paramater is `True` if later_padding is required,</span>
-<span class="sd">        `False` otherwise.</span>
+<span class="sd">        如果需要 later_padding，则参数为 `True`，</span>
+<span class="sd">        否则为 `False`。</span>
 <span class="sd">    smiles_maxlen : int</span>
-<span class="sd">        Maximum length of the SMILES string.</span>
+<span class="sd">        SMILES 字符串的最大长度。</span>
 <span class="sd">    unique_char : list</span>
-<span class="sd">        List of unique characters in the string data set.</span>
+<span class="sd">        字符串数据集中唯一字符的列表。</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    返回</span>
 <span class="sd">    -------</span>
 <span class="sd">    encoded : numpy.ndarray</span>
-<span class="sd">        One-hot encoded matrix of shape</span>
-<span class="sd">        (chars in SMILES, length of SMILES).</span>
+<span class="sd">        形状为（SMILES 中的字符数, SMILES 的长度）的</span>
+<span class="sd">        独热编码矩阵。</span>
 <span class="sd">    """</span>
 
-    <span class="c1"># Integer encoding using Tokenizer</span>
+    <span class="c1"># 整数编码 using Tokenizer</span>
     <span class="n">input_smiles</span> <span class="o">=</span> <span class="n">smiles</span>
     <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">char_level</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">tokenizer</span><span class="o">.</span><span class="n">fit_on_texts</span><span class="p">([</span><span class="n">input_smiles</span><span class="p">])</span>
     <span class="n">integer_encoded</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">([</span><span class="n">input_smiles</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="c1"># One-hot encoding using to_categorical function</span>
+    <span class="c1"># 独热编码 using to_categorical function</span>
     <span class="n">encoded</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">integer_encoded</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">islaterpadding</span><span class="p">:</span>
         <span class="n">encoded</span> <span class="o">=</span> <span class="n">later_padding</span><span class="p">(</span><span class="n">encoded</span><span class="p">,</span> <span class="n">smiles_maxlen</span><span class="p">,</span> <span class="n">unique_char</span><span class="p">)</span>
@@ -2225,18 +2237,18 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 </pre></div>
 </div>
 </div>
-<p>Next, we implement two scenarios:</p>
+<p>接下来，我们实现两种场景：</p>
 <ul class="simple">
-<li><p>OHE without padding, which will result in unequal dimensions of the produced one-hot encoded matrix and</p></li>
-<li><p>OHE with later padding by passing <code class="docutils literal notranslate"><span class="pre">True</span></code> to the boolean parameter <code class="docutils literal notranslate"><span class="pre">islaterpadding</span></code> in the <code class="docutils literal notranslate"><span class="pre">keras_one_hot_encoded_matrix</span></code> function.</p></li>
+<li><p>不带填充的 OHE，这将导致生成的独热编码矩阵维度不等，以及</p></li>
+<li><p>通过将 <code class="docutils literal notranslate"><span class="pre">keras_one_hot_encoded_matrix</span></code> 函数中的布尔参数 <code class="docutils literal notranslate"><span class="pre">islaterpadding</span></code> 设为 <code class="docutils literal notranslate"><span class="pre">True</span></code> 来进行带后续填充的 OHE。</p></li>
 </ul>
-<section id="id1">
-<h4 id="id1">Without padding (unequal dimension)<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h4>
+<section id="id27">
+<h4 id="id27">无填充（维度不等）<a class="headerlink" href="#id27" title="Link to this heading">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[102]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the function over the processed canonical SMILES strings</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 将函数应用于处理后的规范 SMILES 字符串</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">"keras_ohe_matrix_without_padding"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"processed_canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
     <span class="n">keras_one_hot_encoded_matrix</span><span class="p">,</span>
     <span class="n">smiles_maxlen</span><span class="o">=</span><span class="n">smiles_maxlen</span><span class="p">,</span>
@@ -2248,7 +2260,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[102]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2286,7 +2298,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 <th>0</th>
 <td>CHEMBL207869</td>
 <td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b200&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fe3b0&gt;</td>
 <td>Lc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
@@ -2298,7 +2310,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 <th>1</th>
 <td>CHEMBL3940060</td>
 <td>ClCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(Cl)c(F)cc3)n...</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b580&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fdd20&gt;</td>
 <td>LCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(L)c(F)cc3)ncn...</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 <td>[[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
@@ -2310,12 +2322,12 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 </table>
 </div></div>
 </div>
-<p><strong>Visualization of one-hot encoded matrix (unequal dimension)</strong></p>
+<p><strong>独热编码矩阵的可视化（不等维度）</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[103]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose index of the compound for which the OHE matrix is visualised</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 选择要可视化 OHE 矩阵的化合物的索引</span>
 <span class="n">index</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">one_hot_matrix_plot</span><span class="p">(</span>
     <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s2">"keras_ohe_matrix_without_padding"</span><span class="p">],</span>
@@ -2329,7 +2341,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T021_one_hot_encoding_93_0.png" src="../_images/talktorials_T021_one_hot_encoding_93_0.png"/>
+<img alt="../_images/talktorials_T021_one_hot_encoding_94_0.png" src="../_images/talktorials_T021_one_hot_encoding_94_0.png"/>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -2342,13 +2354,13 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 </pre></div></div>
 </div>
 </section>
-<section id="id2">
-<h4 id="id2">With padding (equal dimension)<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
+<section id="id28">
+<h4 id="id28">带填充（等维度）<a class="headerlink" href="#id28" title="Link to this heading">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[104]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the function over the Processed_canonical_smiles strings</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 将函数应用于处理后的规范 SMILES 字符串</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">"keras_ohe_matrix_padding"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"processed_canonical_smiles"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
     <span class="n">keras_one_hot_encoded_matrix</span><span class="p">,</span>
     <span class="n">smiles_maxlen</span><span class="o">=</span><span class="n">smiles_maxlen</span><span class="p">,</span>
@@ -2360,7 +2372,7 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[104]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2399,7 +2411,7 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 <th>0</th>
 <td>CHEMBL207869</td>
 <td>Clc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b200&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fe3b0&gt;</td>
 <td>Lc1c(OCc2cc(F)ccc2)ccc(Nc2c(C#Cc3ncccn3)cncn2)c1</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
@@ -2412,7 +2424,7 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 <th>1</th>
 <td>CHEMBL3940060</td>
 <td>ClCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(Cl)c(F)cc3)n...</td>
-<td>&lt;rdkit.Chem.rdchem.Mol object at 0x7f824651b580&gt;</td>
+<td>&lt;rdkit.Chem.rdchem.Mol object at 0x13d0fdd20&gt;</td>
 <td>LCC(=O)OCCN1C(=O)Oc2c1cc1c(Nc3cc(L)c(F)cc3)ncn...</td>
 <td>[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
 <td>[[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0,...</td>
@@ -2425,12 +2437,12 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 </table>
 </div></div>
 </div>
-<p><strong>Visualization of one-hot encoded matrix (unequal dimension)</strong></p>
+<p><strong>独热编码矩阵的可视化（不等维度）</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[105]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose index of the compound for which the OHE matrix is visualised</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 选择要可视化 OHE 矩阵的化合物的索引</span>
 <span class="n">index</span> <span class="o">=</span> <span class="mi">2705</span>
 <span class="n">one_hot_matrix_plot</span><span class="p">(</span>
     <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s2">"keras_ohe_matrix_padding"</span><span class="p">],</span>
@@ -2444,7 +2456,7 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/talktorials_T021_one_hot_encoding_97_0.png" src="../_images/talktorials_T021_one_hot_encoding_97_0.png"/>
+<img alt="../_images/talktorials_T021_one_hot_encoding_98_0.png" src="../_images/talktorials_T021_one_hot_encoding_98_0.png"/>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -2455,6 +2467,14 @@ Associated canonical SMILES:  N([C@H](C)c1ccccc1)c1ncnc2oc(-c3ccccc3)cc12
 Shape of one-hot matrix :  (36, 267)
 Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
 </pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
@@ -2473,7 +2493,7 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="T020_md_analysis.html" title="T020 · Analyzing molecular dynamics simulations"
+            <a href="T020_md_analysis.html" title="T020 · 分子动力学模拟分析"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -2482,17 +2502,17 @@ Associated canonical SMILES:  O(C)c1c(C(=Cc2c3c(N)nc(N)nc3oc2)CCCC)cccc1
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> T020 · Analyzing molecular dynamics simulations </span>
+                      class="md-footer-nav__direction"> "Previous" </span> T020 · 分子动力学模拟分析 </span>
               </div>
             </a>
           
           
-            <a href="T022_ligand_based_screening_neural_network.html" title="T022 · Ligand-based screening: neural networks"
+            <a href="T022_ligand_based_screening_neural_network.html" title="T022 · 基于配体的筛选：神经网络"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> T022 · Ligand-based screening: neural networks </span>
+                class="md-footer-nav__direction"> "Next" </span> T022 · 基于配体的筛选：神经网络 </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

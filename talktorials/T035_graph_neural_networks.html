@@ -4,14 +4,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="T035 · GNN-based molecular property prediction" />
+<meta property="og:title" content="T035 · 基于 GNN 的分子性质预测" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://projects.volkamerlab.org/teachopencadd/talktorials/T035_graph_neural_networks.html" />
 <meta property="og:site_name" content="TeachOpenCADD" />
-<meta property="og:description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Paula Linh Kramer, 2022, Volkamer Lab, NextAID project, Saarland University. Aim of this talktorial: In this ..." />
+<meta property="og:description" content="注： 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。 作者： Paula Linh Kramer, 2022, Volkamer 实验室, NextAID 项目, 萨尔大学. 本教程的目标: 在本教程中，我们将首先解释图神经网络（GNN）的基本概念，并介绍两种不同的 GNN 架构。我们将神经网络应用于 QM9 数据集，该数据集包含小分子数据。利用这个数据集，我们希望预测分子性质。我们将演示如何使用 PyTorch Geometric 逐步训练和评估 GNN。 理论 部分内容: GNN 任务..." />
 <meta property="og:image" content="https://raw.githubusercontent.com/volkamerlab/teachopencadd/master/docs/_static/images/TeachOpenCADD_topics.png" />
 <meta property="og:image:alt" content="TeachOpenCADD" />
-<meta name="description" content="Note: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects. Authors: Paula Linh Kramer, 2022, Volkamer Lab, NextAID project, Saarland University. Aim of this talktorial: In this ..." />
+<meta name="description" content="注： 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。 作者： Paula Linh Kramer, 2022, Volkamer 实验室, NextAID 项目, 萨尔大学. 本教程的目标: 在本教程中，我们将首先解释图神经网络（GNN）的基本概念，并介绍两种不同的 GNN 架构。我们将神经网络应用于 QM9 数据集，该数据集包含小分子数据。利用这个数据集，我们希望预测分子性质。我们将演示如何使用 PyTorch Geometric 逐步训练和评估 GNN。 理论 部分内容: GNN 任务..." />
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -82,7 +82,7 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>T035 · GNN-based molecular property prediction &#8212; TeachOpenCADD 0.0.post1 documentation</title>
+    <title>T035 · 基于 GNN 的分子性质预测 &#8212; TeachOpenCADD 0.0.post1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -100,8 +100,8 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="T036 · An introduction to E(3)-invariant graph neural networks" href="T036_e3_equivariant_gnn.html" />
-    <link rel="prev" title="T034 · RNN-based molecular property prediction" href="T034_recurrent_neural_networks.html" />
+    <link rel="next" title="T036 · E(3)-等变图神经网络入门" href="T036_e3_equivariant_gnn.html" />
+    <link rel="prev" title="T034 · 基于 RNN 的分子性质预测" href="T034_recurrent_neural_networks.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -140,7 +140,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">TeachOpenCADD</span>
-          <span class="md-header-nav__topic"> T035 · GNN-based molecular property prediction </span>
+          <span class="md-header-nav__topic"> T035 · 基于 GNN 的分子性质预测 </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -424,61 +424,61 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#talktorials-t035-graph-neural-networks--page-root" class="md-nav__link">T035 · GNN-based molecular property prediction</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#talktorials-t035-graph-neural-networks--page-root" class="md-nav__link">T035 · 基于 GNN 的分子性质预测</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Aim-of-this-talktorial" class="md-nav__link">Aim of this talktorial</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#本教程的目标" class="md-nav__link">本教程的目标</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Contents-in-Theory" class="md-nav__link">Contents in <em>Theory</em></a>
+        <li class="md-nav__item"><a href="#理论-部分内容" class="md-nav__link"><em>理论</em> 部分内容</a>
         </li>
-        <li class="md-nav__item"><a href="#Contents-in-Practical" class="md-nav__link">Contents in <em>Practical</em></a>
+        <li class="md-nav__item"><a href="#实践-部分内容" class="md-nav__link"><em>实践</em> 部分内容</a>
         </li>
-        <li class="md-nav__item"><a href="#References" class="md-nav__link">References</a>
+        <li class="md-nav__item"><a href="#参考文献" class="md-nav__link">参考文献</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Theory" class="md-nav__link">Theory</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#理论" class="md-nav__link">理论</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Graph-Neural-Networks" class="md-nav__link">Graph Neural Networks</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#图神经网络" class="md-nav__link">图神经网络</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#GNN-Tasks" class="md-nav__link">GNN Tasks</a>
+        <li class="md-nav__item"><a href="#GNN-任务" class="md-nav__link">GNN 任务</a>
         </li>
-        <li class="md-nav__item"><a href="#Message-Passing" class="md-nav__link">Message Passing</a>
+        <li class="md-nav__item"><a href="#消息传递" class="md-nav__link">消息传递</a>
         </li>
         <li class="md-nav__item"><a href="#GCN" class="md-nav__link">GCN</a>
         </li>
         <li class="md-nav__item"><a href="#GIN" class="md-nav__link">GIN</a>
         </li>
-        <li class="md-nav__item"><a href="#Training-a-GNN" class="md-nav__link">Training a GNN</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#训练-GNN" class="md-nav__link">训练 GNN</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Batching" class="md-nav__link">Batching</a>
+        <li class="md-nav__item"><a href="#批处理" class="md-nav__link">批处理</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Pooling" class="md-nav__link">Pooling</a>
+        <li class="md-nav__item"><a href="#池化" class="md-nav__link">池化</a>
         </li>
-        <li class="md-nav__item"><a href="#Dropout-(Regularization)" class="md-nav__link">Dropout (Regularization)</a>
+        <li class="md-nav__item"><a href="#Dropout（正则化）" class="md-nav__link">Dropout（正则化）</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Applications-of-GNNs" class="md-nav__link">Applications of GNNs</a>
+        <li class="md-nav__item"><a href="#GNN-的应用" class="md-nav__link">GNN 的应用</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Practical" class="md-nav__link">Practical</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#实践" class="md-nav__link">实践</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#Dataset" class="md-nav__link">Dataset</a>
+        <li class="md-nav__item"><a href="#数据集" class="md-nav__link">数据集</a>
         </li>
-        <li class="md-nav__item"><a href="#Defining-a-GCN-and-a-GIN" class="md-nav__link">Defining a GCN and a GIN</a>
+        <li class="md-nav__item"><a href="#定义-GCN-和-GIN" class="md-nav__link">定义 GCN 和 GIN</a>
         </li>
-        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Training a GNN</a>
+        <li class="md-nav__item"><a href="#id14" class="md-nav__link">训练 GNN</a>
         </li>
-        <li class="md-nav__item"><a href="#Evaluating-the-model" class="md-nav__link">Evaluating the model</a>
+        <li class="md-nav__item"><a href="#评估模型" class="md-nav__link">评估模型</a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a>
+        <li class="md-nav__item"><a href="#讨论" class="md-nav__link">讨论</a>
         </li>
-        <li class="md-nav__item"><a href="#Quiz" class="md-nav__link">Quiz</a>
+        <li class="md-nav__item"><a href="#测验" class="md-nav__link">测验</a>
         </li></ul>
             </nav>
         </li>
@@ -496,40 +496,40 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="T035-·-GNN-based-molecular-property-prediction">
-<h1 id="talktorials-t035-graph-neural-networks--page-root">T035 · GNN-based molecular property prediction<a class="headerlink" href="#talktorials-t035-graph-neural-networks--page-root" title="Link to this heading">¶</a></h1>
-<p><strong>Note</strong>: This talktorial is a part of TeachOpenCADD, a platform that aims to teach domain-specific skills and to provide pipeline templates as starting points for research projects.</p>
-<p>Authors:</p>
+  <section id="T035-·-基于-GNN-的分子性质预测">
+<h1 id="talktorials-t035-graph-neural-networks--page-root">T035 · 基于 GNN 的分子性质预测<a class="headerlink" href="#talktorials-t035-graph-neural-networks--page-root" title="Link to this heading">¶</a></h1>
+<p><strong>注：</strong> 本教程是 TeachOpenCADD 的一部分。TeachOpenCADD 是一个旨在教授领域专用技能，并提供可作为研究项目起点的流程模板的平台。</p>
+<p>作者：</p>
 <ul class="simple">
-<li><p>Paula Linh Kramer, 2022, <a class="reference external" href="https://volkamerlab.org/">Volkamer Lab</a>, <a class="reference external" href="https://nextaid.cs.uni-saarland.de/">NextAID</a> project, Saarland University</p></li>
+<li><p>Paula Linh Kramer, 2022, <a class="reference external" href="https://volkamerlab.org/">Volkamer 实验室</a>, <a class="reference external" href="https://nextaid.cs.uni-saarland.de/">NextAID</a> 项目, 萨尔大学</p></li>
 </ul>
-<section id="Aim-of-this-talktorial">
-<h2 id="Aim-of-this-talktorial">Aim of this talktorial<a class="headerlink" href="#Aim-of-this-talktorial" title="Link to this heading">¶</a></h2>
-<p>In this tutorial, we will first explain the basic concepts of graph neural networks (GNNs) and present two different GNN architectures. We apply our neural networks to the <code class="docutils literal notranslate"><span class="pre">QM9</span></code> dataset, which is a dataset containing small molecules. With this dataset, we want to predict molecular properties. We demonstrate how to train and evaluate GNNs step by step using PyTorch Geometric.</p>
-<section id="Contents-in-Theory">
-<h3 id="Contents-in-Theory">Contents in <em>Theory</em><a class="headerlink" href="#Contents-in-Theory" title="Link to this heading">¶</a></h3>
+<section id="本教程的目标">
+<h2 id="本教程的目标">本教程的目标<a class="headerlink" href="#本教程的目标" title="Link to this heading">¶</a></h2>
+<p>在本教程中，我们将首先解释图神经网络（GNN）的基本概念，并介绍两种不同的 GNN 架构。我们将神经网络应用于 <code class="docutils literal notranslate"><span class="pre">QM9</span></code> 数据集，该数据集包含小分子数据。利用这个数据集，我们希望预测分子性质。我们将演示如何使用 PyTorch Geometric 逐步训练和评估 GNN。</p>
+<section id="理论-部分内容">
+<h3 id="理论-部分内容"><em>理论</em> 部分内容<a class="headerlink" href="#理论-部分内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>GNN Tasks</p></li>
-<li><p>Message Passing</p></li>
-<li><p>Graph Convolutional Network (GCN)</p></li>
-<li><p>Graph Isomorphism Network (GIN)</p></li>
-<li><p>Training a GNN</p></li>
-<li><p>Applications of GNNs</p></li>
-</ul>
-</section>
-<section id="Contents-in-Practical">
-<h3 id="Contents-in-Practical">Contents in <em>Practical</em><a class="headerlink" href="#Contents-in-Practical" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p>Dataset</p></li>
-<li><p>Defining a GCN and GIN</p></li>
-<li><p>Training a GNN</p></li>
-<li><p>Evaluating the model</p></li>
+<li><p>GNN 任务</p></li>
+<li><p>消息传递</p></li>
+<li><p>图卷积网络（GCN）</p></li>
+<li><p>图同构网络（GIN）</p></li>
+<li><p>训练 GNN</p></li>
+<li><p>GNN 的应用</p></li>
 </ul>
 </section>
-<section id="References">
-<h3 id="References">References<a class="headerlink" href="#References" title="Link to this heading">¶</a></h3>
+<section id="实践-部分内容">
+<h3 id="实践-部分内容"><em>实践</em> 部分内容<a class="headerlink" href="#实践-部分内容" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Articles:</p>
+<li><p>数据集</p></li>
+<li><p>定义 GCN 和 GIN</p></li>
+<li><p>训练 GNN</p></li>
+<li><p>评估模型</p></li>
+</ul>
+</section>
+<section id="参考文献">
+<h3 id="参考文献">参考文献<a class="headerlink" href="#参考文献" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>论文：</p>
 <ul>
 <li><p>Atz, Kenneth, Francesca Grisoni, and Gisbert Schneider. <em>Geometric Deep Learning on Molecular Representations</em>, <a class="reference external" href="https://arxiv.org/pdf/2107.12375.pdf">Nature Machine Intelligence 3.12 (2021): 1023-1032</a></p></li>
 <li><p>Xu, Keyulu, Weihua Hu, Jure Leskovec, and Stefanie Jegelka. <em>How Powerful are Graph Neural Networks?</em>, <a class="reference external" href="https://arxiv.org/abs/1810.00826v3">International Conference on Learning Representations (ICLR 2019)</a></p></li>
@@ -537,116 +537,123 @@
 <li><p>Gilmer, Justin, Samuel S. Schoenholz, Patrick F. Riley, Oriol Vinyals, and George E. Dahl. <em>Neural Message Passing for Quantum Chemistry</em>, <a class="reference external" href="https://arxiv.org/pdf/1704.01212.pdf">International conference on machine learning. PMLR, 2017</a></p></li>
 </ul>
 </li>
-<li><p>Blog posts:</p>
+<li><p>博客文章：</p>
 <ul>
 <li><p>Maxime Labonne, <em>Graph Convolutional Networks: Introduction to GNNs</em>, <a class="reference external" href="https://mlabonne.github.io/blog/intrognn/">Maxime Labonne</a></p></li>
 <li><p>Maxime Labonne, <em>GIN: How to Design the Most Powerful Graph Neural Network</em>, <a class="reference external" href="https://mlabonne.github.io/blog/gin/">Maxime Labonne</a></p></li>
-<li><p>Vortana Say, <em>How To Save and Load Model In PyTorch With A Complete Example</em>, <a class="reference external" href="https://towardsdatascience.com/how-to-save-and-load-a-model-in-pytorch-with-a-complete-example-c2920e617dee">towardsdatascience</a></p></li>
 <li><p>Michael Bronstein, <em>Expressive power of graph neural networks and the Weisfeiler-Lehman test</em>, <a class="reference external" href="https://towardsdatascience.com/expressive-power-of-graph-neural-networks-and-the-weisefeiler-lehman-test-b883db3c7c49">towardsdatascience</a></p></li>
 <li><p>Benjamin Sanchez-Lengeling, Emily Reif, <em>A Gentle Introduction to Graph Neural Networks</em>, <a class="reference external" href="https://distill.pub/2021/gnn-intro/">Distill</a></p></li>
 </ul>
 </li>
-<li><p>Tutorials:</p>
+<li><p>教程：</p>
 <ul>
+<li><p>Pytorch Documentation, <em>Saving and Loading Models</em>, <a class="reference external" href="https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html">Documentation</a></p></li>
 <li><p><em>Pytorch Geometric Documentation</em>, <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/notes/colabs.html">Colab Notebooks and Video Tutorials</a></p></li>
 <li><p><em>Pytorch Geometric Documentation</em>, <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/notes/introduction.html#learning-methods-on-graphs">Introduction by Example</a></p></li>
 </ul>
 </li>
 </ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s2">"google.colab"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">%</span><span class="k">pip</span> install teachopencadd --no-deps -q
+    <span class="o">!</span>teachopencadd<span class="w"> </span>-d<span class="w"> </span><span class="m">35</span>
+    <span class="o">%</span><span class="k">pip</span> uninstall teachopencadd -y -q
+    <span class="o">%</span><span class="k">pip</span> install -qr requirements.txt
+</pre></div>
+</div>
+</div>
 </section>
 </section>
-<section id="Theory">
-<h2 id="Theory">Theory<a class="headerlink" href="#Theory" title="Link to this heading">¶</a></h2>
-<section id="Graph-Neural-Networks">
-<h3 id="Graph-Neural-Networks">Graph Neural Networks<a class="headerlink" href="#Graph-Neural-Networks" title="Link to this heading">¶</a></h3>
-<p>There are several ways to represent molecules which are explained and discussed in <strong>Talktorial T033</strong>. If we work with molecules, one intuitive approach to apply deep learning to certain tasks is to make use of the graph structure of molecules. Graph neural networks can directly work on given graphs. Molecules can easily be represented as a graph, as seen in Figure 1. Given a graph <span class="math notranslate nohighlight">\(G=(V, E)\)</span>, <span class="math notranslate nohighlight">\(V\)</span> describes the vertices or nodes. In molecular graphs, a node
-<span class="math notranslate nohighlight">\(v_i \in \mathbb{R}^{d_v}\)</span> represents an atom. Nodes can have <span class="math notranslate nohighlight">\(d_v\)</span> different features, such as atomic number and chirality. Edges usually correspond to covalent bonds between the atoms. Each edge <span class="math notranslate nohighlight">\(e_{ij} \in \mathbb{R}^{d_e}\)</span> is described by <span class="math notranslate nohighlight">\(d_e\)</span> number of features, which usually represent the bond type. A graph neural network is a network consisting of learnable and differentiable functions that are invariant for graph permutations. Graph neural networks consist of
-so-called message-passing layers which will be explained in more detail below, followed by more specific explanations of two different GNN architectures.</p>
+<section id="理论">
+<h2 id="理论">理论<a class="headerlink" href="#理论" title="Link to this heading">¶</a></h2>
+<section id="图神经网络">
+<h3 id="图神经网络">图神经网络<a class="headerlink" href="#图神经网络" title="Link to this heading">¶</a></h3>
+<p>有几种表示分子的方法，在 <strong>教程 T033</strong> 中已经解释和讨论过。当我们处理分子时，将深度学习应用于某些任务的一种直观方法是利用分子的图结构。图神经网络可以直接处理给定的图。分子很容易表示为图，如图 1 所示。给定一个图 <span class="math notranslate nohighlight">\(G=(V, E)\)</span>，<span class="math notranslate nohighlight">\(V\)</span> 表示顶点或节点。在分子图中，节点 <span class="math notranslate nohighlight">\(v_i \in \mathbb{R}^{d_v}\)</span> 代表一个原子。节点可以有 <span class="math notranslate nohighlight">\(d_v\)</span> 个不同的特征，例如原子序号和手性。边通常对应于原子之间的共价键。每条边 <span class="math notranslate nohighlight">\(e_{ij} \in \mathbb{R}^{d_e}\)</span> 由 <span class="math notranslate nohighlight">\(d_e\)</span>
+个特征描述，通常表示键类型。图神经网络是由可学习和可微分的函数组成的网络，对于图的排列具有不变性。图神经网络由所谓的消息传递层组成，下面将更详细地解释这些层，随后给出两种不同 GNN 架构的更具体说明。</p>
 <p align="center"><p><img alt="simple_graph" class="no-scaled-link" src="../_images/simple-graph.png" style="width: 600px;"/></p>
-</p><p align="center"><p>Figure 1: Molecular graph overview. Figure taken from [1]</p>
-</p><section id="GNN-Tasks">
-<h4 id="GNN-Tasks">GNN Tasks<a class="headerlink" href="#GNN-Tasks" title="Link to this heading">¶</a></h4>
-<p>We can perform different tasks with a GNN:</p>
+</p><p align="center"><p>图 1: 分子图概览。图片来自 [1]</p>
+</p><section id="GNN-任务">
+<h4 id="GNN-任务">GNN 任务<a class="headerlink" href="#GNN-任务" title="Link to this heading">¶</a></h4>
+<p>我们可以使用 GNN 执行不同的任务：</p>
 <ul class="simple">
-<li><p>Graph-level tasks: one application would be to predict a specific property of the entire graph. This can be a classification task such as toxicity prediction or a regression task. In this tutorial, we will implement a regression task to predict molecular properties. Another graph-level task would be to predict entirely new graphs/molecules. This is especially relevant in the area of drug discovery, where new drug candidates are of interest.</p></li>
-<li><p>Node-level tasks: we can predict a property of a specific node in the graph, e.g. the atomic charges of each atom. We could also predict a new node to be added to the graph. This is often done for molecule generation, where we want to add multiple atoms to form new molecules one after the other.</p></li>
-<li><p>Edge-level tasks: we can predict edge properties, e.g. intramolecular forces between atoms, or a new edge in the graph. In the molecule generation context, we want to predict potential bonds between the atoms. Edge prediction can also be used to infer connections/interactions e.g. in a gene regulatory network.</p></li>
+<li><p>图级任务：一个应用是预测整个图的特定属性。这可以是分类任务（如毒性预测）或回归任务。在本教程中，我们将实现一个回归任务来预测分子性质。另一个图级任务是预测全新的图/分子。这在药物发现领域尤其重要，因为寻找新的候选药物是核心目标。</p></li>
+<li><p>节点级任务：我们可以预测图中特定节点的属性，例如每个原子的原子电荷。我们还可以预测要添加到图中的新节点。这在分子生成中经常用到，我们需要逐个添加多个原子以形成新分子。</p></li>
+<li><p>边级任务：我们可以预测边的属性，例如原子间的分子内力，或图中的新边。在分子生成中，我们希望预测原子之间的潜在键。边预测也可以用于推断生物网络（如基因调控网络）中的连接/相互作用。</p></li>
 </ul>
 </section>
-<section id="Message-Passing">
-<h4 id="Message-Passing">Message Passing<a class="headerlink" href="#Message-Passing" title="Link to this heading">¶</a></h4>
-<p>Instead of MLP layers in standard neural networks, GNNs have message-passing layers, where we collect information about the neighboring nodes. For each node <span class="math notranslate nohighlight">\(v\)</span>, we look at the direct neighbors <span class="math notranslate nohighlight">\(N(v)\)</span> and gather information. Then all the information is aggregated, for example with summation. Then we update the node <span class="math notranslate nohighlight">\(v\)</span> with the aggregated messages. If we perform this aggregation and combining, each node contains the information about the direct neighbors (1-hop). If we repeat
-this <span class="math notranslate nohighlight">\(n\)</span> times, we aggregate information about the <span class="math notranslate nohighlight">\(n_{th}\)</span> closest neighbors (<span class="math notranslate nohighlight">\(n\)</span> -hop).</p>
+<section id="消息传递">
+<h4 id="消息传递">消息传递<a class="headerlink" href="#消息传递" title="Link to this heading">¶</a></h4>
+<p>与标准神经网络中的 MLP 层不同，GNN 具有消息传递层，在其中我们收集关于邻居节点的信息。对于每个节点 <span class="math notranslate nohighlight">\(v\)</span>，我们查看直接邻居 <span class="math notranslate nohighlight">\(N(v)\)</span> 并收集信息。然后所有信息被聚合，例如使用求和。然后我们用聚合的消息更新节点 <span class="math notranslate nohighlight">\(v\)</span>。如果我们执行这个聚合和组合，每个节点包含直接邻居的信息（1 跳）。如果我们重复 <span class="math notranslate nohighlight">\(n\)</span> 次，我们就聚合了第 <span class="math notranslate nohighlight">\(n\)</span> 近的邻居的信息（<span class="math notranslate nohighlight">\(n\)</span> 跳）。</p>
 <div class="math notranslate nohighlight">
 \[a_v^{(k)} = \text{aggregate}^{(k)} (\{ h_u^{(k-1)}: u \in N(v) \})\]</div>
 <div class="math notranslate nohighlight">
 \[h_v^{(k)} = \text{combine}^{(k)} (h_v^{(k-1)}, a_v^{(k)})\]</div>
-<p>where <span class="math notranslate nohighlight">\(h_v^{(k)}\)</span> is the embedding of node <span class="math notranslate nohighlight">\(v\)</span> at layer <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(N(v)\)</span> are the neighbors of node <span class="math notranslate nohighlight">\(v\)</span>.</p>
+<p>其中 <span class="math notranslate nohighlight">\(h_v^{(k)}\)</span> 是节点 <span class="math notranslate nohighlight">\(v\)</span> 在第 <span class="math notranslate nohighlight">\(k\)</span> 层的嵌入，<span class="math notranslate nohighlight">\(N(v)\)</span> 是节点 <span class="math notranslate nohighlight">\(v\)</span> 的邻居。</p>
 <p align="center"><p><img alt="simple_graph" class="no-scaled-link" src="../_images/gnn_overview.png" style="width: 600px;"/></p>
-</p><p align="center"><p>Figure 2: Message passing overview. Figure taken from [2]</p>
-</p><p>One important property of a GNN is permutation invariance. This means that changing the order of nodes in the graph should not affect the outcome. For example, when working with adjacency matrices, changing the order of nodes would mean swapping rows and/or columns. However, this does not change any properties of a graph, but the input would differ. In GNNs, we want to overcome this. We, therefore need an aggregation function and a combining function that are permutation invariant, such as using
-the mean, the maximum or a sum. Using a permutation invariant aggregation function ensures that the graph-level outputs are also invariant to permutations. In this tutorial, we will explain graph-level regression tasks and in the following, we will present two different GNN architectures.</p>
+</p><p align="center"><p>图 2: 消息传递概览。图片来自 [2]</p>
+</p><p>GNN 的一个重要特性是置换不变性。这意味着改变图中节点的顺序不应影响结果。例如，使用邻接矩阵时，改变节点的顺序意味着交换行和/或列。然而，这不会改变图的任何属性，但输入会不同。在 GNN 中，我们希望克服这个问题。因此，我们需要一个置换不变的聚合函数和组合函数，例如使用均值、最大值或求和。 使用置换不变的聚合函数可以确保图级输出也对置换具有不变性。 在本教程中，我们将解释图级回归任务，并将在下面介绍两种不同的 GNN 架构。</p>
 </section>
 <section id="GCN">
 <h4 id="GCN">GCN<a class="headerlink" href="#GCN" title="Link to this heading">¶</a></h4>
-<p>One of the simplest GNNs is a Graph Convolutional Network (GCN). For GCNs, we sum over all neighbors of node <span class="math notranslate nohighlight">\(v\)</span>, including the node <span class="math notranslate nohighlight">\(v\)</span> itself and aggregate all information. We divide it by the degree to keep the range of different nodes comparable. The node-wise aggregation function for layer <span class="math notranslate nohighlight">\(k\)</span> is</p>
+<p>最简单的 GNN 之一是图卷积网络（GCN）。对于 GCN，我们对节点 <span class="math notranslate nohighlight">\(v\)</span> 的所有邻居（包括节点 <span class="math notranslate nohighlight">\(v\)</span> 自身）求和并聚合所有信息。我们将其除以度数，以保持不同节点的数值范围可比。第 <span class="math notranslate nohighlight">\(k\)</span> 层的节点级聚合函数为：</p>
 <div class="math notranslate nohighlight">
 \[h_v^{(k)} = \Theta^{\top} \sum_{u \in N(v) \cup \{v\}} \frac{1}{\sqrt{d_v d_u}} \cdot h_u^{(k-1)}\]</div>
-<p>where <span class="math notranslate nohighlight">\(d_j\)</span> and <span class="math notranslate nohighlight">\(d_i\)</span> denote the degree of node <span class="math notranslate nohighlight">\(j\)</span> and <span class="math notranslate nohighlight">\(i\)</span>, respectively, and <span class="math notranslate nohighlight">\(\Theta\)</span> represent trainable weights.</p>
-<p>One disadvantage of GCNs is, that they use a mean-based aggregation and this function is not injective. This means that different graphs can lead to the same graph embedding and the network cannot distinguish between the two graphs anymore. One example is visualized in Figure 3 below. Assuming the node and edge properties are identical, GCNs could create the same hidden embedding for these two graphs.</p>
+<p>其中 <span class="math notranslate nohighlight">\(d_j\)</span> 和 <span class="math notranslate nohighlight">\(d_i\)</span> 分别表示节点 <span class="math notranslate nohighlight">\(j\)</span> 和 <span class="math notranslate nohighlight">\(i\)</span> 的度数，<span class="math notranslate nohighlight">\(\Theta\)</span> 表示可训练的权重。</p>
+<p>GCN 的一个缺点是它们使用基于均值的聚合函数，而这个函数不是单射的。这意味着不同的图可能导致相同的图嵌入，网络无法再区分这两个图。一个例子如图 3 所示。假设节点和边的属性相同，GCN 可能为这两个图创建相同的隐藏嵌入。</p>
 <p align="center"><p><img alt="simple_graph" class="no-scaled-link" src="../_images/graph.jpeg" style="width: 500px;"/></p>
-</p><p align="center"><p>Figure 3: Two indistinguishable graphs using GCNs</p>
+</p><p align="center"><p>图 3: 使用 GCN 无法区分的两个图</p>
 </p></section>
 <section id="GIN">
 <h4 id="GIN">GIN<a class="headerlink" href="#GIN" title="Link to this heading">¶</a></h4>
-<p>Another type of GNN is the Graph Isomorphism Network (GIN), which has been proposed to overcome the disadvantages of GCNs explained above. The aggregation function is defined as follows</p>
+<p>另一种类型的 GNN 是图同构网络（GIN），它被提出来克服上面解释的 GCN 的缺点。其聚合函数定义如下：</p>
 <div class="math notranslate nohighlight">
 \[h_v^{(k)} = h_\Theta((1+ \epsilon) \cdot h_v^{(k-1)} + \sum_{u \in N(v)} h_u^{(k-1)} )\]</div>
-<p>The aggregation function here is a sum. The parameter <span class="math notranslate nohighlight">\(\epsilon\)</span> decides on the importance of the node <span class="math notranslate nohighlight">\(v\)</span> compared to its neighbors. <span class="math notranslate nohighlight">\(h_\Theta\)</span> represents a neural network for all nodes <span class="math notranslate nohighlight">\(v\)</span>, for example an MLP. The sum aggregation function is more powerful compared to a mean aggregation (used in the GCN above) since we can distinguish between more similar graphs, for example, the two graphs in Figure 3.</p>
-<p>GINs are a good example of a simple network, which still is quite powerful, as they are quite good at distinguishing between non-isomorphic graphs. Two graphs are isomorphic if the graphs are identical except for node permutations. While this might be easily visible for smaller graphs, it is a complex problem for larger graphs. When working with GNNs, we would like the model to give us the same output if the input graphs are isomorphic. On the other hand, we also want the model to be able to
-differentiate between non-isomorphic graphs and output (possibly) different results. GINs can differentiate between non-isomorphic graphs a lot better than other simple GNNs such as GCN and GraphSage. For example, the two graphs in the figure above have different embeddings using GINs, since we are using a sum-based aggregation without any scaling or averaging. It is proven that GINs are as powerful as the Weisfeiler-Lehman test, a common (but not perfect) isomorphism test for graphs. If you are
-interested in the WL test or more details on GINs, have a look at the original publication about <a class="reference external" href="https://arxiv.org/abs/1810.00826v3">GINs</a> or this <a class="reference external" href="https://towardsdatascience.com/expressive-power-of-graph-neural-networks-and-the-weisefeiler-lehman-test-b883db3c7c49">blog post</a> about the WL test. GINs cannot distinguish between all non-isomorphic graphs, one example is in Figure 4. Each node in both graphs has the same number of neighbors, therefore <span class="math notranslate nohighlight">\(h_v\)</span> is the same for all nodes
-<span class="math notranslate nohighlight">\(v\)</span> in both graphs.</p>
+<p>这里的聚合函数是求和。参数 <span class="math notranslate nohighlight">\(\epsilon\)</span> 决定节点 <span class="math notranslate nohighlight">\(v\)</span> 相对于其邻居的重要性。<span class="math notranslate nohighlight">\(h_\Theta\)</span> 代表所有节点 <span class="math notranslate nohighlight">\(v\)</span> 的神经网络，例如一个 MLP。求和聚合函数比均值聚合（用于上面的 GCN）更强大，因为我们可以区分更多相似的图，例如图 3 中的两个图。</p>
+<p>GIN 是一个简单但仍然相当强大的网络示例，因为它们非常擅长区分非同构图。如果两个图除了节点排列之外完全相同，则它们称为同构。虽然对于较小的图这可能很容易看出，但对于较大的图来说这是一个复杂的问题。在使用 GNN 时，我们希望如果输入图是同构的，模型能给出相同的输出。另一方面，我们也希望模型能够区分非同构图并输出（可能）不同的结果。GIN 在区分非同构图方面比其他简单的 GNN（如 GCN 和 GraphSage）要好得多。例如，上图中的两个图使用 GIN
+会有不同的嵌入，因为我们使用的是基于求和的聚合，没有任何缩放或平均。已经证明 GIN 与 Weisfeiler-Lehman 测试一样强大，这是一种常见（但不完美的）图同构测试。如果你对 WL 测试或 GIN 的更多细节感兴趣，请查看关于 <a class="reference external" href="https://arxiv.org/abs/1810.00826v3">GIN</a> 的原始论文或这篇关于 WL 测试的<a class="reference external" href="https://towardsdatascience.com/expressive-power-of-graph-neural-networks-and-the-weisefeiler-lehman-test-b883db3c7c49">博客文章</a>。GIN 无法区分所有非同构图，一个例子在图 4
+中。两个图中的每个节点都有相同数量的邻居，因此 <span class="math notranslate nohighlight">\(h_v\)</span> 在两个图中的所有节点 <span class="math notranslate nohighlight">\(v\)</span> 上都是相同的。</p>
 <p align="center"><p><img alt="simple_graph" class="no-scaled-link" src="../_images/gin_graphs.jpeg" style="width: 500px;"/></p>
-</p><p align="center"><p>Figure 4: Two indistinguishable graphs using GINs</p>
+</p><p align="center"><p>图 4: 使用 GIN 无法区分的两个图</p>
 </p></section>
-<section id="Training-a-GNN">
-<h4 id="Training-a-GNN">Training a GNN<a class="headerlink" href="#Training-a-GNN" title="Link to this heading">¶</a></h4>
-<p>Similar to training a standard neural network, different design choices and hyperparameters need to be decided on. We will shortly present some concepts commonly used in neural networks, which can also be used for GNNs. Loss functions and activation functions are already discussed in <strong>Talktorial T022</strong>. We also used the mean squared error loss as well as the ReLU activation function.</p>
-<section id="Batching">
-<h5 id="Batching">Batching<a class="headerlink" href="#Batching" title="Link to this heading">¶</a></h5>
-<p>It is common to do batching when training a GNN to improve performance. The batch size indicates how many samples from the training data are fed to the neural network before updating model parameters. Choosing the right batch size is a trade-off between computational cost and generalization. For larger batches, the model is updated fewer times and the training is a lot faster. Models using smaller batches can generalize better, meaning that the test error can be lowered. Since this is not the
-only hyperparameter, choosing the batch size is also linked to the learning rate, the number of training epochs etc. One way to implement batching in GNNs is to stack the adjacency matrices of all graphs in the batch diagonally and to concatenate the node feature matrices. However, graphs (especially molecular graphs) can have rather sparse adjacency matrices. In this case, it is more efficient to use a sparse representation for the edges. PyTorch Geometric for example uses <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/notes/batching.html">edge
-lists</a>, where only the indexes of present edges are saved. These lists are concatenated during batching.</p>
+<section id="训练-GNN">
+<h4 id="训练-GNN">训练 GNN<a class="headerlink" href="#训练-GNN" title="Link to this heading">¶</a></h4>
+<p>与训练标准神经网络类似，需要决定不同的设计选择和超参数。我们将简要介绍一些神经网络中常用的概念，这些概念也可以用于 GNN。损失函数和激活函数已在 <strong>教程 T022</strong> 中讨论过。我们这里也使用了均方误差损失和 ReLU 激活函数。</p>
+<section id="批处理">
+<h5 id="批处理">批处理<a class="headerlink" href="#批处理" title="Link to this heading">¶</a></h5>
+<p>在训练 GNN 时，通常进行批处理以提高性能。批大小表示在更新模型参数之前，有多少训练数据样本被送入神经网络。选择合适的批大小是在计算成本和泛化能力之间的权衡。对于较大的批次，模型更新的次数较少，训练速度更快。使用较小批次的模型可以更好地泛化，这意味着可以降低测试误差。由于这不是唯一的超参数，选择批大小也与学习率、训练 epoch 数量等相关。</p>
+<p>在 GNN 中实现批处理的一种方式是将批次中所有图的邻接矩阵对角堆叠，并将节点特征矩阵拼接起来。然而，图（尤其是分子图）可能具有相当稀疏的邻接矩阵。在这种情况下，使用边的稀疏表示更高效。例如，PyTorch Geometric 使用<a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/notes/batching.html">边列表</a>，其中只保存现有边的索引。在批处理过程中，这些列表被拼接起来。</p>
 <p align="center"><p><img alt="simple_graph" class="no-scaled-link" src="../_images/batching-ex.png" style="width: 600px;"/></p>
-</p><p align="center"><p>Figure 4: Batching in GNNs, image taken from [3]</p>
+</p><p align="center"><p>图 5: GNN 中的批处理，图片来自 [3]</p>
 </p></section>
 </section>
-<section id="Pooling">
-<h4 id="Pooling">Pooling<a class="headerlink" href="#Pooling" title="Link to this heading">¶</a></h4>
-<p>Pooling layers help a neural network to reduce dimensionality. This makes the model more robust to variations. In graphs, global pooling layers can produce a graph embedding from the different node embeddings. There are different ways for pooling, the most common ones are: mean, max and sum, which are permutation invariant. Hence, pooling layers are also permutation invariant. For our GCN, we use a global mean pooling layer and for our GIN we use a global sum pooling layer, as it was proposed in
-the original publications listed in the references above. Pooling layers are also very useful to reduce the size of the layer to a fixed size for graph representation, therefore global pooling layers are also referred to as readout layers.</p>
+<section id="池化">
+<h4 id="池化">池化<a class="headerlink" href="#池化" title="Link to this heading">¶</a></h4>
+<p>池化层帮助神经网络降低维度。这使模型对变化更加稳健。在图神经网络中，全局池化层可以从不同的节点嵌入产生图嵌入。有几种不同的池化方式，最常见的包括均值、最大值和求和，它们都是置换不变的。因此，池化层也是置换不变的。 对于我们的 GCN，我们使用全局均值池化层；对于我们的 GIN，我们使用全局求和池化层，正如上面参考文献中原始论文所提出的那样。池化层对于将层的大小减小到固定的图表示大小也非常有用，因此全局池化层也被称为读出层。</p>
 </section>
-<section id="Dropout-(Regularization)">
-<h4 id="Dropout-(Regularization)">Dropout (Regularization)<a class="headerlink" href="#Dropout-(Regularization)" title="Link to this heading">¶</a></h4>
-<p>One common problem in deep learning tasks is overfitting. This usually means that the dataset used to train the neural network is too small. Applying an overfitted network to a different dataset then leads to a high error in prediction, since the model is fit too closely to the training data and does not generalize well enough. To reduce overfitting, one approach is to use dropout layers, which can lead to a better generalization of the model. During training, nodes are randomly dropped. The
-probability of dropping nodes is another hyperparameter to be fixed. In each iteration, the nodes in a neural network (and the number of nodes) can therefore differ. This means we incorporate more noise and therefore force the neural network to generalize better.</p>
+<section id="Dropout（正则化）">
+<h4 id="Dropout（正则化）">Dropout（正则化）<a class="headerlink" href="#Dropout（正则化）" title="Link to this heading">¶</a></h4>
+<p>深度学习任务中的一个常见问题是过拟合。这通常意味着用于训练神经网络的数据集太小。将过拟合的网络应用于不同的数据集会导致预测误差很高，因为模型过于贴合训练数据，泛化能力不足。为减少过拟合，一种方法是使用 dropout 层，这可以导致更好的模型泛化。在训练期间，节点被随机丢弃。丢弃节点的概率是另一个需要固定的超参数。在每次迭代中，神经网络中的节点（以及节点数量）因此可能不同。这意味着我们引入了更多噪声，从而迫使神经网络更好地泛化。</p>
 </section>
 </section>
-<section id="Applications-of-GNNs">
-<h3 id="Applications-of-GNNs">Applications of GNNs<a class="headerlink" href="#Applications-of-GNNs" title="Link to this heading">¶</a></h3>
-<p>GNNs can be applied to a wide variety of tasks involving graphs, these could be based on small molecules (like in this tutorial), but also proteins (see <strong>Talktorial T038</strong>), gene regulatory networks and many more. Some applications are:</p>
+<section id="GNN-的应用">
+<h3 id="GNN-的应用">GNN 的应用<a class="headerlink" href="#GNN-的应用" title="Link to this heading">¶</a></h3>
+<p>GNN 可以应用于涉及图的各种任务，这些可以基于小分子（如本教程），也可以基于蛋白质（参见 <strong>教程 T038</strong>）、基因调控网络等等。一些应用包括：</p>
 <ul class="simple">
-<li><p>Property prediction of molecules, such as toxicity and solubility (see: Wieder, Oliver, et al. <em>A compact review of molecular property prediction with graph neural networks</em> <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1740674920300305">Drug Discovery Today: Technologies 37 (2020): 1-12.</a> and <em>MoleculeNet: a benchmark for molecular machine learning</em> by Zhenqin Wu et al., <a class="reference external" href="https://pubs.rsc.org/en/content/articlehtml/2018/sc/c7sc02664a">Chemical science 9.2 (2018): 513-530.</a>)</p></li>
-<li><p>Generating new molecules, which is especially relevant in the field of drug discovery (for more details, read this review by Tong, Xiaochu, et al. <em>Generative models for De Novo drug design</em> <a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00927?casa_token=WhlMtHT6bdEAAAAA%3ATT5MISL_F3LN9lEnddHjZsNpQwuCycQgN02rIYfuSL2BSki12AdH72H4i2KwlhaIltWUPC0ia1g61YQ">Journal of Medicinal Chemistry 64.19 (2021): 14011-14027</a>)</p></li>
-<li><p>Inferring new interactions/associations in biological networks, such as gene regulatory networks or protein-protein interaction networks</p></li>
+<li><p>分子的性质预测，如毒性和溶解度（参见：Wieder, Oliver, et al. <em>A compact review of molecular property prediction with graph neural networks</em> <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1740674920300305">Drug Discovery Today: Technologies 37 (2020): 1-12.</a> 和 <em>MoleculeNet: a benchmark for molecular machine learning</em> by Zhenqin Wu et al., <a class="reference external" href="https://pubs.rsc.org/en/content/articlehtml/2018/sc/c7sc02664a">Chemical science 9.2 (2018): 513-530.</a>）</p></li>
+<li><p>生成新分子，这在药物发现领域尤其重要（更多详情请阅读 Tong, Xiaochu, et al. 的综述 <em>Generative models for De Novo drug design</em> <a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00927">Journal of Medicinal Chemistry 64.19 (2021): 14011-14027</a>）</p></li>
+<li><p>推断生物网络中的新相互作用/关联，如基因调控网络或蛋白质-蛋白质相互作用网络</p></li>
 </ul>
-<p>For a more detailed overview of GNNs and their applications, you can read the article by Zhang, Xiao-Meng, et al. <em>Graph Neural Networks and Their Current Applications in Bioinformatics</em> <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8360394/">Frontiers in Genetics 12 (2021)</a>.</p>
+<p>要了解更多关于 GNN 及其应用的详细信息，可以阅读 Zhang, Xiao-Meng, et al. 的文章 <em>Graph Neural Networks and Their Current Applications in Bioinformatics</em> <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8360394/">Frontiers in Genetics 12 (2021)</a>。</p>
 </section>
 </section>
-<section id="Practical">
-<h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Link to this heading">¶</a></h2>
-<p>For the practical section, we have used PyTorch and PyTorch-Geometric, which helps us to handle graph data efficiently. PyTorch Geometric for example uses sparse matrix representations and implemented efficient graph batching. However, there are also different graph libraries for Python, such as the <a class="reference external" href="https://www.dgl.ai/">Deep Graph Library</a> which is not covered in this tutorial.</p>
+<section id="实践">
+<h2 id="实践">实践<a class="headerlink" href="#实践" title="Link to this heading">¶</a></h2>
+<p>在实践部分，我们使用了 PyTorch 和 PyTorch Geometric，它们帮助我们高效地处理图数据。例如，PyTorch Geometric 使用稀疏矩阵表示并实现了高效的图批处理。不过，Python 也有不同的图库，例如 <a class="reference external" href="https://www.dgl.ai/">Deep Graph Library</a>，本教程不涉及。</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -668,16 +675,6 @@ probability of dropping nodes is another hyperparameter to be fixed. In each ite
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"linux"</span><span class="p">,</span> <span class="s2">"darwin"</span><span class="p">)):</span>
-    <span class="o">!</span>mamba<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>-y<span class="w"> </span>-c<span class="w"> </span>pyg<span class="w"> </span>pyg
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">torch_geometric.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">QM9</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch_geometric.nn</span><span class="w"> </span><span class="kn">import</span> <span class="n">GCNConv</span><span class="p">,</span> <span class="n">GINConv</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch_geometric.loader</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataLoader</span>
@@ -686,80 +683,65 @@ probability of dropping nodes is another hyperparameter to be fixed. In each ite
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># specify the local data path</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 指定本地数据路径</span>
 <span class="n">HERE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">_dh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">DATA</span> <span class="o">=</span> <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"data"</span>
 </pre></div>
 </div>
 </div>
-<section id="Dataset">
-<h3 id="Dataset">Dataset<a class="headerlink" href="#Dataset" title="Link to this heading">¶</a></h3>
-<p>For this tutorial, we use the <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html#torch_geometric.datasets.QM9">QM9</a> dataset, which can be imported with <code class="docutils literal notranslate"><span class="pre">torch_geometric</span></code>. The dataset is part of a benchmarking collection called <a class="reference external" href="https://pubs.rsc.org/en/content/articlehtml/2018/sc/c7sc02664a">MoleculeNet</a>. It contains around <span class="math notranslate nohighlight">\(130,000\)</span> small molecules with at most 9 heavy atoms as well as various molecular properties. We will choose one property which we will
-then try to predict.</p>
+<section id="数据集">
+<h3 id="数据集">数据集<a class="headerlink" href="#数据集" title="Link to this heading">¶</a></h3>
+<p>本教程使用 <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html#torch_geometric.datasets.QM9">QM9</a> 数据集，可以使用 <code class="docutils literal notranslate"><span class="pre">torch_geometric</span></code> 导入。该数据集是名为 <a class="reference external" href="https://pubs.rsc.org/en/content/articlehtml/2018/sc/c7sc02664a">MoleculeNet</a> 的基准测试集合的一部分。它包含约 130,000 个小分子，最多 9 个重原子，以及各种分子性质。我们将选择一个性质进行预测。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load dataset</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 加载数据集</span>
 <span class="n">qm9</span> <span class="o">=</span> <span class="n">QM9</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="n">DATA</span><span class="p">)</span>
 <span class="n">qm9</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-Downloading https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/molnet_publish/qm9.zip
-Extracting ~/teachopencadd/teachopencadd/talktorials/T035_graph_neural_networks/data/raw/qm9.zip
-Downloading https://ndownloader.figshare.com/files/3195404
-Processing...
-100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 133885/133885 [03:03&lt;00:00, 728.09it/s]
-Done!
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], z=[5], name='gdb_1', idx=[1])
+Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], idx=[1], name='gdb_1', z=[5])
 </pre></div></div>
 </div>
-<p>If you are running this tutorial for the first time, the dataset will be downloaded here. As an example, the first molecule from the dataset is shown below. The dataset contains the following information:</p>
+<p>如果你是第一次运行本教程，数据集将在此处下载。下面显示了数据集中的第一个分子作为示例。数据集包含以下信息：</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: contains the different node features, such as atomic number, chirality, hybridization, is aromatic, is ring,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">edge_index</span></code>: adjacency matrix, representing the covalent bonds between the atoms,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">edge_attributes</span></code>: contains the edge features (bond type, is conjugated, stereo configuration),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pos</span></code>: 3D atom coordinates, we will not use them in this tutorial,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">z</span></code>: atomic numbers,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: target values, this dataset contains 19 different properties describing each molecule, such as dipole moment, different molecular energies, enthalpy and rotational constants.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>：包含不同的节点特征，如原子序号、手性、杂化方式、是否芳香、是否成环。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edge_index</span></code>：邻接矩阵，表示原子之间的共价键。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edge_attributes</span></code>：包含边的特征（键类型、是否共轭、立体构型）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pos</span></code>：3D 原子坐标，本教程中不使用。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">z</span></code>：原子序号。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>：目标值，该数据集包含 19 种不同的性质描述每个分子，如偶极矩、不同分子能量、焓和转动常数。</p></li>
 </ul>
-<p>In this tutorial, we only use <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">edge_index</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> to keep it simple. While the dataset has many regression targets, we will only focus on one of the tasks, which is the prediction of the dipole moment <span class="math notranslate nohighlight">\(\mu\)</span>. For this tutorial, we only sample a subset of QM9. This keeps the runtime low and this is still enough to show some first results. The dataset is split into training, validation and test sets with a <span class="math notranslate nohighlight">\(80:10:10\)</span> split ratio. In addition, we normalize the training data
-(<span class="math notranslate nohighlight">\(\mu=0, \sigma=1\)</span>) and apply the same mean and standard deviation to the test and validation set.</p>
+<p>在本教程中，为简单起见，我们只使用 <code class="docutils literal notranslate"><span class="pre">x</span></code>、<code class="docutils literal notranslate"><span class="pre">edge_index</span></code> 和 <code class="docutils literal notranslate"><span class="pre">y</span></code>。虽然数据集有许多回归目标，但我们只关注其中一个任务：预测偶极矩 <span class="math notranslate nohighlight">\(\mu\)</span>。本教程中，我们只对 QM9 的一个子集进行采样。这样可以保持较短的运行时间，同时仍然足够展示初步结果。数据集按 <span class="math notranslate nohighlight">\(80:10:10\)</span> 的比例分为训练集、验证集和测试集。此外，我们对训练数据进行归一化（<span class="math notranslate nohighlight">\(\mu=0, \sigma=1\)</span>），并对测试集和验证集应用相同的均值和标准差。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get one regression target</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 获取一个回归目标</span>
 <span class="n">y_target</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">qm9</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
 <span class="n">qm9</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">y_target</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="n">qm9</span> <span class="o">=</span> <span class="n">qm9</span><span class="o">.</span><span class="n">shuffle</span><span class="p">()</span>
 
-<span class="c1"># data split</span>
+<span class="c1"># 数据拆分</span>
 <span class="n">data_size</span> <span class="o">=</span> <span class="mi">30000</span>
 <span class="n">train_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_size</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
 <span class="n">test_index</span> <span class="o">=</span> <span class="n">train_index</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_size</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="n">val_index</span> <span class="o">=</span> <span class="n">test_index</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_size</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span>
 
 
-<span class="c1"># normalizing the data</span>
+<span class="c1"># 归一化数据</span>
 <span class="n">data_mean</span> <span class="o">=</span> <span class="n">qm9</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">train_index</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">data_std</span> <span class="o">=</span> <span class="n">qm9</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">train_index</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 
@@ -777,30 +759,34 @@ Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], z=[5
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/torch_geometric/data/in_memory_dataset.py:157: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. The data of the dataset is already cached, so any modifications to `data` will not be reflected when accessing its elements. Clearing the cache now by removing all elements in `dataset._data_list`. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
-  warnings.warn(msg)
-~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/torch_geometric/data/in_memory_dataset.py:157: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
-  warnings.warn(msg)
-~/.miniconda3/envs/teachopencadd/lib/python3.9/site-packages/torch_geometric/data/in_memory_dataset.py:157: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. The given 'InMemoryDataset' only references a subset of examples of the full dataset, but 'data' will contain information of the full dataset. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
-  warnings.warn(msg)
+/var/folders/gh/w26fk3_d4rg66fs_7fz84c3c0000gn/T/ipykernel_6145/3547865351.py:2: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. The data of the dataset is already cached, so any modifications to `data` will not be reflected when accessing its elements. Clearing the cache now by removing all elements in `dataset._data_list`. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  y_target = pd.DataFrame(qm9.data.y.numpy())
+/var/folders/gh/w26fk3_d4rg66fs_7fz84c3c0000gn/T/ipykernel_6145/3547865351.py:3: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  qm9.data.y = torch.Tensor(y_target[0])
+/var/folders/gh/w26fk3_d4rg66fs_7fz84c3c0000gn/T/ipykernel_6145/3547865351.py:15: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. The given 'InMemoryDataset' only references a subset of examples of the full dataset, but 'data' will contain information of the full dataset. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  data_mean = qm9.data.y[0:train_index].mean()
+/var/folders/gh/w26fk3_d4rg66fs_7fz84c3c0000gn/T/ipykernel_6145/3547865351.py:16: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. The given 'InMemoryDataset' only references a subset of examples of the full dataset, but 'data' will contain information of the full dataset. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  data_std = qm9.data.y[0:train_index].std()
+/var/folders/gh/w26fk3_d4rg66fs_7fz84c3c0000gn/T/ipykernel_6145/3547865351.py:18: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. The given 'InMemoryDataset' only references a subset of examples of the full dataset, but 'data' will contain information of the full dataset. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  qm9.data.y = (qm9.data.y - data_mean) / data_std
 </pre></div></div>
 </div>
 </section>
-<section id="Defining-a-GCN-and-a-GIN">
-<h3 id="Defining-a-GCN-and-a-GIN">Defining a GCN and a GIN<a class="headerlink" href="#Defining-a-GCN-and-a-GIN" title="Link to this heading">¶</a></h3>
-<p>The following two Python classes are the two GNNs we will consider in this tutorial. Both have 3 convolutional layers, one global pooling layer, linear layers, ReLU activation functions between the layers and a dropout layer.</p>
+<section id="定义-GCN-和-GIN">
+<h3 id="定义-GCN-和-GIN">定义 GCN 和 GIN<a class="headerlink" href="#定义-GCN-和-GIN" title="Link to this heading">¶</a></h3>
+<p>以下两个 Python 类是本教程中将要考虑的两种 GNN。两者都有 3 个卷积层、1 个全局池化层、线性层、层间的 ReLU 激活函数以及一个 dropout 层。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">GCN</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Graph Convolutional Network class with 3 convolutional layers and a linear layer"""</span>
+<span class="w">    </span><span class="sd">"""具有 3 个卷积层和 1 个线性层的图卷积网络类"""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""init method for GCN</span>
+<span class="w">        </span><span class="sd">"""GCN 的初始化方法</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            dim_h (int): the dimension of hidden layers</span>
+<span class="sd">            dim_h (int): 隐藏层的维度</span>
 <span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">GCNConv</span><span class="p">(</span><span class="n">qm9</span><span class="o">.</span><span class="n">num_features</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">)</span>
@@ -827,17 +813,17 @@ Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], z=[5
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">GIN</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Graph Isomorphism Network class with 3 GINConv layers and 2 linear layers"""</span>
+<span class="w">    </span><span class="sd">"""具有 3 个 GINConv 层和 2 个线性层的图同构网络类"""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim_h</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Initializing GIN class</span>
+<span class="w">        </span><span class="sd">"""初始化 GIN 类</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            dim_h (int): the dimension of hidden layers</span>
+<span class="sd">            dim_h (int): 隐藏层的维度</span>
 <span class="sd">        """</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">GIN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">GINConv</span><span class="p">(</span>
@@ -881,24 +867,24 @@ Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], z=[5
 </div>
 </div>
 </section>
-<section id="id1">
-<h3 id="id1">Training a GNN<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
-<p>When training a GNN (or any neural network), we have a training set, a validation set and a test set. The training set is used for training, the validation set is used to test the loss in each epoch not only on the training set but also on another dataset (<em>monitor generalization performance</em>). The test set is used to calculate the error of the fully trained model using a dataset, which has not been used during the whole training process.</p>
+<section id="id14">
+<h3 id="id14">训练 GNN<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
+<p>在训练 GNN（或任何神经网络）时，我们有训练集、验证集和测试集。训练集用于训练，验证集用于在每个 epoch 不仅在训练集上测试损失，也在另一个数据集上测试（<em>监控泛化性能</em>）。测试集用于使用整个训练过程中未使用过的数据集计算完全训练好的模型的误差。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">training</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Training one epoch</span>
+<span class="w">    </span><span class="sd">"""训练一个 epoch</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        loader (DataLoader): loader (DataLoader): training data divided into batches</span>
-<span class="sd">        model (nn.Module): GNN model to train on</span>
-<span class="sd">        loss (nn.functional): loss function to use during training</span>
-<span class="sd">        optimizer (torch.optim): optimizer during training</span>
+<span class="sd">        loader (DataLoader): loader (DataLoader): 分为批次的训练数据</span>
+<span class="sd">        model (nn.Module): 要训练的 GNN 模型</span>
+<span class="sd">        loss (nn.functional): 训练期间使用的损失函数</span>
+<span class="sd">        optimizer (torch.optim): 训练期间的优化器</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        float: training loss</span>
+<span class="sd">        浮点数：训练损失</span>
 <span class="sd">    """</span>
     <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 
@@ -918,19 +904,19 @@ Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], z=[5
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">validation</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Validation</span>
+<span class="w">    </span><span class="sd">"""验证</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        loader (DataLoader): validation set in batches</span>
-<span class="sd">        model (nn.Module): current trained model</span>
-<span class="sd">        loss (nn.functional): loss function</span>
+<span class="sd">        loader (DataLoader): 分批次的验证集</span>
+<span class="sd">        model (nn.Module): 当前训练好的模型</span>
+<span class="sd">        loss (nn.functional): 损失函数</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        float: validation loss</span>
+<span class="sd">        浮点数：验证损失</span>
 <span class="sd">    """</span>
     <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
     <span class="n">val_loss</span> <span class="o">=</span> <span class="mi">0</span>
@@ -943,7 +929,7 @@ Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], z=[5
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
@@ -977,18 +963,18 @@ Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], z=[5
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train_epochs</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Training over all epochs</span>
+<span class="w">    </span><span class="sd">"""训练所有 epoch</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        epochs (int): number of epochs to train for</span>
-<span class="sd">        model (nn.Module): the current model</span>
-<span class="sd">        train_loader (DataLoader): training data in batches</span>
-<span class="sd">        val_loader (DataLoader): validation data in batches</span>
-<span class="sd">        path (string): path to save the best model</span>
+<span class="sd">        epochs (int): 训练的 epoch 数量</span>
+<span class="sd">        model (nn.Module): 当前模型</span>
+<span class="sd">        train_loader (DataLoader): 分批次的训练数据</span>
+<span class="sd">        val_loader (DataLoader): 分批次的验证数据</span>
+<span class="sd">        path (string): 保存最佳模型的路径</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        array: returning train and validation losses over all epochs, prediction and ground truth values for training data in the last epoch</span>
@@ -1031,18 +1017,17 @@ Data(x=[5, 11], edge_index=[2, 8], edge_attr=[8, 4], y=[1, 19], pos=[5, 3], z=[5
 </pre></div>
 </div>
 </div>
-<p>We have trained both models with 100 epochs and saved the best models under <code class="docutils literal notranslate"><span class="pre">GCN_best-model-parameters.pt</span></code> and <code class="docutils literal notranslate"><span class="pre">GIN_best-model-parameters.pt</span></code>. Since this takes some time, we reduced the number of epochs to 10 for this tutorial for demonstration purposes. The results and the plots below are based on the models trained for 100 epochs. If you want to train your own model using our tutorial, you can change the number of epochs and any other parameters in our models (such as learning rate, batch
-size, etc.).</p>
+<p>我们已经用 100 个 epoch 训练了两种模型，并将最佳模型保存为 <code class="docutils literal notranslate"><span class="pre">GCN_best-model-parameters.pt</span></code> 和 <code class="docutils literal notranslate"><span class="pre">GIN_best-model-parameters.pt</span></code>。由于这需要一些时间，为了演示目的，本教程将 epoch 数减少到 10。下面的结果和图表基于用 100 个 epoch 训练的模型。如果你想使用本教程训练自己的模型，可以更改 epoch 数和模型中的任何其他参数（如学习率、批大小等）。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># training GCN for 10 epochs</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 训练 GCN 10 个 epoch</span>
 <span class="n">epochs</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">GCN</span><span class="p">(</span><span class="n">dim_h</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
 
-<span class="c1"># Remember to change the path if you want to keep the previously trained model</span>
+<span class="c1"># 如果你想保留之前训练的模型，请更改路径</span>
 <span class="n">gcn_train_loss</span><span class="p">,</span> <span class="n">gcn_val_loss</span><span class="p">,</span> <span class="n">gcn_train_target</span><span class="p">,</span> <span class="n">gcn_train_y_target</span> <span class="o">=</span> <span class="n">train_epochs</span><span class="p">(</span>
     <span class="n">epochs</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="s2">"GCN_model.pt"</span>
 <span class="p">)</span>
@@ -1054,21 +1039,21 @@ size, etc.).</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Epoch: 0, Train loss: 0.9262555241584778, Val loss: 0.7875796556472778
-Epoch: 2, Train loss: 0.8586100339889526, Val loss: 0.7610003352165222
-Epoch: 4, Train loss: 0.831976056098938, Val loss: 0.7375475168228149
-Epoch: 6, Train loss: 0.8072418570518494, Val loss: 0.6950475573539734
-Epoch: 8, Train loss: 0.7751282453536987, Val loss: 0.6763118505477905
+Epoch: 0, Train loss: 0.950118362903595, Val loss: 0.8406221866607666
+Epoch: 2, Train loss: 0.8693353533744812, Val loss: 0.7571350336074829
+Epoch: 4, Train loss: 0.8246764540672302, Val loss: 0.7456464171409607
+Epoch: 6, Train loss: 0.7871537208557129, Val loss: 0.7535340785980225
+Epoch: 8, Train loss: 0.7626587152481079, Val loss: 0.692962110042572
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training GIN for 10 epochs</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 训练 GIN 10 个 epoch</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">GIN</span><span class="p">(</span><span class="n">dim_h</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
 
-<span class="c1"># Remember to change the path if you want to keep the previously trained model</span>
+<span class="c1"># 如果你想保留之前训练的模型，请更改路径</span>
 <span class="n">gin_train_loss</span><span class="p">,</span> <span class="n">gin_val_loss</span><span class="p">,</span> <span class="n">gin_train_target</span><span class="p">,</span> <span class="n">gin_train_y_target</span> <span class="o">=</span> <span class="n">train_epochs</span><span class="p">(</span>
     <span class="n">epochs</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">,</span> <span class="s2">"GIN_model.pt"</span>
 <span class="p">)</span>
@@ -1080,28 +1065,28 @@ Epoch: 8, Train loss: 0.7751282453536987, Val loss: 0.6763118505477905
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Epoch: 0, Train loss: 0.702804684638977, Val loss: 0.6012566685676575
-Epoch: 2, Train loss: 0.5309209823608398, Val loss: 0.45285511016845703
-Epoch: 4, Train loss: 0.5022059082984924, Val loss: 0.4036828875541687
-Epoch: 6, Train loss: 0.46470388770103455, Val loss: 0.4122920632362366
-Epoch: 8, Train loss: 0.4486030638217926, Val loss: 0.36034974455833435
+Epoch: 0, Train loss: 0.7335681915283203, Val loss: 0.5826902985572815
+Epoch: 2, Train loss: 0.5352157354354858, Val loss: 0.4648858904838562
+Epoch: 4, Train loss: 0.49017754197120667, Val loss: 0.4378294348716736
+Epoch: 6, Train loss: 0.46423086524009705, Val loss: 0.46342021226882935
+Epoch: 8, Train loss: 0.4483247697353363, Val loss: 0.3967725932598114
 </pre></div></div>
 </div>
 </section>
-<section id="Evaluating-the-model">
-<h3 id="Evaluating-the-model">Evaluating the model<a class="headerlink" href="#Evaluating-the-model" title="Link to this heading">¶</a></h3>
-<p>For evaluation, we use a validation dataset to find the best model and a test set, to test our model on unseen data. First, we plotted the losses of our training and validation sets. As expected, the GIN model has a lower training and validation loss.</p>
+<section id="评估模型">
+<h3 id="评估模型">评估模型<a class="headerlink" href="#评估模型" title="Link to this heading">¶</a></h3>
+<p>为了评估，我们使用验证数据集来找到最佳模型，并使用测试集来测试模型在未见数据上的表现。 首先，我们绘制了训练集和验证集的损失。正如预期，GIN 模型的训练损失和验证损失更低。</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_loss</span><span class="p">(</span><span class="n">gcn_train_loss</span><span class="p">,</span> <span class="n">gcn_val_loss</span><span class="p">,</span> <span class="n">gin_train_loss</span><span class="p">,</span> <span class="n">gin_val_loss</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Plot the loss for each epoch</span>
+<span class="w">    </span><span class="sd">"""绘制每个 epoch 的损失</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        epochs (int): number of epochs</span>
-<span class="sd">        train_loss (array): training losses for each epoch</span>
-<span class="sd">        val_loss (array): validation losses for each epoch</span>
+<span class="sd">        epochs (int): epoch 数量</span>
+<span class="sd">        train_loss (array): 每个 epoch 的训练损失</span>
+<span class="sd">        val_loss (array): 每个 epoch 的验证损失</span>
 <span class="sd">    """</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gcn_train_loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Train loss (GCN)"</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gcn_val_loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Val loss (GCN)"</span><span class="p">)</span>
@@ -1117,15 +1102,15 @@ Epoch: 8, Train loss: 0.4486030638217926, Val loss: 0.36034974455833435
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_targets</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Plot true vs predicted value in a scatter plot</span>
+<span class="w">    </span><span class="sd">"""在散点图中绘制真实值与预测值</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        pred (array): predicted values</span>
-<span class="sd">        ground_truth (array): ground truth values</span>
+<span class="sd">        pred (array): 预测值</span>
+<span class="sd">        ground_truth (array): 真实值</span>
 <span class="sd">    """</span>
     <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1139,10 +1124,9 @@ Epoch: 8, Train loss: 0.4486030638217926, Val loss: 0.36034974455833435
 </pre></div>
 </div>
 </div>
-<p>When looking at the losses for each epoch, we can see that the GIN model performs better overall. We can also see that the training loss is often lower compared to the validation loss. This is normal since the training loss describes the error of the model using the training set, which is the dataset used for improving the model. The validation loss is calculated on a separate dataset, which is not used for updating the model weights. Therefore, the error is often higher. This is also the
-reason, the validation loss sometimes fluctuates more. As long as both losses show a decreasing tendency, this is not problematic. It is important to have a low training loss and a low validation loss.</p>
+<p>查看每个 epoch 的损失，我们可以看到 GIN 模型整体上表现更好。我们还可以看到训练损失通常低于验证损失。这是正常的，因为训练损失描述的是模型在用于改进模型的训练集上的误差。验证损失是在一个独立的数据集上计算的，该数据集不用于更新模型权重。因此，误差通常更高。这也是验证损失有时波动更大的原因。只要两个损失都呈现下降趋势，就没有问题。重要的是要有低的训练损失和低的验证损失。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot overall losses of GIN and GCN</span>
@@ -1158,9 +1142,9 @@ reason, the validation loss sometimes fluctuates more. As long as both losses sh
 <img alt="../_images/talktorials_T035_graph_neural_networks_37_0.png" src="../_images/talktorials_T035_graph_neural_networks_37_0.png"/>
 </div>
 </div>
-<p>Then, we also plotted the actual predictions of our target value compared to the ground truth for the GIN model, since this model performs better.</p>
+<p>然后，我们还绘制了 GIN 模型的目标值预测与真实值的对比图，因为这个模型表现更好。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot target and prediction for training data</span>
@@ -1176,24 +1160,23 @@ reason, the validation loss sometimes fluctuates more. As long as both losses sh
 <img alt="../_images/talktorials_T035_graph_neural_networks_39_0.png" src="../_images/talktorials_T035_graph_neural_networks_39_0.png"/>
 </div>
 </div>
-<p>Below, we have calculated the test loss for both the GCN and the GIN. We also plot the predicted dipole moment compared to the ground truth for both models. If we are interested in the actual numeric range of the predicted dipole moment, the normalization applied during the preprocessing should be subtracted again. Since we only visualize the data in our evaluation, this does not make a difference. In the figures below, we can see that the GIN model performs a lot better compared to the GCN
-since the test error is lower.</p>
+<p>下面，我们计算了 GCN 和 GIN 的测试损失。我们还绘制了两种模型的预测偶极矩与真实值的对比图。如果我们对预测偶极矩的实际数值范围感兴趣，应当重新减去预处理时应用的归一化值。由于我们只是在评估中可视化数据，这没有区别。从下图中可以看出，GIN 模型比 GCN 表现好得多，因为测试误差更低。</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate test loss from the best GCN model (according to validation loss)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 计算最佳 GCN 模型的测试损失（根据验证损失）</span>
 
-<span class="c1"># load our model</span>
+<span class="c1"># 加载模型</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">GCN</span><span class="p">(</span><span class="n">dim_h</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"GCN_best-model-parameters.pt"</span><span class="p">))</span>
 
-<span class="c1"># calculate test loss</span>
+<span class="c1"># 计算测试损失</span>
 <span class="n">gcn_test_loss</span><span class="p">,</span> <span class="n">gcn_test_target</span><span class="p">,</span> <span class="n">gcn_test_y</span> <span class="o">=</span> <span class="n">testing</span><span class="p">(</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Test Loss for GCN: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">gcn_test_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()))</span>
 
-<span class="c1"># plot prediction vs ground truth</span>
+<span class="c1"># 绘制预测值 vs 真实值</span>
 <span class="n">plot_targets</span><span class="p">(</span><span class="n">gcn_test_target</span><span class="p">,</span> <span class="n">gcn_test_y</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1203,7 +1186,7 @@ since the test error is lower.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Test Loss for GCN: 0.5251887440681458
+Test Loss for GCN: 0.597449004650116
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1214,21 +1197,21 @@ Test Loss for GCN: 0.5251887440681458
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate test loss from the best GIN model (according to validation loss)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 计算最佳 GIN 模型的测试损失（根据验证损失）</span>
 
-<span class="c1"># load our model</span>
+<span class="c1"># 加载模型</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">GIN</span><span class="p">(</span><span class="n">dim_h</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"GIN_best-model-parameters.pt"</span><span class="p">))</span>
 
-<span class="c1"># calculate test loss</span>
+<span class="c1"># 计算测试损失</span>
 <span class="n">gin_test_loss</span><span class="p">,</span> <span class="n">gin_test_target</span><span class="p">,</span> <span class="n">gin_test_y</span> <span class="o">=</span> <span class="n">testing</span><span class="p">(</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Test Loss for GIN: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">gin_test_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()))</span>
 
-<span class="c1"># plot prediction vs ground truth</span>
+<span class="c1"># 绘制预测值 vs 真实值</span>
 <span class="n">plot_targets</span><span class="p">(</span><span class="n">gin_test_target</span><span class="p">,</span> <span class="n">gin_test_y</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1238,7 +1221,7 @@ Test Loss for GCN: 0.5251887440681458
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Test Loss for GIN: 0.3028673827648163
+Test Loss for GIN: 0.3080717921257019
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1250,18 +1233,17 @@ Test Loss for GIN: 0.3028673827648163
 </div>
 </section>
 </section>
-<section id="Discussion">
-<h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Link to this heading">¶</a></h2>
-<p>In this talktorial we have first presented two different graph neural networks. We applied these two GNNs to a molecular dataset to predict molecular properties. We showed how to train and evaluate a simple GNN using <em>pytorch</em> and <em>pytorch_geometric</em>. This model can be used for any type of graph-level regression and, with small changes (such as the loss function), graph-level classification is also easy.</p>
-<p>One disadvantage of GNNs is that the quality of the model is extremely data-dependent, the more of the chemical space is covered in the training set, the better the performance would be on new, unseen data. In addition, training a model can be rather complex, since there are many parameters influencing the model. Model parameters, such as learning rate, batch size and number of hidden dimensions could be more thoroughly evaluated to improve the model. To apply this to real tasks, first, a bigger
-dataset is needed. When using the whole QM9 dataset and not only a small subset, the performance will increase. In addition, the model parameters can also still be optimized. The model architecture can also still be adapted. These changes could lead to longer runtimes, which is why we have chosen this simplified version for demonstration purposes.</p>
+<section id="讨论">
+<h2 id="讨论">讨论<a class="headerlink" href="#讨论" title="Link to this heading">¶</a></h2>
+<p>在本教程中，我们首先介绍了两种不同的图神经网络。我们将这两种 GNN 应用于分子数据集以预测分子性质。我们展示了如何使用 <em>pytorch</em> 和 <em>pytorch_geometric</em> 训练和评估简单的 GNN。该模型可用于任何类型的图级回归任务，并且通过小的修改（如损失函数），图级分类也很容易实现。</p>
+<p>GNN 的一个缺点是模型质量高度依赖于数据，训练集覆盖的化学空间越多，在新数据上的性能就越好。此外，训练模型可能相当复杂，因为有许多参数影响模型。模型参数，如学习率、批大小和隐藏维度数量，可以进行更彻底的评估以改进模型。要将其应用于实际任务，首先需要更大的数据集。当使用整个 QM9 数据集而不仅仅是小子集时，性能将会提高。此外，模型参数也仍然可以优化。模型架构也可以调整。这些更改可能导致更长的运行时间，这就是我们选择这个简化版本用于演示的原因。</p>
 </section>
-<section id="Quiz">
-<h2 id="Quiz">Quiz<a class="headerlink" href="#Quiz" title="Link to this heading">¶</a></h2>
+<section id="测验">
+<h2 id="测验">测验<a class="headerlink" href="#测验" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
-<li><p>What is the difference between a GCN and GIN?</p></li>
-<li><p>How would you change the model for a classification task?</p></li>
-<li><p>What other parameters can be tuned for better model performance?</p></li>
+<li><p>GCN 和 GIN 有什么区别？</p></li>
+<li><p>你将如何改变模型以适应分类任务？</p></li>
+<li><p>还有哪些参数可以调整以获得更好的模型性能？</p></li>
 </ol>
 </section>
 </section>
@@ -1276,7 +1258,7 @@ dataset is needed. When using the whole QM9 dataset and not only a small subset,
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="T034_recurrent_neural_networks.html" title="T034 · RNN-based molecular property prediction"
+            <a href="T034_recurrent_neural_networks.html" title="T034 · 基于 RNN 的分子性质预测"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -1285,17 +1267,17 @@ dataset is needed. When using the whole QM9 dataset and not only a small subset,
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> T034 · RNN-based molecular property prediction </span>
+                      class="md-footer-nav__direction"> "Previous" </span> T034 · 基于 RNN 的分子性质预测 </span>
               </div>
             </a>
           
           
-            <a href="T036_e3_equivariant_gnn.html" title="T036 · An introduction to E(3)-invariant graph neural networks"
+            <a href="T036_e3_equivariant_gnn.html" title="T036 · E(3)-等变图神经网络入门"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> T036 · An introduction to E(3)-invariant graph neural networks </span>
+                class="md-footer-nav__direction"> "Next" </span> T036 · E(3)-等变图神经网络入门 </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
