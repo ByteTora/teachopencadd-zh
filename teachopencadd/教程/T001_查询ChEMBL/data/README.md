@@ -1,8 +1,8 @@
-# Data
+# 数据
 
-This folder stores input and output data for the Jupyter notebook.
+此文件夹存储 Jupyter notebook 的输入和输出数据。
 
-- `EGFR_compounds.csv`: final file obtained in this talktorial, reused in other talktorials in the 001-010 series
-- `EGFR_compounds_CHEMBL27.csv.zip`: local dump of the large bioactivities query, meant as a plan B for unstable connections
-- `all_chembl_activities.ipynb`: notebook used to generate file below
-- `chembl27_activities.npz.zip`: all dataset indices as present in ChEMBL27, used to filter results down to a deterministic behaviour in our CI
+- `EGFR_compounds.csv`：本教程获得的最终文件，在 001-010 系列的其他教程中复用
+- `EGFR_compounds_CHEMBL27.csv.zip`：大型生物活性查询的本地转储，作为连接不稳定时的备用方案
+- `all_chembl_activities.ipynb`：用于生成下方文件的 notebook
+- `chembl27_activities.npz.zip`：ChEMBL27 中所有数据集索引，用于在 CI 中将结果过滤为确定性行为

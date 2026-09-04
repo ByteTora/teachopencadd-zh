@@ -1,1 +1,1 @@
-Frozen data to be used for project 2 for stable results in T018 (for maintenance).
+用于 T018 项目 2 的冻结数据，以获得稳定结果（用于维护）。

@@ -18,8 +18,8 @@
 
 作者：
 
-- First and last name, year(s) of contribution, lab, institution
-- First and last name, year(s) of contribution, lab, institution
+- 姓名、贡献年份、实验室、机构
+- 姓名、贡献年份、实验室、机构
 
 
 *本教程模板中的示例取自[__教程 T001__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T001_query_chembl/talktorial.ipynb)和[__教程 T002__](https://github.com/volkamerlab/teachopencadd/blob/master/teachopencadd/talktorials/T002_compound_adme/talktorial.ipynb)。*
@@ -48,14 +48,14 @@
 
 ### References
 
-* Paper 
-* Tutorial links
-* Other useful resources
+* 论文
+* 教程链接
+* 其他有用资源
 
-*We suggest the following citation style:*
-* Keyword describing resource: <i>Journal</i> (year), <b>volume</b>, pages (link to resource) 
+*我们建议采用以下引用格式：*
+* 描述资源的关键词：<i>期刊</i>（年份）、<b>卷</b>、页码（指向资源的链接）
 
-*Example:*
+*示例：*
 * ChEMBL web services: [<i>Nucleic Acids Res.</i> (2015), <b>43</b>, 612-620](https://academic.oup.com/nar/article/43/W1/W612/2467881) 
 
 

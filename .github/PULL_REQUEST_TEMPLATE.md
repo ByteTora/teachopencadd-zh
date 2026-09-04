@@ -1,12 +1,12 @@
-## Description
-Provide a brief description of the PR's purpose here.
+## 描述
+在此简要描述该 PR 的目的。
 
-## Todos
-Notable points that this PR has either accomplished or will accomplish.
+## 待办事项
+该 PR 已经完成或将要完成的要点。
 - [ ] TODO 1
 
-## Questions
+## 问题
 - [ ] Question1
 
-## Status
-- [ ] Ready to go
+## 状态
+- [ ] 准备就绪

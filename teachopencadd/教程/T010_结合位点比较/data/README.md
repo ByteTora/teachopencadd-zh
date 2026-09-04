@@ -1,6 +1,6 @@
-# Data
+# 数据
 
-This folder stores input and output data for the Jupyter notebook.
+此文件夹存储 Jupyter notebook 的输入和输出数据。
 
-- `xxx.csv`: Describe data.
-- `xxx.sdf`: Describe data.
+- `xxx.csv`：描述数据。
+- `xxx.sdf`：描述数据。

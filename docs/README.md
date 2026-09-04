@@ -1,7 +1,7 @@
-# Compiling opencadd's Documentation
+# 编译 opencadd 的文档
 
-The docs for this project are built with [Sphinx](http://www.sphinx-doc.org/en/master/).
-To compile the docs, first ensure that Sphinx and the ReadTheDocs theme are installed.
+本项目的文档使用 [Sphinx](http://www.sphinx-doc.org/en/master/) 构建。
+编译文档前，请确保已安装 Sphinx 和 ReadTheDocs 主题。
 
 
 ```bash
@@ -9,10 +9,9 @@ conda install sphinx sphinx_rtd_theme
 ```
 
 
-Once installed, you can use the `Makefile` in this directory to compile static HTML pages by
+安装完成后，你可以使用本目录中的 `Makefile` 编译静态 HTML 页面：
 ```bash
 make html
 ```
 
-The compiled docs will be in the `_build` directory and can be viewed by opening `index.html` (which may itself
-be inside a directory called `html/` depending on what version of Sphinx is installed).
+编译好的文档位于 `_build` 目录中，通过打开 `index.html` 即可查看（根据所安装的 Sphinx 版本不同，该文件本身可能位于名为 `html/` 的目录内）。

@@ -1,5 +1,5 @@
-# Talktorial title
+# 图片
 
-## Images
+## 图片
 
-This folder stores images used in the Jupyter notebook.
+此文件夹存储 Jupyter notebook 使用的图片。

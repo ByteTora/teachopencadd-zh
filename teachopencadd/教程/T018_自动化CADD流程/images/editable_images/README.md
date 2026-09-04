@@ -1,18 +1,18 @@
-This folder contains a few editable files for images shown in T018.
+此文件夹包含 T018 中展示图片的若干可编辑文件。
 
-* `sb_vs_pipeline.pptx` created with PowerPoint, PyMol, ChemDraw.
-  * Slide 1 for Figure 1.
-  * Slide 2 for Figure 5, which is also used in Figure 1.
-* `sb_vs_pipeline_protein.pse` created with PyMol.
-  * Contains the protein structure used in Figure 1 (`sb_vs_pipeline.pptx`).
-* `sb_vs_pipeline_binding_site.pse` created with PyMol.
-  * Contains the binding site structure used in Figure 1 (`sb_vs_pipeline.pptx`).
-* `sb_vs_pipeline_docking_1.pse` created with PyMol.
-  * Contains the docking pose interactions used in Figure 1 (`sb_vs_pipeline.pptx`).
-* `sb_vs_pipeline_docking_2.pse` created with PyMol.
-  * Contains the docking pose used in Figure 1 (`sb_vs_pipeline.pptx`).
-* `fig3.pse` created with PyMol.
-  * Contains the protein-ligand complex structure (Figure 3).
-* `pipeline_io.pptx` created with PowerPoint, ChemDraw.
-* `chemical_structures_for_figures_1_5_10.cdxml` created with ChemDraw.
-  * Contains the chemical structures made with ChemDraw that are used in Figure 1 (`sb_vs_pipeline.pptx`) and Figure 10 (`pipeline_io.pptx`), as well as Figure 5 (chemical similarity).
+* `sb_vs_pipeline.pptx` 使用 PowerPoint、PyMol、ChemDraw 创建。
+  * 幻灯片 1 对应图 1。
+  * 幻灯片 2 对应图 5，同时用于图 1。
+* `sb_vs_pipeline_protein.pse` 使用 PyMol 创建。
+  * 包含图 1 (`sb_vs_pipeline.pptx`) 中使用的蛋白质结构。
+* `sb_vs_pipeline_binding_site.pse` 使用 PyMol 创建。
+  * 包含图 1 (`sb_vs_pipeline.pptx`) 中使用的结合位点结构。
+* `sb_vs_pipeline_docking_1.pse` 使用 PyMol 创建。
+  * 包含图 1 (`sb_vs_pipeline.pptx`) 中使用的对接姿态相互作用。
+* `sb_vs_pipeline_docking_2.pse` 使用 PyMol 创建。
+  * 包含图 1 (`sb_vs_pipeline.pptx`) 中使用的对接姿态。
+* `fig3.pse` 使用 PyMol 创建。
+  * 包含蛋白质-配体复合物结构（图 3）。
+* `pipeline_io.pptx` 使用 PowerPoint、ChemDraw 创建。
+* `chemical_structures_for_figures_1_5_10.cdxml` 使用 ChemDraw 创建。
+  * 包含使用 ChemDraw 绘制、用于图 1 (`sb_vs_pipeline.pptx`) 和图 10 (`pipeline_io.pptx`) 以及图 5（化学相似性）的化学结构。

@@ -1,5 +1,5 @@
-Funding
+资助
 -------
 
-Volkamer Lab's projects are supported by several public funding sources
-(for more info see our `webpage <https://volkamerlab.org/>`_).
+Volkamer Lab 的项目由多个公共资金来源支持
+（更多信息见我们的`网页 <https://volkamerlab.org/>`_）。

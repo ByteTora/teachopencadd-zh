@@ -1,14 +1,14 @@
-# Templates Doc Directory
+# 模板文档目录
 
-Add any paths that contain templates here, relative to  
-the `conf.py` file's directory.
-They are copied after the builtin template files,
-so a file named "page.html" will overwrite the builtin "page.html".
+在此添加包含模板的任意路径，相对于
+`conf.py` 文件所在目录。
+它们会在内置模板文件之后被复制，
+因此名为 "page.html" 的文件会覆盖内置的 "page.html"。
 
-The path to this folder is set in the Sphinx `conf.py` file in the line: 
+此文件夹的路径在 Sphinx `conf.py` 文件的以下一行中设置：
 ```python
 html_static_path = ['_templates']
 ```
 
-## Examples of file to add to this directory
-* HTML extensions of stock pages like `page.html` or `layout.html`
+## 添加到本目录的文件示例
+* 标准页面（如 `page.html` 或 `layout.html`）的 HTML 扩展

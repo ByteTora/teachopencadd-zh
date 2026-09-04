@@ -1,13 +1,13 @@
-Packages and webservers used in TeachOpenCADD
+TeachOpenCADD 使用的包和 web 服务
 =============================================
 
-TeachOpenCADD uses several external packages and webservers as listed below. 
-If we are using your resource and forgot to add it here, please let us know, thank you!
+TeachOpenCADD 使用若干外部包和 web 服务，如下所列。
+如果我们在用你的资源却忘了在此添加，请告知我们，谢谢！
 
-Python packages
+Python 包
 ---------------
 
-- Cheminformatics and structural bioinformatics:
+- 化学信息学与结构生物信息学：
 
   - ``rdkit``: http://rdkit.org/
   - ``openbabel``: https://openbabel.org/
@@ -24,12 +24,12 @@ Python packages
   - ``biotite``: https://www.biotite-python.org/
   - ``smina``: https://sourceforge.net/p/smina/discussion/
 
-- Deep learning: 
+- 深度学习：
 
   - ``pytorch``: https://pytorch.org/
   - ``pyg``: https://pyg.org/
 
-- Data science (PyData stack):
+- 数据科学（PyData 栈）：
 
   - ``numpy``: https://numpy.org/
   - ``pandas``: https://pandas.pydata.org/
@@ -38,15 +38,15 @@ Python packages
   - ``jupyter``: https://jupyter.org/
   - ``ipywidgets``: https://ipywidgets.readthedocs.io
 
-- Data visualization:
+- 数据可视化：
 
-  - ``matplotlib``: https://matplotlib.org/ 
+  - ``matplotlib``: https://matplotlib.org/
   - ``mpl_toolkits``: https://matplotlib.org/stable/api/toolkits/mplot3d.html
   - ``matplotlib_venn``: https://github.com/konstantint/matplotlib-venn
   - ``seaborn``: https://seaborn.pydata.org/
   - ``nglview``: http://nglviewer.org/nglview/latest/
 
-- Web services clients:
+- Web 服务客户端：
 
   - ``pypdb``: https://github.com/williamgilpin/pypdb
   - ``chembl_webresource_client``: https://github.com/chembl/chembl_webresource_client
@@ -54,7 +54,7 @@ Python packages
   - ``bravado``: https://bravado.readthedocs.io/en/stable/
   - ``beautifulsoup4``: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 
-- Utilities:
+- 实用工具：
 
   - ``tqdm``: https://tqdm.github.io/
   - ``requests_cache``: https://requests-cache.readthedocs.io
@@ -62,21 +62,21 @@ Python packages
   - ``google-colab``: https://pypi.org/project/google-colab/
   - ``condacolab``: https://pypi.org/project/condacolab/
 
-- Continuous integration:
+- 持续集成：
 
   - ``pytest``: https://docs.pytest.org
   - ``nbval``: https://nbval.readthedocs.io
 
-- Documentation:
+- 文档：
 
   - ``sphinx``: https://www.sphinx-doc.org
   - ``nbsphinx``: https://nbsphinx.readthedocs.io
 
-- Code style:
+- 代码风格：
 
   - ``black-nb``: https://github.com/tomcatling/black-nb
 
-Databases and webservers
+数据库和 web 服务
 ------------------------
 
 - ChEMBL: https://www.ebi.ac.uk/chembl/

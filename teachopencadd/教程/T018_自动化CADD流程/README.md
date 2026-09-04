@@ -28,7 +28,7 @@
 * **输出**
     * 优化了亲和力、选择性和类药性的新配体结构。
 
-![Pipeline overview](images/sb_vs_pipeline.png)
+![流程概览](images/sb_vs_pipeline.png)
 
 *图1*：自动化基于结构的虚拟筛选流程的总体架构。
 
@@ -57,11 +57,11 @@
 
 ### References
 
-*Note:* due to the extensive references in each category, details are hidden by default.
+*注：* 由于每个类别的参考文献较多，详情默认隐藏。
 
 <details>
 
-<summary>Click here for a complete list of references.</summary>
+<summary>点击此处查看完整参考文献列表。</summary>
 
 * **TeachOpenCADD teaching platform**
     
@@ -104,7 +104,7 @@
     16. *TeachOpenCADD* 教程 on querying online API web-services: [教程 T011](https://projects.volkamerlab.org/teachopencadd/talktorials/T011_query_online_api_webservices.html)
 
     
-* **Chemical similarity search and molecular fingerprints**
+* **化学相似性搜索与分子指纹**
     
     17. Review article on molecular similarity in medicinal chemistry: [G. Maggiora *et al.*, *J. Med. Chem.* **2014**, 57, 3186-3204.](https://doi.org/10.1021/jm401411z)
     
@@ -182,7 +182,7 @@
     49. *TeachOpenCADD* 教程 on protein-ligand interactions: [教程 T016](https://projects.volkamerlab.org/teachopencadd/talktorials/T016_protein_ligand_interactions.html)
 
     
-* **Visual inspection of docking results**
+* **对接结果的可视化检查**
     
     50. Journal article describing the NGLView program: [H. Nguyen *et al.*, *Bioinformatics* **2018**, 34, 1241-1242.](https://doi.org/10.1093/bioinformatics/btx789)
     

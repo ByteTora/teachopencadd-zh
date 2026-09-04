@@ -1,26 +1,26 @@
-Installing
+安装
 ==========
 
 .. note::
 
-    We are assuming you have a working ``mamba`` installation in your computer. 
-    If this is not the case, please refer to their `official documentation <https://mamba.readthedocs.io/en/latest/installation.html#mamba>`_. 
+    我们假设你的电脑上已有一个可用的 ``mamba`` 安装。
+    如果并非如此，请参阅其`官方文档 <https://mamba.readthedocs.io/en/latest/installation.html#mamba>`_。
 
-    If you installed ``mamba`` into an existing ``conda`` installation, also make sure that the ``conda-forge`` channel is configured by running ``conda config --add channels conda-forge``. 
+    如果你把 ``mamba`` 安装到了已有的 ``conda`` 环境中，请运行 ``conda config --add channels conda-forge`` 确保已配置 ``conda-forge`` 频道。
 
-    If you prefer to work with ``conda``, please use ``conda`` in place of ``mamba`` in the instructions below. 
-    Please note that the TeachOpenCADD setup with ``conda`` takes much longer than with ``mamba``.
+    如果你更习惯使用 ``conda``，请在下方说明中用 ``conda`` 替换 ``mamba``。
+    请注意，用 ``conda`` 设置 TeachOpenCADD 比用 ``mamba`` 耗时更长。
 
 
-Install from the conda package
+从 conda 包安装
 ------------------------------
 .. note::
 
-    The conda package does not yet include all packages necessary to run the deep learning edition talktorials (T033-T038).
+    conda 包目前尚未包含运行深度学习版 talktorials（T033-T038）所需的全部包。
 
-    We are working on it and will post an update as soon as the new package is available.
+    我们正在处理，新包可用后会尽快发布更新。
 
-1. Create a new conda environment for TeachOpenCADD::
+1. 为 TeachOpenCADD 创建一个新的 conda 环境::
 
     # Linux / MacOS
     mamba create -n teachopencadd teachopencadd
@@ -28,47 +28,47 @@ Install from the conda package
     # Windows
     mamba create -n teachopencadd teachopencadd -c conda-forge -c defaults
 
-    # When using a MacBook Air 12.4 with an M1 chip you may need:
+    # 如果你使用的是搭载 M1 芯片的 MacBook Air 12.4，可能需要：
     CONDA_SUBDIR=osx-64 mamba create -n teachopencadd teachopencadd
 
-2. Activate the new environment::
+2. 激活新环境::
 
     conda activate teachopencadd
 
-3. Run ``teachopencadd -h`` to test that it works.
-4. Run ``teachopencadd start .`` to set up a new workspace with the TeachOpenCADD material. Follow the instructions printed in your terminal to open the material (Jupyter notebooks) with Jupyter Lab.
-   In this example command, you are setting up your workspace in the current directory ``.``; you can use any other path.
+3. 运行 ``teachopencadd -h`` 测试其是否可用。
+4. 运行 ``teachopencadd start .`` 用一个包含 TeachOpenCADD 材料的新工作区进行设置。按照终端中打印的说明用 Jupyter Lab 打开材料（Jupyter notebooks）。
+   在此示例命令中，你在当前目录 ``.`` 设置工作区；你也可以使用其他任意路径。
 
-You can always return to your TeachOpenCADD material with ``jupyter lab /path/to/your/teachopencadd/workspace``.
-If you need an introduction to Jupyter notebooks, please check out the suggested resources :ref:`here<jupyter_tutorial>`.
+你可以随时用 ``jupyter lab /path/to/your/teachopencadd/workspace`` 返回你的 TeachOpenCADD 材料。
+如果你需要 Jupyter notebook 的入门介绍，请查看 :ref:`此处推荐的资源 <jupyter_tutorial>`。
 
-Install from the latest development snapshot
+从最新开发快照安装
 --------------------------------------------
 
-1. Create a new conda environment and activate it::
+1. 创建一个新的 conda 环境并激活它::
 
     mamba env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/test_env.yml
     conda activate teachopencadd
-   
-   Note: If you are working on MacOS with an M1 chip and the above command is not working, e.g. "The environment can't be solved, aborting the operation", prefix the command with ``CONDA_SUBDIR=osx-64`` and try again::
-    
+
+   注意：如果你在搭载 M1 芯片的 MacOS 上工作且上述命令无法运行（例如出现 "The environment can't be solved, aborting the operation"），请在命令前加上 ``CONDA_SUBDIR=osx-64`` 后重试::
+
     CONDA_SUBDIR=osx-64 mamba env create -f https://raw.githubusercontent.com/volkamerlab/TeachOpenCADD/master/devtools/test_env.yml
     conda activate teachopencadd
 
-2. Download a zipfile of the repository using `this link <https://github.com/volkamerlab/teachopencadd/archive/master.zip>`_.
-3. Unzip to your location of choice.
-4. Navigate to your location.
-5. Start Jupyter Lab.
-6. Double click on the lesson you want to start.
+2. 使用`此链接 <https://github.com/volkamerlab/teachopencadd/archive/master.zip>`_ 下载仓库的压缩包。
+3. 解压到你选择的位置。
+4. 进入该位置。
+5. 启动 Jupyter Lab。
+6. 双击你想开始的那一课。
 
-Steps 2 to 5 are summarized below.
+第 2 到第 5 步汇总如下。
 
 .. Unix instructions
 
 .. raw:: html
 
     <details>
-    <summary>Instructions for Linux / MacOS</summary>
+    <summary>Linux / MacOS 说明</summary>
 
 .. code-block:: bash
 
@@ -87,7 +87,7 @@ Steps 2 to 5 are summarized below.
 .. raw:: html
 
     <details>
-    <summary>Instructions for Windows (PowerShell)</summary>
+    <summary>Windows（PowerShell）说明</summary>
 
 .. code-block::
 

@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
+about: 为本项目提出一个想法
 title: ''
 labels: ''
 assignees: ''
@@ -9,20 +9,20 @@ assignees: ''
 
 -----------------------------------------
 
-If you have a question about TeachOpenCADD please use the Discussions tab above (https://github.com/volkamerlab/teachopencadd/discussions) instead of posting it here.
+如果你对 TeachOpenCADD 有疑问，请使用上方的 Discussions（讨论）标签页 (https://github.com/volkamerlab/teachopencadd/discussions)，而不是在这里发帖。
 
-Please delete this section before submitting your issue.
+请在提交你的 issue 前删除本部分。
 
 -----------------------------------------
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**你的功能请求是否与某个问题相关？请描述。**
+清晰简洁地描述该问题。例如：我总是对 [...] 感到沮丧。
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**描述你期望的解决方案**
+清晰简洁地描述你希望发生什么。
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**描述你考虑过的替代方案**
+清晰简洁地描述你考虑过的任何其他解决方案或功能。
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**其他上下文**
+在此添加关于该功能请求的任何其他上下文或截图。

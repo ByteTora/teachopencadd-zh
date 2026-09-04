@@ -1,7 +1,7 @@
-Complete list of talktorials
+Talktorials 完整列表
 ============================
 
-This is the complete list of talktorials available for online reading. Take into account that the correlative numbering does not necessarily imply two consecutive lessons are related. For cohesive lessons, please check :doc:`Talktorials by collections <talktorials>`.
+这是可供在线阅读的全部 talktorials 列表。请注意，对应的编号不一定意味着相邻的两课彼此相关。要查看连贯的课程，请参见 :doc:`按集合分组的 Talktorials <talktorials>`。
 
 .. toctree::
    :maxdepth: 1
