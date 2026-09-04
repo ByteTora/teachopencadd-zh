@@ -27,7 +27,7 @@
 
 ### References
 
-This guide is very practical and omits some technical definitions for the sake of clarity. However, you should also handle some basic terminology to fully understand what is going on behind the scenes.
+本指南非常实用，为清晰起见省略了一些技术定义。然而，你也应了解一些基本术语，才能完全理解幕后发生了什么。
 
 * [Client-server model](https://en.wikipedia.org/wiki/Client%E2%80%93server_model)
 * [Web API](https://en.wikipedia.org/wiki/Web_API)
